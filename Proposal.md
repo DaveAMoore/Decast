@@ -1,7 +1,7 @@
 # Proposal
 
 ## Overview
-Fill in later tonight…
+A device that can communicate with and control IR devices. This provides the ability to automate and remotely control numerous home devices, including TVs, set top boxes, fans, and much more. Rather than having to purchase new devices that can be controlled remotely, this device will provide IoT capabilities to any device that uses IR as a control point.
 
 ## Software Components
 There are three distinct components that will comprise the software for this project. Each individual unit will serve a particular function, and have varying degrees of complexity.
@@ -19,7 +19,10 @@ An end-user application will be developed to provide a control mechanism for the
 Throughout the course of creating the device, there may be multiple prototyping methods used; however, the most dominant prototyping will be evolutionary and horizontal with the development of the various components to a broad level to ensure the system integrates together into a functioning device. *Add additional details (Exp + Vert for certain comps?)*
 
 ## Hardware
-The hardware that will be required to be implemented include the Arduino Uno R3 board as well as various sensors and transmitters to be used in order to communicate with devices. The sensors and transmitters required include IR (infrared) in order to communicate and manipulate devices of interest, as well as bluetooth and/or wifi transmitters in order to communicate with the user. In addition, the inclusion of RF technology would also extend the versatility of the device into being able to communicate with a wider range of devices that are becoming more prevalent.
+The hardware that will be required to be implemented include the Arduino Uno R3 board as well as various sensors and transmitters to be used in order to communicate with devices. Also, as a potential alternative to an Arduino, a Raspberry Pi might be used in the event where it provides more functionality. The sensors and transmitters required include IR (infrared) in order to communicate and manipulate devices of interest, as well as bluetooth and/or wifi transmitters in order to communicate with the user. In addition, the inclusion of RF technology would also extend the versatility of the device into being able to communicate with a wider range of devices that are becoming more prevalent.
 
 ## Anticipated Challenges
-An anticipated challenge that will be one of the major point of focus throughout the project is the implementation and maintanance of security. In order to be able to store multiple IR frequencies and radio frequencies and communicate with a user through an external interface from the Arduino board, security will be integral in preventing any avenues of attacks for the device. *Add additional details*
+Security is critical to the success of this project, and thus will be a major challenge throughout its design and development. Encryption and authentication must be built-in to each of the systems, and they must be tested against potential attacks.
+
+The development of this project under the provided timeline will undoubtedly be the most difficult challenge, but the team already has certain components ready for integration, which will lighten the workload to some degree. The three software components are the most complex, and must be designed before any development takes place.
+
