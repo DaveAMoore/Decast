@@ -1,0 +1,9 @@
+[submodule "Hardware/home/pi/.source/aws_iot/aws-iot-device-sdk-cpp"]
+	path = Hardware/home/pi/.source/aws_iot/aws-iot-device-sdk-cpp
+	url = https://github.com/aws/aws-iot-device-sdk-cpp.git
+[submodule "Hardware/home/pi/openssl"]
+	path = Hardware/home/pi/openssl
+	url = git://git.openssl.org/openssl.git
+[submodule "Hardware/home/pi/wiringPi"]
+	path = Hardware/home/pi/wiringPi
+	url = git://git.drogon.net/wiringPi
