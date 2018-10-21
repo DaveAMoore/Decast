@@ -7,71 +7,198 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63FD8EE4217C11C7008E35BF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63FD8EE3217C11C7008E35BF /* main.cpp */; };
+		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
+		635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
+		635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
+		635729FC217CCDDA007AC21C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F9217CCDDA007AC21C /* libssl.a */; };
+		635729FD217CCDDA007AC21C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729FA217CCDDA007AC21C /* libcrypto.a */; };
+		63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729FF217CD7D2007AC21C /* ConnectionManager.cpp */; };
+		63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63572A02217CDA53007AC21C /* ConfigCommon.cpp */; };
+		63572A10217D058D007AC21C /* remote_core_config.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0B217CF8DF007AC21C /* remote_core_config.json */; };
+		63572A12217D05A3007AC21C /* cert.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0E217CF913007AC21C /* cert.crt */; };
+		63572A13217D05A3007AC21C /* priv.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0D217CF913007AC21C /* priv.key */; };
+		63572A14217D05A3007AC21C /* RootCA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0F217CF913007AC21C /* RootCA.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		63FD8EDE217C11C7008E35BF /* CopyFiles */ = {
+		635729D5217CC162007AC21C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = config;
+			dstSubfolderSpec = 16;
+			files = (
+				63572A10217D058D007AC21C /* remote_core_config.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63572A11217D0591007AC21C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = config/certs;
+			dstSubfolderSpec = 16;
 			files = (
+				63572A12217D05A3007AC21C /* cert.crt in CopyFiles */,
+				63572A13217D05A3007AC21C /* priv.key in CopyFiles */,
+				63572A14217D05A3007AC21C /* RootCA.pem in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		63FD8EE0217C11C7008E35BF /* remote_core */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core; sourceTree = BUILT_PRODUCTS_DIR; };
-		63FD8EE3217C11C7008E35BF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		635729D7217CC162007AC21C /* remote_core */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core; sourceTree = BUILT_PRODUCTS_DIR; };
+		635729DA217CC162007AC21C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenSSLConnection.cpp; sourceTree = "<group>"; };
+		635729E2217CC5F9007AC21C /* OpenSSLConnection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenSSLConnection.hpp; sourceTree = "<group>"; };
+		635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libaws-iot-sdk-cpp.a"; sourceTree = "<group>"; };
+		635729F9217CCDDA007AC21C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		635729FA217CCDDA007AC21C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		635729FF217CD7D2007AC21C /* ConnectionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionManager.cpp; sourceTree = "<group>"; };
+		63572A00217CD7D2007AC21C /* ConnectionManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConnectionManager.hpp; sourceTree = "<group>"; };
+		63572A02217CDA53007AC21C /* ConfigCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigCommon.cpp; sourceTree = "<group>"; };
+		63572A03217CDA53007AC21C /* ConfigCommon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConfigCommon.hpp; sourceTree = "<group>"; };
+		63572A0B217CF8DF007AC21C /* remote_core_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = remote_core_config.json; sourceTree = "<group>"; };
+		63572A0D217CF913007AC21C /* priv.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = priv.key; sourceTree = "<group>"; };
+		63572A0E217CF913007AC21C /* cert.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cert.crt; sourceTree = "<group>"; };
+		63572A0F217CF913007AC21C /* RootCA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RootCA.pem; sourceTree = "<group>"; };
+		63572A15217D16C5007AC21C /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		63FD8EDD217C11C7008E35BF /* Frameworks */ = {
+		635729D4217CC162007AC21C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635729FC217CCDDA007AC21C /* libssl.a in Frameworks */,
+				635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */,
+				635729FD217CCDDA007AC21C /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63FD8ED7217C11C7008E35BF = {
+		635729CE217CC162007AC21C = {
 			isa = PBXGroup;
 			children = (
-				63FD8EE2217C11C7008E35BF /* remote_core */,
-				63FD8EE1217C11C7008E35BF /* Products */,
+				635729D9217CC162007AC21C /* remote_core */,
+				635729D8217CC162007AC21C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		63FD8EE1217C11C7008E35BF /* Products */ = {
+		635729D8217CC162007AC21C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63FD8EE0217C11C7008E35BF /* remote_core */,
+				635729D7217CC162007AC21C /* remote_core */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		63FD8EE2217C11C7008E35BF /* remote_core */ = {
+		635729D9217CC162007AC21C /* remote_core */ = {
 			isa = PBXGroup;
 			children = (
-				63FD8EE3217C11C7008E35BF /* main.cpp */,
+				63572A07217CF525007AC21C /* include */,
+				63572A06217CDB20007AC21C /* src */,
+				63572A0A217CF8B3007AC21C /* config */,
+				635729F3217CCDAE007AC21C /* lib */,
+				63572A15217D16C5007AC21C /* CMakeLists.txt */,
 			);
 			path = remote_core;
+			sourceTree = "<group>";
+		};
+		635729F2217CCDA3007AC21C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				635729FF217CD7D2007AC21C /* ConnectionManager.cpp */,
+				635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		635729F3217CCDAE007AC21C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */,
+				635729FA217CCDDA007AC21C /* libcrypto.a */,
+				635729F9217CCDDA007AC21C /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		63572A05217CDB0F007AC21C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				63572A02217CDA53007AC21C /* ConfigCommon.cpp */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		63572A06217CDB20007AC21C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				635729DA217CC162007AC21C /* main.cpp */,
+				635729F2217CCDA3007AC21C /* Networking */,
+				63572A05217CDB0F007AC21C /* Configuration */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		63572A07217CF525007AC21C /* include */ = {
+			isa = PBXGroup;
+			children = (
+				63572A09217CF54B007AC21C /* Configuration */,
+				63572A08217CF53D007AC21C /* Networking */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		63572A08217CF53D007AC21C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				63572A00217CD7D2007AC21C /* ConnectionManager.hpp */,
+				635729E2217CC5F9007AC21C /* OpenSSLConnection.hpp */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		63572A09217CF54B007AC21C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				63572A03217CDA53007AC21C /* ConfigCommon.hpp */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		63572A0A217CF8B3007AC21C /* config */ = {
+			isa = PBXGroup;
+			children = (
+				63572A0B217CF8DF007AC21C /* remote_core_config.json */,
+				63572A0C217CF8F8007AC21C /* certs */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		63572A0C217CF8F8007AC21C /* certs */ = {
+			isa = PBXGroup;
+			children = (
+				63572A0E217CF913007AC21C /* cert.crt */,
+				63572A0D217CF913007AC21C /* priv.key */,
+				63572A0F217CF913007AC21C /* RootCA.pem */,
+			);
+			path = certs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63FD8EDF217C11C7008E35BF /* remote_core */ = {
+		635729D6217CC162007AC21C /* remote_core */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63FD8EE7217C11C7008E35BF /* Build configuration list for PBXNativeTarget "remote_core" */;
+			buildConfigurationList = 635729DE217CC162007AC21C /* Build configuration list for PBXNativeTarget "remote_core" */;
 			buildPhases = (
-				63FD8EDC217C11C7008E35BF /* Sources */,
-				63FD8EDD217C11C7008E35BF /* Frameworks */,
-				63FD8EDE217C11C7008E35BF /* CopyFiles */,
+				635729D3217CC162007AC21C /* Sources */,
+				635729D4217CC162007AC21C /* Frameworks */,
+				635729D5217CC162007AC21C /* CopyFiles */,
+				63572A11217D0591007AC21C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -79,53 +206,56 @@
 			);
 			name = remote_core;
 			productName = remote_core;
-			productReference = 63FD8EE0217C11C7008E35BF /* remote_core */;
+			productReference = 635729D7217CC162007AC21C /* remote_core */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		63FD8ED8217C11C7008E35BF /* Project object */ = {
+		635729CF217CC162007AC21C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "David Moore";
 				TargetAttributes = {
-					63FD8EDF217C11C7008E35BF = {
+					635729D6217CC162007AC21C = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 63FD8EDB217C11C7008E35BF /* Build configuration list for PBXProject "remote_core" */;
+			buildConfigurationList = 635729D2217CC162007AC21C /* Build configuration list for PBXProject "remote_core" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 63FD8ED7217C11C7008E35BF;
-			productRefGroup = 63FD8EE1217C11C7008E35BF /* Products */;
+			mainGroup = 635729CE217CC162007AC21C;
+			productRefGroup = 635729D8217CC162007AC21C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63FD8EDF217C11C7008E35BF /* remote_core */,
+				635729D6217CC162007AC21C /* remote_core */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		63FD8EDC217C11C7008E35BF /* Sources */ = {
+		635729D3217CC162007AC21C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FD8EE4217C11C7008E35BF /* main.cpp in Sources */,
+				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
+				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
+				635729DB217CC162007AC21C /* main.cpp in Sources */,
+				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		63FD8EE5217C11C7008E35BF /* Debug */ = {
+		635729DC217CC162007AC21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +314,7 @@
 			};
 			name = Debug;
 		};
-		63FD8EE6217C11C7008E35BF /* Release */ = {
+		635729DD217CC162007AC21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -236,20 +366,46 @@
 			};
 			name = Release;
 		};
-		63FD8EE8217C11C7008E35BF /* Debug */ = {
+		635729DF217CC162007AC21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				HEADER_SEARCH_PATHS = (
+					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
+					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/remote_core",
+					/usr/local/Cellar/openssl/1.0.2o_2/lib,
+					"$(PROJECT_DIR)/remote_core/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		63FD8EE9217C11C7008E35BF /* Release */ = {
+		635729E0217CC162007AC21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				HEADER_SEARCH_PATHS = (
+					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
+					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/remote_core",
+					/usr/local/Cellar/openssl/1.0.2o_2/lib,
+					"$(PROJECT_DIR)/remote_core/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -257,25 +413,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63FD8EDB217C11C7008E35BF /* Build configuration list for PBXProject "remote_core" */ = {
+		635729D2217CC162007AC21C /* Build configuration list for PBXProject "remote_core" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63FD8EE5217C11C7008E35BF /* Debug */,
-				63FD8EE6217C11C7008E35BF /* Release */,
+				635729DC217CC162007AC21C /* Debug */,
+				635729DD217CC162007AC21C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63FD8EE7217C11C7008E35BF /* Build configuration list for PBXNativeTarget "remote_core" */ = {
+		635729DE217CC162007AC21C /* Build configuration list for PBXNativeTarget "remote_core" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63FD8EE8217C11C7008E35BF /* Debug */,
-				63FD8EE9217C11C7008E35BF /* Release */,
+				635729DF217CC162007AC21C /* Debug */,
+				635729E0217CC162007AC21C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 63FD8ED8217C11C7008E35BF /* Project object */;
+	rootObject = 635729CF217CC162007AC21C /* Project object */;
 }
