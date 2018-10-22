@@ -12,7 +12,7 @@
 using namespace remote_core;
 
 int main(int argc, const char * argv[]) {
-    auto connectionManager = std::make_unique<ConnectionManager>("Topic", "config/remote_core_config.json");
+    auto connectionManager = std::make_unique<ConnectionManager>("topic_1", "config/remote_core_config.json");
     awsiotsdk::ResponseCode responseCode = connectionManager->resumeConnection();
     
     std::cout << "Response code: " << responseCode << std::endl;

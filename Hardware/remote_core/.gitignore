@@ -1,2 +1,2 @@
-remote_core/config/certs/cert.crt
-remote_core/config/certs/priv.key
+remote_core/config/certs/Certificate.crt
+remote_core/config/certs/Private-Key.key

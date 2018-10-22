@@ -78,24 +78,30 @@ ConnectionManager::ConnectionManager(const std::string topicName, const util::St
 }
 
 ResponseCode ConnectionManager::resumeConnection() {
-    // Establish an MQTT connection.
-    ResponseCode responseCode = client->Connect(ConfigCommon::mqtt_command_timeout_,
-                                                ConfigCommon::is_clean_session_,
-                                                mqtt::Version::MQTT_3_1_1,
-                                                ConfigCommon::keep_alive_timeout_secs_,
-                                                std::move(clientID),
-                                                nullptr, nullptr, nullptr);
-    
-    if (responseCode != ResponseCode::MQTT_CONNACK_CONNECTION_ACCEPTED) {
-        return responseCode;
+    // Prevent connecting multiple times.
+    if (!client->IsConnected()) {
+        // Establish an MQTT connection.
+        ResponseCode responseCode = client->Connect(ConfigCommon::mqtt_command_timeout_,
+                                                    ConfigCommon::is_clean_session_,
+                                                    mqtt::Version::MQTT_3_1_1,
+                                                    ConfigCommon::keep_alive_timeout_secs_,
+                                                    std::move(clientID),
+                                                    nullptr, nullptr, nullptr);
+        
+        if (responseCode != ResponseCode::MQTT_CONNACK_CONNECTION_ACCEPTED) {
+            return responseCode;
+        }
     }
     
-    responseCode = subscribe();
+    subscribe([](ResponseCode responseCode) {
+        
+    });
     
-    return responseCode;
+    return ResponseCode::SUCCESS;
 }
 
-ResponseCode ConnectionManager::subscribe() {
+template <typename Callback>
+ResponseCode ConnectionManager::subscribe(Callback completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     mqtt::Subscription::ApplicationCallbackHandlerPtr subscriptionHandler =
     std::bind(&ConnectionManager::subscribeCallback,
@@ -107,6 +113,12 @@ ResponseCode ConnectionManager::subscribe() {
     util::Vector<std::shared_ptr<mqtt::Subscription>> subscriptionVector;
     subscriptionVector.push_back(subscription);
     
+    ActionData::AsyncAckNotificationHandlerPtr handler = [&completionHandler](uint16_t action_id, ResponseCode rc) {
+        completionHandler(rc);
+    };
+    
+    uint16_t packet_id_out;
+    client->SubscribeAsync(subscriptionVector, handler, packet_id_out);
     ResponseCode responseCode = client->Subscribe(subscriptionVector, ConfigCommon::mqtt_command_timeout_);
     std::this_thread::sleep_for(std::chrono::seconds(3)); // FIXME: Understand what this does.
     

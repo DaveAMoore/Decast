@@ -38,8 +38,11 @@ namespace remote_core {
                                                     std::shared_ptr<awsiotsdk::ResubscribeCallbackContextData> handlerData,
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
-        awsiotsdk::ResponseCode subscribe();
-        awsiotsdk::ResponseCode unsubscribe();
+        template <typename Callback>
+        void subscribe(Callback completionHandler);
+        
+        template <typename Callback>
+        void unsubscribe(Callback completionHandler);
         
     public:
         ConnectionManager(const std::string topicName, const awsiotsdk::util::String &configFileRelativePath);

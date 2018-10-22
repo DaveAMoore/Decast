@@ -15,9 +15,9 @@
 		63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729FF217CD7D2007AC21C /* ConnectionManager.cpp */; };
 		63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63572A02217CDA53007AC21C /* ConfigCommon.cpp */; };
 		63572A10217D058D007AC21C /* remote_core_config.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0B217CF8DF007AC21C /* remote_core_config.json */; };
-		63572A12217D05A3007AC21C /* cert.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0E217CF913007AC21C /* cert.crt */; };
-		63572A13217D05A3007AC21C /* priv.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0D217CF913007AC21C /* priv.key */; };
-		63572A14217D05A3007AC21C /* RootCA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A0F217CF913007AC21C /* RootCA.pem */; };
+		63572A22217E048A007AC21C /* Certificate.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A1F217E047F007AC21C /* Certificate.crt */; };
+		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
+		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,9 +37,9 @@
 			dstPath = config/certs;
 			dstSubfolderSpec = 16;
 			files = (
-				63572A12217D05A3007AC21C /* cert.crt in CopyFiles */,
-				63572A13217D05A3007AC21C /* priv.key in CopyFiles */,
-				63572A14217D05A3007AC21C /* RootCA.pem in CopyFiles */,
+				63572A22217E048A007AC21C /* Certificate.crt in CopyFiles */,
+				63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */,
+				63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,10 +58,10 @@
 		63572A02217CDA53007AC21C /* ConfigCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigCommon.cpp; sourceTree = "<group>"; };
 		63572A03217CDA53007AC21C /* ConfigCommon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConfigCommon.hpp; sourceTree = "<group>"; };
 		63572A0B217CF8DF007AC21C /* remote_core_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = remote_core_config.json; sourceTree = "<group>"; };
-		63572A0D217CF913007AC21C /* priv.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = priv.key; sourceTree = "<group>"; };
-		63572A0E217CF913007AC21C /* cert.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cert.crt; sourceTree = "<group>"; };
-		63572A0F217CF913007AC21C /* RootCA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RootCA.pem; sourceTree = "<group>"; };
 		63572A15217D16C5007AC21C /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		63572A1F217E047F007AC21C /* Certificate.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Certificate.crt; sourceTree = "<group>"; };
+		63572A20217E0480007AC21C /* Root-CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Root-CA.pem"; sourceTree = "<group>"; };
+		63572A21217E0480007AC21C /* Private-Key.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Private-Key.key"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +181,9 @@
 		63572A0C217CF8F8007AC21C /* certs */ = {
 			isa = PBXGroup;
 			children = (
-				63572A0E217CF913007AC21C /* cert.crt */,
-				63572A0D217CF913007AC21C /* priv.key */,
-				63572A0F217CF913007AC21C /* RootCA.pem */,
+				63572A1F217E047F007AC21C /* Certificate.crt */,
+				63572A21217E0480007AC21C /* Private-Key.key */,
+				63572A20217E0480007AC21C /* Root-CA.pem */,
 			);
 			path = certs;
 			sourceTree = "<group>";
@@ -377,6 +377,7 @@
 					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
 					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+					"/Users/David/Downloads/mbedtls-2.13.0/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +400,7 @@
 					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
 					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+					"/Users/David/Downloads/mbedtls-2.13.0/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
