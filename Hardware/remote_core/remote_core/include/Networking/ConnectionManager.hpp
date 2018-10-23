@@ -15,9 +15,6 @@
 namespace remote_core {
     /// Manages connections with the IoT Core.
     class ConnectionManager {
-    private:
-        std::string topicName;
-        
     protected:
         std::shared_ptr<awsiotsdk::NetworkConnection> networkConnection;
         std::shared_ptr<awsiotsdk::mqtt::ConnectPacket> connectPacket;
@@ -25,6 +22,7 @@ namespace remote_core {
         std::atomic_int totalPublishedMessages;
         std::shared_ptr<awsiotsdk::MqttClient> client;
         std::unique_ptr<awsiotsdk::Utf8String> clientID;
+        std::vector<std::string> subscribedTopicNames;
         
         awsiotsdk::ResponseCode subscribeCallback(awsiotsdk::util::String topicName,
                                                   awsiotsdk::util::String payload,
@@ -38,20 +36,42 @@ namespace remote_core {
                                                     std::shared_ptr<awsiotsdk::ResubscribeCallbackContextData> handlerData,
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
-        template <typename Callback>
-        void subscribe(Callback completionHandler);
-        
-        template <typename Callback>
-        void unsubscribe(Callback completionHandler);
-        
     public:
-        ConnectionManager(const std::string topicName, const awsiotsdk::util::String &configFileRelativePath);
+        ConnectionManager(const awsiotsdk::util::String &configFileRelativePath);
         
-        /// Attempts to resume, or establish, a connection with the endpoint.
+        /// Attempts to resume, or establish, a connection with the endpoint. (Synchronous)
+        
+        /**
+         Attempts to resume, or initally establish, a connection with the endpoint.
+
+         @return Response code indicating if the operation was completed successfully, or failed.
+         */
         awsiotsdk::ResponseCode resumeConnection(void);
         
-        /// Returns the topic name.
-        std::string getTopicName() { return topicName; }
+        /**
+         Subscribes to a topic, given the name of a particular topic. (Asynchronous)
+
+         @param topicName The name of the topic that will be subscribed to.
+         @param completionHandler Called when the subscription has been completed, or has failed.
+         */
+        template <typename Callback>
+        void subscribeToTopic(const std::string topicName, Callback completionHandler);
+        
+        /**
+         Ubsubscribes from a topic, given the name of the topic to unsubscribe from.
+
+         @param topicName Topic that will be unsubscribed from.
+         @param completionHandler Called when the unsubscribing is completed, or an error occurred.
+         */
+        template <typename Callback>
+        void unsubscribeFromTopic(const std::string topicName, Callback completionHandler);
+        
+        /**
+         Returns a vector of topic names that are currently subscribed to.
+         */
+        std::vector<std::string> getSubscribedTopicNames(void) {
+            return subscribedTopicNames;
+        }
     };
 }
 
