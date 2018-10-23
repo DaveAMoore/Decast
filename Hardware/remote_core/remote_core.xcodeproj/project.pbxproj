@@ -374,10 +374,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
-					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
-					"/Users/David/Downloads/mbedtls-2.13.0/include",
+					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,10 +396,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
-					"/Users/David/Development/aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"/Users/David/Development/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
-					"/Users/David/Downloads/mbedtls-2.13.0/include",
+					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
+					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
