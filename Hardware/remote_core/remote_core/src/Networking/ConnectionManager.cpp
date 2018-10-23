@@ -18,7 +18,7 @@
 using namespace remote_core;
 using namespace awsiotsdk;
 
-ConnectionManager::ConnectionManager(const std::string topicName, const util::String &configFileRelativePath) : topicName(topicName), totalPublishedMessages(0), currentPendingMessages(0) {
+ConnectionManager::ConnectionManager(const util::String &configFileRelativePath) : totalPublishedMessages(0), currentPendingMessages(0) {
     // Initialize the common configuration then create an SSL connection.
     ConfigCommon::InitializeCommon(configFileRelativePath);
     auto tlsConnection = std::make_shared<network::OpenSSLConnection>(ConfigCommon::endpoint_,
@@ -79,29 +79,23 @@ ConnectionManager::ConnectionManager(const std::string topicName, const util::St
 
 ResponseCode ConnectionManager::resumeConnection() {
     // Prevent connecting multiple times.
-    if (!client->IsConnected()) {
-        // Establish an MQTT connection.
-        ResponseCode responseCode = client->Connect(ConfigCommon::mqtt_command_timeout_,
-                                                    ConfigCommon::is_clean_session_,
-                                                    mqtt::Version::MQTT_3_1_1,
-                                                    ConfigCommon::keep_alive_timeout_secs_,
-                                                    std::move(clientID),
-                                                    nullptr, nullptr, nullptr);
-        
-        if (responseCode != ResponseCode::MQTT_CONNACK_CONNECTION_ACCEPTED) {
-            return responseCode;
-        }
+    if (client->IsConnected()) {
+        return ResponseCode::SUCCESS;
     }
     
-    subscribe([](ResponseCode responseCode) {
-        
-    });
+    // Establish an MQTT connection.
+    ResponseCode responseCode = client->Connect(ConfigCommon::mqtt_command_timeout_,
+                                                ConfigCommon::is_clean_session_,
+                                                mqtt::Version::MQTT_3_1_1,
+                                                ConfigCommon::keep_alive_timeout_secs_,
+                                                std::move(clientID),
+                                                nullptr, nullptr, nullptr);
     
-    return ResponseCode::SUCCESS;
+    return responseCode;
 }
 
 template <typename Callback>
-ResponseCode ConnectionManager::subscribe(Callback completionHandler) {
+void ConnectionManager::subscribeToTopic(const std::string topicName, Callback completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     mqtt::Subscription::ApplicationCallbackHandlerPtr subscriptionHandler =
     std::bind(&ConnectionManager::subscribeCallback,
@@ -113,29 +107,40 @@ ResponseCode ConnectionManager::subscribe(Callback completionHandler) {
     util::Vector<std::shared_ptr<mqtt::Subscription>> subscriptionVector;
     subscriptionVector.push_back(subscription);
     
-    ActionData::AsyncAckNotificationHandlerPtr handler = [&completionHandler](uint16_t action_id, ResponseCode rc) {
-        completionHandler(rc);
-    };
-    
     uint16_t packet_id_out;
-    client->SubscribeAsync(subscriptionVector, handler, packet_id_out);
-    ResponseCode responseCode = client->Subscribe(subscriptionVector, ConfigCommon::mqtt_command_timeout_);
-    std::this_thread::sleep_for(std::chrono::seconds(3)); // FIXME: Understand what this does.
-    
-    return responseCode;
+    client->SubscribeAsync(subscriptionVector, [&](uint16_t action_id, ResponseCode responseCode) {
+        if (responseCode == ResponseCode::SUCCESS) {
+            subscribedTopicNames.push_back(topicName);
+        }
+        
+        completionHandler(responseCode);
+    }, packet_id_out);
 }
 
-ResponseCode ConnectionManager::unsubscribe() {
+template <typename Callback>
+void ConnectionManager::unsubscribeFromTopic(const std::string topicName, Callback completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     util::Vector<std::unique_ptr<Utf8String>> topicVector;
     topicVector.push_back(std::move(topicNamePtr));
     
-    ResponseCode responseCode = client->Unsubscribe(std::move(topicVector), ConfigCommon::mqtt_command_timeout_);
-    std::this_thread::sleep_for(std::chrono::seconds(1)); // FIXME: Understand what this does.
+    uint16_t packet_id_out;
+    client->UnsubscribeAsync(topicVector, [&](uint16_t action_id, ResponseCode responseCode) {
+        if (responseCode == ResponseCode::SUCCESS) {
+            auto position = std::find(subscribedTopicNames.begin(), subscribedTopicNames.end(), topicName);
+            
+            if (position != subscribedTopicNames.end()) {
+                auto index = subscribedTopicNames.begin() + std::distance(subscribedTopicNames.begin(), position);
+                subscribedTopicNames.erase(index);
+            }
+        }
+        
+        completionHandler(responseCode);
+    }, packet_id_out);
     
-    return responseCode;
+    
 }
 
+// TODO: Implement subscribedTopicNames management these callbacks.
 ResponseCode ConnectionManager::subscribeCallback(util::String topicName, util::String payload,
                                                   std::shared_ptr<mqtt::SubscriptionHandlerContextData> handlerData) {
     return ResponseCode::SUCCESS;
