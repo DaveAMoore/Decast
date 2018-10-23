@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		637A250A217EC33900C1B6F1 /* AWSIoT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A2507217EC33900C1B6F1 /* AWSIoT.framework */; };
 		637A250B217EC34000C1B6F1 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A8ABE217EC29C00EAF6D7 /* AWSCore.framework */; };
+		637A254C217EC42500C1B6F1 /* RFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A253E217EC41600C1B6F1 /* RFCore.framework */; };
 		639A8A62217EC25B00EAF6D7 /* RemoteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */; };
 		639A8A67217EC25B00EAF6D7 /* RemoteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A8A66217EC25B00EAF6D7 /* RemoteKitTests.swift */; };
 		639A8A69217EC25B00EAF6D7 /* RemoteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +46,34 @@
 			proxyType = 2;
 			remoteGlobalIDString = 63FD8E1B217BF768008E35BF;
 			remoteInfo = AWSIoT_iOSTests;
+		};
+		637A253D217EC41600C1B6F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827962129B8C4002924AD;
+			remoteInfo = RFCore_iOS;
+		};
+		637A253F217EC41600C1B6F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B8279F2129B8C4002924AD;
+			remoteInfo = RFCore_iOSTests;
+		};
+		637A2541217EC41600C1B6F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827B32129B8E7002924AD;
+			remoteInfo = RFCore_OSX;
+		};
+		637A2543217EC41600C1B6F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827BB2129B8E7002924AD;
+			remoteInfo = RFCore_OSXTests;
 		};
 		639A8A63217EC25B00EAF6D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -308,6 +337,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RFCore.xcodeproj; path = ../../../../../../../Development/RFCore/RFCore.xcodeproj; sourceTree = "<group>"; };
 		639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteKit.h; sourceTree = "<group>"; };
 		639A8A5C217EC25B00EAF6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -322,6 +352,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637A254C217EC42500C1B6F1 /* RFCore.framework in Frameworks */,
 				637A250B217EC34000C1B6F1 /* AWSCore.framework in Frameworks */,
 				637A250A217EC33900C1B6F1 /* AWSIoT.framework in Frameworks */,
 				639A8AE4217EC2B500EAF6D7 /* AWSCognitoIdentityProvider.framework in Frameworks */,
@@ -341,6 +372,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		637A250F217EC41600C1B6F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				637A253E217EC41600C1B6F1 /* RFCore.framework */,
+				637A2540217EC41600C1B6F1 /* RFCore_iOSTests.xctest */,
+				637A2542217EC41600C1B6F1 /* RFCore.framework */,
+				637A2544217EC41600C1B6F1 /* RFCore_OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		639A8A4E217EC25B00EAF6D7 = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +390,7 @@
 				639A8A65217EC25B00EAF6D7 /* RemoteKitTests */,
 				639A8A59217EC25B00EAF6D7 /* Products */,
 				639A8A72217EC29C00EAF6D7 /* AWS.xcodeproj */,
+				637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */,
 				639A8AE1217EC2AA00EAF6D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -516,6 +559,10 @@
 					ProductGroup = 639A8A73217EC29C00EAF6D7 /* Products */;
 					ProjectRef = 639A8A72217EC29C00EAF6D7 /* AWS.xcodeproj */;
 				},
+				{
+					ProductGroup = 637A250F217EC41600C1B6F1 /* Products */;
+					ProjectRef = 637A250E217EC41600C1B6F1 /* RFCore.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -552,6 +599,34 @@
 			fileType = wrapper.cfbundle;
 			path = AWSIoT_iOSTests.xctest;
 			remoteRef = 637A2508217EC33900C1B6F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		637A253E217EC41600C1B6F1 /* RFCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RFCore.framework;
+			remoteRef = 637A253D217EC41600C1B6F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		637A2540217EC41600C1B6F1 /* RFCore_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RFCore_iOSTests.xctest;
+			remoteRef = 637A253F217EC41600C1B6F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		637A2542217EC41600C1B6F1 /* RFCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RFCore.framework;
+			remoteRef = 637A2541217EC41600C1B6F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		637A2544217EC41600C1B6F1 /* RFCore_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RFCore_OSXTests.xctest;
+			remoteRef = 637A2543217EC41600C1B6F1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		639A8A9A217EC29C00EAF6D7 /* AWSCore.framework */ = {
