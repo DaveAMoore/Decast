@@ -94,8 +94,7 @@ ResponseCode ConnectionManager::resumeConnection() {
     return responseCode;
 }
 
-template <typename Callback>
-void ConnectionManager::subscribeToTopic(const std::string topicName, Callback completionHandler) {
+void ConnectionManager::subscribeToTopic(const std::string topicName, CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     mqtt::Subscription::ApplicationCallbackHandlerPtr subscriptionHandler =
     std::bind(&ConnectionManager::subscribeCallback,
@@ -108,7 +107,7 @@ void ConnectionManager::subscribeToTopic(const std::string topicName, Callback c
     subscriptionVector.push_back(subscription);
     
     uint16_t packet_id_out;
-    client->SubscribeAsync(subscriptionVector, [&](uint16_t action_id, ResponseCode responseCode) {
+    client->SubscribeAsync(subscriptionVector, [&](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             subscribedTopicNames.push_back(topicName);
         }
@@ -117,14 +116,13 @@ void ConnectionManager::subscribeToTopic(const std::string topicName, Callback c
     }, packet_id_out);
 }
 
-template <typename Callback>
-void ConnectionManager::unsubscribeFromTopic(const std::string topicName, Callback completionHandler) {
+void ConnectionManager::unsubscribeFromTopic(const std::string topicName, CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     util::Vector<std::unique_ptr<Utf8String>> topicVector;
     topicVector.push_back(std::move(topicNamePtr));
     
-    uint16_t packet_id_out;
-    client->UnsubscribeAsync(topicVector, [&](uint16_t action_id, ResponseCode responseCode) {
+    uint16_t packetIDOut;
+    client->UnsubscribeAsync(topicVector, [&](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             auto position = std::find(subscribedTopicNames.begin(), subscribedTopicNames.end(), topicName);
             
@@ -135,9 +133,16 @@ void ConnectionManager::unsubscribeFromTopic(const std::string topicName, Callba
         }
         
         completionHandler(responseCode);
-    }, packet_id_out);
+    }, packetIDOut);
+}
+
+void ConnectionManager::publishMessageToTopic(std::string message, const std::string topicName, CompletionHandler completionHandler) {
+    auto topicNamePtr = Utf8String::Create(topicName);
     
-    
+    uint16_t packetIDOut;
+    client->PublishAsync(std::move(topicNamePtr), false, false, mqtt::QoS::QOS0, message, [&](uint16_t actionID, ResponseCode responseCode) {
+        completionHandler(responseCode);
+    }, packetIDOut);
 }
 
 // TODO: Implement subscribedTopicNames management these callbacks.
