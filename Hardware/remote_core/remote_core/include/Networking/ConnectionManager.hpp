@@ -37,6 +37,12 @@ namespace remote_core {
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
     public:
+        /**
+         Asynchronous callback that is used for handling the completion of tasks.
+         */
+        typedef std::function<void (awsiotsdk::ResponseCode responseCode)> CompletionHandler;
+        
+        
         ConnectionManager(const awsiotsdk::util::String &configFileRelativePath);
         
         /// Attempts to resume, or establish, a connection with the endpoint. (Synchronous)
@@ -54,17 +60,24 @@ namespace remote_core {
          @param topicName The name of the topic that will be subscribed to.
          @param completionHandler Called when the subscription has been completed, or has failed.
          */
-        template <typename Callback>
-        void subscribeToTopic(const std::string topicName, Callback completionHandler);
+        void subscribeToTopic(const std::string topicName, CompletionHandler completionHandler);
         
         /**
-         Ubsubscribes from a topic, given the name of the topic to unsubscribe from.
+         Ubsubscribes from a topic, given the name of the topic to unsubscribe from. (Asynchronous)
 
          @param topicName Topic that will be unsubscribed from.
          @param completionHandler Called when the unsubscribing is completed, or an error occurred.
          */
-        template <typename Callback>
-        void unsubscribeFromTopic(const std::string topicName, Callback completionHandler);
+        void unsubscribeFromTopic(const std::string topicName, CompletionHandler completionHandler);
+        
+        /**
+         Publish a message to a topic, which is specified. (Asynchronous)
+
+         @param message JSON string that will be published.
+         @param topicName Name of the topic that the message will be published to.
+         @param completionHandler Called when the message has been published, or an error occurred.
+         */
+        void publishMessageToTopic(const std::string message, const std::string topicName, CompletionHandler completionHandler);
         
         /**
          Returns a vector of topic names that are currently subscribed to.
