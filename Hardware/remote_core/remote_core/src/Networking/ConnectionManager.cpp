@@ -107,7 +107,7 @@ void ConnectionManager::subscribeToTopic(const std::string topicName, Completion
     subscriptionVector.push_back(subscription);
     
     uint16_t packet_id_out;
-    client->SubscribeAsync(subscriptionVector, [&](uint16_t actionID, ResponseCode responseCode) {
+    client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             subscribedTopicNames.push_back(topicName);
         }
@@ -122,12 +122,13 @@ void ConnectionManager::unsubscribeFromTopic(const std::string topicName, Comple
     topicVector.push_back(std::move(topicNamePtr));
     
     uint16_t packetIDOut;
-    client->UnsubscribeAsync(topicVector, [&](uint16_t actionID, ResponseCode responseCode) {
+    client->UnsubscribeAsync(std::move(topicVector), [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             auto position = std::find(subscribedTopicNames.begin(), subscribedTopicNames.end(), topicName);
             
             if (position != subscribedTopicNames.end()) {
-                auto index = subscribedTopicNames.begin() + std::distance(subscribedTopicNames.begin(), position);
+                auto index = subscribedTopicNames.begin() + std::distance(subscribedTopicNames.begin(),
+                                                                          position);
                 subscribedTopicNames.erase(index);
             }
         }

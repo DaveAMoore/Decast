@@ -146,7 +146,6 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				637A2578217FA3EF00C1B6F1 /* Messaging */,
 				63572A09217CF54B007AC21C /* Configuration */,
 				63572A08217CF53D007AC21C /* Networking */,
 			);
@@ -187,13 +186,6 @@
 				63572A20217E0480007AC21C /* Root-CA.pem */,
 			);
 			path = certs;
-			sourceTree = "<group>";
-		};
-		637A2578217FA3EF00C1B6F1 /* Messaging */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Messaging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,9 +374,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
+					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
-					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/include",
+					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include/",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -404,9 +396,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
+					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include",
-					"/Users/David/Documents/Education/SE\\ 101/Project/se101-f18-group-damoore-jdreiter/Hardware/aws-iot-device-sdk-cpp/include",
+					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include/",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
