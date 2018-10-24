@@ -146,6 +146,7 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
+				637A2578217FA3EF00C1B6F1 /* Messaging */,
 				63572A09217CF54B007AC21C /* Configuration */,
 				63572A08217CF53D007AC21C /* Networking */,
 			);
@@ -186,6 +187,13 @@
 				63572A20217E0480007AC21C /* Root-CA.pem */,
 			);
 			path = certs;
+			sourceTree = "<group>";
+		};
+		637A2578217FA3EF00C1B6F1 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messaging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
