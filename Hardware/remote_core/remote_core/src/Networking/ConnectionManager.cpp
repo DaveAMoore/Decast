@@ -103,12 +103,12 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
               std::placeholders::_2,
               std::placeholders::_3);
     
-    auto subscription = mqtt::Subscription::Create(std::move(topicNamePtr), mqtt::QoS::QOS0, subscriptionHandler, nullptr);
+    auto subscription = mqtt::Subscription::Create(std::move(topicNamePtr), mqtt::QoS::QOS1, subscriptionHandler, nullptr);
     util::Vector<std::shared_ptr<mqtt::Subscription>> subscriptionVector;
     subscriptionVector.push_back(subscription);
     
     uint16_t packet_id_out;
-    client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
+    ResponseCode responseCode = client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             subscribedTopicNames.push_back(topicName);
             
@@ -117,8 +117,14 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
             }
         }
         
-        completionHandler(responseCode);
+        if (completionHandler) {
+            completionHandler(responseCode);
+        }
     }, packet_id_out);
+    
+    if (responseCode == ResponseCode::SUCCESS && completionHandler) {
+        completionHandler(responseCode);
+    }
 }
 
 void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
@@ -142,7 +148,9 @@ void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
             messageHandlersByTopicName.erase(topicName);
         }
         
-        completionHandler(responseCode);
+        if (completionHandler) {
+            completionHandler(responseCode);
+        }
     }, packetIDOut);
 }
 

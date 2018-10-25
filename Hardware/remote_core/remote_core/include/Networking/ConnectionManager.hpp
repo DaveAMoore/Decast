@@ -51,14 +51,19 @@ namespace remote_core {
     public:
         ConnectionManager(const awsiotsdk::util::String &configFileRelativePath);
         
-        /// Attempts to resume, or establish, a connection with the endpoint. (Synchronous)
-        
         /**
          Attempts to resume, or initally establish, a connection with the endpoint.
 
          @return Response code indicating if the operation was completed successfully, or failed.
          */
         awsiotsdk::ResponseCode resumeConnection(void);
+        
+        /**
+         Suspends the current connection, if applicable. This uses the endpoint specified during initialization.
+
+         @return Response code indicating the success of the connection suspension.
+         */
+        awsiotsdk::ResponseCode suspendConnection(void);
         
         /**
          Subscribes to a topic, given the name of a particular topic. (Asynchronous)

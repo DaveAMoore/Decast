@@ -18,6 +18,7 @@
 		63572A22217E048A007AC21C /* Certificate.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A1F217E047F007AC21C /* Certificate.crt */; };
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
+		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,10 @@
 		63572A1F217E047F007AC21C /* Certificate.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Certificate.crt; sourceTree = "<group>"; };
 		63572A20217E0480007AC21C /* Root-CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Root-CA.pem"; sourceTree = "<group>"; };
 		63572A21217E0480007AC21C /* Private-Key.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Private-Key.key"; sourceTree = "<group>"; };
+		639899F72182076200C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
+		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				635729DA217CC162007AC21C /* main.cpp */,
+				639899FB218246A400C346D1 /* RemoteController.hpp */,
+				639899FA218246A400C346D1 /* RemoteController.cpp */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
 			);
@@ -192,8 +199,34 @@
 		636FCEEB21813586002B166E /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				639899F62182075200C346D1 /* integration */,
+				639899F52182074C00C346D1 /* unit */,
 			);
 			path = tests;
+			sourceTree = "<group>";
+		};
+		639899F52182074C00C346D1 /* unit */ = {
+			isa = PBXGroup;
+			children = (
+				639899F92182080B00C346D1 /* src */,
+				639899F82182076B00C346D1 /* CMakeLists.txt */,
+			);
+			path = unit;
+			sourceTree = "<group>";
+		};
+		639899F62182075200C346D1 /* integration */ = {
+			isa = PBXGroup;
+			children = (
+				639899F72182076200C346D1 /* CMakeLists.txt */,
+			);
+			path = integration;
+			sourceTree = "<group>";
+		};
+		639899F92182080B00C346D1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +288,7 @@
 			files = (
 				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
+				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
 			);
