@@ -94,7 +94,8 @@ ResponseCode ConnectionManager::resumeConnection() {
     return responseCode;
 }
 
-void ConnectionManager::subscribeToTopic(const std::string topicName, CompletionHandler completionHandler) {
+void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHandler messageHandler,
+                                         CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     mqtt::Subscription::ApplicationCallbackHandlerPtr subscriptionHandler =
     std::bind(&ConnectionManager::subscribeCallback,
@@ -110,13 +111,18 @@ void ConnectionManager::subscribeToTopic(const std::string topicName, Completion
     client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             subscribedTopicNames.push_back(topicName);
+            
+            if (messageHandler) {
+                messageHandlersByTopicName.emplace(std::make_pair(topicName, messageHandler));
+            }
         }
         
         completionHandler(responseCode);
     }, packet_id_out);
 }
 
-void ConnectionManager::unsubscribeFromTopic(const std::string topicName, CompletionHandler completionHandler) {
+void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
+                                             CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     util::Vector<std::unique_ptr<Utf8String>> topicVector;
     topicVector.push_back(std::move(topicNamePtr));
@@ -131,13 +137,17 @@ void ConnectionManager::unsubscribeFromTopic(const std::string topicName, Comple
                                                                           position);
                 subscribedTopicNames.erase(index);
             }
+            
+            // Attempt to erase the message handler associated with the topic.
+            messageHandlersByTopicName.erase(topicName);
         }
         
         completionHandler(responseCode);
     }, packetIDOut);
 }
 
-void ConnectionManager::publishMessageToTopic(std::string message, const std::string topicName, CompletionHandler completionHandler) {
+void ConnectionManager::publishMessageToTopic(const std::string &message, const std::string &topicName,
+                                              CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
     
     uint16_t packetIDOut;
@@ -149,6 +159,12 @@ void ConnectionManager::publishMessageToTopic(std::string message, const std::st
 // TODO: Implement subscribedTopicNames management these callbacks.
 ResponseCode ConnectionManager::subscribeCallback(util::String topicName, util::String payload,
                                                   std::shared_ptr<mqtt::SubscriptionHandlerContextData> handlerData) {
+    // Call the message handler, if applicable.
+    auto messageHandlerIt = messageHandlersByTopicName.find(topicName);
+    if (messageHandlerIt != messageHandlersByTopicName.end()) {
+        messageHandlerIt->second(topicName, payload);
+    }
+    
     return ResponseCode::SUCCESS;
 }
 
@@ -168,6 +184,7 @@ ResponseCode ConnectionManager::resubscribeCallback(util::String clientID,
                                                     ResponseCode resubscribeResult) {
     return ResponseCode::SUCCESS;
 }
+
 
 
 

@@ -101,6 +101,7 @@
 				63572A06217CDB20007AC21C /* src */,
 				63572A0A217CF8B3007AC21C /* config */,
 				635729F3217CCDAE007AC21C /* lib */,
+				636FCEEB21813586002B166E /* tests */,
 				63572A15217D16C5007AC21C /* CMakeLists.txt */,
 			);
 			path = remote_core;
@@ -186,6 +187,13 @@
 				63572A20217E0480007AC21C /* Root-CA.pem */,
 			);
 			path = certs;
+			sourceTree = "<group>";
+		};
+		636FCEEB21813586002B166E /* tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +377,7 @@
 		635729DF217CC162007AC21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
@@ -391,7 +399,7 @@
 		635729E0217CC162007AC21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;

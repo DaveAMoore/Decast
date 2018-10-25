@@ -15,6 +15,17 @@
 namespace remote_core {
     /// Manages connections with the IoT Core.
     class ConnectionManager {
+    public:
+        /**
+         Asynchronous callback that is used for handling the completion of tasks.
+         */
+        typedef std::function<void (awsiotsdk::ResponseCode responseCode)> CompletionHandler;
+        
+        /**
+         Asynchronous callback that is used when a message is received for a particular topic.
+         */
+        typedef std::function<awsiotsdk::ResponseCode (std::string topicName, std::string payload)> MessageHandler;
+        
     protected:
         std::shared_ptr<awsiotsdk::NetworkConnection> networkConnection;
         std::shared_ptr<awsiotsdk::mqtt::ConnectPacket> connectPacket;
@@ -23,6 +34,7 @@ namespace remote_core {
         std::shared_ptr<awsiotsdk::MqttClient> client;
         std::unique_ptr<awsiotsdk::Utf8String> clientID;
         std::vector<std::string> subscribedTopicNames;
+        std::map<std::string, MessageHandler> messageHandlersByTopicName;
         
         awsiotsdk::ResponseCode subscribeCallback(awsiotsdk::util::String topicName,
                                                   awsiotsdk::util::String payload,
@@ -37,12 +49,6 @@ namespace remote_core {
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
     public:
-        /**
-         Asynchronous callback that is used for handling the completion of tasks.
-         */
-        typedef std::function<void (awsiotsdk::ResponseCode responseCode)> CompletionHandler;
-        
-        
         ConnectionManager(const awsiotsdk::util::String &configFileRelativePath);
         
         /// Attempts to resume, or establish, a connection with the endpoint. (Synchronous)
@@ -60,7 +66,8 @@ namespace remote_core {
          @param topicName The name of the topic that will be subscribed to.
          @param completionHandler Called when the subscription has been completed, or has failed.
          */
-        void subscribeToTopic(const std::string topicName, CompletionHandler completionHandler);
+        void subscribeToTopic(const std::string &topicName, MessageHandler messageHandler,
+                              CompletionHandler completionHandler);
         
         /**
          Ubsubscribes from a topic, given the name of the topic to unsubscribe from. (Asynchronous)
@@ -68,7 +75,7 @@ namespace remote_core {
          @param topicName Topic that will be unsubscribed from.
          @param completionHandler Called when the unsubscribing is completed, or an error occurred.
          */
-        void unsubscribeFromTopic(const std::string topicName, CompletionHandler completionHandler);
+        void unsubscribeFromTopic(const std::string &topicName, CompletionHandler completionHandler);
         
         /**
          Publish a message to a topic, which is specified. (Asynchronous)
@@ -77,7 +84,8 @@ namespace remote_core {
          @param topicName Name of the topic that the message will be published to.
          @param completionHandler Called when the message has been published, or an error occurred.
          */
-        void publishMessageToTopic(const std::string message, const std::string topicName, CompletionHandler completionHandler);
+        void publishMessageToTopic(const std::string &message, const std::string &topicName,
+                                   CompletionHandler completionHandler);
         
         /**
          Returns a vector of topic names that are currently subscribed to.
