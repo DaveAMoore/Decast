@@ -1,6 +1,0 @@
-[submodule "Hardware/aws-iot-device-sdk-cpp"]
-	path = Hardware/aws-iot-device-sdk-cpp
-	url = https://github.com/aws/aws-iot-device-sdk-cpp.git
-[submodule "Hardware/googletest"]
-	path = Hardware/googletest
-	url = https://github.com/google/googletest.git
