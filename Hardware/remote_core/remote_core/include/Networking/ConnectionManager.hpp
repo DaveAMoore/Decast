@@ -12,7 +12,7 @@
 #include "mqtt/Client.hpp"
 #include "NetworkConnection.hpp"
 
-namespace remote_core {
+namespace RemoteCore {
     /// Manages connections with the IoT Core.
     class ConnectionManager {
     public:
@@ -49,7 +49,7 @@ namespace remote_core {
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
     public:
-        ConnectionManager(const awsiotsdk::util::String &configFileRelativePath);
+        ConnectionManager(const std::string &configFileRelativePath);
         
         /**
          Attempts to resume, or initally establish, a connection with the endpoint.
