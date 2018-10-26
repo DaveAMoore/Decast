@@ -15,10 +15,10 @@
 #include "util/logging/LogMacros.hpp"
 #include "util/logging/ConsoleLogSystem.hpp"
 
-using namespace remote_core;
+using namespace RemoteCore;
 using namespace awsiotsdk;
 
-ConnectionManager::ConnectionManager(const util::String &configFileRelativePath) : totalPublishedMessages(0), currentPendingMessages(0) {
+ConnectionManager::ConnectionManager(const std::string &configFileRelativePath) : currentPendingMessages(0), totalPublishedMessages(0) {
     // Initialize the common configuration then create an SSL connection.
     ConfigCommon::InitializeCommon(configFileRelativePath);
     auto tlsConnection = std::make_shared<network::OpenSSLConnection>(ConfigCommon::endpoint_,
@@ -94,6 +94,16 @@ ResponseCode ConnectionManager::resumeConnection() {
     return responseCode;
 }
 
+ResponseCode ConnectionManager::suspendConnection(void) {
+    // Prevent disconnecting if already disconnected.
+    if (!client->IsConnected()) {
+        return ResponseCode::SUCCESS;
+    }
+    
+    // Disconnect from the MQTT connection.
+    return client->Disconnect(ConfigCommon::mqtt_command_timeout_);
+}
+
 void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHandler messageHandler,
                                          CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
@@ -108,7 +118,7 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
     subscriptionVector.push_back(subscription);
     
     uint16_t packet_id_out;
-    ResponseCode responseCode = client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
+    client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             subscribedTopicNames.push_back(topicName);
             
@@ -121,10 +131,6 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
             completionHandler(responseCode);
         }
     }, packet_id_out);
-    
-    if (responseCode == ResponseCode::SUCCESS && completionHandler) {
-        completionHandler(responseCode);
-    }
 }
 
 void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
