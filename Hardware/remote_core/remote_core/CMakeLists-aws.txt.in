@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.2)
+
+project(aws-iot-device-sdk-cpp-download NONE)
+
+include(ExternalProject)
+ExternalProject_Add(aws-iot-device-sdk-cpp
+    GIT_REPOSITORY    https://github.com/aws/aws-iot-device-sdk-cpp.git
+    GIT_TAG           master
+    SOURCE_DIR        "${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src"
+    BINARY_DIR        "${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build"
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND     ""
+    INSTALL_COMMAND   ""
+    TEST_COMMAND      ""
+)
+
