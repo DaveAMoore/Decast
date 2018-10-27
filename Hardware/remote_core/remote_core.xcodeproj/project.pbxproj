@@ -146,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				635729DA217CC162007AC21C /* main.cpp */,
-				639899FB218246A400C346D1 /* RemoteController.hpp */,
 				639899FA218246A400C346D1 /* RemoteController.cpp */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
@@ -157,6 +156,7 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
+				639899FB218246A400C346D1 /* RemoteController.hpp */,
 				63572A09217CF54B007AC21C /* Configuration */,
 				63572A08217CF53D007AC21C /* Networking */,
 			);
@@ -420,9 +420,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
-					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/include",
+					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include/",
+					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,9 +442,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
-					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/include",
+					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
-					"$PROJECT_DIR/../aws-iot-device-sdk-cpp/build/third_party/rapidjson/src/include/",
+					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
