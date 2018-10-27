@@ -28,7 +28,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Configure Compiler flags
 if(UNIX AND NOT APPLE)
     # Prefer pthread if found
-# set(THREADS_PREFER_PTHREAD_FLAG ON)
+    set(THREADS_PREFER_PTHREAD_FLAG ON)
 endif()
 
 if(NOT DEPENDENCY_DIR)
@@ -56,12 +56,14 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src
 ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build EXCLUDE_FROM_ALL)
 
-# Create executable file.
+# Define the target name.
 set(TARGET_NAME remote_core)
-add_executable(${TARGET_NAME})
 
 # Get target sources.
 file(GLOB_RECURSE TARGET_SOURCES FOLLOW_SYMLINKS ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+# Create the executable.
+add_executable(${TARGET_NAME})
 
 # Add the include directories.
 target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
