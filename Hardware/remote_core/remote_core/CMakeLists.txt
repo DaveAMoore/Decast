@@ -28,7 +28,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Configure Compiler flags
 if(UNIX AND NOT APPLE)
     # Prefer pthread if found
-    set(THREADS_PREFER_PTHREAD_FLAG ON)
+# set(THREADS_PREFER_PTHREAD_FLAG ON)
 endif()
 
 if(NOT DEPENDENCY_DIR)
