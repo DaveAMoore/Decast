@@ -11,18 +11,24 @@
 
 #include "ConnectionManager.hpp"
 
-namespace remote_core {
+namespace RemoteCore {
     /// The base class for remote_core that should be used for remote-related functionality.
     class RemoteController {
     private:
-        
     protected:
         std::unique_ptr<ConnectionManager> connectionManager;
         
     public:
-        RemoteController();
+        RemoteController(const std::string &configFileRelativePath);
         
+        /**
+         Allows the controller to start managing a network connection and control hardware functionality.
+         */
         void startController(void);
+        
+        /**
+         Instructs the controller to disconnect from a current network connection and stop controlling hardware.
+         */
         void stopController(void);
     };
 }
