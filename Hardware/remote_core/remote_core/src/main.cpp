@@ -7,47 +7,38 @@
 //
 
 #include <iostream>
-#include "ConnectionManager.hpp"
-
-#include <future>
+#include <memory>
 #include <thread>
-#include <unistd.h>
-#include <CoreFoundation/CoreFoundation.h>
+#include <signal.h>
+#include "RemoteController.hpp"
 
-using namespace remote_core;
+#define CONFIG_FILE_RELATIVE_PATH "config/remote_core_config.json"
 
-void loop(void) {
-    while (true) {};
+static volatile sig_atomic_t shouldTerminate = 0;
+
+void handleSignal(int signum) {
+    switch (signum) {
+    case SIGTERM:
+        shouldTerminate = 1;
+        break;
+    default:
+        break;
+    }
 }
 
 int main(int argc, const char * argv[]) {
-    auto connectionManager = std::make_unique<ConnectionManager>("config/remote_core_config.json");
-    awsiotsdk::ResponseCode responseCode = connectionManager->resumeConnection();
+    // Create a remote controller, then start it.
+    auto remoteController = std::make_unique<RemoteCore::RemoteController>(CONFIG_FILE_RELATIVE_PATH);
+    remoteController->startController();
     
-    std::cout << "Response code: " << responseCode << std::endl;
-    
-    connectionManager->subscribeToTopic("topic_1", [](std::string topicName, std::string payload) {
-        return awsiotsdk::ResponseCode::SUCCESS;
-    }, [](awsiotsdk::ResponseCode responseCode) {
-        std::cout << responseCode << std::endl;
-    });
-    
+    // Maintain a run-loop while the program is ongoing.
     while (true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        if (shouldTerminate) {
+            break;
+        }
+        
+        //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
-    
-    /*auto future = std::async(&test);
-    std::unique_ptr<ConnectionManager> f = future.get();
-    
-    //auto r = std::make_unique<std::thread>(test);
-    //r->detach();
-    
-    auto t = std::make_unique<std::thread>(loop);
-    t->join();*/
-    
-    //while (true) {
-        // std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    //}
     
     return 0;
 }
