@@ -14,31 +14,44 @@
 
 #define CONFIG_FILE_RELATIVE_PATH "config/remote_core_config.json"
 
-static volatile sig_atomic_t shouldTerminate = 0;
+// MARK: - Signal Interface
 
+/// Last signal that was received.
+static volatile std::atomic_int lastSignal(0);
+
+/// Updates `lastSignal` with the received signal.
 void handleSignal(int signum) {
-    switch (signum) {
-    case SIGTERM:
-        shouldTerminate = 1;
-        break;
-    default:
-        break;
-    }
+    lastSignal = signum;
 }
 
+// MARK: - Lifecycle
+
 int main(int argc, const char * argv[]) {
+    // Provide a signal handler for termination and hangup.
+    signal(SIGTERM, &handleSignal);
+    signal(SIGHUP, &handleSignal);
+    
     // Create a remote controller, then start it.
     auto remoteController = std::make_unique<RemoteCore::RemoteController>(CONFIG_FILE_RELATIVE_PATH);
     remoteController->startController();
     
     // Maintain a run-loop while the program is ongoing.
     while (true) {
-        if (shouldTerminate) {
+        if (lastSignal == SIGHUP) {
+            // Reload the configuration file by restarting the controller.
+            remoteController->stopController();
+            remoteController->startController();
+        } else if (lastSignal == SIGTERM) {
+            // Exit cleanly.
             break;
         }
         
-        //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        // Reset the signal.
+        lastSignal = 0;
     }
+    
+    // Disconnect from the connection manager.
+    remoteController->stopController();
     
     return 0;
 }
