@@ -66,6 +66,7 @@ file(GLOB_RECURSE TARGET_SOURCES FOLLOW_SYMLINKS ${PROJECT_SOURCE_DIR}/src/*.cpp
 # Add the include directories.
 target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include/Configuration)
+target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include/Controllers)
 target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include/Networking)
 target_sources(${TARGET_NAME} PRIVATE ${TARGET_SOURCES})
 

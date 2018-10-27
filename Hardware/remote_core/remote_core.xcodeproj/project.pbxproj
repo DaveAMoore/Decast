@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				635729DA217CC162007AC21C /* main.cpp */,
-				639899FA218246A400C346D1 /* RemoteController.cpp */,
+				63A8DE682184FA6B00B8C961 /* Controllers */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
 			);
@@ -156,7 +156,7 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				639899FB218246A400C346D1 /* RemoteController.hpp */,
+				63A8DE672184FA6200B8C961 /* Controllers */,
 				63572A09217CF54B007AC21C /* Configuration */,
 				63572A08217CF53D007AC21C /* Networking */,
 			);
@@ -231,6 +231,22 @@
 			children = (
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		63A8DE672184FA6200B8C961 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639899FB218246A400C346D1 /* RemoteController.hpp */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63A8DE682184FA6B00B8C961 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639899FA218246A400C346D1 /* RemoteController.cpp */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
