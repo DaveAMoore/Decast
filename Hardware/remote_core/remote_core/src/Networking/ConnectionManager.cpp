@@ -8,6 +8,7 @@
 
 #include <chrono>
 #include <cstring>
+#include <algorithm>
 #include "ConnectionManager.hpp"
 #include "OpenSSLConnection.hpp"
 #include "ConfigCommon.hpp"
