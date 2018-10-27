@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 project(remote_core CXX)
 option(BUILD_TESTS "Build the tests." ON)
 
@@ -58,7 +58,7 @@ ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build EXCLUDE_FROM_ALL)
 
 # Create executable file.
 set(TARGET_NAME remote_core)
-add_executable(${TARGET_NAME})
+add_executable(${TARGET_NAME} "")
 
 # Get target sources.
 file(GLOB_RECURSE TARGET_SOURCES FOLLOW_SYMLINKS ${PROJECT_SOURCE_DIR}/src/*.cpp)
