@@ -121,9 +121,13 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
     uint16_t packet_id_out;
     client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
-            subscribedTopicNames.push_back(topicName);
+            {
+                std::lock_guard<std::mutex> lock(subscribedTopicNamesMutex);
+                subscribedTopicNames.push_back(topicName);
+            }
             
             if (messageHandler) {
+                std::lock_guard<std::mutex> lock(messageHandlersByTopicNameMutex);
                 messageHandlersByTopicName.emplace(std::make_pair(topicName, messageHandler));
             }
         }
@@ -143,15 +147,19 @@ void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
     uint16_t packetIDOut;
     client->UnsubscribeAsync(std::move(topicVector), [&, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
-            auto position = std::find(subscribedTopicNames.begin(), subscribedTopicNames.end(), topicName);
-            
-            if (position != subscribedTopicNames.end()) {
-                auto index = subscribedTopicNames.begin() + std::distance(subscribedTopicNames.begin(),
-                                                                          position);
-                subscribedTopicNames.erase(index);
+            {
+                std::lock_guard<std::mutex> lock(subscribedTopicNamesMutex);
+                auto position = std::find(subscribedTopicNames.begin(), subscribedTopicNames.end(), topicName);
+                
+                if (position != subscribedTopicNames.end()) {
+                    auto index = subscribedTopicNames.begin() + std::distance(subscribedTopicNames.begin(),
+                                                                              position);
+                    subscribedTopicNames.erase(index);
+                }
             }
             
             // Attempt to erase the message handler associated with the topic.
+            std::lock_guard<std::mutex> lock(messageHandlersByTopicNameMutex);
             messageHandlersByTopicName.erase(topicName);
         }
         
@@ -171,10 +179,11 @@ void ConnectionManager::publishMessageToTopic(const std::string &message, const 
     }, packetIDOut);
 }
 
-// TODO: Implement subscribedTopicNames management these callbacks.
+// TODO: Implement subscribedTopicNames management for these callbacks.
 ResponseCode ConnectionManager::subscribeCallback(util::String topicName, util::String payload,
                                                   std::shared_ptr<mqtt::SubscriptionHandlerContextData> handlerData) {
     // Call the message handler, if applicable.
+    std::lock_guard<std::mutex> lock(messageHandlersByTopicNameMutex);
     auto messageHandlerIt = messageHandlersByTopicName.find(topicName);
     if (messageHandlerIt != messageHandlersByTopicName.end()) {
         messageHandlerIt->second(topicName, payload);

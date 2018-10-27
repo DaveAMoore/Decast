@@ -9,6 +9,11 @@
 #ifndef ConnectionManager_hpp
 #define ConnectionManager_hpp
 
+#include <atomic>
+#include <memory>
+#include <vector>
+#include <mutex>
+
 #include "mqtt/Client.hpp"
 #include "NetworkConnection.hpp"
 
@@ -35,6 +40,8 @@ namespace RemoteCore {
         std::unique_ptr<awsiotsdk::Utf8String> clientID;
         std::vector<std::string> subscribedTopicNames;
         std::map<std::string, MessageHandler> messageHandlersByTopicName;
+        std::mutex subscribedTopicNamesMutex;
+        std::mutex messageHandlersByTopicNameMutex;
         
         awsiotsdk::ResponseCode subscribeCallback(awsiotsdk::util::String topicName,
                                                   awsiotsdk::util::String payload,
@@ -96,6 +103,7 @@ namespace RemoteCore {
          Returns a vector of topic names that are currently subscribed to.
          */
         std::vector<std::string> getSubscribedTopicNames(void) {
+            std::lock_guard<std::mutex> lock(subscribedTopicNamesMutex);
             return subscribedTopicNames;
         }
     };
