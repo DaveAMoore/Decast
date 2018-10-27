@@ -11,7 +11,7 @@ message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (
 endif ()
 
 ########################################
-# Section : Common SDK Build setttings #
+# Section : Common Target Build setttings #
 ########################################
 
 # Set required compiler standard to standard c++11. Disable extensions.
@@ -35,14 +35,15 @@ elseif (WIN32)
 endif ()
 
 #############################
-# Add SDK Testing Target #
+# Add Testing Target #
 #############################
 enable_testing()
 set(UNIT_TEST_TARGET_NAME remote_core_unit_tests)
-add_executable(${UNIT_TEST_TARGET_NAME} "${PROJECT_SOURCE_DIR}/src/Configuration/ConfigCommon.cpp")
+add_executable(${UNIT_TEST_TARGET_NAME} "${PROJECT_SOURCE_DIR}/../../src/Configuration/ConfigCommon.cpp")
 
-target_include_directories(${SDK_TARGET_NAME} PUBLIC ${CMAKE_BINARY_DIR}/third_party/rapidjson/src/include)
-target_include_directories(${SDK_TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src/include)
+target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_BINARY_DIR}/third_party/rapidjson/src/include)
+target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 # Configure Threading library
 find_package(Threads REQUIRED)
@@ -66,15 +67,16 @@ WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/googletest/download)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 # This adds the following targets: gtest, gtest_main, gmock and gmock_main
-add_subdirectory(${CMAKE_BINARY_DIR}/third_party/googletest/src
-${CMAKE_BINARY_DIR}/third_party/googletest/build EXCLUDE_FROM_ALL)
+# add_subdirectory(${CMAKE_BINARY_DIR}/third_party/googletest/src)
+# add_subdirectory(${CMAKE_BINARY_DIR}/third_party/googletest/src
+# ${CMAKE_BINARY_DIR}/third_party/googletest/build EXCLUDE_FROM_ALL)
 
-file(GLOB_RECURSE SDK_UNIT_TEST_SOURCES FOLLOW_SYMLINKS ${CMAKE_SOURCE_DIR}/tests/unit/src/*.cpp)
-target_sources(${UNIT_TEST_TARGET_NAME} PUBLIC ${SDK_UNIT_TEST_SOURCES})
+file(GLOB_RECURSE TARGET_UNIT_TEST_SOURCES FOLLOW_SYMLINKS ${CMAKE_SOURCE_DIR}/tests/unit/src/*.cpp)
+target_sources(${UNIT_TEST_TARGET_NAME} PUBLIC ${TARGET_UNIT_TEST_SOURCES})
 # target_include_directories(${UNIT_TEST_TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/tests/unit/include)
 target_link_libraries(${UNIT_TEST_TARGET_NAME} gtest gtest_main gmock gmock_main)
-target_link_libraries(${UNIT_TEST_TARGET_NAME} ${THREAD_LIBRARY_LINK_STRING})
-target_link_libraries(${UNIT_TEST_TARGET_NAME} ${SDK_TARGET_NAME})
+# target_link_libraries(${UNIT_TEST_TARGET_NAME} ${THREAD_LIBRARY_LINK_STRING})
+# target_link_libraries(${UNIT_TEST_TARGET_NAME} ${TARGET_NAME})
 
 find_program(GCOV gcov)
 find_program(LCOV lcov)
