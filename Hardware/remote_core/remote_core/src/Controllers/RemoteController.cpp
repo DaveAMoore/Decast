@@ -31,5 +31,8 @@ void RemoteController::startController() {
 }
 
 void RemoteController::stopController() {
+    awsiotsdk::ResponseCode responseCode = connectionManager->suspendConnection();
     
+    // TODO: Remove from debug build.
+    std::cout << "Response code: " << responseCode << std::endl;
 }

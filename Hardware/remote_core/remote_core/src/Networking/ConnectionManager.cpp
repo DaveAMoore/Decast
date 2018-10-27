@@ -119,7 +119,7 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
     subscriptionVector.push_back(subscription);
     
     uint16_t packet_id_out;
-    client->SubscribeAsync(subscriptionVector, [&, topicName](uint16_t actionID, ResponseCode responseCode) {
+    client->SubscribeAsync(subscriptionVector, [&, messageHandler, completionHandler, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             {
                 std::lock_guard<std::mutex> lock(subscribedTopicNamesMutex);
@@ -145,7 +145,7 @@ void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
     topicVector.push_back(std::move(topicNamePtr));
     
     uint16_t packetIDOut;
-    client->UnsubscribeAsync(std::move(topicVector), [&, topicName](uint16_t actionID, ResponseCode responseCode) {
+    client->UnsubscribeAsync(std::move(topicVector), [&, completionHandler, topicName](uint16_t actionID, ResponseCode responseCode) {
         if (responseCode == ResponseCode::SUCCESS) {
             {
                 std::lock_guard<std::mutex> lock(subscribedTopicNamesMutex);
@@ -174,7 +174,7 @@ void ConnectionManager::publishMessageToTopic(const std::string &message, const 
     auto topicNamePtr = Utf8String::Create(topicName);
     
     uint16_t packetIDOut;
-    client->PublishAsync(std::move(topicNamePtr), false, false, mqtt::QoS::QOS0, message, [&](uint16_t actionID, ResponseCode responseCode) {
+    client->PublishAsync(std::move(topicNamePtr), false, false, mqtt::QoS::QOS0, message, [&, completionHandler](uint16_t actionID, ResponseCode responseCode) {
         completionHandler(responseCode);
     }, packetIDOut);
 }
