@@ -42,6 +42,7 @@ namespace RemoteCore {
         std::map<std::string, MessageHandler> messageHandlersByTopicName;
         std::mutex subscribedTopicNamesMutex;
         std::mutex messageHandlersByTopicNameMutex;
+        const awsiotsdk::mqtt::QoS qualityOfService;
         
         awsiotsdk::ResponseCode subscribeCallback(awsiotsdk::util::String topicName,
                                                   awsiotsdk::util::String payload,
@@ -56,7 +57,8 @@ namespace RemoteCore {
                                                     awsiotsdk::ResponseCode resubscribeResult);
         
     public:
-        ConnectionManager(const std::string &configFileRelativePath);
+        ConnectionManager(const std::string &configFileRelativePath,
+                          const awsiotsdk::mqtt::QoS qualityOfService = awsiotsdk::mqtt::QoS::QOS1);
         
         /**
          Attempts to resume, or initally establish, a connection with the endpoint.

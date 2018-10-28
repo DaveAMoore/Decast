@@ -19,7 +19,10 @@
 using namespace RemoteCore;
 using namespace awsiotsdk;
 
-ConnectionManager::ConnectionManager(const std::string &configFileRelativePath) : currentPendingMessages(0), totalPublishedMessages(0) {
+// MARK: - Connection Manager Implementation
+
+ConnectionManager::ConnectionManager(const std::string &configFileRelativePath,
+                                     const awsiotsdk::mqtt::QoS qualityOfService) : currentPendingMessages(0), totalPublishedMessages(0), qualityOfService(qualityOfService) {
     // Initialize the common configuration then create an SSL connection.
     ConfigCommon::InitializeCommon(configFileRelativePath);
     auto tlsConnection = std::make_shared<network::OpenSSLConnection>(ConfigCommon::endpoint_,
@@ -114,7 +117,7 @@ void ConnectionManager::subscribeToTopic(const std::string &topicName, MessageHa
               std::placeholders::_2,
               std::placeholders::_3);
     
-    auto subscription = mqtt::Subscription::Create(std::move(topicNamePtr), mqtt::QoS::QOS1, subscriptionHandler, nullptr);
+    auto subscription = mqtt::Subscription::Create(std::move(topicNamePtr), qualityOfService, subscriptionHandler, nullptr);
     util::Vector<std::shared_ptr<mqtt::Subscription>> subscriptionVector;
     subscriptionVector.push_back(subscription);
     
@@ -174,7 +177,7 @@ void ConnectionManager::publishMessageToTopic(const std::string &message, const 
     auto topicNamePtr = Utf8String::Create(topicName);
     
     uint16_t packetIDOut;
-    client->PublishAsync(std::move(topicNamePtr), false, false, mqtt::QoS::QOS0, message, [&, completionHandler](uint16_t actionID, ResponseCode responseCode) {
+    client->PublishAsync(std::move(topicNamePtr), false, false, qualityOfService, message, [&, completionHandler](uint16_t actionID, ResponseCode responseCode) {
         completionHandler(responseCode);
     }, packetIDOut);
 }
