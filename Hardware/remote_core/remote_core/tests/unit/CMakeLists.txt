@@ -15,9 +15,9 @@ endif ()
 ########################################
 
 # Set required compiler standard to standard c++11. Disable extensions.
-set(CMAKE_CXX_STANDARD 11) # C++11...
+set(CMAKE_CXX_STANDARD 14) # C++14...
 set(CMAKE_CXX_STANDARD_REQUIRED ON) #...is required...
-set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++11
+set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++14
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/archive)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -27,12 +27,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 if (UNIX AND NOT APPLE)
     # Prefer pthread if found
     set(THREADS_PREFER_PTHREAD_FLAG ON)
-    set(CUSTOM_COMPILER_FLAGS "-fno-exceptions -Wall -Werror")
-elseif (APPLE)
-    set(CUSTOM_COMPILER_FLAGS "-fno-exceptions -Wall -Werror")
-elseif (WIN32)
-    set(CUSTOM_COMPILER_FLAGS "/W4")
-endif ()
+endif()
 
 #############################
 # Add Testing Target #
@@ -45,6 +40,21 @@ add_executable(${UNIT_TEST_TARGET_NAME} "")
 target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src/include)
 target_include_directories(${UNIT_TEST_TARGET_NAME} PUBLIC ${CMAKE_BINARY_DIR}/third_party/rapidjson/src/include)
 target_include_directories(${UNIT_TEST_TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+# Get target sources.
+file(GLOB_RECURSE UNIT_TEST_TARGET_SOURCES FOLLOW_SYMLINKS ${PROJECT_SOURCE_DIR}/../../src/*.cpp)
+list(REMOVE_ITEM UNIT_TEST_TARGET_SOURCES "${PROJECT_SOURCE_DIR}/../../src/main.cpp")
+
+# Add the include directories.
+target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/../../include)
+target_sources(${UNIT_TEST_TARGET_NAME} PRIVATE ${UNIT_TEST_TARGET_SOURCES})
+
+target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/aws-iot-device-sdk-cpp/src/include)
+
+target_link_libraries(${UNIT_TEST_TARGET_NAME} aws-iot-sdk-cpp)
+
+find_package(OpenSSL REQUIRED)
+target_link_libraries(${UNIT_TEST_TARGET_NAME} OpenSSL::SSL)
 
 # Configure Threading library
 find_package(Threads REQUIRED)
