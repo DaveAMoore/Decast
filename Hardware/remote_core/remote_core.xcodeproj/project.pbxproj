@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6312156021853EF2004D850B /* ConnectionManagerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */; };
+		6312156221854154004D850B /* libgtestd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6312156121854154004D850B /* libgtestd.a */; };
 		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
 		635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
 		635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
@@ -47,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionManagerTests.cpp; sourceTree = "<group>"; };
+		6312156121854154004D850B /* libgtestd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtestd.a; path = remote_core/build/lib/libgtestd.a; sourceTree = SOURCE_ROOT; };
 		635729D7217CC162007AC21C /* remote_core */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core; sourceTree = BUILT_PRODUCTS_DIR; };
 		635729DA217CC162007AC21C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenSSLConnection.cpp; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6312156221854154004D850B /* libgtestd.a in Frameworks */,
 				635729FC217CCDDA007AC21C /* libssl.a in Frameworks */,
 				635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */,
 				635729FD217CCDDA007AC21C /* libcrypto.a in Frameworks */,
@@ -85,6 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6312156321854283004D850B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639899FB218246A400C346D1 /* RemoteController.hpp */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		631215642185428D004D850B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				63572A03217CDA53007AC21C /* ConfigCommon.hpp */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		631215652185429E004D850B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				63572A00217CD7D2007AC21C /* ConnectionManager.hpp */,
+				635729E2217CC5F9007AC21C /* OpenSSLConnection.hpp */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		635729CE217CC162007AC21C = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +160,7 @@
 				635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */,
 				635729FA217CCDDA007AC21C /* libcrypto.a */,
 				635729F9217CCDDA007AC21C /* libssl.a */,
+				6312156121854154004D850B /* libgtestd.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -156,28 +187,11 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				63A8DE672184FA6200B8C961 /* Controllers */,
-				63572A09217CF54B007AC21C /* Configuration */,
-				63572A08217CF53D007AC21C /* Networking */,
+				631215652185429E004D850B /* Networking */,
+				6312156321854283004D850B /* Controllers */,
+				631215642185428D004D850B /* Configuration */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		63572A08217CF53D007AC21C /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				63572A00217CD7D2007AC21C /* ConnectionManager.hpp */,
-				635729E2217CC5F9007AC21C /* OpenSSLConnection.hpp */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		63572A09217CF54B007AC21C /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				63572A03217CDA53007AC21C /* ConfigCommon.hpp */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		63572A0A217CF8B3007AC21C /* config */ = {
@@ -229,16 +243,9 @@
 		639899F92182080B00C346D1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		63A8DE672184FA6200B8C961 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				639899FB218246A400C346D1 /* RemoteController.hpp */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		63A8DE682184FA6B00B8C961 /* Controllers */ = {
@@ -307,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
+				6312156021853EF2004D850B /* ConnectionManagerTests.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
@@ -437,14 +445,16 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					/usr/local/Cellar/openssl/1.0.2o_2/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/remote_core",
 					/usr/local/Cellar/openssl/1.0.2o_2/lib,
 					"$(PROJECT_DIR)/remote_core/lib",
+					"$(PROJECT_DIR)/remote_core/build/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -459,14 +469,16 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					/usr/local/Cellar/openssl/1.0.2o_2/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/remote_core",
 					/usr/local/Cellar/openssl/1.0.2o_2/lib,
 					"$(PROJECT_DIR)/remote_core/lib",
+					"$(PROJECT_DIR)/remote_core/build/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
