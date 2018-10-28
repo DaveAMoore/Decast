@@ -12,7 +12,7 @@ using namespace RemoteCore;
 using namespace awsiotsdk;
 
 RemoteController::RemoteController(const std::string &configFileRelativePath) {
-    // Create a new 
+    // Create a new connection manager.
     connectionManager = std::make_unique<ConnectionManager>(configFileRelativePath);
 }
 
@@ -22,8 +22,14 @@ void RemoteController::startController() {
     // TODO: Remove from debug build.
     std::cout << "Response code: " << responseCode << std::endl;
     
-    connectionManager->subscribeToTopic("topic_1", [](std::string topicName, std::string payload) {
+    connectionManager->subscribeToTopic("topic_1", [&](std::string topicName, std::string payload) {
         std::cout << payload << std::endl;
+        
+        std::string message = R"({"message": "Hello from Pi!"})";
+        if (payload != message) {
+            connectionManager->publishMessageToTopic(message, topicName, nullptr);
+        }
+        
         return awsiotsdk::ResponseCode::SUCCESS;
     }, [](awsiotsdk::ResponseCode responseCode) {
         std::cout << responseCode << std::endl;
