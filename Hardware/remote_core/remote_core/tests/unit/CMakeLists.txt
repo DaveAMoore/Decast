@@ -39,11 +39,12 @@ endif ()
 #############################
 enable_testing()
 set(UNIT_TEST_TARGET_NAME remote_core_unit_tests)
-add_executable(${UNIT_TEST_TARGET_NAME} "${PROJECT_SOURCE_DIR}/../../src/Configuration/ConfigCommon.cpp")
+# add_executable(${UNIT_TEST_TARGET_NAME} "${PROJECT_SOURCE_DIR}/../../src/Configuration/ConfigCommon.cpp")
+add_executable(${UNIT_TEST_TARGET_NAME} "")
 
-target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src/include)
-target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_BINARY_DIR}/third_party/rapidjson/src/include)
-target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src/include)
+target_include_directories(${UNIT_TEST_TARGET_NAME} PUBLIC ${CMAKE_BINARY_DIR}/third_party/rapidjson/src/include)
+target_include_directories(${UNIT_TEST_TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 # Configure Threading library
 find_package(Threads REQUIRED)
