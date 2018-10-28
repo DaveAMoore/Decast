@@ -178,7 +178,9 @@ void ConnectionManager::publishMessageToTopic(const std::string &message, const 
     
     uint16_t packetIDOut;
     client->PublishAsync(std::move(topicNamePtr), false, false, qualityOfService, message, [&, completionHandler](uint16_t actionID, ResponseCode responseCode) {
-        completionHandler(responseCode);
+        if (completionHandler) {
+            completionHandler(responseCode);
+        }
     }, packetIDOut);
 }
 
