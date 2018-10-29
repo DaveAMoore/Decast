@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6312156021853EF2004D850B /* ConnectionManagerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */; };
 		6312156221854154004D850B /* libgtestd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6312156121854154004D850B /* libgtestd.a */; };
+		631215712186BFAF004D850B /* libgmockd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631215702186BFAF004D850B /* libgmockd.a */; };
 		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
 		635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
 		635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionManagerTests.cpp; sourceTree = "<group>"; };
 		6312156121854154004D850B /* libgtestd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtestd.a; path = remote_core/build/lib/libgtestd.a; sourceTree = SOURCE_ROOT; };
+		631215702186BFAF004D850B /* libgmockd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmockd.a; path = remote_core/build/lib/libgmockd.a; sourceTree = SOURCE_ROOT; };
 		635729D7217CC162007AC21C /* remote_core */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core; sourceTree = BUILT_PRODUCTS_DIR; };
 		635729DA217CC162007AC21C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenSSLConnection.cpp; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631215712186BFAF004D850B /* libgmockd.a in Frameworks */,
 				6312156221854154004D850B /* libgtestd.a in Frameworks */,
 				635729FC217CCDDA007AC21C /* libssl.a in Frameworks */,
 				635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */,
@@ -161,6 +164,7 @@
 				635729FA217CCDDA007AC21C /* libcrypto.a */,
 				635729F9217CCDDA007AC21C /* libssl.a */,
 				6312156121854154004D850B /* libgtestd.a */,
+				631215702186BFAF004D850B /* libgmockd.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
