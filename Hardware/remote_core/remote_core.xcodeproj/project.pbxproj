@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6312156021853EF2004D850B /* ConnectionManagerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */; };
-		6312156221854154004D850B /* libgtestd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6312156121854154004D850B /* libgtestd.a */; };
-		631215712186BFAF004D850B /* libgmockd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631215702186BFAF004D850B /* libgmockd.a */; };
 		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
 		635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
 		635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
@@ -22,6 +19,17 @@
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
+		63F605D421881E1B0002A278 /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
+		63F605D521881E1E0002A278 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729FA217CCDDA007AC21C /* libcrypto.a */; };
+		63F605D621881E1E0002A278 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F9217CCDDA007AC21C /* libssl.a */; };
+		63F605D721881E1E0002A278 /* libgtestd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6312156121854154004D850B /* libgtestd.a */; };
+		63F605D821881E1E0002A278 /* libgmockd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631215702186BFAF004D850B /* libgmockd.a */; };
+		63F605D921881E280002A278 /* ConnectionManagerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */; };
+		63F605DA21881E950002A278 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
+		63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729FF217CD7D2007AC21C /* ConnectionManager.cpp */; };
+		63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
+		63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63572A02217CDA53007AC21C /* ConfigCommon.cpp */; };
+		63F605DF21881EBC0002A278 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63F605DE21881EBC0002A278 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +54,15 @@
 				63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F605CB21881DE30002A278 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -75,6 +92,8 @@
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
 		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
+		63F605CD21881DE30002A278 /* remote_core_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F605DE21881EBC0002A278 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +101,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631215712186BFAF004D850B /* libgmockd.a in Frameworks */,
-				6312156221854154004D850B /* libgtestd.a in Frameworks */,
 				635729FC217CCDDA007AC21C /* libssl.a in Frameworks */,
 				635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */,
 				635729FD217CCDDA007AC21C /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F605CA21881DE30002A278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63F605D821881E1E0002A278 /* libgmockd.a in Frameworks */,
+				63F605D721881E1E0002A278 /* libgtestd.a in Frameworks */,
+				63F605D521881E1E0002A278 /* libcrypto.a in Frameworks */,
+				63F605D421881E1B0002A278 /* libaws-iot-sdk-cpp.a in Frameworks */,
+				63F605D621881E1E0002A278 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				635729D7217CC162007AC21C /* remote_core */,
+				63F605CD21881DE30002A278 /* remote_core_unit_tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +277,7 @@
 		639899F92182080B00C346D1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				63F605DE21881EBC0002A278 /* main.cpp */,
 				6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */,
 			);
 			path = src;
@@ -281,6 +312,23 @@
 			productReference = 635729D7217CC162007AC21C /* remote_core */;
 			productType = "com.apple.product-type.tool";
 		};
+		63F605CC21881DE30002A278 /* remote_core_unit_tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63F605D121881DE30002A278 /* Build configuration list for PBXNativeTarget "remote_core_unit_tests" */;
+			buildPhases = (
+				63F605C921881DE30002A278 /* Sources */,
+				63F605CA21881DE30002A278 /* Frameworks */,
+				63F605CB21881DE30002A278 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = remote_core_unit_tests;
+			productName = remote_core_unit_tests;
+			productReference = 63F605CD21881DE30002A278 /* remote_core_unit_tests */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -291,6 +339,9 @@
 				ORGANIZATIONNAME = "David Moore";
 				TargetAttributes = {
 					635729D6217CC162007AC21C = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					63F605CC21881DE30002A278 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -308,6 +359,7 @@
 			projectRoot = "";
 			targets = (
 				635729D6217CC162007AC21C /* remote_core */,
+				63F605CC21881DE30002A278 /* remote_core_unit_tests */,
 			);
 		};
 /* End PBXProject section */
@@ -318,11 +370,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
-				6312156021853EF2004D850B /* ConnectionManagerTests.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F605C921881DE30002A278 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63F605D921881E280002A278 /* ConnectionManagerTests.cpp in Sources */,
+				63F605DA21881E950002A278 /* RemoteController.cpp in Sources */,
+				63F605DF21881EBC0002A278 /* main.cpp in Sources */,
+				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
+				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
+				63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +507,7 @@
 		635729DF217CC162007AC21C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
@@ -451,6 +515,7 @@
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
@@ -467,7 +532,7 @@
 		635729E0217CC162007AC21C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
@@ -475,12 +540,57 @@
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
 					/usr/local/Cellar/openssl/1.0.2o_2/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/remote_core",
 					/usr/local/Cellar/openssl/1.0.2o_2/lib,
+					"$(PROJECT_DIR)/remote_core/lib",
+					"$(PROJECT_DIR)/remote_core/build/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		63F605D221881DE30002A278 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				HEADER_SEARCH_PATHS = (
+					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/remote_core/lib",
+					"$(PROJECT_DIR)/remote_core/build/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63F605D321881DE30002A278 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				HEADER_SEARCH_PATHS = (
+					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
+					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
+					/usr/local/Cellar/openssl/1.0.2o_2/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/remote_core/lib",
 					"$(PROJECT_DIR)/remote_core/build/lib",
 				);
@@ -505,6 +615,15 @@
 			buildConfigurations = (
 				635729DF217CC162007AC21C /* Debug */,
 				635729E0217CC162007AC21C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63F605D121881DE30002A278 /* Build configuration list for PBXNativeTarget "remote_core_unit_tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63F605D221881DE30002A278 /* Debug */,
+				63F605D321881DE30002A278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
