@@ -8,10 +8,12 @@
 
 #include <memory>
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "ConnectionManager.hpp"
 
 using namespace awsiotsdk;
 using namespace RemoteCore;
+using namespace testing;
 
 #define DEFAULT_TOPIC_NAME "topic_1"
 
@@ -37,5 +39,12 @@ TEST_F(ConnectionManagerTests, ResumeAndSuspendConnection) {
 }
 
 TEST_F(ConnectionManagerTests, SubscribeToTopic) {
-    /*connectionManager->subscribeToTopic(DEFAULT_TOPIC_NAME, <#MessageHandler messageHandler#>, <#CompletionHandler completionHandler#>);*/
+    
 }
+
+//int main(int argc, char** argv) {
+//    // The following line must be executed to initialize Google Mock
+//    // (and Google Test) before running the tests.
+//    InitGoogleMock(&argc, argv);
+//    return RUN_ALL_TESTS();
+//}
