@@ -15,7 +15,8 @@ Message::Message() {
 }
 
 void Message::encodeWithCoder(Coder *aCoder) {
-    
+    int i = 0;
+    aCoder->encodeIntForKey(i, "i");
 }
 
 void Message::decodeWithCoder(Coder *aCoder) {

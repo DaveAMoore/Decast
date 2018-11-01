@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6317DD8B218B5B6E00850B16 /* JSONContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6317DD89218B5B6E00850B16 /* JSONContainer.cpp */; };
+		6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6317DD89218B5B6E00850B16 /* JSONContainer.cpp */; };
 		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
 		635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */; };
 		635729FB217CCDDA007AC21C /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
@@ -75,6 +77,9 @@
 		6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionManagerTests.cpp; sourceTree = "<group>"; };
 		6312156121854154004D850B /* libgtestd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtestd.a; path = remote_core/build/lib/libgtestd.a; sourceTree = SOURCE_ROOT; };
 		631215702186BFAF004D850B /* libgmockd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmockd.a; path = remote_core/build/lib/libgmockd.a; sourceTree = SOURCE_ROOT; };
+		6317DD86218B542600850B16 /* Container.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Container.hpp; sourceTree = "<group>"; };
+		6317DD89218B5B6E00850B16 /* JSONContainer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JSONContainer.cpp; sourceTree = "<group>"; };
+		6317DD8A218B5B6E00850B16 /* JSONContainer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JSONContainer.hpp; sourceTree = "<group>"; };
 		635729D7217CC162007AC21C /* remote_core */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core; sourceTree = BUILT_PRODUCTS_DIR; };
 		635729DA217CC162007AC21C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		635729E1217CC5F9007AC21C /* OpenSSLConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenSSLConnection.cpp; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				63E204B2218A9B1600228A0D /* Coder.cpp */,
+				6317DD89218B5B6E00850B16 /* JSONContainer.cpp */,
 			);
 			path = Coding;
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 			children = (
 				63E204B7218B2E7800228A0D /* Coding.hpp */,
 				63E204B3218A9B1600228A0D /* Coder.hpp */,
+				6317DD86218B542600850B16 /* Container.hpp */,
+				6317DD8A218B5B6E00850B16 /* JSONContainer.hpp */,
 			);
 			name = Coding;
 			sourceTree = "<group>";
@@ -425,6 +433,7 @@
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
 				63E204B0218A948900228A0D /* Message.cpp in Sources */,
 				63E204B4218A9B1600228A0D /* Coder.cpp in Sources */,
+				6317DD8B218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +448,7 @@
 				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
 				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
 				63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */,
+				6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
 			);
