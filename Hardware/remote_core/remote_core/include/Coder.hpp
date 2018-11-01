@@ -9,10 +9,11 @@
 #ifndef Coder_hpp
 #define Coder_hpp
 
+#include <iostream>
+#include <memory>
 #include <rapidjson/document.h>
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
-#include <iostream>
 
 namespace RemoteCore {
     class Coding;
