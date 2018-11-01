@@ -19,6 +19,11 @@
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
+		63E204B0218A948900228A0D /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204AE218A948900228A0D /* Message.cpp */; };
+		63E204B1218A948900228A0D /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204AE218A948900228A0D /* Message.cpp */; };
+		63E204B4218A9B1600228A0D /* Coder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204B2218A9B1600228A0D /* Coder.cpp */; };
+		63E204B5218A9B1600228A0D /* Coder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204B2218A9B1600228A0D /* Coder.cpp */; };
+		63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204BD218B3B6B00228A0D /* CoderTests.cpp */; };
 		63F605D421881E1B0002A278 /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
 		63F605D521881E1E0002A278 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729FA217CCDDA007AC21C /* libcrypto.a */; };
 		63F605D621881E1E0002A278 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F9217CCDDA007AC21C /* libssl.a */; };
@@ -92,6 +97,12 @@
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
 		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
+		63E204AE218A948900228A0D /* Message.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
+		63E204AF218A948900228A0D /* Message.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
+		63E204B2218A9B1600228A0D /* Coder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coder.cpp; sourceTree = "<group>"; };
+		63E204B3218A9B1600228A0D /* Coder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coder.hpp; sourceTree = "<group>"; };
+		63E204B7218B2E7800228A0D /* Coding.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coding.hpp; sourceTree = "<group>"; };
+		63E204BD218B3B6B00228A0D /* CoderTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CoderTests.cpp; sourceTree = "<group>"; };
 		63F605CD21881DE30002A278 /* remote_core_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F605DE21881EBC0002A278 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				635729DA217CC162007AC21C /* main.cpp */,
+				63E204BA218B39C700228A0D /* Coding */,
+				63E204AD218A947500228A0D /* Messaging */,
 				63A8DE682184FA6B00B8C961 /* Controllers */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
@@ -221,6 +234,8 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
+				63E204BB218B3AA400228A0D /* Coding */,
+				63E204BC218B3ABB00228A0D /* Messaging */,
 				631215652185429E004D850B /* Networking */,
 				6312156321854283004D850B /* Controllers */,
 				631215642185428D004D850B /* Configuration */,
@@ -278,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				63F605DE21881EBC0002A278 /* main.cpp */,
+				63E204BD218B3B6B00228A0D /* CoderTests.cpp */,
 				6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */,
 			);
 			path = src;
@@ -289,6 +305,39 @@
 				639899FA218246A400C346D1 /* RemoteController.cpp */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63E204AD218A947500228A0D /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				63E204AE218A948900228A0D /* Message.cpp */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		63E204BA218B39C700228A0D /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				63E204B2218A9B1600228A0D /* Coder.cpp */,
+			);
+			path = Coding;
+			sourceTree = "<group>";
+		};
+		63E204BB218B3AA400228A0D /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				63E204B7218B2E7800228A0D /* Coding.hpp */,
+				63E204B3218A9B1600228A0D /* Coder.hpp */,
+			);
+			name = Coding;
+			sourceTree = "<group>";
+		};
+		63E204BC218B3ABB00228A0D /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				63E204AF218A948900228A0D /* Message.hpp */,
+			);
+			name = Messaging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +423,8 @@
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
+				63E204B0218A948900228A0D /* Message.cpp in Sources */,
+				63E204B4218A9B1600228A0D /* Coder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,11 +433,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F605D921881E280002A278 /* ConnectionManagerTests.cpp in Sources */,
+				63E204B1218A948900228A0D /* Message.cpp in Sources */,
 				63F605DA21881E950002A278 /* RemoteController.cpp in Sources */,
 				63F605DF21881EBC0002A278 /* main.cpp in Sources */,
 				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
 				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
 				63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */,
+				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
+				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
