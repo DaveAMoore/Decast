@@ -11,17 +11,17 @@
 
 #include <iostream>
 #include <memory>
-#include <rapidjson/document.h>
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+#include "Container.hpp"
 
 namespace RemoteCore {
     class Coding;
     
     class Coder final {
     private:
+        std::shared_ptr<Container> codingContainer;
+        
     public:
-        Coder();
+        Coder(std::shared_ptr<Container> codingContainer) : codingContainer(codingContainer) {};
         
         void encodeIntForKey(int value, std::string key);
         void encodeBoolForKey(bool value, std::string key);
@@ -32,6 +32,12 @@ namespace RemoteCore {
         bool decodeBoolForKey(std::string key);
         std::string decodeStringForKey(std::string key);
         
+        /**
+         Decodes an object of some type that conforms to 'Coding', relying on the generic template parameter T.
+
+         @param key The key with which the object was encoded to originally.
+         @return A decoded object.
+         */
         template <typename T>
         std::unique_ptr<T> decodeObjectForKey(std::string key) {
             static_assert(std::is_default_constructible<T>::value,
