@@ -7,9 +7,9 @@
 //
 
 #include <memory>
+#include <future>
 #include <gtest/gtest.h>
 #include "ConnectionManager.hpp"
-#include <future>
 
 using namespace awsiotsdk;
 using namespace RemoteCore;
