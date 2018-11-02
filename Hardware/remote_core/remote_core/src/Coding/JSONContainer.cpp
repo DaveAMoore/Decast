@@ -8,6 +8,7 @@
 
 #include "JSONContainer.hpp"
 
+using json = nlohmann::json;
 using namespace RemoteCore;
 
 void Container::encodeIntForKey(int value, std::string key) {
