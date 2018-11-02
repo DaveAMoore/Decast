@@ -97,7 +97,6 @@
 		63572A20217E0480007AC21C /* Root-CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Root-CA.pem"; sourceTree = "<group>"; };
 		63572A21217E0480007AC21C /* Private-Key.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Private-Key.key"; sourceTree = "<group>"; };
 		636FCEEC2182BFD7002B166E /* CMakeLists-gtest.txt.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CMakeLists-gtest.txt.in"; sourceTree = "<group>"; };
-		636FCEED2182C1D7002B166E /* CMakeLists-aws.txt.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CMakeLists-aws.txt.in"; sourceTree = "<group>"; };
 		639899F72182076200C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
@@ -189,7 +188,6 @@
 				635729F3217CCDAE007AC21C /* lib */,
 				636FCEEB21813586002B166E /* tests */,
 				63572A15217D16C5007AC21C /* CMakeLists.txt */,
-				636FCEED2182C1D7002B166E /* CMakeLists-aws.txt.in */,
 			);
 			path = remote_core;
 			sourceTree = "<group>";
@@ -577,6 +575,7 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
@@ -602,6 +601,7 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
