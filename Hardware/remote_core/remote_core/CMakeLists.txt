@@ -35,17 +35,19 @@ if(NOT DEPENDENCY_DIR)
     set(DEPENDENCY_DIR "third_party")
 endif()
 
-####################################
-# Section : Add Application Target #
-####################################
+##################################
+# Section : Download AWS IoT SDK #
+##################################
 
-# Download and unpack aws-iot-sdk-cpp at configure time
-configure_file(${CMAKE_CURRENT_LIST_DIR}/CMakeLists-aws.txt.in
+# Download and unpack the AWS IoT SDK at configure time.
+configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists-aws.txt.in
 ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/download/CMakeLists.txt)
 
+# Configure the target.
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/download)
 
+# Configure the target for building.
 execute_process(COMMAND ${CMAKE_COMMAND} --build .
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/download)
 
@@ -55,6 +57,30 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # This adds the following targets: aws-iot-sdk-cpp.
 add_subdirectory(${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src
 ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build EXCLUDE_FROM_ALL)
+
+###########################
+# Section : Download JSON #
+###########################
+
+# Download and unpack nlohmann_json at configure time
+configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists-json.txt.in
+${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download/CMakeLists.txt)
+
+# Configure the CMake project.
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
+
+# Configure JSON for building.
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
+
+# This adds the following targets: nlohmann_json.
+add_subdirectory(${CMAKE_BINARY_DIR}/third_party/nlohmann_json/src
+${CMAKE_BINARY_DIR}/third_party/nlohmann_json/build EXCLUDE_FROM_ALL)
+
+####################################
+# Section : Add Application Target #
+####################################
 
 # Create executable file.
 set(TARGET_NAME remote_core)
@@ -67,12 +93,15 @@ file(GLOB_RECURSE TARGET_SOURCES FOLLOW_SYMLINKS ${PROJECT_SOURCE_DIR}/src/*.cpp
 target_include_directories(${TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_sources(${TARGET_NAME} PRIVATE ${TARGET_SOURCES})
 
+# Include the dependencies headers.
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/aws-iot-device-sdk-cpp/src/include)
+target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/nlohmann_json/src/include)
 
-#include_directories(${CMAKE_SOURCE_DIR}/third_party/aws-iot-device-sdk-cpp/src/include)
-#link_directories(${CMAKE_SOURCE_DIR}/archive)
+# Link the dependency libraries.
 target_link_libraries(${TARGET_NAME} aws-iot-sdk-cpp)
+target_link_libraries(${TARGET-NAME} nlohmann_json)
 
+# Link with OpenSSL.
 find_package(OpenSSL REQUIRED)
 target_link_libraries(${TARGET_NAME} OpenSSL::SSL)
 
