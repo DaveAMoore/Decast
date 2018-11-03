@@ -26,6 +26,7 @@
 		63E204B4218A9B1600228A0D /* Coder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204B2218A9B1600228A0D /* Coder.cpp */; };
 		63E204B5218A9B1600228A0D /* Coder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204B2218A9B1600228A0D /* Coder.cpp */; };
 		63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204BD218B3B6B00228A0D /* CoderTests.cpp */; };
+		63E204C3218D652600228A0D /* JSONContainerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204C2218D652600228A0D /* JSONContainerTests.cpp */; };
 		63F605D421881E1B0002A278 /* libaws-iot-sdk-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F8217CCDDA007AC21C /* libaws-iot-sdk-cpp.a */; };
 		63F605D521881E1E0002A278 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729FA217CCDDA007AC21C /* libcrypto.a */; };
 		63F605D621881E1E0002A278 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635729F9217CCDDA007AC21C /* libssl.a */; };
@@ -107,6 +108,7 @@
 		63E204B3218A9B1600228A0D /* Coder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coder.hpp; sourceTree = "<group>"; };
 		63E204B7218B2E7800228A0D /* Coding.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Coding.hpp; sourceTree = "<group>"; };
 		63E204BD218B3B6B00228A0D /* CoderTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CoderTests.cpp; sourceTree = "<group>"; };
+		63E204C2218D652600228A0D /* JSONContainerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JSONContainerTests.cpp; sourceTree = "<group>"; };
 		63F605CD21881DE30002A278 /* remote_core_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = remote_core_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F605DE21881EBC0002A278 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				63F605DE21881EBC0002A278 /* main.cpp */,
+				63E204C2218D652600228A0D /* JSONContainerTests.cpp */,
 				63E204BD218B3B6B00228A0D /* CoderTests.cpp */,
 				6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */,
 			);
@@ -449,6 +452,7 @@
 				6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
+				63E204C3218D652600228A0D /* JSONContainerTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +630,7 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
@@ -648,6 +653,7 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
+					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,

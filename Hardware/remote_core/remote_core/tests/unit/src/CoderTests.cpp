@@ -16,7 +16,6 @@ using namespace RemoteCore;
 class Mock : public Coding {
 public:
     
-    
     void encodeWithCoder(Coder *aCoder) override {
         
     }
@@ -25,3 +24,5 @@ public:
         
     }
 };
+
+// TEST(CoderTests, <#test_name#>)
