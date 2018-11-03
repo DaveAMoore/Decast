@@ -14,6 +14,8 @@
 namespace RemoteCore {
     class Coding {
     public:
+        virtual ~Coding() {}
+        
         /**
          Encodes the receiver using a given archiver.
 
