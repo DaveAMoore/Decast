@@ -18,10 +18,10 @@ namespace RemoteCore {
     
     class Coder final {
     private:
-        std::shared_ptr<Container> codingContainer;
+        std::unique_ptr<Container> codingContainer;
         
     public:
-        Coder(std::shared_ptr<Container> codingContainer) : codingContainer(codingContainer) {};
+        Coder(std::unique_ptr<Container> codingContainer) : codingContainer(std::move(codingContainer)) {};
         
         void encodeIntForKey(int value, std::string key);
         void encodeBoolForKey(bool value, std::string key);
@@ -45,8 +45,13 @@ namespace RemoteCore {
             static_assert(std::is_base_of<Coding, T>::value,
                           "expected template parameter to be a derived type of 'SecureCoding'");
             
+            // Retrieve a container from the coding container.
+            auto container = codingContainer->containerForKey(key);
+            auto aCoder = std::make_unique<Coder>(std::move(container));
+            
+            // Create the object using the coder based on the decoded container.
             auto object = std::make_unique<T>();
-            object->decodeWithCoder(this);
+            object->decodeWithCoder(aCoder.get());
             
             return object;
         }
