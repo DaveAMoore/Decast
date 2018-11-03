@@ -11,26 +11,56 @@
 using json = nlohmann::json;
 using namespace RemoteCore;
 
-void Container::encodeIntForKey(int value, std::string key) {
+// MARK: - Initialization
+
+JSONContainer::JSONContainer() {
+    internalContainer = json::object();
+}
+
+JSONContainer::JSONContainer(std::string payload) {
+    internalContainer = json::parse(payload);
+}
+
+// MARK: - Encoding
+
+void JSONContainer::encodeIntForKey(int value, std::string key) {
+    internalContainer[key] = value;
+}
+
+void JSONContainer::encodeBoolForKey(bool value, std::string key) {
+    internalContainer[key] = value;
+}
+
+void JSONContainer::encodeStringForKey(std::string value, std::string key) {
+    internalContainer[key] = value;
+}
+
+std::unique_ptr<Container> JSONContainer::requestEncodableContainer() {
+    return std::make_unique<JSONContainer>();
+}
+
+void JSONContainer::submitEncodableContainerForKey(std::unique_ptr<Container> encodableContainer, std::string key) {
+    auto castEncodableContainer = std::unique_ptr<JSONContainer>(static_cast<JSONContainer *>(encodableContainer.release()));
+    internalContainer[key] = castEncodableContainer->internalContainer;
+}
+
+// MARK: - Decoding
+
+int JSONContainer::intForKey(std::string key) {
+    return internalContainer[key].get<int>();
+}
+
+bool JSONContainer::boolForKey(std::string key) {
+    return internalContainer[key].get<bool>();
+}
+
+std::string JSONContainer::stringForKey(std::string key) {
+    return internalContainer[key].get<std::string>();
+}
+
+std::unique_ptr<Container> JSONContainer::containerForKey(std::string key) {
+    auto value = internalContainer[key].get<json>();
+    auto container = std::make_unique<JSONContainer>(value);
     
-}
-
-void Container::encodeBoolForKey(bool value, std::string key) {
-    
-}
-
-void Container::encodeStringForKey(std::string value, std::string key) {
-    
-}
-
-int Container::decodeIntForKey(std::string key) {
-    return 0;
-}
-
-bool Container::decodeBoolForKey(std::string key) {
-    return false;
-}
-
-std::string Container::decodeStringForKey(std::string key) {
-    return "";
+    return container;
 }
