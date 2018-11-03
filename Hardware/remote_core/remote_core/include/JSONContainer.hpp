@@ -16,11 +16,26 @@
 namespace RemoteCore {
     class JSONContainer : public Container {
     private:
-        std::string payload;
+        nlohmann::json internalContainer;
         
     public:
-        JSONContainer() : payload(NULL) {};
-        JSONContainer(std::string payload) : payload(payload) {};
+        JSONContainer();
+        JSONContainer(std::string payload);
+        JSONContainer(nlohmann::json internalContainer) : internalContainer(internalContainer) {};
+        
+        ~JSONContainer() override {};
+        
+        void encodeIntForKey(int value, std::string key) override;
+        void encodeBoolForKey(bool value, std::string key) override;
+        void encodeStringForKey(std::string value, std::string key) override;
+        
+        std::unique_ptr<Container> requestEncodableContainer() override;
+        void submitEncodableContainerForKey(std::unique_ptr<Container> encodableContainer, std::string key) override;
+        
+        int intForKey(std::string key) override;
+        bool boolForKey(std::string key) override;
+        std::string stringForKey(std::string key) override;
+        std::unique_ptr<Container> containerForKey(std::string key) override;
     };
 }
 
