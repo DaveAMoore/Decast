@@ -23,18 +23,18 @@ void Coder::encodeStringForKey(std::string value, std::string key) {
 }
 
 void Coder::encodeObjectForKey(const Coding &object, std::string key) {
-    // TODO: Implement object encoding.
-    static_assert(true, "Not implemented yet");
+    auto encodableContainer = codingContainer->requestEncodableContainer();;
+    auto aCoder = std::make_unique<Coder>(std::move(encodableContainer));
 }
 
 int Coder::decodeIntForKey(std::string key) {
-    return codingContainer->decodeIntForKey(key);
+    return codingContainer->intForKey(key);
 }
 
 bool Coder::decodeBoolForKey(std::string key) {
-    return codingContainer->decodeBoolForKey(key);
+    return codingContainer->boolForKey(key);
 }
 
 std::string Coder::decodeStringForKey(std::string key) {
-    return codingContainer->decodeStringForKey(key);
+    return codingContainer->stringForKey(key);
 }
