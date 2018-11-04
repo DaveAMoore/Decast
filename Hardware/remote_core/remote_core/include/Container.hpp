@@ -17,9 +17,9 @@ namespace RemoteCore {
     public:
         virtual ~Container() {};
         
-        virtual void encodeIntForKey(int value, std::string key) = 0;
-        virtual void encodeBoolForKey(bool value, std::string key) = 0;
-        virtual void encodeStringForKey(std::string value, std::string key) = 0;
+        virtual void setIntForKey(int value, std::string key) = 0;
+        virtual void setBoolForKey(bool value, std::string key) = 0;
+        virtual void setStringForKey(std::string value, std::string key) = 0;
         
         virtual std::unique_ptr<Container> requestEncodableContainer() = 0;
         virtual void submitEncodableContainerForKey(std::unique_ptr<Container> encodableContainer,

@@ -25,9 +25,9 @@ namespace RemoteCore {
         
         ~JSONContainer() override {};
         
-        void encodeIntForKey(int value, std::string key) override;
-        void encodeBoolForKey(bool value, std::string key) override;
-        void encodeStringForKey(std::string value, std::string key) override;
+        void setIntForKey(int value, std::string key) override;
+        void setBoolForKey(bool value, std::string key) override;
+        void setStringForKey(std::string value, std::string key) override;
         
         std::unique_ptr<Container> requestEncodableContainer() override;
         void submitEncodableContainerForKey(std::unique_ptr<Container> encodableContainer, std::string key) override;

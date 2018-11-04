@@ -11,15 +11,15 @@
 using namespace RemoteCore;
 
 void Coder::encodeIntForKey(int value, std::string key) {
-    codingContainer->encodeIntForKey(value, key);
+    codingContainer->setIntForKey(value, key);
 }
 
 void Coder::encodeBoolForKey(bool value, std::string key) {
-    codingContainer->encodeBoolForKey(value, key);
+    codingContainer->setBoolForKey(value, key);
 }
 
 void Coder::encodeStringForKey(std::string value, std::string key) {
-    codingContainer->encodeStringForKey(value, key);
+    codingContainer->setStringForKey(value, key);
 }
 
 void Coder::encodeObjectForKey(const Coding &object, std::string key) {

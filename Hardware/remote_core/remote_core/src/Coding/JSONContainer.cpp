@@ -23,15 +23,15 @@ JSONContainer::JSONContainer(std::string payload) {
 
 // MARK: - Encoding
 
-void JSONContainer::encodeIntForKey(int value, std::string key) {
+void JSONContainer::setIntForKey(int value, std::string key) {
     internalContainer[key] = value;
 }
 
-void JSONContainer::encodeBoolForKey(bool value, std::string key) {
+void JSONContainer::setBoolForKey(bool value, std::string key) {
     internalContainer[key] = value;
 }
 
-void JSONContainer::encodeStringForKey(std::string value, std::string key) {
+void JSONContainer::setStringForKey(std::string value, std::string key) {
     internalContainer[key] = value;
 }
 
