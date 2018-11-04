@@ -95,7 +95,7 @@ std::string JSONContainer::stringForKey(std::string key) {
     if (value.is_string()) {
         return value.get<std::string>();
     } else {
-        return NULL;
+        return "";
     }
 }
 
