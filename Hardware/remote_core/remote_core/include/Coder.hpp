@@ -24,11 +24,15 @@ namespace RemoteCore {
         Coder(std::unique_ptr<Container> codingContainer) : codingContainer(std::move(codingContainer)) {};
         
         void encodeIntForKey(int value, std::string key);
+        void encodeUnsignedIntForKey(unsigned int value, std::string key);
+        void encodeFloatForKey(double value, std::string key);
         void encodeBoolForKey(bool value, std::string key);
         void encodeStringForKey(std::string value, std::string key);
         void encodeObjectForKey(const Coding &object, std::string key);
         
         int decodeIntForKey(std::string key);
+        unsigned int decodeUnsignedIntForKey(std::string key);
+        double decodeFloatForKey(std::string key);
         bool decodeBoolForKey(std::string key);
         std::string decodeStringForKey(std::string key);
         
