@@ -7,6 +7,7 @@
 //
 
 #include "Coder.hpp"
+#include "Coding.hpp"
 
 using namespace RemoteCore;
 
@@ -30,27 +31,44 @@ void Coder::encodeStringForKey(std::string value, std::string key) {
     codingContainer->setStringForKey(value, key);
 }
 
-void Coder::encodeObjectForKey(const Coding &object, std::string key) {
-    auto embeddedContainer = codingContainer->requestNestedContainer();
-    auto aCoder = std::make_unique<Coder>(std::move(embeddedContainer));
+void Coder::encodeObjectForKey(const Coding *object, std::string key) {
+    if (object == nullptr) {
+        return;
+    }
+    
+    auto nestedContainer = codingContainer->requestNestedContainer();
+    
+    auto aCoder = std::make_unique<Coder>(std::move(nestedContainer));
+    object->encodeWithCoder(aCoder.get());
+    
+    codingContainer->submitNestedContainerForKey(aCoder->invalidateCoder(), key);
 }
 
-int Coder::decodeIntForKey(std::string key) {
+void Coder::encodeRootObject(const Coding *object) {
+    if (object == nullptr) {
+        return;
+    }
+    
+    // Encode the root object.
+    object->encodeWithCoder(this);
+}
+
+int Coder::decodeIntForKey(std::string key) const {
     return codingContainer->intForKey(key);
 }
 
-unsigned int Coder::decodeUnsignedIntForKey(std::string key) {
+unsigned int Coder::decodeUnsignedIntForKey(std::string key) const {
     return codingContainer->unsignedIntForKey(key);
 }
 
-double Coder::decodeFloatForKey(std::string key) {
+double Coder::decodeFloatForKey(std::string key) const {
     return codingContainer->floatForKey(key);
 }
 
-bool Coder::decodeBoolForKey(std::string key) {
+bool Coder::decodeBoolForKey(std::string key) const {
     return codingContainer->boolForKey(key);
 }
 
-std::string Coder::decodeStringForKey(std::string key) {
+std::string Coder::decodeStringForKey(std::string key) const {
     return codingContainer->stringForKey(key);
 }
