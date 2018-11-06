@@ -21,14 +21,14 @@ namespace RemoteCore {
 
          @param aCoder Archiver that should be used for encoding values of the receiver.
          */
-        virtual void encodeWithCoder(Coder *aCoder) = 0;
+        virtual void encodeWithCoder(Coder *aCoder) const = 0;
         
         /**
          Decodes the receiver using a given unarchiver.
          
          @param aCoder Unarchiver that should be used for decoding values of the receiver.
          */
-        virtual void decodeWithCoder(Coder *aCoder) = 0;
+        virtual void decodeWithCoder(const Coder *aCoder) = 0;
     };
 }
 
