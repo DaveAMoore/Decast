@@ -25,11 +25,21 @@ namespace RemoteCore {
     public:
         virtual ~Container() {};
         
+        /**
+         Generates the data the receiver has been storing. The container will transfer ownership of the data to the caller.
+
+         @param length Reference to a 'size_t' instance that will be updated with the correct length of the data.
+         @return Unique pointer to the first byte of data.
+         */
+        virtual std::unique_ptr<uint8_t> generateData(size_t &length) = 0;
+        
         virtual void setIntForKey(int value, std::string key) = 0;
         virtual void setUnsignedIntForKey(unsigned int value, std::string key) = 0;
         virtual void setFloatForKey(double value, std::string key) = 0;
         virtual void setBoolForKey(bool value, std::string key) = 0;
         virtual void setStringForKey(std::string value, std::string key) = 0;
+        
+        // TODO: Provide method for storing array of primitive types, including containers.
         
         virtual int intForKey(std::string key) = 0;
         virtual unsigned int unsignedIntForKey(std::string key) = 0;
@@ -41,7 +51,7 @@ namespace RemoteCore {
         /**
          Requests a container that will be registered with the receiver, which may then be used for arbitrary data containment.
          
-         When a container is requested, ownership is granted to the callee. The lifecycle for a nested container ends once the container is submitted to the receiver or deleted by the receiver. Once a nested container is submitted, it's ownership is transfered and relinquished when appropriate. If a nested container is not submitted for any reason, it is important that the container at least be deleted by calling 'deleteNestedContainer(nestedContainer)'.
+         When a container is requested, ownership is granted to the caller. The lifecycle for a nested container ends once the container is submitted to the receiver or deleted by the receiver. Once a nested container is submitted, it's ownership is transfered and relinquished when appropriate. If a nested container is not submitted for any reason, it is important that the container at least be deleted by calling 'deleteNestedContainer(nestedContainer)'.
          
          @return Unique ownership for a container of some type derivative of Container.
          */
