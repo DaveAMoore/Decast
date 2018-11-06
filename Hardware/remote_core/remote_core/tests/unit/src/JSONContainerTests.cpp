@@ -131,3 +131,25 @@ TEST(JSONContainerTests, EncodeDecodeEmbeddedContainer) {
     ASSERT_EQ(decodedNestedContainer->boolForKey("B"), boolValue2);
     ASSERT_EQ(decodedNestedContainer->stringForKey("C"), stringValue2);
 }
+
+TEST(JSONContainerTests, InitializeFromJSON) {
+    std::string payload = R"({"A": "Hello","B": 2, "C": 3.5, "D": true})";
+    JSONContainer container(payload);
+    
+    ASSERT_EQ(container.stringForKey("A"), "Hello");
+    ASSERT_EQ(container.intForKey("B"), 2);
+    ASSERT_FLOAT_EQ(container.floatForKey("C"), 3.5);
+    ASSERT_EQ(container.boolForKey("D"), true);
+}
+
+TEST(JSONContainerTests, GenerateData) {
+    JSONContainer container;
+    container.setIntForKey(5, "A");
+    container.setStringForKey("Foo", "B");
+    container.setFloatForKey(2.3, "C");
+    container.setBoolForKey(true, "D");
+    
+    size_t dataLength = 0;
+    auto data = container.generateData(dataLength);
+    ASSERT_STREQ((char *)data.get(), R"({"A":5,"B":"Foo","C":2.3,"D":true})");
+}

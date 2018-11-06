@@ -21,6 +21,10 @@
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
+		63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
+		63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
+		63B818E321913907001E7D4F /* TrainingSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818E121913907001E7D4F /* TrainingSession.cpp */; };
+		63B818E421913907001E7D4F /* TrainingSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818E121913907001E7D4F /* TrainingSession.cpp */; };
 		63E204B0218A948900228A0D /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204AE218A948900228A0D /* Message.cpp */; };
 		63E204B1218A948900228A0D /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204AE218A948900228A0D /* Message.cpp */; };
 		63E204B4218A9B1600228A0D /* Coder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E204B2218A9B1600228A0D /* Coder.cpp */; };
@@ -104,6 +108,10 @@
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
 		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
+		63B818DC2191387A001E7D4F /* HardwareController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareController.cpp; sourceTree = "<group>"; };
+		63B818DD2191387A001E7D4F /* HardwareController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HardwareController.hpp; sourceTree = "<group>"; };
+		63B818E121913907001E7D4F /* TrainingSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainingSession.cpp; sourceTree = "<group>"; };
+		63B818E221913907001E7D4F /* TrainingSession.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainingSession.hpp; sourceTree = "<group>"; };
 		63E204AE218A948900228A0D /* Message.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
 		63E204AF218A948900228A0D /* Message.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
 		63E204B2218A9B1600228A0D /* Coder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coder.cpp; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				639899FB218246A400C346D1 /* RemoteController.hpp */,
+				63B818DD2191387A001E7D4F /* HardwareController.hpp */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 				63E204BA218B39C700228A0D /* Coding */,
 				63E204AD218A947500228A0D /* Messaging */,
 				63A8DE682184FA6B00B8C961 /* Controllers */,
+				63B818E521913993001E7D4F /* Training */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
 			);
@@ -246,6 +256,7 @@
 				63E204BC218B3ABB00228A0D /* Messaging */,
 				631215652185429E004D850B /* Networking */,
 				6312156321854283004D850B /* Controllers */,
+				63B818E0219138F8001E7D4F /* Training */,
 				631215642185428D004D850B /* Configuration */,
 			);
 			path = include;
@@ -312,8 +323,25 @@
 			isa = PBXGroup;
 			children = (
 				639899FA218246A400C346D1 /* RemoteController.cpp */,
+				63B818DC2191387A001E7D4F /* HardwareController.cpp */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63B818E0219138F8001E7D4F /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				63B818E221913907001E7D4F /* TrainingSession.hpp */,
+			);
+			name = Training;
+			sourceTree = "<group>";
+		};
+		63B818E521913993001E7D4F /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				63B818E121913907001E7D4F /* TrainingSession.cpp */,
+			);
+			path = Training;
 			sourceTree = "<group>";
 		};
 		63E204AD218A947500228A0D /* Messaging */ = {
@@ -436,9 +464,11 @@
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
+				63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
 				63E204B0218A948900228A0D /* Message.cpp in Sources */,
 				63E204B4218A9B1600228A0D /* Coder.cpp in Sources */,
+				63B818E321913907001E7D4F /* TrainingSession.cpp in Sources */,
 				6317DD8B218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,11 +481,13 @@
 				63E204B1218A948900228A0D /* Message.cpp in Sources */,
 				63F605DA21881E950002A278 /* RemoteController.cpp in Sources */,
 				63F605DF21881EBC0002A278 /* main.cpp in Sources */,
+				63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */,
 				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
 				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
 				63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */,
 				6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
+				63B818E421913907001E7D4F /* TrainingSession.cpp in Sources */,
 				63E204C7218E8DC600228A0D /* Container.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
 				63E204C3218D652600228A0D /* JSONContainerTests.cpp in Sources */,

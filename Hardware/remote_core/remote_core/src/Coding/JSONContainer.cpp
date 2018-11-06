@@ -21,6 +21,18 @@ JSONContainer::JSONContainer(std::string payload) {
     internalContainer = json::parse(payload);
 }
 
+// MARK: - Data Generation
+
+std::unique_ptr<uint8_t> JSONContainer::generateData(size_t &length) {
+    auto payload = internalContainer.dump();
+    length = payload.length();
+    
+    auto data = std::unique_ptr<uint8_t>(new uint8_t[payload.length()]);
+    strcpy((char *)data.get(), payload.data());
+    
+    return data;
+}
+
 // MARK: - Encoding
 
 void JSONContainer::setIntForKey(int value, std::string key) {
@@ -95,7 +107,7 @@ std::string JSONContainer::stringForKey(std::string key) {
     if (value.is_string()) {
         return value.get<std::string>();
     } else {
-        return NULL;
+        return "";
     }
 }
 

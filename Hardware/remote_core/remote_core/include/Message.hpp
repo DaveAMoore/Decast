@@ -13,11 +13,22 @@
 
 namespace RemoteCore {
     class Message : public Coding {
+    private:
+        std::string messageID;
+        // std::chrono::time_point<std::chrono::system_clock> time;
+        
     public:
         Message();
         
-        void encodeWithCoder(Coder *aCoder) override;
-        void decodeWithCoder(Coder *aCoder) override;
+        /**
+         Unique identifier for a particular message.
+         */
+        std::string getMessageID() {
+            return messageID;
+        }
+        
+        void encodeWithCoder(Coder *aCoder) const override;
+        void decodeWithCoder(const Coder *aCoder) override;
     };
 }
 
