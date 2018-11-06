@@ -29,6 +29,8 @@ namespace RemoteCore {
         
         ~JSONContainer() override {};
         
+        std::unique_ptr<uint8_t> generateData(size_t &length) override;
+        
         void setIntForKey(int value, std::string key) override;
         void setUnsignedIntForKey(unsigned int value, std::string key) override;
         void setFloatForKey(double value, std::string key) override;
