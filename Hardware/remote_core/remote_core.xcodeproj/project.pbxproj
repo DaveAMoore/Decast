@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6301D06E2192183F00753B79 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6301D06C2192183F00753B79 /* UUID.cpp */; };
+		6301D06F2192183F00753B79 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6301D06C2192183F00753B79 /* UUID.cpp */; };
+		630A4D732194A30E00159B52 /* Remote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 630A4D712194A30E00159B52 /* Remote.cpp */; };
+		630A4D742194A30E00159B52 /* Remote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 630A4D712194A30E00159B52 /* Remote.cpp */; };
 		6317DD8B218B5B6E00850B16 /* JSONContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6317DD89218B5B6E00850B16 /* JSONContainer.cpp */; };
 		6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6317DD89218B5B6E00850B16 /* JSONContainer.cpp */; };
 		635729DB217CC162007AC21C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 635729DA217CC162007AC21C /* main.cpp */; };
@@ -20,6 +24,8 @@
 		63572A22217E048A007AC21C /* Certificate.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A1F217E047F007AC21C /* Certificate.crt */; };
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
+		6387418E21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
+		6387418F21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
 		63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
 		63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
@@ -81,6 +87,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6301D06C2192183F00753B79 /* UUID.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UUID.cpp; sourceTree = "<group>"; };
+		6301D06D2192183F00753B79 /* UUID.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UUID.hpp; sourceTree = "<group>"; };
+		630A4D712194A30E00159B52 /* Remote.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Remote.cpp; sourceTree = "<group>"; };
+		630A4D722194A30E00159B52 /* Remote.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Remote.hpp; sourceTree = "<group>"; };
 		6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionManagerTests.cpp; sourceTree = "<group>"; };
 		6312156121854154004D850B /* libgtestd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtestd.a; path = remote_core/build/lib/libgtestd.a; sourceTree = SOURCE_ROOT; };
 		631215702186BFAF004D850B /* libgmockd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmockd.a; path = remote_core/build/lib/libgmockd.a; sourceTree = SOURCE_ROOT; };
@@ -104,6 +114,8 @@
 		63572A20217E0480007AC21C /* Root-CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Root-CA.pem"; sourceTree = "<group>"; };
 		63572A21217E0480007AC21C /* Private-Key.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Private-Key.key"; sourceTree = "<group>"; };
 		636FCEEC2182BFD7002B166E /* CMakeLists-gtest.txt.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CMakeLists-gtest.txt.in"; sourceTree = "<group>"; };
+		6387418C21938389008B5166 /* Command.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Command.cpp; sourceTree = "<group>"; };
+		6387418D21938389008B5166 /* Command.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Command.hpp; sourceTree = "<group>"; };
 		639899F72182076200C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
@@ -150,6 +162,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6301D07021921BCC00753B79 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				6301D06D2192183F00753B79 /* UUID.hpp */,
+			);
+			name = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		6301D07121921BD700753B79 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				6301D06C2192183F00753B79 /* UUID.cpp */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		630A4D752195249C00159B52 /* Hardware Types */ = {
+			isa = PBXGroup;
+			children = (
+				630A4D712194A30E00159B52 /* Remote.cpp */,
+				6387418C21938389008B5166 /* Command.cpp */,
+			);
+			path = "Hardware Types";
+			sourceTree = "<group>";
+		};
 		6312156321854283004D850B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,12 +276,14 @@
 			isa = PBXGroup;
 			children = (
 				635729DA217CC162007AC21C /* main.cpp */,
+				630A4D752195249C00159B52 /* Hardware Types */,
 				63E204BA218B39C700228A0D /* Coding */,
 				63E204AD218A947500228A0D /* Messaging */,
 				63A8DE682184FA6B00B8C961 /* Controllers */,
 				63B818E521913993001E7D4F /* Training */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
+				6301D07121921BD700753B79 /* Miscellaneous */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -252,12 +291,14 @@
 		63572A07217CF525007AC21C /* include */ = {
 			isa = PBXGroup;
 			children = (
+				6387418B21938370008B5166 /* Hardware Types */,
 				63E204BB218B3AA400228A0D /* Coding */,
 				63E204BC218B3ABB00228A0D /* Messaging */,
 				631215652185429E004D850B /* Networking */,
 				6312156321854283004D850B /* Controllers */,
 				63B818E0219138F8001E7D4F /* Training */,
 				631215642185428D004D850B /* Configuration */,
+				6301D07021921BCC00753B79 /* Miscellaneous */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -288,6 +329,15 @@
 				639899F52182074C00C346D1 /* unit */,
 			);
 			path = tests;
+			sourceTree = "<group>";
+		};
+		6387418B21938370008B5166 /* Hardware Types */ = {
+			isa = PBXGroup;
+			children = (
+				630A4D722194A30E00159B52 /* Remote.hpp */,
+				6387418D21938389008B5166 /* Command.hpp */,
+			);
+			name = "Hardware Types";
 			sourceTree = "<group>";
 		};
 		639899F52182074C00C346D1 /* unit */ = {
@@ -459,8 +509,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6301D06E2192183F00753B79 /* UUID.cpp in Sources */,
 				63E204C6218E8DC600228A0D /* Container.cpp in Sources */,
 				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
+				630A4D732194A30E00159B52 /* Remote.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
@@ -469,6 +521,7 @@
 				63E204B0218A948900228A0D /* Message.cpp in Sources */,
 				63E204B4218A9B1600228A0D /* Coder.cpp in Sources */,
 				63B818E321913907001E7D4F /* TrainingSession.cpp in Sources */,
+				6387418E21938389008B5166 /* Command.cpp in Sources */,
 				6317DD8B218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,8 +538,11 @@
 				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
 				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
 				63F605DB21881E950002A278 /* ConnectionManager.cpp in Sources */,
+				630A4D742194A30E00159B52 /* Remote.cpp in Sources */,
 				6317DD8C218B5B6E00850B16 /* JSONContainer.cpp in Sources */,
+				6301D06F2192183F00753B79 /* UUID.cpp in Sources */,
 				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
+				6387418F21938389008B5166 /* Command.cpp in Sources */,
 				63B818E421913907001E7D4F /* TrainingSession.cpp in Sources */,
 				63E204C7218E8DC600228A0D /* Container.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
