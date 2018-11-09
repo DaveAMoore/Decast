@@ -7,19 +7,13 @@
 //
 
 #include "Message.hpp"
-#include <uuid/uuid.h>
+#include "UUID.hpp"
 
 using namespace RemoteCore;
 
 Message::Message() {
     // Generate the message ID.
-    uuid_t encodedUUID;
-    uuid_generate(encodedUUID);
-    
-    char uuidString[64];
-    uuid_unparse(encodedUUID, uuidString);
-    
-    messageID = std::string(uuidString);
+    messageID = UUID::GenerateUUIDString();
 }
 
 void Message::encodeWithCoder(Coder *aCoder) const {

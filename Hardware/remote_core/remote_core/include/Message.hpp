@@ -15,7 +15,6 @@ namespace RemoteCore {
     class Message : public Coding {
     private:
         std::string messageID;
-        // std::chrono::time_point<std::chrono::system_clock> time;
         
     public:
         Message();
