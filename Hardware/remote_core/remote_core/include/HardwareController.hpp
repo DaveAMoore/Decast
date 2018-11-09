@@ -9,12 +9,15 @@
 #ifndef HardwareController_hpp
 #define HardwareController_hpp
 
+#include <vector>
 #include "RemoteController.hpp"
 #include "TrainingSession.hpp"
+#include "Command.hpp"
 
 namespace RemoteCore {
     class HardwareController {
     private:
+        std::vector<std::string> sessionIDs;
         std::shared_ptr<TrainingSession> currentTrainingSession;
         
     public:
@@ -24,16 +27,21 @@ namespace RemoteCore {
         
         // MARK: - Command Sending
         
-        // FIXME: Create a Command class and/or a Device class to abstract this logic.
-        void sendCommandToDeviceWithCompletionHandler(std::string command, std::string device,
-                                                      CompletionHandler completionHandler);
+        /**
+         Sends a command 
+         
+         @param command <#command description#>
+         @param deviceID <#deviceID description#>
+         @param completionHandler <#completionHandler description#>
+         */
+        void sendCommandWithCompletionHandler(Command command, CompletionHandler completionHandler);
         
         // MARK: - Training
         
         /**
          Returns a new training session that can be started when appropriate.
          */
-        std::shared_ptr<TrainingSession> newTrainingSession(void);
+        std::shared_ptr<TrainingSession> newTrainingSessionForRemote(Remote remote);
         
         /**
          Starts a training session when there is no other active training session. Attempting to start a new training session while there is a current active training session will result in an exception being thrown.
@@ -44,6 +52,11 @@ namespace RemoteCore {
          Suspends the current training session. If the training session provided is not actively training then nothing will happen.
          */
         void suspendTrainingSession(std::shared_ptr<TrainingSession> trainingSession);
+        
+        /**
+         Invalidates the training session; preventing it from being used in the future.
+         */
+        void invalidateTrainingSession(std::shared_ptr<TrainingSession> trainingSession);
         
         /**
          Returns whether or not the receiver has an active training session.
