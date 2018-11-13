@@ -12,18 +12,29 @@
 #include "Coding.hpp"
 
 namespace RemoteCore {
+    enum class MessageType {
+        Default     = 0,
+        Training    = 1,
+        Command     = 2
+    };
+    
     class Message : public Coding {
     private:
         std::string messageID;
+        MessageType type;
         
     public:
-        Message();
+        Message(MessageType type = MessageType::Default);
         
         /**
          Unique identifier for a particular message.
          */
         std::string getMessageID() {
             return messageID;
+        }
+        
+        MessageType getMessageType(void) {
+            return type;
         }
         
         void encodeWithCoder(Coder *aCoder) const override;

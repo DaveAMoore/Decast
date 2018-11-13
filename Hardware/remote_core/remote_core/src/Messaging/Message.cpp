@@ -11,7 +11,7 @@
 
 using namespace RemoteCore;
 
-Message::Message() {
+Message::Message(MessageType type) : type(type) {
     // Generate the message ID.
     messageID = UUID::GenerateUUIDString();
 }
