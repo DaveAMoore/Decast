@@ -14,6 +14,24 @@
 
 using namespace RemoteCore;
 
+class Foo : public Coding {
+public:
+    int a;
+    std::string b;
+    
+    Foo(int a = 10, std::string b = "Foo") : a(a), b(b) {}
+    
+    void encodeWithCoder(Coder *aCoder) const override {
+        aCoder->encodeIntForKey(a, "a");
+        aCoder->encodeStringForKey(b, "b");
+    }
+    
+    void decodeWithCoder(const Coder *aCoder) override {
+        a = aCoder->decodeIntForKey("a");
+        b = aCoder->decodeStringForKey("b");
+    }
+};
+
 class Mock : public Coding {
 public:
     int a;
@@ -22,8 +40,16 @@ public:
     double d;
     unsigned int e;
     std::unique_ptr<Mock> f;
+    std::vector<int> g;
+    std::vector<Foo> h;
+    std::vector<std::unique_ptr<Foo>> i;
     
-    Mock(bool shouldCreateF = true) : a(25), b("Hello world!"), c(true), d(7.25), e(254) {
+    Mock() {}
+    
+    Mock(bool shouldCreateF) : a(25), b("Hello world!"), c(true), d(7.25), e(254), g({1, 2, 3, 4, 5}), h({Foo(), Foo()}) {
+        i.push_back(std::make_unique<Foo>(17, "Fum"));
+        i.push_back(std::make_unique<Foo>(18, "Bar"));
+        
         if (shouldCreateF) {
             f = std::make_unique<Mock>(false);
         }
@@ -36,6 +62,19 @@ public:
         aCoder->encodeFloatForKey(d, "d");
         aCoder->encodeUnsignedIntForKey(e, "e");
         aCoder->encodeObjectForKey(f.get(), "f");
+        aCoder->encodeArrayForKey(g, "g");
+        aCoder->encodeArrayForKey(h, "h");
+        
+        std::vector<const Foo *> ic;
+        for (auto &&element : i) {
+            ic.push_back(element.get());
+        }
+        
+        //typedef typename std::remove_reference<decltype(*std::declval<const Foo *>())>::type T;
+        
+        //static_assert(std::is_base_of<Coding, std::remove_reference<decltype(*std::declval<T>())>::type>::value, "");
+        
+        //Coder->encodeArrayForKey(ic, "i");
     }
     
     void decodeWithCoder(const Coder *aCoder) override {
@@ -45,11 +84,16 @@ public:
         d = aCoder->decodeFloatForKey("d");
         e = aCoder->decodeUnsignedIntForKey("e");
         f = aCoder->decodeObjectForKey<Mock>("f");
+        g = aCoder->decodeArrayForKey<int>("g");
+        h = aCoder->decodeArrayForKey<Foo>("h");
+        
+        static_assert(std::is_base_of<Coding, std::unique_ptr<Foo>::element_type>::value, "");
+        //i = aCoder->decodeArrayForKey<std::unique_ptr<Foo>>("i");
     }
 };
 
 TEST(CoderTests, Encode) {
-    Mock mock;
+    Mock mock(true);
     auto container = std::make_unique<JSONContainer>();
     auto aCoder = std::make_unique<Coder>(std::move(container));
     
@@ -57,10 +101,10 @@ TEST(CoderTests, Encode) {
     auto codedContainer = aCoder->invalidateCoder();
     
     size_t dataLength = 0;
-    auto data = codedContainer->generateData(dataLength);
+    auto data = codedContainer->generateData(&dataLength);
     
     ASSERT_FALSE(data == nullptr);
-    ASSERT_STREQ((char *)data.get(), R"({"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"f":{"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254}})");
+    ASSERT_STREQ((char *)data.get(), R"({"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"f":{"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]},"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]})");
 }
 
 TEST(CoderTests, Decode) {
@@ -85,7 +129,7 @@ TEST(CoderTests, Decode) {
 }
 
 TEST(CoderTests, EncodeDecode) {
-    Mock mock;
+    Mock mock(true);
     auto container = std::make_unique<JSONContainer>();
     auto aCoder = std::make_unique<Coder>(std::move(container));
     
@@ -93,7 +137,7 @@ TEST(CoderTests, EncodeDecode) {
     auto codedContainer = aCoder->invalidateCoder();
     
     size_t dataLength = 0;
-    auto data = codedContainer->generateData(dataLength);
+    auto data = codedContainer->generateData(&dataLength);
     
     std::string dataStr((char *)data.get(), dataLength);
     auto anotherContainer = std::make_unique<JSONContainer>(dataStr);
@@ -113,4 +157,6 @@ TEST(CoderTests, EncodeDecode) {
     ASSERT_FLOAT_EQ(mock.f->d, anotherMock->f->d);
     ASSERT_EQ(mock.f->e, anotherMock->f->e);
     ASSERT_EQ(mock.f->f, anotherMock->f->f);
+    ASSERT_EQ(mock.g, anotherMock->g);
+    //ASSERT_EQ(mock.h, anotherMock->h);
 }

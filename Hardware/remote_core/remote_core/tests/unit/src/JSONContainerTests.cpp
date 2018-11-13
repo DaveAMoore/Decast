@@ -76,6 +76,96 @@ TEST(JSONContainerTests, EncodeDecodeString) {
     ASSERT_EQ(str, container.stringForKey("EncodeDecodeString"));
 }
 
+TEST(JSONContainerTests, EncodeDecodeIntArray) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    auto vec = std::vector<int>{-2, -1, 0, 1, 2, 3, 4, 5, 127};
+    container.emplaceArray(vec);
+    
+    ASSERT_EQ(vec, container.intArray());
+}
+
+TEST(JSONContainerTests, EncodeDecodeUnsignedIntArray) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    auto vec = std::vector<unsigned int>{0, 1, 2, 3, 4, 5, 254, 255};
+    container.emplaceArray(vec);
+    
+    ASSERT_EQ(vec, container.unsignedIntArray());
+}
+
+TEST(JSONContainerTests, EncodeDecodeFloatArray) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    auto vec = std::vector<double>{-10e7, -10.5, 0.35, 9.8, 10.252525e3};
+    container.emplaceArray(vec);
+    
+    auto vec2 = container.floatArray();
+    ASSERT_EQ(vec.size(), vec2.size());
+    
+    for (int i = 0; i < vec2.size(); i++) {
+        ASSERT_FLOAT_EQ(vec[i], vec2[i]);
+    }
+}
+
+TEST(JSONContainerTests, EncodeDecodeBoolArray) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    auto vec = std::vector<bool>{true, true, true, false, true, false, false, true};
+    container.emplaceArray(vec);
+    
+    ASSERT_EQ(vec, container.boolArray());
+}
+
+TEST(JSONContainerTests, EncodeDecodeStringArray) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    auto vec = std::vector<std::string>{"Foo", "Bar", "Hello", "World"};
+    container.emplaceArray(vec);
+    
+    ASSERT_EQ(vec, container.stringArray());
+}
+
+TEST(JSONContainerTests, EncodeDecodeNestedContainers) {
+    JSONContainer container;
+    container.initializeForArray();
+    
+    int a = 123;
+    std::string b = "Boo";
+    std::vector<unsigned int> c{15, 23, 105, UINT_MAX};
+    
+    const int len = 10;
+    
+    for (int i = 0; i < len; i++) {
+        auto nestedContainer = container.requestNestedContainer();
+        nestedContainer->setIntForKey(a, "a");
+        nestedContainer->setStringForKey(b, "b");
+        
+        auto arrayContainer = nestedContainer->requestNestedContainer(true);
+        arrayContainer->emplaceArray(c);
+        
+        nestedContainer->submitNestedContainerForKey(std::move(arrayContainer), "c");
+        
+        container.submitNestedContainer(std::move(nestedContainer));
+    }
+    
+    auto nestedContainers = container.containerArray();
+    ASSERT_EQ(nestedContainers.size(), len);
+    
+    for (auto &&nestedContainer : nestedContainers) {
+        ASSERT_EQ(a, nestedContainer->intForKey("a"));
+        ASSERT_EQ(b, nestedContainer->stringForKey("b"));
+        
+        auto arrayContainer = nestedContainer->containerForKey("c");
+        ASSERT_EQ(c, arrayContainer->unsignedIntArray());
+    }
+}
+
 TEST(JSONContainerTests, EncodeDecodeEmbeddedContainer) {
     JSONContainer container;
     auto embeddedContainer = container.requestNestedContainer();
@@ -150,6 +240,6 @@ TEST(JSONContainerTests, GenerateData) {
     container.setBoolForKey(true, "D");
     
     size_t dataLength = 0;
-    auto data = container.generateData(dataLength);
+    auto data = container.generateData(&dataLength);
     ASSERT_STREQ((char *)data.get(), R"({"A":5,"B":"Foo","C":2.3,"D":true})");
 }
