@@ -18,9 +18,19 @@ namespace RemoteCore {
     private:
         nlohmann::json internalContainer;
         
+        template <typename T>
+        void setGenericValueForKey(T value, std::string key);
+        
+        template <typename T>
+        void emplaceGenericArray(std::vector<T> value);
+        
+        template <typename T>
+        std::vector<T> genericArray(void);
+        
     protected:
         std::unique_ptr<Container> createNestedContainer() override;
         void setNestedContainerForKey(std::unique_ptr<Container> nestedContainer, std::string key) override;
+        void addNestedContainers(std::vector<std::unique_ptr<Container>> nestedContainers) override;
         
     public:
         JSONContainer();
@@ -29,13 +39,20 @@ namespace RemoteCore {
         
         ~JSONContainer() override {};
         
-        std::unique_ptr<uint8_t> generateData(size_t &length) override;
+        void initializeForObject(void) override;
+        void initializeForArray(void) override;
         
-        void setIntForKey(int value, std::string key) override;
-        void setUnsignedIntForKey(unsigned int value, std::string key) override;
-        void setFloatForKey(double value, std::string key) override;
-        void setBoolForKey(bool value, std::string key) override;
-        void setStringForKey(std::string value, std::string key) override;
+        void setIntForKey(int value, std::string key) override { setGenericValueForKey(value, key); }
+        void setUnsignedIntForKey(unsigned int value, std::string key) override { setGenericValueForKey(value, key); }
+        void setFloatForKey(double value, std::string key) override { setGenericValueForKey(value, key); }
+        void setBoolForKey(bool value, std::string key) override { setGenericValueForKey(value, key); }
+        void setStringForKey(std::string value, std::string key) override { setGenericValueForKey(value, key); }
+        
+        void emplaceArray(std::vector<int> value) override { emplaceGenericArray(value); }
+        void emplaceArray(std::vector<unsigned int> value) override { emplaceGenericArray(value); }
+        void emplaceArray(std::vector<double> value) override { emplaceGenericArray(value); }
+        void emplaceArray(std::vector<bool> value) override { emplaceGenericArray(value); }
+        void emplaceArray(std::vector<std::string> value) override { emplaceGenericArray(value); }
         
         int intForKey(std::string key) override;
         unsigned int unsignedIntForKey(std::string key) override;
@@ -43,6 +60,15 @@ namespace RemoteCore {
         bool boolForKey(std::string key) override;
         std::string stringForKey(std::string key) override;
         std::unique_ptr<Container> containerForKey(std::string key) override;
+        
+        std::vector<int> intArray(void) override { return genericArray<int>(); }
+        std::vector<unsigned int> unsignedIntArray(void) override { return genericArray<unsigned int>(); }
+        std::vector<double> floatArray(void) override { return genericArray<double>(); }
+        std::vector<bool> boolArray(void) override { return genericArray<bool>(); }
+        std::vector<std::string> stringArray(void) override { return genericArray<std::string>(); }
+        std::vector<std::unique_ptr<Container>> containerArray(void) override;
+        
+        std::unique_ptr<uint8_t> generateData(size_t *length) override;
     };
 }
 

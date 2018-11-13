@@ -14,45 +14,33 @@ using namespace RemoteCore;
 // MARK: - Initialization
 
 JSONContainer::JSONContainer() {
-    internalContainer = json::object();
+    initializeForObject();
 }
 
 JSONContainer::JSONContainer(std::string payload) {
     internalContainer = json::parse(payload);
 }
 
-// MARK: - Data Generation
+void JSONContainer::initializeForObject() {
+    internalContainer = json::object();
+}
 
-std::unique_ptr<uint8_t> JSONContainer::generateData(size_t &length) {
-    auto payload = internalContainer.dump();
-    length = payload.length();
-    
-    auto data = std::unique_ptr<uint8_t>(new uint8_t[payload.length()]);
-    strcpy((char *)data.get(), payload.data());
-    
-    return data;
+void JSONContainer::initializeForArray() {
+    internalContainer = json::array();
 }
 
 // MARK: - Encoding
 
-void JSONContainer::setIntForKey(int value, std::string key) {
+template <typename T>
+void JSONContainer::setGenericValueForKey(T value, std::string key) {
     internalContainer[key] = value;
 }
 
-void JSONContainer::setUnsignedIntForKey(unsigned int value, std::string key) {
-    internalContainer[key] = value;
-}
-
-void JSONContainer::setFloatForKey(double value, std::string key) {
-    internalContainer[key] = value;
-}
-
-void JSONContainer::setBoolForKey(bool value, std::string key) {
-    internalContainer[key] = value;
-}
-
-void JSONContainer::setStringForKey(std::string value, std::string key) {
-    internalContainer[key] = value;
+template <typename T>
+void JSONContainer::emplaceGenericArray(std::vector<T> value) {
+    // Insert the value after creating a JSON representation of it.
+    json jsonValue(value);
+    internalContainer.insert(internalContainer.end(), jsonValue.begin(), jsonValue.end());
 }
 
 std::unique_ptr<Container> JSONContainer::createNestedContainer() {
@@ -62,6 +50,13 @@ std::unique_ptr<Container> JSONContainer::createNestedContainer() {
 void JSONContainer::setNestedContainerForKey(std::unique_ptr<Container> nestedContainer, std::string key) {
     auto castNestedContainer = std::unique_ptr<JSONContainer>(static_cast<JSONContainer *>(nestedContainer.release()));
     internalContainer[key] = castNestedContainer->internalContainer;
+}
+
+void JSONContainer::addNestedContainers(std::vector<std::unique_ptr<Container>> nestedContainers) {
+    for (auto &&nestedContainer : nestedContainers) {
+        auto castNestedContainer = std::unique_ptr<JSONContainer>(static_cast<JSONContainer *>(nestedContainer.release()));
+        internalContainer.push_back(castNestedContainer->internalContainer);
+    }
 }
 
 // MARK: - Decoding
@@ -113,10 +108,50 @@ std::string JSONContainer::stringForKey(std::string key) {
 
 std::unique_ptr<Container> JSONContainer::containerForKey(std::string key) {
     auto value = internalContainer[key];
-    if (value.is_object()) {
+    if (value.is_object() || value.is_array()) {
         auto container = std::make_unique<JSONContainer>(value.get<json>());
         return container;
     } else {
         return nullptr;
     }
+}
+
+template <typename T>
+std::vector<T> JSONContainer::genericArray(void) {
+    if (internalContainer.is_array()) {
+        return internalContainer.get<std::vector<T>>();
+    } else {
+        return std::vector<T>();
+    }
+}
+
+std::vector<std::unique_ptr<Container>> JSONContainer::containerArray(void) {
+    std::vector<std::unique_ptr<Container>> containers;
+    
+    if (internalContainer.is_array()) {
+        for (auto &value : internalContainer) {
+            if (value.is_object()) {
+                auto container = std::make_unique<JSONContainer>(value.get<json>());
+                auto castContainer = std::unique_ptr<Container>(static_cast<Container *>(container.release()));
+                containers.push_back(std::move(castContainer));
+            }
+        }
+    }
+    
+    return containers;
+}
+
+// MARK: - Data Generation
+
+std::unique_ptr<uint8_t> JSONContainer::generateData(size_t *length) {
+    auto payload = internalContainer.dump();
+    
+    if (length != nullptr) {
+        *length = payload.length();
+    }
+    
+    auto data = std::unique_ptr<uint8_t>(new uint8_t[payload.length()]);
+    strcpy((char *)data.get(), payload.data());
+    
+    return data;
 }
