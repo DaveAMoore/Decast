@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <memory>
-#include "Command.hpp"
+#include "Remote.hpp"
 
 namespace RemoteCore {
     class HardwareController;
@@ -38,6 +38,11 @@ namespace RemoteCore {
         void setDelegate(std::weak_ptr<TrainingSessionDelegate> delegate) {
             this->delegate = delegate;
         }
+        
+        /**
+         Initializes a new training session. This will require user input (e.g., inclusive arbitrary input).
+         */
+        void startTrainingSession(void);
         
         /**
          Creates the representation of a new command with the given localized title. The localized title provided may be an empty string.
@@ -74,13 +79,13 @@ namespace RemoteCore {
         virtual void trainingSessionWillRequestInclusiveArbitraryInput(TrainingSession *session) {};
         virtual void trainingSessionDidRequestInclusiveArbitraryInput(TrainingSession *session) {};
         
-        // Exclusive arbitrary input indicates that a single arbitrary command (i.e., button) should be pressed.
-        virtual void trainingSessionWillRequestExclusiveArbitraryInput(TrainingSession *session) {};
-        virtual void trainingSessionDidRequestExclusiveArbitraryInput(TrainingSession *session) {};
-        
         // Input should be provided for a single command, that is the one that is passed as a parameter.
         virtual void trainingSessionWillRequestInputForCommand(TrainingSession *session, Command command) {};
         virtual void trainingSessionDidRequestInputForCommand(TrainingSession *session, Command command) {};
+        
+        // Exclusive arbitrary input indicates that a single arbitrary command (i.e., button) should be pressed.
+        virtual void trainingSessionWillRequestExclusiveArbitraryInput(TrainingSession *session) {};
+        virtual void trainingSessionDidRequestExclusiveArbitraryInput(TrainingSession *session) {};
     };
 }
 

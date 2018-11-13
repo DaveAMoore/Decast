@@ -17,7 +17,7 @@ TrainingSession::TrainingSession(Remote associatedRemote) : associatedRemote(ass
 }
 
 Command TrainingSession::createCommandWithLocalizedTitle(std::string localizedTitle) {
-    return Command("", localizedTitle, associatedRemote);
+    return Command("[Command ID Here]", localizedTitle);
 }
 
 void TrainingSession::learnCommand(Command command) {
@@ -25,9 +25,9 @@ void TrainingSession::learnCommand(Command command) {
         throw std::logic_error("Expected 'currentCommand' to be empty.");
     }
     
-    if (command.getAssociatedRemote() != associatedRemote) {
+    /* if (command.getAssociatedRemote() != associatedRemote) {
         throw std::logic_error("Expected 'command.associatedRemote' to be equal to 'associatedRemote'.");
-    }
+    } */
     
     // Call the delegate.
     if (auto delegate = this->delegate.lock()) {
