@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63922EE52196847A00A2FB78 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63922EE42196847A00A2FB78 /* Test.swift */; };
+		63922F12219684A100A2FB78 /* RFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5290521909D6C00D9506D /* RFCore.framework */; };
+		63922F13219684B300A2FB78 /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528CA21909D5E00D9506D /* AWSAutoScaling.framework */; };
+		63922F14219684B300A2FB78 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528CE21909D5E00D9506D /* AWSCognito.framework */; };
+		63922F15219684B300A2FB78 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528D221909D5E00D9506D /* AWSCognitoIdentityProvider.framework */; };
+		63922F16219684B300A2FB78 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528D621909D5E00D9506D /* AWSCognitoIdentityProviderASF.framework */; };
+		63922F17219684B300A2FB78 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528C621909D5E00D9506D /* AWSCore.framework */; };
+		63922F1B219685AF00A2FB78 /* AWSIoT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528EA21909D5E00D9506D /* AWSIoT.framework */; };
 		639A8A62217EC25B00EAF6D7 /* RemoteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */; };
 		639A8A67217EC25B00EAF6D7 /* RemoteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A8A66217EC25B00EAF6D7 /* RemoteKitTests.swift */; };
 		639A8A69217EC25B00EAF6D7 /* RemoteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63DEF5AB219797FF0030397E /* RKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AA219797FF0030397E /* RKContainer.swift */; };
+		63DEF5AE219798CB0030397E /* RFRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AD219798CB0030397E /* RFRemote.swift */; };
+		63DEF5B0219799430030397E /* RFCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AF219799430030397E /* RFCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -330,7 +341,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		63922F192196858C00A2FB78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		63922EE42196847A00A2FB78 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteKit.h; sourceTree = "<group>"; };
 		639A8A5C217EC25B00EAF6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -339,6 +363,9 @@
 		639A8A68217EC25B00EAF6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63A5287221909D5E00D9506D /* AWS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AWS.xcodeproj; path = ../../../AWS/AWS.xcodeproj; sourceTree = "<group>"; };
 		63A528FD21909D6C00D9506D /* RFCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RFCore.xcodeproj; path = ../../../RFCore/RFCore.xcodeproj; sourceTree = "<group>"; };
+		63DEF5AA219797FF0030397E /* RKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKContainer.swift; sourceTree = "<group>"; };
+		63DEF5AD219798CB0030397E /* RFRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFRemote.swift; sourceTree = "<group>"; };
+		63DEF5AF219799430030397E /* RFCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +373,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63922F1B219685AF00A2FB78 /* AWSIoT.framework in Frameworks */,
+				63922F13219684B300A2FB78 /* AWSAutoScaling.framework in Frameworks */,
+				63922F14219684B300A2FB78 /* AWSCognito.framework in Frameworks */,
+				63922F15219684B300A2FB78 /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				63922F16219684B300A2FB78 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				63922F17219684B300A2FB78 /* AWSCore.framework in Frameworks */,
+				63922F12219684A100A2FB78 /* RFCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +419,9 @@
 			isa = PBXGroup;
 			children = (
 				639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */,
+				63DEF57D219797E80030397E /* Core Model */,
+				63DEF5AC219798B30030397E /* Model Types */,
+				63922EE42196847A00A2FB78 /* Test.swift */,
 				639A8A5C217EC25B00EAF6D7 /* Info.plist */,
 			);
 			path = RemoteKit;
@@ -464,6 +501,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		63DEF57D219797E80030397E /* Core Model */ = {
+			isa = PBXGroup;
+			children = (
+				63DEF5AA219797FF0030397E /* RKContainer.swift */,
+			);
+			path = "Core Model";
+			sourceTree = "<group>";
+		};
+		63DEF5AC219798B30030397E /* Model Types */ = {
+			isa = PBXGroup;
+			children = (
+				63DEF5AD219798CB0030397E /* RFRemote.swift */,
+				63DEF5AF219799430030397E /* RFCommand.swift */,
+			);
+			path = "Model Types";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -486,6 +540,7 @@
 				639A8A54217EC25B00EAF6D7 /* Sources */,
 				639A8A55217EC25B00EAF6D7 /* Frameworks */,
 				639A8A56217EC25B00EAF6D7 /* Resources */,
+				63922F192196858C00A2FB78 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -526,6 +581,7 @@
 				TargetAttributes = {
 					639A8A57217EC25B00EAF6D7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					639A8A60217EC25B00EAF6D7 = {
 						CreatedOnToolsVersion = 10.0;
@@ -893,6 +949,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DEF5AE219798CB0030397E /* RFRemote.swift in Sources */,
+				63DEF5B0219799430030397E /* RFCommand.swift in Sources */,
+				63DEF5AB219797FF0030397E /* RKContainer.swift in Sources */,
+				63922EE52196847A00A2FB78 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,6 +1101,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1059,6 +1120,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RemoteKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1068,6 +1130,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1094,6 +1157,7 @@
 		639A8A70217EC25B00EAF6D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				INFOPLIST_FILE = RemoteKitTests/Info.plist;
@@ -1112,6 +1176,7 @@
 		639A8A71217EC25B00EAF6D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				INFOPLIST_FILE = RemoteKitTests/Info.plist;

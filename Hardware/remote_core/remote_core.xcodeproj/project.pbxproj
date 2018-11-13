@@ -124,6 +124,7 @@
 		63B818DD2191387A001E7D4F /* HardwareController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HardwareController.hpp; sourceTree = "<group>"; };
 		63B818E121913907001E7D4F /* TrainingSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainingSession.cpp; sourceTree = "<group>"; };
 		63B818E221913907001E7D4F /* TrainingSession.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainingSession.hpp; sourceTree = "<group>"; };
+		63DEF5B1219927710030397E /* static_logic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = static_logic.hpp; sourceTree = "<group>"; };
 		63E204AE218A948900228A0D /* Message.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
 		63E204AF218A948900228A0D /* Message.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
 		63E204B2218A9B1600228A0D /* Coder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coder.cpp; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6301D06D2192183F00753B79 /* UUID.hpp */,
+				63DEF5B1219927710030397E /* static_logic.hpp */,
 			);
 			name = Miscellaneous;
 			sourceTree = "<group>";
