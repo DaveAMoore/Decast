@@ -13,11 +13,9 @@ using namespace RemoteCore;
 void Command::encodeWithCoder(Coder *aCoder) const {
     aCoder->encodeStringForKey(localizedTitle, "localizedTitle");
     aCoder->encodeStringForKey(commandID, "commandID");
-    aCoder->encodeObjectForKey(&associatedRemote, "associatedRemote");
 }
 
 void Command::decodeWithCoder(const Coder *aCoder) {
     localizedTitle = aCoder->decodeStringForKey("localizedTitle");
     commandID = aCoder->decodeStringForKey("commandID");
-    associatedRemote = Remote(*aCoder->decodeObjectForKey<Remote>("associatedRemote").release());
 }

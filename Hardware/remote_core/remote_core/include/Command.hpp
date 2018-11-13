@@ -10,18 +10,16 @@
 #define Command_hpp
 
 #include "Coding.hpp"
-#include "Remote.hpp"
 
 namespace RemoteCore {
     class Command : public Coding {
     private:
         std::string localizedTitle;
         std::string commandID;
-        Remote associatedRemote;
         
     public:
         Command() {}
-        Command(std::string localizedTitle, std::string commandID, Remote associatedRemote) : localizedTitle(localizedTitle), commandID(commandID), associatedRemote(associatedRemote) {};
+        Command(std::string localizedTitle, std::string commandID) : localizedTitle(localizedTitle), commandID(commandID) {};
         
         void encodeWithCoder(Coder *aCoder) const override;
         void decodeWithCoder(const Coder *aCoder) override;
@@ -34,12 +32,8 @@ namespace RemoteCore {
             return localizedTitle;
         }
         
-        Remote getAssociatedRemote(void) const {
-            return associatedRemote;
-        }
-        
         bool operator==(const Command &rhs) const {
-            return localizedTitle == rhs.localizedTitle && commandID == rhs.commandID  && associatedRemote == rhs.associatedRemote;
+            return localizedTitle == rhs.localizedTitle && commandID == rhs.commandID;
         }
         
         bool operator !=(const Command &rhs) const {

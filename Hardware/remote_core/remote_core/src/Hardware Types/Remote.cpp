@@ -13,10 +13,12 @@ using namespace RemoteCore;
 void Remote::encodeWithCoder(Coder *aCoder) const {
     aCoder->encodeStringForKey(localizedTitle, "localizedTitle");
     aCoder->encodeStringForKey(remoteID, "remoteID");
+    aCoder->encodeArrayForKey(commands, "commands");
 }
 
 void Remote::decodeWithCoder(const Coder *aCoder) {
     localizedTitle = aCoder->decodeStringForKey("localizedTitle");
     remoteID = aCoder->decodeStringForKey("remoteID");
+    commands = aCoder->decodeArrayForKey<Command>("commands");
 }
 

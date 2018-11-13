@@ -11,12 +11,14 @@
 
 #include <iostream>
 #include "Coding.hpp"
+#include "Command.hpp"
 
 namespace RemoteCore {
     class Remote : public Coding {
     private:
         std::string localizedTitle;
         std::string remoteID;
+        std::vector<Command> commands;
         
     public:
         Remote() {}
