@@ -21,17 +21,20 @@ namespace RemoteCore {
     protected:
         virtual std::unique_ptr<Container> createNestedContainer() = 0;
         virtual void setNestedContainerForKey(std::unique_ptr<Container> nestedContainer, std::string key) = 0;
+        virtual void addNestedContainers(std::vector<std::unique_ptr<Container>> nestedContainers) = 0;
         
     public:
+        
+        // MARK: - Initialization
+        
+        virtual void initializeForObject(void) = 0;
+        virtual void initializeForArray(void) = 0;
+        
+        // MARK: - Deinitialization
+        
         virtual ~Container() {};
         
-        /**
-         Generates the data the receiver has been storing. The container will transfer ownership of the data to the caller.
-
-         @param length Reference to a 'size_t' instance that will be updated with the correct length of the data.
-         @return Unique pointer to the first byte of data.
-         */
-        virtual std::unique_ptr<uint8_t> generateData(size_t &length) = 0;
+        // MARK: - Setters
         
         virtual void setIntForKey(int value, std::string key) = 0;
         virtual void setUnsignedIntForKey(unsigned int value, std::string key) = 0;
@@ -39,7 +42,13 @@ namespace RemoteCore {
         virtual void setBoolForKey(bool value, std::string key) = 0;
         virtual void setStringForKey(std::string value, std::string key) = 0;
         
-        // TODO: Provide method for storing array of primitive types, including containers.
+        virtual void emplaceArray(std::vector<int> value) = 0;
+        virtual void emplaceArray(std::vector<unsigned int> value) = 0;
+        virtual void emplaceArray(std::vector<double> value) = 0;
+        virtual void emplaceArray(std::vector<bool> value) = 0;
+        virtual void emplaceArray(std::vector<std::string> value) = 0;
+        
+        // MARK: - Getters
         
         virtual int intForKey(std::string key) = 0;
         virtual unsigned int unsignedIntForKey(std::string key) = 0;
@@ -48,6 +57,15 @@ namespace RemoteCore {
         virtual std::string stringForKey(std::string key) = 0;
         virtual std::unique_ptr<Container> containerForKey(std::string key) = 0;
         
+        virtual std::vector<int> intArray(void) = 0;
+        virtual std::vector<unsigned int> unsignedIntArray(void) = 0;
+        virtual std::vector<double> floatArray(void) = 0;
+        virtual std::vector<bool> boolArray(void) = 0;
+        virtual std::vector<std::string> stringArray(void) = 0;
+        virtual std::vector<std::unique_ptr<Container>> containerArray(void) = 0;
+        
+        // MARK: - Nested Container Management
+        
         /**
          Requests a container that will be registered with the receiver, which may then be used for arbitrary data containment.
          
@@ -55,7 +73,7 @@ namespace RemoteCore {
          
          @return Unique ownership for a container of some type derivative of Container.
          */
-        std::unique_ptr<Container> requestNestedContainer();
+        std::unique_ptr<Container> requestNestedContainer(bool isArray = false);
         
         /**
          Injects the nested container into the receiver's container. Providing a container that is not registered with the receiver is considered an exception, and one will be thrown accordingly.
@@ -68,9 +86,38 @@ namespace RemoteCore {
         void submitNestedContainerForKey(std::unique_ptr<Container> nestedContainer, std::string key);
         
         /**
+         Injects the nested container into the receiver's container. Providing a container that is not registered with the receiver is considered invalid input, and an exception will be thrown accordingly.
+         
+         Ownership/lifecycle semantics are respected according to other related nested container submission methods.
+         
+         @warning This method is intended for use with – and only with – array containers.
+         @param nestedContainer Container that was previously retrieved through a call to 'requestNestedContainer()'.
+         */
+        void submitNestedContainer(std::unique_ptr<Container> nestedContainer);
+        
+        /**
+         Injects the array of nested containers into the receiver's container. Providing an array of containers that have not been registered with the receiver is considered an exception, and one will be thrown accordingly.
+         
+         Once the array of nested containers have been submitted, all of the containers' lifecycles are complete and onwership of each is relinquished.
+
+         @param nestedContainers Containers that were retrieved through repeated calls to 'requestNestedContainer()'.
+         */
+        void submitNestedContainers(std::vector<std::unique_ptr<Container>> nestedContainers);
+        
+        /**
          Removes a particular nested container from the receiver's registration system for nested containers.
          */
         void deleteNestedContainer(std::unique_ptr<Container> nestedContainer);
+        
+        // MARK: - Data Generation
+        
+        /**
+         Generates the data the receiver has been storing. The container will transfer ownership of the data to the caller.
+         
+         @param length Reference to a 'size_t' instance that will be updated with the correct length of the data.
+         @return Unique pointer to the first byte of data.
+         */
+        virtual std::unique_ptr<uint8_t> generateData(size_t *length) = 0;
     };
 }
 
