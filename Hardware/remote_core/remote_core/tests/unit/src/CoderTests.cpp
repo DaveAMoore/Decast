@@ -42,14 +42,10 @@ public:
     std::unique_ptr<Mock> f;
     std::vector<int> g;
     std::vector<Foo> h;
-    std::vector<std::unique_ptr<Foo>> i;
     
     Mock() {}
     
     Mock(bool shouldCreateF) : a(25), b("Hello world!"), c(true), d(7.25), e(254), g({1, 2, 3, 4, 5}), h({Foo(), Foo()}) {
-        i.push_back(std::make_unique<Foo>(17, "Fum"));
-        i.push_back(std::make_unique<Foo>(18, "Bar"));
-        
         if (shouldCreateF) {
             f = std::make_unique<Mock>(false);
         }
@@ -64,17 +60,6 @@ public:
         aCoder->encodeObjectForKey(f.get(), "f");
         aCoder->encodeArrayForKey(g, "g");
         aCoder->encodeArrayForKey(h, "h");
-        
-        std::vector<const Foo *> ic;
-        for (auto &&element : i) {
-            ic.push_back(element.get());
-        }
-        
-        //typedef typename std::remove_reference<decltype(*std::declval<const Foo *>())>::type T;
-        
-        //static_assert(std::is_base_of<Coding, std::remove_reference<decltype(*std::declval<T>())>::type>::value, "");
-        
-        //Coder->encodeArrayForKey(ic, "i");
     }
     
     void decodeWithCoder(const Coder *aCoder) override {
@@ -86,9 +71,6 @@ public:
         f = aCoder->decodeObjectForKey<Mock>("f");
         g = aCoder->decodeArrayForKey<int>("g");
         h = aCoder->decodeArrayForKey<Foo>("h");
-        
-        static_assert(std::is_base_of<Coding, std::unique_ptr<Foo>::element_type>::value, "");
-        //i = aCoder->decodeArrayForKey<std::unique_ptr<Foo>>("i");
     }
 };
 

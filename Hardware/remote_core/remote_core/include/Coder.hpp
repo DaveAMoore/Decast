@@ -113,25 +113,8 @@ namespace RemoteCore {
             std::integral_constant<bool, isInt || isUnsignedInt || isFloat || isBool || isString> isPrimitive;
             std::integral_constant<bool, std::is_base_of<Coding, T>::value> isCoding;
             
-            /*logic::static_if<!isPrimitive && !isCoding>([]() {
-                typedef typename std::remove_reference<decltype(*std::declval<T>())>::type U;
-                //std::integral_constant<bool, std::is_same<Coding, U>::value> isCodingPointer;
-                
-                //static_assert(isCodingPointer, "");
-            }, [&]() {
-                // Assert that at least one of the above conditions were met.
-                static_assert(isPrimitive || isCoding, "expected type T to be primitive or conform to Coding");
-            });*/
-            
-            // typedef typename std::remove_reference<decltype(*std::declval<T>())>::type U;
-            
-            
-            // typedef typename std::is_base_of<Coding, std::remove_reference<decltype(*std::declval<T>())>::type> U;
-            //std::integral_constant<bool, std::is_same<Coding, U>::value> isCodingPointer;
-            std::integral_constant<bool, false> isCodingPointer;
-            
             // Assert that at least one of the above conditions were met.
-            static_assert(isPrimitive || isCoding || isCodingPointer, "expected type T to be primitive or conform to Coding");
+            static_assert(isPrimitive || isCoding, "expected type T to be primitive or conform to Coding");
             
             // Initialize the container for an array.
             codingContainer->initializeForArray();
@@ -142,21 +125,12 @@ namespace RemoteCore {
             })(value);
             
             // Encode the array of objects.
-            logic::static_if<isCoding || isCodingPointer>([&](auto &array) {
+            logic::static_if<isCoding>([&](auto &array) {
                 for (auto element : array) {
                     // Encode the element to a nested container.
                     auto nestedObjectContainer = codingContainer->requestNestedContainer();
                     auto aCoder = std::make_unique<Coder>(std::move(nestedObjectContainer));
-                    
-                    // Encode the root object, properly passing in a pointer.
-                    logic::static_if<isCoding>([&](auto &codingValue) {
-                        aCoder->encodeRootObject(&codingValue);
-                    })(element);
-                    
-                    // Use the pointer to encode the object.
-                    logic::static_if<isCodingPointer>([&](auto &codingValue) {
-                        aCoder->encodeRootObject(codingValue);
-                    })(element);
+                    aCoder->encodeRootObject(&element);
                     
                     // Submit the nested container.
                     codingContainer->submitNestedContainer(aCoder->invalidateCoder());
@@ -166,19 +140,6 @@ namespace RemoteCore {
         
         template <typename T>
         void encodeArrayForKey(std::vector<T> value, std::string key) {
-            /*// Produce integral constants for static_assert and static_if later.
-            std::integral_constant<bool, std::is_same<int, T>::value> isInt;
-            std::integral_constant<bool, std::is_same<unsigned int, T>::value> isUnsignedInt;
-            std::integral_constant<bool, std::is_same<double, T>::value> isFloat;
-            std::integral_constant<bool, std::is_same<bool, T>::value> isBool;
-            std::integral_constant<bool, std::is_same<std::string, T>::value> isString;
-            std::integral_constant<bool, isInt || isUnsignedInt || isFloat || isBool || isString> isPrimitive;
-            std::integral_constant<bool, std::is_base_of<Coding, T>::value> isCoding;
-            std::integral_constant<bool, std::is_base_of<const Coding *, T>::value> isCodingPointer;
-        
-            // Assert that at least one of the above conditions were met.
-            static_assert(isPrimitive || isCoding || isCodingPointer, "expected type T to be primitive or conform to Coding");*/
-            
             // Request a nested container.
             auto nestedContainer = codingContainer->requestNestedContainer(true);
             auto aCoder = std::make_unique<Coder>(std::move(nestedContainer));
@@ -188,40 +149,6 @@ namespace RemoteCore {
             
             // Submit the array container.
             codingContainer->submitNestedContainerForKey(aCoder->invalidateCoder(), key);
-            
-            // Emplace an array of primitive values.
-            /* logic::static_if<isPrimitive>([&](auto &primitiveValue) {
-                nestedContainer->emplaceArray(primitiveValue);
-            })(value);
-            
-            // Encode the array of objects.
-            logic::static_if<isCoding || isCodingPointer>([&]() {
-                std::vector<std::unique_ptr<Container>> nestedContainers;
-                
-                for (auto element : value) {
-                    // Encode the element to a nested container.
-                    auto nestedObjectContainer = nestedContainer->requestNestedContainer();
-                    auto aCoder = std::make_unique<Coder>(std::move(nestedObjectContainer));
-                    
-                    // Encode the root object, properly passing in a pointer.
-                    logic::static_if<isCoding>([&](auto &codingValue) {
-                        aCoder->encodeRootObject(&codingValue);
-                    })(element);
-                    
-                    // Use the pointer to encode the object.
-                    logic::static_if<isCodingPointer>([&](auto &codingValue) {
-                        aCoder->encodeRootObject(codingValue);
-                    })(element);
-                    
-                    // Collect the nested container.
-                    nestedContainers.push_back(aCoder->invalidateCoder());
-                }
-                
-                nestedContainer->submitNestedContainers(std::move(nestedContainers));
-            });
-            
-            // Submit the nested container (i.e., array).
-            codingContainer->submitNestedContainerForKey(std::move(nestedContainer), key); */
         }
         
         // MARK: - Array Decoding
@@ -237,11 +164,8 @@ namespace RemoteCore {
             std::integral_constant<bool, isInt || isUnsignedInt || isFloat || isBool || isString> isPrimitive;
             std::integral_constant<bool, std::is_base_of<Coding, T>::value> isCoding;
             
-            std::integral_constant<bool, std::is_base_of<std::unique_ptr<Coding>, T>::value> isCodingPointer;
-            //std::unique_ptr<Foo>::element_type>::value
-            
             // Assert that at least one of the above conditions were met.
-            static_assert(isPrimitive || isCoding || isCodingPointer, "expected type T to be primitive or conform to Coding");
+            static_assert(isPrimitive || isCoding, "expected type T to be primitive or conform to Coding");
             
             // Initialize an empty vector to start.
             std::vector<T> value;
@@ -266,25 +190,17 @@ namespace RemoteCore {
                 array = codingContainer->stringArray();
             })(value);
             
-            logic::static_if<isCoding>([&](auto &val) {
+            logic::static_if<isCoding>([&](auto &array) {
                 auto containerArray = codingContainer->containerArray();
                 for (auto &&container : containerArray) {
                     auto aCoder = std::make_unique<Coder>(std::move(container));
-                    /*auto object = aCoder->decodeRootObject<typeof(T)>();
-                    array.push_back(object);*/
                     
+                    // Decode the root object and copy it to the stack.
+                    auto rootObjectPtr = aCoder->decodeRootObject<T>();
+                    T rootObject(*rootObjectPtr.release());
                     
-                    logic::static_if<isCoding>([&](auto &array) {
-                        std::unique_ptr<T> rootObject = aCoder->decodeRootObject<T>();
-                        //T object(&ootObject.release());
-                        
-                        //array.push_back(object);
-                    })(val);
-                    
-                    logic::static_if<isCodingPointer>([&](auto &array) {
-                        auto object = aCoder->decodeRootObject<typeof(T)>();
-                        array.push_back(object);
-                    })(val);
+                    // Add the decoded object.
+                    array.push_back(rootObject);
                 }
             })(value);
             
@@ -294,60 +210,12 @@ namespace RemoteCore {
         template <class T>
         std::vector<T> decodeArrayForKey(std::string key) const {
             auto nestedContainer = codingContainer->containerForKey(key);
-            auto aCoder = std::make_unique<Coder>(std::move(nestedContainer));
-            
-            return aCoder->decodeRootArray<T>();
-            
-            /*
-            // Produce integral constants for static_assert and static_if later.
-            std::integral_constant<bool, std::is_same<int, T>::value> isInt;
-            std::integral_constant<bool, std::is_same<unsigned int, T>::value> isUnsignedInt;
-            std::integral_constant<bool, std::is_same<double, T>::value> isFloat;
-            std::integral_constant<bool, std::is_same<bool, T>::value> isBool;
-            std::integral_constant<bool, std::is_same<std::string, T>::value> isString;
-            std::integral_constant<bool, isInt || isUnsignedInt || isFloat || isBool || isString> isPrimitive;
-            std::integral_constant<bool, std::is_base_of<Coding, T>::value> isCoding;
-            std::integral_constant<bool, std::is_base_of<std::unique_ptr<Coding>, T>::value> isCodingPointer;
-            
-            // Assert that at least one of the above conditions were met.
-            static_assert(isPrimitive || isCoding || isCodingPointer, "expected type T to be primitive or conform to Coding");
-            
-            // Initialize an empty vector to start.
-            std::vector<T> value;
-            
-            logic::static_if<isInt>([&](auto &array) {
-                array = codingContainer->intArray();
-            })(value);
-            
-            logic::static_if<isUnsignedInt>([&](auto &array) {
-                array = codingContainer->unsignedIntArray();
-            })(value);
-            
-            logic::static_if<isFloat>([&](auto &array) {
-                array = codingContainer->floatArray();
-            })(value);
-            
-            logic::static_if<isBool>([&](auto &array) {
-                array = codingContainer->boolArray();
-            })(value);
-            
-            logic::static_if<isString>([&](auto &array) {
-                array = codingContainer->stringArray();
-            })(value);
-            
-            logic::static_if<isCoding || isCodingPointer>([&]() {
-                auto container = codingContainer->containerForKey(key);
-
-                logic::static_if<isCoding>([&](auto &array) {
-                    
-                })(value);
-                
-                logic::static_if<isCodingPointer>([&](auto &array) {
-                    array = container->containerArray();
-                })(value);
-            });
-            
-            return value;*/
+            if (nestedContainer != nullptr) {
+                auto aCoder = std::make_unique<Coder>(std::move(nestedContainer));
+                return aCoder->decodeRootArray<T>();
+            } else {
+                return std::vector<T>();
+            }
         }
         
         // MARK: - Invalidation
