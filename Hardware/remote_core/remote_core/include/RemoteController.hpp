@@ -15,6 +15,8 @@ namespace RemoteCore {
     /// The base class for remote_core that should be used for remote-related functionality.
     class RemoteController {
     private:
+        std::string serialNumber;
+        
     protected:
         std::unique_ptr<ConnectionManager> connectionManager;
         

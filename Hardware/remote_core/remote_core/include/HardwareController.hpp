@@ -12,7 +12,7 @@
 #include <vector>
 #include "RemoteController.hpp"
 #include "TrainingSession.hpp"
-#include "Command.hpp"
+#include "Remote.hpp"
 
 namespace RemoteCore {
     class HardwareController {
@@ -28,10 +28,10 @@ namespace RemoteCore {
         // MARK: - Command Sending
         
         /**
-         Sends a command 
+         Sends a command through infrared to an external device.
          
-         @param command <#command description#>
-         @param deviceID <#deviceID description#>
+         @param command The command that will be sent.
+         @param deviceID
          @param completionHandler <#completionHandler description#>
          */
         void sendCommandWithCompletionHandler(Command command, CompletionHandler completionHandler);

@@ -8,16 +8,32 @@
 
 #include "TrainingSession.hpp"
 #include "UUID.hpp"
+#include "Coder.hpp"
+#include "JSONContainer.hpp"
 #include <exception>
 
 using namespace RemoteCore;
 
 TrainingSession::TrainingSession(Remote associatedRemote) : associatedRemote(associatedRemote) {
     sessionID = UUID::GenerateUUIDString();
+    
+    // availableCommandIDs =
+    
+    // Sort a copied version of the available command IDs.
+    auto sortedCommandIDs = availableCommandIDs;
+    std::sort(sortedCommandIDs.begin(), sortedCommandIDs.end());
+    
+    auto sortedCommands = associatedRemote.commands;
+    std::sort(sortedCommands.begin(), sortedCommands.end(), [](Command &lhs, Command &rhs) {
+        return lhs.getCommandID() > rhs.getCommandID();
+    });
 }
 
 Command TrainingSession::createCommandWithLocalizedTitle(std::string localizedTitle) {
-    return Command("[Command ID Here]", localizedTitle);
+    auto command = Command("[Command ID Here]", localizedTitle);
+    associatedRemote.commands.push_back(command);
+    
+    return command;
 }
 
 void TrainingSession::learnCommand(Command command) {

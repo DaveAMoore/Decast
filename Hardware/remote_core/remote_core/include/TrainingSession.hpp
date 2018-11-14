@@ -23,6 +23,7 @@ namespace RemoteCore {
         Remote associatedRemote;
         std::weak_ptr<TrainingSessionDelegate> delegate;
         Command currentCommand;
+        std::vector<std::string> availableCommandIDs;
         
     public:
         TrainingSession(Remote associatedRemote);
