@@ -11,12 +11,12 @@
 using namespace RemoteCore;
 
 UUID::UUID() {
-    uuid_generate(uuid);
+    //uuid_generate(uuid);
 }
 
 std::string UUID::uuidString() {
-    char uuidStr[64];
-    uuid_unparse(uuid, uuidStr);
+    char uuidStr[64] = {0};
+    //uuid_unparse(uuid, uuidStr);
     
     return std::string(uuidStr);
 }
