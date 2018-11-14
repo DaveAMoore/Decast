@@ -69,6 +69,9 @@
 #define SDK_CONFIG_MAX_TX_ACTION_QUEUE_LENGTH_KEY "maximum_outgoing_action_queue_length"
 #define SDK_CONFIG_ACTION_PROCESSING_RATE_KEY "action_processing_rate_hz"
 
+// Pertinent Information
+#define REMOTE_CORE_CONFIG_SERIAL_NUMBER_KEY "remote_core_serial_number"
+
 // Discovery settings
 #define DISCOVER_ACTION_TIMEOUT_MSECS_KEY "discover_action_timeout_msecs"
 
@@ -103,6 +106,8 @@ namespace awsiotsdk {
     size_t ConfigCommon::max_pending_acks_;
     size_t ConfigCommon::maximum_outgoing_action_queue_length_;
     uint32_t ConfigCommon::action_processing_rate_hz_;
+    
+    util::String serial_number_;
 
     void ConfigCommon::LogParseError(const ResponseCode &response_code,
                                      const util::JsonDocument &config,
@@ -319,6 +324,13 @@ namespace awsiotsdk {
                                               action_processing_rate_hz_);
         if (ResponseCode::SUCCESS != rc) {
             LogParseError(rc, sdk_config_json_, SDK_CONFIG_ACTION_PROCESSING_RATE_KEY);
+            return rc;
+        }
+        
+        rc = util::JsonParser::GetStringValue(sdk_config_json_, REMOTE_CORE_CONFIG_SERIAL_NUMBER_KEY,
+                                              serial_number_);
+        if (ResponseCode::SUCCESS != rc) {
+            LogParseError(rc, sdk_config_json_, REMOTE_CORE_CONFIG_SERIAL_NUMBER_KEY);
             return rc;
         }
 
