@@ -24,5 +24,5 @@
     "action_processing_rate_hz": 5,
     "maximum_outgoing_action_queue_length": 32,
     "discover_action_timeout_msecs": 300000,
-    "remote_core_serial_number": ""
+    "remote_core_serial_number": "LL2RDNFR44"
 }
