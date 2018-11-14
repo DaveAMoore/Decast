@@ -107,7 +107,7 @@ namespace awsiotsdk {
     size_t ConfigCommon::maximum_outgoing_action_queue_length_;
     uint32_t ConfigCommon::action_processing_rate_hz_;
     
-    util::String serial_number_;
+    util::String ConfigCommon::serial_number_;
 
     void ConfigCommon::LogParseError(const ResponseCode &response_code,
                                      const util::JsonDocument &config,
