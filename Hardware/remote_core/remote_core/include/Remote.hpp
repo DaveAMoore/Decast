@@ -18,9 +18,10 @@ namespace RemoteCore {
     private:
         std::string localizedTitle;
         std::string remoteID;
-        std::vector<Command> commands;
         
     public:
+        std::vector<Command> commands;
+        
         Remote() {}
         Remote(std::string localizedTitle, std::string remoteID) : localizedTitle(localizedTitle), remoteID(remoteID) {};
         
@@ -36,7 +37,7 @@ namespace RemoteCore {
         }
         
         bool operator ==(const Remote &rhs) const {
-            return localizedTitle == rhs.localizedTitle && remoteID == rhs.remoteID;
+            return localizedTitle == rhs.localizedTitle && remoteID == rhs.remoteID && commands == rhs.commands;
         }
         
         bool operator !=(const Remote &rhs) const {
