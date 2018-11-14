@@ -26,6 +26,8 @@ namespace RemoteCore {
     public:
         Message(MessageType type = MessageType::Default);
         
+        // MARK: - Properties
+        
         /**
          Unique identifier for a particular message.
          */
@@ -33,9 +35,14 @@ namespace RemoteCore {
             return messageID;
         }
         
+        /**
+         Type of the message that is represented. Default value is 'MessageType::Default'.
+         */
         MessageType getMessageType(void) {
             return type;
         }
+        
+        // MARK: - Coding
         
         void encodeWithCoder(Coder *aCoder) const override;
         void decodeWithCoder(const Coder *aCoder) override;
