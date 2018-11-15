@@ -8,16 +8,15 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include <math.h>
-#include <limits.h>
+#include <limits>
 #include "JSONContainer.hpp"
 
 using namespace RemoteCore;
 
 TEST(JSONContainerTests, EncodeDecodeInt) {
     JSONContainer container;
-
-    const int value = INT_MAX;
+    
+    const int value = std::numeric_limits<int>::max();
     container.setIntForKey(value, "EncodeDecodeInt");
     
     ASSERT_EQ(value, container.intForKey("EncodeDecodeInt"));
@@ -26,7 +25,7 @@ TEST(JSONContainerTests, EncodeDecodeInt) {
 TEST(JSONContainerTests, EncodeDecodeUnsignedInt) {
     JSONContainer container;
     
-    const unsigned int value = UINT_MAX;
+    const unsigned int value = std::numeric_limits<unsigned int>::max();
     container.setUnsignedIntForKey(value, "EncodeDecodeUnsignedInt");
     
     ASSERT_EQ(container.unsignedIntForKey("EncodeDecodeUnsignedInt"), value);
@@ -35,7 +34,7 @@ TEST(JSONContainerTests, EncodeDecodeUnsignedInt) {
 TEST(JSONContainerTests, EncodeDecodeFloat) {
     JSONContainer container;
     
-    const double value = MAXFLOAT;
+    const double value = std::numeric_limits<double>::max();
     container.setFloatForKey(value, "EncodeDecodeFloat");
     
     ASSERT_EQ(container.floatForKey("EncodeDecodeFloat"), value);
@@ -139,7 +138,7 @@ TEST(JSONContainerTests, EncodeDecodeNestedContainers) {
     
     int a = 123;
     std::string b = "Boo";
-    std::vector<unsigned int> c{15, 23, 105, UINT_MAX};
+    std::vector<unsigned int> c{15, 23, 105, std::numeric_limits<unsigned int>::max()};
     
     const int len = 10;
     
@@ -175,10 +174,10 @@ TEST(JSONContainerTests, EncodeDecodeEmbeddedContainer) {
     const int intValue = rand();
     embeddedContainer->setIntForKey(intValue, "A");
     
-    const unsigned int uIntValue = UINT_MAX;
+    const unsigned int uIntValue = std::numeric_limits<unsigned int>::max();
     embeddedContainer->setUnsignedIntForKey(uIntValue, "E");
     
-    const double doubleValue = MAXFLOAT;
+    const double doubleValue = std::numeric_limits<double>::max();
     embeddedContainer->setFloatForKey(doubleValue, "F");
     
     const bool boolValue = rand() % 1;
@@ -192,10 +191,10 @@ TEST(JSONContainerTests, EncodeDecodeEmbeddedContainer) {
     const int intValue2 = rand();
     nestedContainer->setIntForKey(intValue2, "A");
     
-    const unsigned int uIntValue2 = UINT_MAX;
+    const unsigned int uIntValue2 = std::numeric_limits<unsigned int>::max();
     nestedContainer->setUnsignedIntForKey(uIntValue2, "E");
     
-    const double doubleValue2 = MAXFLOAT;
+    const double doubleValue2 = std::numeric_limits<double>::max();
     nestedContainer->setFloatForKey(doubleValue2, "F");
     
     const bool boolValue2 = rand() % 1;
