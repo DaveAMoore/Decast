@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
+#include <math.h>
+#include <limits.h>
 #include "JSONContainer.hpp"
 
 using namespace RemoteCore;
