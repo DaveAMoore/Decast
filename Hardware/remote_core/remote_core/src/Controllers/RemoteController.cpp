@@ -9,7 +9,7 @@
 #include "RemoteController.hpp"
 #include "ConfigCommon.hpp"
 
-#define TOPIC_PREFIX "/remote_core/remotes/"
+#define TOPIC_PREFIX "remote_core/remotes/"
 
 using namespace RemoteCore;
 using namespace awsiotsdk;
@@ -34,7 +34,7 @@ void RemoteController::startController() {
         // FIXME: Handle errors.
     });
     
-    /*connectionManager->subscribeToTopic("topic_1", [&](std::string topicName, std::string payload) {
+    connectionManager->subscribeToTopic("remote_core/tests/topic_1", [&](std::string topicName, std::string payload) {
         std::cout << payload << std::endl;
         
         std::string message = R"({"message": "Hello from Pi!"})";
@@ -45,7 +45,7 @@ void RemoteController::startController() {
         return awsiotsdk::ResponseCode::SUCCESS;
     }, [](awsiotsdk::ResponseCode responseCode) {
         std::cout << responseCode << std::endl;
-    });*/
+    });
 }
 
 void RemoteController::stopController() {
