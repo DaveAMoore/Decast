@@ -175,8 +175,8 @@ void ConnectionManager::unsubscribeFromTopic(const std::string &topicName,
 void ConnectionManager::publishMessageToTopic(const std::string &message, const std::string &topicName,
                                               CompletionHandler completionHandler) {
     auto topicNamePtr = Utf8String::Create(topicName);
-    
     uint16_t packetIDOut;
+    
     client->PublishAsync(std::move(topicNamePtr), false, false, qualityOfService, message, [&, completionHandler](uint16_t actionID, ResponseCode responseCode) {
         if (completionHandler) {
             completionHandler(responseCode);
