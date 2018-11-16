@@ -37,6 +37,9 @@ int main(int argc, const char * argv[]) {
     
     // Maintain a run-loop while the program is ongoing.
     while (true) {
+        // Wait for an arbitrary amount of time until we check for signals again.
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        
         if (lastSignal == SIGHUP) {
             // Reload the configuration file by restarting the controller.
             remoteController->stopController();
