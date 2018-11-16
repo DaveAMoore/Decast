@@ -9,12 +9,12 @@
     "tls_handshake_timeout_msecs": 60000,
     "tls_read_timeout_msecs": 2000,
     "tls_write_timeout_msecs": 2000,
-    "aws_region": "",
+    "aws_region": "us-east-1",
     "aws_access_key_id": "",
     "aws_secret_access_key": "",
     "aws_session_token": "",
-    "client_id": "Proto-R1-Remote",
-    "thing_name": "Proto-R1-Remote",
+    "client_id": "Remote-LE2RDNFR44",
+    "thing_name": "Remote-LE2RDNFR44",
     "is_clean_session": true,
     "mqtt_command_timeout_msecs": 20000,
     "keepalive_interval_secs": 600,
@@ -24,5 +24,5 @@
     "action_processing_rate_hz": 5,
     "maximum_outgoing_action_queue_length": 32,
     "discover_action_timeout_msecs": 300000,
-    "remote_core_serial_number": "LL2RDNFR44"
+    "remote_core_serial_number": "LE2RDNFR44"
 }
