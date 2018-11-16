@@ -16,8 +16,8 @@ using namespace RemoteCore;
 using namespace testing;
 
 #define DEFAULT_TIMEOUT std::chrono::seconds(15)
-#define DEFAULT_TOPIC_NAME "topic_1"
-#define ALTERNATE_TOPIC_NAME "topic_2"
+#define DEFAULT_TOPIC_NAME "remote_core/tests/topic_1"
+#define ALTERNATE_TOPIC_NAME "remote_core/tests/topic_2"
 
 // MARK: - Test Fixture
 
