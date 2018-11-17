@@ -99,13 +99,9 @@
 		633C3A2021A0BD9600418D6C /* Decast */ = {
 			isa = PBXGroup;
 			children = (
-				633C3A2121A0BD9600418D6C /* AppDelegate.swift */,
-				633C3A2321A0BD9600418D6C /* ViewController.swift */,
-				633C3A2521A0BD9600418D6C /* Main.storyboard */,
-				633C3A2B21A0BD9800418D6C /* Assets.xcassets */,
-				633C3A2D21A0BD9800418D6C /* LaunchScreen.storyboard */,
-				633C3A3021A0BD9800418D6C /* Info.plist */,
-				633C3A2821A0BD9600418D6C /* Decast.xcdatamodeld */,
+				633C3A5221A0BDC600418D6C /* Source */,
+				633C3A5421A0BDDF00418D6C /* Resources */,
+				633C3A5321A0BDD900418D6C /* Supporting Files */,
 			);
 			path = Decast;
 			sourceTree = "<group>";
@@ -126,6 +122,34 @@
 				633C3A4621A0BD9800418D6C /* Info.plist */,
 			);
 			path = DecastUITests;
+			sourceTree = "<group>";
+		};
+		633C3A5221A0BDC600418D6C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				633C3A2121A0BD9600418D6C /* AppDelegate.swift */,
+				633C3A2321A0BD9600418D6C /* ViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		633C3A5321A0BDD900418D6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				633C3A2821A0BD9600418D6C /* Decast.xcdatamodeld */,
+				633C3A3021A0BD9800418D6C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		633C3A5421A0BDDF00418D6C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				633C3A2521A0BD9600418D6C /* Main.storyboard */,
+				633C3A2B21A0BD9800418D6C /* Assets.xcassets */,
+				633C3A2D21A0BD9800418D6C /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +462,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
-				INFOPLIST_FILE = Decast/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Decast/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +481,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
-				INFOPLIST_FILE = Decast/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Decast/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
