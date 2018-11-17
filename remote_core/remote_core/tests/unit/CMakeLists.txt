@@ -50,7 +50,6 @@ target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${PROJECT_SOURCE_DIR
 target_sources(${UNIT_TEST_TARGET_NAME} PRIVATE ${UNIT_TEST_TARGET_SOURCES})
 
 target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/aws-iot-device-sdk-cpp/src/include)
-# target_include_directories(${UNIT_TEST_TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/nlohmann_json/src/include)
 
 target_link_libraries(${UNIT_TEST_TARGET_NAME} aws-iot-sdk-cpp)
 

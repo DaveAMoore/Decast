@@ -58,26 +58,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/src
 ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build EXCLUDE_FROM_ALL)
 
-###########################
-# Section : Download JSON #
-###########################
-
-# Download and unpack nlohmann_json at configure time
-# configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists-json.txt.in
-# ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download/CMakeLists.txt)
-
-# Configure the CMake project.
-# execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
-# WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
-
-# Configure JSON for building.
-# execute_process(COMMAND ${CMAKE_COMMAND} --build .
-# WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
-
-# This adds the following targets: nlohmann_json.
-# add_subdirectory(${CMAKE_BINARY_DIR}/third_party/nlohmann_json/src
-# ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/build EXCLUDE_FROM_ALL)
-
 ####################################
 # Section : Add Application Target #
 ####################################
