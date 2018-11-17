@@ -89,6 +89,12 @@ target_link_libraries(${UNIT_TEST_TARGET_NAME} gtest gtest_main gmock gmock_main
 # target_link_libraries(${UNIT_TEST_TARGET_NAME} ${THREAD_LIBRARY_LINK_STRING})
 # target_link_libraries(${UNIT_TEST_TARGET_NAME} ${TARGET_NAME})
 
+if(UNIX AND NOT APPLE)
+    # Link UUID when on UNIX systems other than macOS.
+    pkg_search_module(UUID REQUIRED uuid)
+    target_link_libraries(${UNIT_TEST_TARGET_NAME} -luuid)
+endif()
+
 find_program(GCOV gcov)
 find_program(LCOV lcov)
 find_program(GENHTML genhtml)

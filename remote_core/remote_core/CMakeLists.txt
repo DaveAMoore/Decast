@@ -78,11 +78,9 @@ target_sources(${TARGET_NAME} PRIVATE ${TARGET_SOURCES})
 
 # Include the dependencies headers.
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/aws-iot-device-sdk-cpp/src/include)
-# target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/nlohmann_json/src/include)
 
 # Link the dependency libraries.
 target_link_libraries(${TARGET_NAME} aws-iot-sdk-cpp)
-# target_link_libraries(${TARGET-NAME} nlohmann_json)
 
 # Link with OpenSSL.
 find_package(OpenSSL REQUIRED)
@@ -91,6 +89,7 @@ target_link_libraries(${TARGET_NAME} OpenSSL::SSL)
 if(UNIX AND NOT APPLE)
     # Link UUID when on UNIX systems other than macOS.
     pkg_search_module(UUID REQUIRED uuid)
+    target_link_libraries(${TARGET_NAME} -luuid)
 endif()
 
 #####################################
