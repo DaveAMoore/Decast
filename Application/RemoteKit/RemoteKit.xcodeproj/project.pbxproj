@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63922EE52196847A00A2FB78 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63922EE42196847A00A2FB78 /* Test.swift */; };
 		63922F12219684A100A2FB78 /* RFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5290521909D6C00D9506D /* RFCore.framework */; };
 		63922F13219684B300A2FB78 /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528CA21909D5E00D9506D /* AWSAutoScaling.framework */; };
 		63922F14219684B300A2FB78 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A528CE21909D5E00D9506D /* AWSCognito.framework */; };
@@ -18,9 +17,13 @@
 		639A8A62217EC25B00EAF6D7 /* RemoteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */; };
 		639A8A67217EC25B00EAF6D7 /* RemoteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A8A66217EC25B00EAF6D7 /* RemoteKitTests.swift */; };
 		639A8A69217EC25B00EAF6D7 /* RemoteKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63DEF5AB219797FF0030397E /* RKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AA219797FF0030397E /* RKContainer.swift */; };
-		63DEF5AE219798CB0030397E /* RFRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AD219798CB0030397E /* RFRemote.swift */; };
-		63DEF5B0219799430030397E /* RFCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AF219799430030397E /* RFCommand.swift */; };
+		63B0ADE9219B9F9700F64A52 /* RKContainer+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0ADE8219B9F9700F64A52 /* RKContainer+Configuration.swift */; };
+		63B0AE18219BA07100F64A52 /* RKTrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE17219BA07100F64A52 /* RKTrainingSession.swift */; };
+		63B0AE1A219BA0E500F64A52 /* RKDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE19219BA0E500F64A52 /* RKDevice.swift */; };
+		63B0AE1F219BA33000F64A52 /* RKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE1E219BA33000F64A52 /* RKMessage.swift */; };
+		63DEF5AB219797FF0030397E /* RKSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AA219797FF0030397E /* RKSession.swift */; };
+		63DEF5AE219798CB0030397E /* RKRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AD219798CB0030397E /* RKRemote.swift */; };
+		63DEF5B0219799430030397E /* RKCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF5AF219799430030397E /* RKCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,7 +357,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		63922EE42196847A00A2FB78 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		639A8A58217EC25B00EAF6D7 /* RemoteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteKit.h; sourceTree = "<group>"; };
 		639A8A5C217EC25B00EAF6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -363,9 +365,13 @@
 		639A8A68217EC25B00EAF6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63A5287221909D5E00D9506D /* AWS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AWS.xcodeproj; path = ../../../AWS/AWS.xcodeproj; sourceTree = "<group>"; };
 		63A528FD21909D6C00D9506D /* RFCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RFCore.xcodeproj; path = ../../../RFCore/RFCore.xcodeproj; sourceTree = "<group>"; };
-		63DEF5AA219797FF0030397E /* RKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKContainer.swift; sourceTree = "<group>"; };
-		63DEF5AD219798CB0030397E /* RFRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFRemote.swift; sourceTree = "<group>"; };
-		63DEF5AF219799430030397E /* RFCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFCommand.swift; sourceTree = "<group>"; };
+		63B0ADE8219B9F9700F64A52 /* RKContainer+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RKContainer+Configuration.swift"; sourceTree = "<group>"; };
+		63B0AE17219BA07100F64A52 /* RKTrainingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKTrainingSession.swift; sourceTree = "<group>"; };
+		63B0AE19219BA0E500F64A52 /* RKDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKDevice.swift; sourceTree = "<group>"; };
+		63B0AE1E219BA33000F64A52 /* RKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKMessage.swift; sourceTree = "<group>"; };
+		63DEF5AA219797FF0030397E /* RKSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKSession.swift; sourceTree = "<group>"; };
+		63DEF5AD219798CB0030397E /* RKRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKRemote.swift; sourceTree = "<group>"; };
+		63DEF5AF219799430030397E /* RKCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,7 +427,8 @@
 				639A8A5B217EC25B00EAF6D7 /* RemoteKit.h */,
 				63DEF57D219797E80030397E /* Core Model */,
 				63DEF5AC219798B30030397E /* Model Types */,
-				63922EE42196847A00A2FB78 /* Test.swift */,
+				63B0AE16219BA00C00F64A52 /* Abstract Operations */,
+				63B0AE1B219BA1AD00F64A52 /* Concrete Operations */,
 				639A8A5C217EC25B00EAF6D7 /* Info.plist */,
 			);
 			path = RemoteKit;
@@ -501,10 +508,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		63B0AE16219BA00C00F64A52 /* Abstract Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Abstract Operations";
+			sourceTree = "<group>";
+		};
+		63B0AE1B219BA1AD00F64A52 /* Concrete Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Concrete Operations";
+			sourceTree = "<group>";
+		};
 		63DEF57D219797E80030397E /* Core Model */ = {
 			isa = PBXGroup;
 			children = (
-				63DEF5AA219797FF0030397E /* RKContainer.swift */,
+				63DEF5AA219797FF0030397E /* RKSession.swift */,
+				63B0ADE8219B9F9700F64A52 /* RKContainer+Configuration.swift */,
+				63B0AE17219BA07100F64A52 /* RKTrainingSession.swift */,
 			);
 			path = "Core Model";
 			sourceTree = "<group>";
@@ -512,8 +535,10 @@
 		63DEF5AC219798B30030397E /* Model Types */ = {
 			isa = PBXGroup;
 			children = (
-				63DEF5AD219798CB0030397E /* RFRemote.swift */,
-				63DEF5AF219799430030397E /* RFCommand.swift */,
+				63DEF5AD219798CB0030397E /* RKRemote.swift */,
+				63DEF5AF219799430030397E /* RKCommand.swift */,
+				63B0AE19219BA0E500F64A52 /* RKDevice.swift */,
+				63B0AE1E219BA33000F64A52 /* RKMessage.swift */,
 			);
 			path = "Model Types";
 			sourceTree = "<group>";
@@ -949,10 +974,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DEF5AE219798CB0030397E /* RFRemote.swift in Sources */,
-				63DEF5B0219799430030397E /* RFCommand.swift in Sources */,
-				63DEF5AB219797FF0030397E /* RKContainer.swift in Sources */,
-				63922EE52196847A00A2FB78 /* Test.swift in Sources */,
+				63DEF5AE219798CB0030397E /* RKRemote.swift in Sources */,
+				63DEF5B0219799430030397E /* RKCommand.swift in Sources */,
+				63B0AE18219BA07100F64A52 /* RKTrainingSession.swift in Sources */,
+				63B0AE1F219BA33000F64A52 /* RKMessage.swift in Sources */,
+				63B0AE1A219BA0E500F64A52 /* RKDevice.swift in Sources */,
+				63DEF5AB219797FF0030397E /* RKSession.swift in Sources */,
+				63B0ADE9219B9F9700F64A52 /* RKContainer+Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
