@@ -63,20 +63,20 @@ ${CMAKE_BINARY_DIR}/third_party/aws-iot-device-sdk-cpp/build EXCLUDE_FROM_ALL)
 ###########################
 
 # Download and unpack nlohmann_json at configure time
-configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists-json.txt.in
-${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download/CMakeLists.txt)
+# configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists-json.txt.in
+# ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download/CMakeLists.txt)
 
 # Configure the CMake project.
-execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
-WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
+# execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+# WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
 
 # Configure JSON for building.
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
-WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
+# execute_process(COMMAND ${CMAKE_COMMAND} --build .
+# WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/download)
 
 # This adds the following targets: nlohmann_json.
-add_subdirectory(${CMAKE_BINARY_DIR}/third_party/nlohmann_json/src
-${CMAKE_BINARY_DIR}/third_party/nlohmann_json/build EXCLUDE_FROM_ALL)
+# add_subdirectory(${CMAKE_BINARY_DIR}/third_party/nlohmann_json/src
+# ${CMAKE_BINARY_DIR}/third_party/nlohmann_json/build EXCLUDE_FROM_ALL)
 
 ####################################
 # Section : Add Application Target #
@@ -95,11 +95,11 @@ target_sources(${TARGET_NAME} PRIVATE ${TARGET_SOURCES})
 
 # Include the dependencies headers.
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/aws-iot-device-sdk-cpp/src/include)
-target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/nlohmann_json/src/include)
+# target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/third_party/nlohmann_json/src/include)
 
 # Link the dependency libraries.
 target_link_libraries(${TARGET_NAME} aws-iot-sdk-cpp)
-target_link_libraries(${TARGET-NAME} nlohmann_json)
+# target_link_libraries(${TARGET-NAME} nlohmann_json)
 
 # Link with OpenSSL.
 find_package(OpenSSL REQUIRED)

@@ -124,6 +124,7 @@
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
 		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
+		63A1550C219FA5C60077990D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		63B0AE20219BA41E00F64A52 /* TrainingMessage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainingMessage.cpp; sourceTree = "<group>"; };
 		63B0AE21219BA41E00F64A52 /* TrainingMessage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainingMessage.hpp; sourceTree = "<group>"; };
 		63B0AE24219BA4AE00F64A52 /* CommandMessage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandMessage.cpp; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		6301D07021921BCC00753B79 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				63A1550B219FA5C60077990D /* nlohmann */,
 				6301D06D2192183F00753B79 /* UUID.hpp */,
 				63DEF5B1219927710030397E /* static_logic.hpp */,
 			);
@@ -377,6 +379,14 @@
 				6312155E21853EF2004D850B /* ConnectionManagerTests.cpp */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		63A1550B219FA5C60077990D /* nlohmann */ = {
+			isa = PBXGroup;
+			children = (
+				63A1550C219FA5C60077990D /* json.hpp */,
+			);
+			path = nlohmann;
 			sourceTree = "<group>";
 		};
 		63A8DE682184FA6B00B8C961 /* Controllers */ = {
@@ -691,7 +701,6 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
@@ -717,7 +726,6 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
@@ -742,7 +750,6 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
@@ -765,7 +772,6 @@
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
 				HEADER_SEARCH_PATHS = (
 					"$PROJECT_DIR/remote_core/build/third_party/aws-iot-device-sdk-cpp/src/include",
-					$PROJECT_DIR/remote_core/build/third_party/nlohmann_json/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/rapidjson/src/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googletest/include,
 					$PROJECT_DIR/remote_core/build/third_party/googletest/src/googlemock/include,
