@@ -27,6 +27,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Configure Compiler flags
 if(UNIX AND NOT APPLE)
+    # Disable useless warnings.
+    set(CMAKE_CXX_FLAGS "-Wno-psabi")
+
     # Prefer pthread if found
     set(THREADS_PREFER_PTHREAD_FLAG ON)
 endif()
@@ -84,6 +87,11 @@ target_link_libraries(${TARGET_NAME} aws-iot-sdk-cpp)
 # Link with OpenSSL.
 find_package(OpenSSL REQUIRED)
 target_link_libraries(${TARGET_NAME} OpenSSL::SSL)
+
+if(UNIX AND NOT APPLE)
+    # Link UUID when on UNIX systems other than macOS.
+    pkg_search_module(UUID REQUIRED uuid)
+endif()
 
 #####################################
 # Section : Define specific Targets #
