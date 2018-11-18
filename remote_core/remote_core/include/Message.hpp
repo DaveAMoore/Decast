@@ -10,12 +10,15 @@
 #define Message_hpp
 
 #include "Coding.hpp"
+#include "Remote.hpp"
+#include "Error.hpp"
 
 namespace RemoteCore {
     enum class MessageType {
         Default     = 0,
         Training    = 1,
-        Command     = 2
+        Command     = 2,
+        Response    = 3
     };
     
     class Message : public Coding {
@@ -24,6 +27,16 @@ namespace RemoteCore {
         MessageType type;
         
     public:
+        /// Remote the message is associated with.
+        std::unique_ptr<Remote> remote;
+        
+        /// Command the message is associated with.
+        std::unique_ptr<Command> command;
+        
+        /// Error that occurred. This should only be present with a response.
+        Error error = Error::None;
+        
+        /// Initializes a new message.
         Message(MessageType type = MessageType::Default);
         
         // MARK: - Properties
