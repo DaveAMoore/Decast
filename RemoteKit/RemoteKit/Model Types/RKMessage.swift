@@ -30,5 +30,6 @@ public struct RKMessage: Codable, Equatable {
     /// Indicates the type of message that is represented by the receiver.
     public var type: Kind
     
-    
+    /// The device which this message pertains to.
+    public var device: RKDevice?
 }

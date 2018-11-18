@@ -14,4 +14,10 @@ public struct RKDevice: Codable, Equatable {
     
     /// Serial number of an `RKDevice`.
     public let serialNumber: String
+    
+    // MARK: - Initialization
+    
+    public init(serialNumber: String) {
+        self.serialNumber = serialNumber
+    }
 }

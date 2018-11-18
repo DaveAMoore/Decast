@@ -11,6 +11,8 @@ import UIKit
 /// Object that represents a specific command that is associated with a remote.
 public struct RKCommand: Codable {
     
+    // MARK: - Types
+    
     public typealias ID = String
     
     // MARK: - Properties

@@ -12,6 +12,8 @@ import RFCore
 /// Abstraction for a remote object.
 open class RKRemote: Codable {
 
+    // MARK: - Types
+    
     public typealias ID = String
     
     // MARK: - Properties
@@ -23,9 +25,13 @@ open class RKRemote: Codable {
     open private(set) var remoteID: ID
     
     /// Collection of commands
-    open private(set) var commands: [RKCommand] = []
+    open private(set) var commands: [RKCommand]
     
     // MARK: - Initialization
     
-    
+    public init(localizedTitle: String, remoteID: ID, commands: [RKCommand] = []) {
+        self.localizedTitle = localizedTitle
+        self.remoteID = remoteID
+        self.commands = commands
+    }
 }
