@@ -16,7 +16,7 @@ public protocol RKSessionManagerDelegate: NSObjectProtocol {
     ///
     /// - Parameters:
     ///   - viewController: View controller that will perform the authentication process.
-    func sessionManager(_ sessionManager: RKSessionManager, present viewController: UIViewController)
+    func sessionManager(_ sessionManager: RKSessionManager, presentAuthenticationViewController viewController: UIViewController)
 }
 
 /// Manages `RKSession` instances by controlling resources.
@@ -63,6 +63,20 @@ public final class RKSessionManager: NSObject {
     // Endpoint for the receiver to use with `dataManager`.
     private let endpoint: URL
     
+    /// Dispatch queue to use for synchronizing networking.
+    private let dataManagerQueue = DispatchQueue(label: "ca.mooredev.RemoteKit.RFSessionManager.dataManagerQueue")
+    
+    /// List of all subscribed topics.
+    private(set) var subscribedTopics: Set<String> = []
+    
+    /// Boolean value indicating if the session manager is connected or not.
+    private var isConnected: Bool {
+        return dataManager.getConnectionStatus() == .connected
+    }
+    
+    /// Identity of the user that is currently authenticated.
+    private(set) var userID: String?
+    
     /// Container to use for accessing adjacent resources.
     let container: RFContainer
     
@@ -96,7 +110,6 @@ public final class RKSessionManager: NSObject {
         self.container.configuration.credentials.shouldClearKeychain = false
         self.authenticationController.delegate = self
         self.container.configuration.delegate = self.authenticationController
-        
     }
     
     // MARK: - Service Configuration
@@ -149,69 +162,76 @@ public final class RKSessionManager: NSObject {
         return dataManager
     }
     
+    // MARK: - Helper Methods
+    
+    /// Creates a topic any given device, associating it with the current user identity.
+    func topic(for device: RKDevice) -> String {
+        return Constants.topic(for: device, withUserID: userID!)
+    }
+    
+    private func fetchUserID(completionHandler: @escaping ((String?, Error?) -> Void)) {
+        let credentialsProvider = container.configuration.serviceConfiguration.credentialsProvider as? AWSCognitoCredentialsProvider
+        credentialsProvider?.getIdentityId().continueOnSuccessWith { task -> Any? in
+            completionHandler(task.result as String?, task.error)
+            return nil
+        }
+    }
+    
     // MARK: - Activation
     
     /// Activates the session manager by initiating an MQTT connection with IoT.
     func activate(completionHandler: ((Error?) -> Void)?) {
-        
-        
-        /*(container.configuration.serviceConfiguration.credentialsProvider as! AWSCognitoIdentityCognitoIdentityProvider).
-        
-        container.configuration.serviceConfiguration.credentialsProvider.credentials().continueOnSuccessWith { task -> Any? in
-            if let result = task.result {
-                
-                /*let t = AWSCognitoIdentityGetIdInput()!
-                t.
-                cognitoIdentityService.getId(<#T##request: AWSCognitoIdentityGetIdInput##AWSCognitoIdentityGetIdInput#>, completionHandler: <#T##((AWSCognitoIdentityGetIdResponse?, Error?) -> Void)?##((AWSCognitoIdentityGetIdResponse?, Error?) -> Void)?##(AWSCognitoIdentityGetIdResponse?, Error?) -> Void#>)*/
-            } else if let error = task.error {
-                
-            }
+        fetchUserID { userID, error in
+            self.userID = userID
             
-            return nil
-        }*/
-        
-        /*let t = AWSCognitoIdentityGetIdInput()!
-        t.accountId = "232836439524"
-        t.identityPoolId = "us-east-1:c8e757e4-e780-416f-8966-61bfb539110f"
-        
-        cognitoIdentityService.getId(t) { response, error in
-            if let response = response {
-                
-            } else if let error = error {
-                
-            }
-        }*/
-        
-        /*let i = AWSIoTAttachPolicyRequest()!
-        i.target = "us-east-1:b75c8125-eebe-4b20-8454-67a5edda2359"
-        i.policyName = "RemoteCoreTestingPolicy"
-        iotService.attachPolicy(i) { error in
+            //var didReturn = false
             
-            if let error = error {
-                fatalError("\(error.localizedDescription)")
-            }
-        }*/
-        
-        // Initiate a web socket connection. Note: This call determines if a connection is already being initialized.
-        dataManager.connectUsingWebSocket(withClientId: RKSessionManager.clientID, cleanSession: true) { status in
-            switch status {
-            case .connected:
-                completionHandler?(nil)
-            case .connectionError:
-                // FIXME: Pass the error back.
-                fatalError("Socket connection failed.")
-                // completionHandler?(nil)
-            default:
-                break
+            self.dataManager.connectUsingWebSocket(withClientId: RKSessionManager.clientID, cleanSession: true) { status in
+                switch status {
+                case .connected:
+                    completionHandler?(nil)
+                case .connectionError:
+                    // FIXME: Pass the error back.
+                    fatalError("Socket connection failed.")
+                    // completionHandler?(nil)
+                    break
+                default:
+                    break
+                }
             }
         }
     }
     
-    // MARK: - Messaging
+    /// Deactivates the session manager by disconnecting from the MQTT connection.
+    func deactivate() {
+        dataManager.disconnect()
+    }
     
-    func sendSomething() {
-        dataManager.publishData(Data(), onTopic: "", qoS: qualityOfService) {
-            
+    // MARK: - Connection Interface
+    
+    /// Subscribes to a particular topic with a default quality of service, then provides messages received on the topic.
+    ///
+    /// - Parameters:
+    ///   - topic: The topic that will be subscribed to.
+    ///   - messageHandler: Called when messages are received on the topic.
+    ///   - completionHandler: Called when the subscription is completed.
+    func subscribe(toTopic topic: String, messageHandler: @escaping ((Data) -> Void), completionHandler: (() -> Void)?) {
+        dataManager.subscribe(toTopic: topic, qoS: qualityOfService, messageCallback: messageHandler) {
+            self.subscribedTopics.insert(topic)
+            completionHandler?()
+        }
+    }
+    
+    /// Unsubscribes from a topic immediately.
+    func unsubscribe(fromTopic topic: String) {
+        dataManager.unsubscribeTopic(topic)
+        subscribedTopics.remove(topic)
+    }
+    
+    /// Publishes data to a particular topic asynchronously.
+    func publish(_ data: Data, toTopic topic: String, completionHandler: (() -> Void)?) {
+        dataManager.publishData(data, onTopic: topic, qoS: qualityOfService) {
+            completionHandler?()
         }
     }
 }
@@ -222,6 +242,6 @@ extension RKSessionManager: RKAuthenticationControllerDelegate {
     
     func authenticationController(_ authenticationController: RKAuthenticationController,
                                   present viewController: UIViewController) {
-        delegate?.sessionManager(self, present: viewController)
+        delegate?.sessionManager(self, presentAuthenticationViewController: viewController)
     }
 }
