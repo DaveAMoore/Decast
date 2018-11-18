@@ -54,7 +54,8 @@ void RemoteController::subscribeToDefaultTopic(void) {
         auto aCoder = std::make_unique<Coder>(std::move(container));
         auto message = aCoder->decodeRootObject<Message>();
         
-        if (message != nullptr) {
+        // Filter out messages originating from this sender.
+        if (message != nullptr && message->getSenderID() != Device::currentDevice().getSerialNumber()) {
             this->handleMessage(std::move(message));
             return awsiotsdk::ResponseCode::SUCCESS;
         } else {
@@ -70,25 +71,101 @@ void RemoteController::handleMessage(std::unique_ptr<Message> message) {
         case MessageType::Default:
             break;
         case MessageType::Command:
-            if (message->remote != nullptr && message->command != nullptr) {
-                Remote remote(*message->remote.get());
-                Command command(*message->command.get());
-                
-                hardwareController->sendCommandForRemoteWithCompletionHandler(command, remote, [&](Error error) {
-                    auto message = std::make_unique<Message>(MessageType::Response);
-                    message->error = error;
-                    
-                    this->sendMessage(std::move(message));
-                });
-            }
+            handleCommandMessage(std::move(message));
             break;
         case MessageType::Training:
+            handleTrainingMessage(std::move(message));
             break;
-        case MessageType::Response:
+        case MessageType::CommandResponse:
+        case MessageType::TrainingResponse:
+            handleResponseMessage(std::move(message));
             break;
         default:
             break;
     }
+}
+
+void RemoteController::handleCommandMessage(std::unique_ptr<Message> message) {
+    if (message->remote == nullptr || message->command == nullptr) {
+        // Send a response message indicating the issue.
+        auto responseMessage = std::make_unique<Message>(MessageType::CommandResponse);
+        responseMessage->error = Error::InvalidParameters;
+        this->sendMessage(std::move(responseMessage));
+        
+        return;
+    }
+    
+    // Create copies of the remote and command.
+    Remote remote(*message->remote.get());
+    Command command(*message->command.get());
+    
+    // Send the command.
+    hardwareController->sendCommandForRemoteWithCompletionHandler(command, remote, [&](Error error) {
+        // Create a response message.
+        auto responseMessage = std::make_unique<Message>(MessageType::CommandResponse);
+        responseMessage->error = error;
+        
+        // Send the response.
+        this->sendMessage(std::move(responseMessage));
+    });
+}
+
+void RemoteController::handleTrainingMessage(std::unique_ptr<Message> message) {
+    // Create a response.
+    auto responseMessage = std::make_unique<Message>(MessageType::TrainingResponse);
+    responseMessage->directive = message->directive;
+    
+    // Handle the message and the directives.
+    if (message->remote == nullptr) {
+        responseMessage->error = Error::InvalidParameters;
+    } else {
+        responseMessage->remote = std::unique_ptr<Remote>(message->remote.get());
+        
+        if (message->directive == START_TRAINING_SESSION_DIRECTIVE) {
+            if (trainingSession == nullptr) {
+                trainingSession = hardwareController->newTrainingSessionForRemote(Remote(*message->remote.get()));
+                
+                auto sharedThis = std::shared_ptr<TrainingSessionDelegate>((TrainingSessionDelegate *)this);
+                std::weak_ptr<TrainingSessionDelegate> weakThis(sharedThis);
+                
+                trainingSession->setDelegate(weakThis);
+                hardwareController->startTrainingSession(trainingSession);
+            } else {
+                responseMessage->error = Error::TrainingAlreadyInSession;
+            }
+        } else if (message->directive == SUSPEND_TRAINING_SESSION_DIRECTIVE) {
+            if (trainingSession != nullptr) {
+                hardwareController->suspendTrainingSession(trainingSession);
+            }
+        } else if (message->directive == CREATE_COMMAND_DIRECTIVE) {
+            if (trainingSession != nullptr) {
+                auto localizedTitle = message->command == nullptr ? "" : message->command->getLocalizedTitle();
+                auto command = trainingSession->createCommandWithLocalizedTitle(localizedTitle);
+                responseMessage->command = std::unique_ptr<Command>(&command);
+            } else {
+                responseMessage->error = Error::NoTrainingSession;
+            }
+        } else if (message->directive == LEARN_COMMAND_DIRECTIVE) {
+            if (trainingSession != nullptr) {
+                if (message->command != nullptr) {
+                    trainingSession->learnCommand(Command(*message->command.get()));
+                } else {
+                    responseMessage->error = Error::InvalidParameters;
+                }
+            } else {
+                responseMessage->error = Error::NoTrainingSession;
+            }
+        } else {
+            responseMessage->error = Error::InvalidDirective;
+        }
+    }
+    
+    // Send the response.
+    sendMessage(std::move(responseMessage));
+}
+
+void RemoteController::handleResponseMessage(std::unique_ptr<Message> message) {
+    
 }
 
 void RemoteController::sendMessage(std::unique_ptr<Message> message) {
@@ -107,3 +184,44 @@ void RemoteController::sendMessage(std::unique_ptr<Message> message) {
         
     });
 }
+
+// MARK: - Training Session Delegate
+
+void RemoteController::sendTrainingMessageForSession(TrainingSession *session, Command *command, std::string directive) {
+    auto message = std::make_unique<Message>(MessageType::Training);
+    auto remote = session->getAssociatedRemote();
+    message->remote = std::unique_ptr<Remote>(&remote);
+    message->command = std::unique_ptr<Command>(command);
+    message->directive = directive;
+    
+    sendMessage(std::move(message));
+}
+
+void RemoteController::trainingSessionDidBegin(TrainingSession *session) {
+    sendTrainingMessageForSession(session, nullptr, TRAINING_SESSION_DID_BEGIN_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionDidFailWithError(TrainingSession *session, Error error) {
+    sendTrainingMessageForSession(session, nullptr, TRAINING_SESSION_DID_FAIL_WITH_ERROR_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionWillLearnCommand(TrainingSession *session, Command command) {
+    sendTrainingMessageForSession(session, &command, TRAINING_SESSION_WILL_LEARN_COMMAND_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionDidLearnCommand(TrainingSession *session, Command command) {
+    sendTrainingMessageForSession(session, &command, TRAINING_SESSION_DID_LEARN_COMMAND_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionDidRequestInclusiveArbitraryInput(TrainingSession *session) {
+    sendTrainingMessageForSession(session, nullptr, TRAINING_SESSION_DID_REQUEST_INCLUSIVE_ARBITRARY_INPUT_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionDidRequestInputForCommand(TrainingSession *session, Command command) {
+    sendTrainingMessageForSession(session, &command, TRAINING_SESSION_DID_REQUEST_INPUT_FOR_COMMAND_DIRECTIVE);
+}
+
+void RemoteController::trainingSessionDidRequestExclusiveArbitraryInput(TrainingSession *session) {
+    sendTrainingMessageForSession(session, nullptr, TRAINING_SESSION_DID_REQUEST_EXCLUSIVE_ARBITRARY_INPUT_DIRECTIVE);
+}
+
