@@ -45,38 +45,37 @@ struct RKMessage: Codable, Equatable {
     var error: RKError?
     
     /// The intention of a message.
-    var directive: String?
+    var directive: Directive?
     
     // MARK: - Initialization
     
-    private init(type: Kind, senderID: ID = RKSessionManager.shared.userID!, remote: RKRemote?, command: RKCommand?) {
+    private init(type: Kind, senderID: ID = RKSessionManager.shared.userID!, remote: RKRemote?, command: RKCommand?, directive: Directive?) {
         self.senderID = senderID
         self.messageID = UUID().uuidString
         self.type = type
         self.remote = remote
         self.command = command
+        self.directive = directive
     }
     
     static func commandMessage(for command: RKCommand, with remote: RKRemote) -> RKMessage {
-        return RKMessage(type: .command, remote: remote, command: command)
+        return RKMessage(type: .command, remote: remote, command: command, directive: nil)
     }
     
-    static func trainingMessage(for remote: RKRemote, with command: RKCommand? = nil, directive: String? = nil) -> RKMessage {
-        var message = RKMessage(type: .training, remote: remote, command: nil)
-        message.directive = directive
-        
+    static func trainingMessage(for remote: RKRemote, with command: RKCommand? = nil, directive: Directive? = nil) -> RKMessage {
+        let message = RKMessage(type: .training, remote: remote, command: nil, directive: directive)
         return message
     }
     
     static func commandResponse(with error: RKError? = nil) -> RKMessage {
-        var message = RKMessage(type: .commandResponse, remote: nil, command: nil)
+        var message = RKMessage(type: .commandResponse, remote: nil, command: nil, directive: nil)
         message.error = error
         
         return message
     }
     
     static func trainingResponse(with error: RKError? = nil) -> RKMessage {
-        var message = RKMessage(type: .trainingResponse, remote: nil, command: nil)
+        var message = RKMessage(type: .trainingResponse, remote: nil, command: nil, directive: nil)
         message.error = error
         
         return message
