@@ -7,15 +7,18 @@
 //
 
 #include "Message.hpp"
+#include "Device.hpp"
 #include "UUID.hpp"
 
 using namespace RemoteCore;
 
 Message::Message(MessageType type) : type(type) {
+    senderID = Device::currentDevice().getSerialNumber();
     messageID = UUID::GenerateUUIDString();
 }
 
 void Message::encodeWithCoder(Coder *aCoder) const {
+    aCoder->encodeStringForKey(senderID, "senderID");
     aCoder->encodeStringForKey(messageID, "messageID");
     aCoder->encodeIntForKey(std::underlying_type<MessageType>::type(type), "type");
     aCoder->encodeObjectForKey(remote.get(), "remote");
@@ -23,12 +26,15 @@ void Message::encodeWithCoder(Coder *aCoder) const {
     if (error != Error::None) {
         aCoder->encodeIntForKey(std::underlying_type<Error>::type(error), "error");
     }
+    aCoder->encodeStringForKey(directive, "directive");
 }
 
 void Message::decodeWithCoder(const Coder *aCoder) {
+    senderID = aCoder->decodeStringForKey("senderID");
     messageID = aCoder->decodeStringForKey("messageID");
     type = static_cast<MessageType>(aCoder->decodeIntForKey("type"));
     remote = aCoder->decodeObjectForKey<Remote>("remote");
     command = aCoder->decodeObjectForKey<Command>("command");
     error = static_cast<Error>(aCoder->decodeIntForKey("error"));
+    directive = aCoder->decodeStringForKey("directive");
 }

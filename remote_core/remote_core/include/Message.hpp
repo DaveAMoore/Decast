@@ -15,14 +15,16 @@
 
 namespace RemoteCore {
     enum class MessageType {
-        Default     = 0,
-        Training    = 1,
-        Command     = 2,
-        Response    = 3
+        Default             = 0,
+        Training            = 1,
+        Command             = 2,
+        CommandResponse     = 3,
+        TrainingResponse    = 4,
     };
     
     class Message : public Coding {
     private:
+        std::string senderID;
         std::string messageID;
         MessageType type;
         
@@ -36,10 +38,20 @@ namespace RemoteCore {
         /// Error that occurred. This should only be present with a response.
         Error error = Error::None;
         
+        /// A loosely typed way to indicate what the intention of the message is.
+        std::string directive;
+        
         /// Initializes a new message.
         Message(MessageType type = MessageType::Default);
         
         // MARK: - Properties
+        
+        /**
+         Unique identifier for this particular sender. On remote devices this is the serial number.
+         */
+        std::string getSenderID() {
+            return senderID;
+        }
         
         /**
          Unique identifier for a particular message.
