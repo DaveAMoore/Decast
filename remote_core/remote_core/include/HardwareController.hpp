@@ -10,7 +10,6 @@
 #define HardwareController_hpp
 
 #include <vector>
-#include "RemoteController.hpp"
 #include "TrainingSession.hpp"
 #include "Remote.hpp"
 
@@ -23,18 +22,19 @@ namespace RemoteCore {
     public:
         HardwareController();
         
-        typedef std::function<void (void)> CompletionHandler;
+        typedef std::function<void (Error)> CompletionHandler;
         
         // MARK: - Command Sending
         
         /**
-         Sends a command through infrared to an external device.
-         
+         Sends a command to an external device (i.e., controlled by the remote) through infrared.
+
          @param command The command that will be sent.
-         @param deviceID
-         @param completionHandler <#completionHandler description#>
+         @param remote The remote the command is associated with.
+         @param completionHandler Called when the command has been sent, or an error occurred.
          */
-        void sendCommandWithCompletionHandler(Command command, CompletionHandler completionHandler);
+        void sendCommandForRemoteWithCompletionHandler(Command command, Remote remote,
+                                                       CompletionHandler completionHandler);
         
         // MARK: - Training
         
