@@ -15,6 +15,10 @@
 		633C3A2F21A0BD9800418D6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633C3A2D21A0BD9800418D6C /* LaunchScreen.storyboard */; };
 		633C3A3A21A0BD9800418D6C /* DecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C3A3921A0BD9800418D6C /* DecastTests.swift */; };
 		633C3A4521A0BD9800418D6C /* DecastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C3A4421A0BD9800418D6C /* DecastUITests.swift */; };
+		633C3A6221A0BE9E00418D6C /* RemoteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A5F21A0BE8500418D6C /* RemoteKit.framework */; };
+		633C3A6321A0BE9E00418D6C /* RemoteKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A5F21A0BE8500418D6C /* RemoteKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		633C3A7321A0BECD00418D6C /* SFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A7021A0BEBE00418D6C /* SFKit.framework */; };
+		633C3A7421A0BECD00418D6C /* SFKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A7021A0BEBE00418D6C /* SFKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +36,64 @@
 			remoteGlobalIDString = 633C3A1D21A0BD9600418D6C;
 			remoteInfo = Decast;
 		};
+		633C3A5E21A0BE8500418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 639A8A58217EC25B00EAF6D7;
+			remoteInfo = RemoteKit;
+		};
+		633C3A6021A0BE8500418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 639A8A61217EC25B00EAF6D7;
+			remoteInfo = RemoteKitTests;
+		};
+		633C3A6421A0BE9E00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 639A8A57217EC25B00EAF6D7;
+			remoteInfo = RemoteKit;
+		};
+		633C3A6F21A0BEBE00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6385A2231F06EB36002B9244;
+			remoteInfo = SFKit;
+		};
+		633C3A7121A0BEBE00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6385A22C1F06EB36002B9244;
+			remoteInfo = SFKitTests;
+		};
+		633C3A7521A0BECD00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6385A2221F06EB36002B9244;
+			remoteInfo = SFKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		633C3A6921A0BE9F00418D6C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				633C3A7421A0BECD00418D6C /* SFKit.framework in Embed Frameworks */,
+				633C3A6321A0BE9E00418D6C /* RemoteKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		633C3A1E21A0BD9600418D6C /* Decast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +110,8 @@
 		633C3A4021A0BD9800418D6C /* DecastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		633C3A4421A0BD9800418D6C /* DecastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecastUITests.swift; sourceTree = "<group>"; };
 		633C3A4621A0BD9800418D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RemoteKit.xcodeproj; path = ../RemoteKit/RemoteKit.xcodeproj; sourceTree = "<group>"; };
+		633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFKit.xcodeproj; path = ../../SFKit/SFKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633C3A7321A0BECD00418D6C /* SFKit.framework in Frameworks */,
+				633C3A6221A0BE9E00418D6C /* RemoteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +148,8 @@
 				633C3A3821A0BD9800418D6C /* DecastTests */,
 				633C3A4321A0BD9800418D6C /* DecastUITests */,
 				633C3A1F21A0BD9600418D6C /* Products */,
+				633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */,
+				633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +219,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		633C3A5621A0BE8400418D6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				633C3A5F21A0BE8500418D6C /* RemoteKit.framework */,
+				633C3A6121A0BE8500418D6C /* RemoteKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		633C3A6B21A0BEBE00418D6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				633C3A7021A0BEBE00418D6C /* SFKit.framework */,
+				633C3A7221A0BEBE00418D6C /* SFKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,10 +247,13 @@
 				633C3A1A21A0BD9600418D6C /* Sources */,
 				633C3A1B21A0BD9600418D6C /* Frameworks */,
 				633C3A1C21A0BD9600418D6C /* Resources */,
+				633C3A6921A0BE9F00418D6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				633C3A6521A0BE9E00418D6C /* PBXTargetDependency */,
+				633C3A7621A0BECD00418D6C /* PBXTargetDependency */,
 			);
 			name = Decast;
 			productName = Decast;
@@ -242,6 +330,16 @@
 			mainGroup = 633C3A1521A0BD9600418D6C;
 			productRefGroup = 633C3A1F21A0BD9600418D6C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 633C3A5621A0BE8400418D6C /* Products */;
+					ProjectRef = 633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 633C3A6B21A0BEBE00418D6C /* Products */;
+					ProjectRef = 633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				633C3A1D21A0BD9600418D6C /* Decast */,
@@ -250,6 +348,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		633C3A5F21A0BE8500418D6C /* RemoteKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RemoteKit.framework;
+			remoteRef = 633C3A5E21A0BE8500418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C3A6121A0BE8500418D6C /* RemoteKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RemoteKitTests.xctest;
+			remoteRef = 633C3A6021A0BE8500418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C3A7021A0BEBE00418D6C /* SFKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SFKit.framework;
+			remoteRef = 633C3A6F21A0BEBE00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C3A7221A0BEBE00418D6C /* SFKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SFKitTests.xctest;
+			remoteRef = 633C3A7121A0BEBE00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		633C3A1C21A0BD9600418D6C /* Resources */ = {
@@ -317,6 +446,16 @@
 			isa = PBXTargetDependency;
 			target = 633C3A1D21A0BD9600418D6C /* Decast */;
 			targetProxy = 633C3A4121A0BD9800418D6C /* PBXContainerItemProxy */;
+		};
+		633C3A6521A0BE9E00418D6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RemoteKit;
+			targetProxy = 633C3A6421A0BE9E00418D6C /* PBXContainerItemProxy */;
+		};
+		633C3A7621A0BECD00418D6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SFKit;
+			targetProxy = 633C3A7521A0BECD00418D6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -459,6 +598,7 @@
 		633C3A4A21A0BD9800418D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
@@ -478,6 +618,7 @@
 		633C3A4B21A0BD9800418D6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
