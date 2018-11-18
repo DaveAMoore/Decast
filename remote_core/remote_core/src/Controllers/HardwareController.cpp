@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <thread>
 #include "HardwareController.hpp"
-#include "lirc_client.h"
+//#include "lirc_client.h"
 
 using namespace RemoteCore;
 
@@ -23,28 +23,28 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
     
     // Create a lirc thread that handles the sending.
     auto lircThread = std::thread([completionHandler]() {
-        // initialize lirc socket and store file descriptor
-        int fd = lirc_init("remote_core", 0);
-        if (fd == -1) {
-            // Handle init fail
-        }
-
-        // Check for remote existence
-        /*
-         if (is_in_remotes() == -1) {
-         // Handle remote not found
-         }
-         */
-
-        // Send command
-        if (lirc_send_one(lirc_get_local_socket(NULL, 1), remote.getRemoteID().c_str(), command.getCommandID().c_str()) == -1) {
-            // Handle fail send
-        }
-
-        // Deinitialize lirc socket
-        lirc_deinit();
-        
-        completionHandler(Error::None);
+//        // initialize lirc socket and store file descriptor
+//        int fd = lirc_init("remote_core", 0);
+//        if (fd == -1) {
+//            // Handle init fail
+//        }
+//
+//        // Check for remote existence
+//        /*
+//         if (is_in_remotes() == -1) {
+//         // Handle remote not found
+//         }
+//         */
+//
+//        // Send command
+//        if (lirc_send_one(lirc_get_local_socket(NULL, 1), remote.getRemoteID().c_str(), command.getCommandID().c_str()) == -1) {
+//            // Handle fail send
+//        }
+//
+//        // Deinitialize lirc socket
+//        lirc_deinit();
+//
+//        completionHandler(Error::None);
     });
     
     // Detach the thread.
