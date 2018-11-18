@@ -24,13 +24,11 @@
 		63572A22217E048A007AC21C /* Certificate.crt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A1F217E047F007AC21C /* Certificate.crt */; };
 		63572A23217E048B007AC21C /* Private-Key.key in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A21217E0480007AC21C /* Private-Key.key */; };
 		63572A24217E048D007AC21C /* Root-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63572A20217E0480007AC21C /* Root-CA.pem */; };
+		6373846E21A1B51D00E72791 /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6373846C21A1B51D00E72791 /* Device.cpp */; };
+		6373846F21A1B51D00E72791 /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6373846C21A1B51D00E72791 /* Device.cpp */; };
 		6387418E21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
 		6387418F21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
-		63B0AE22219BA41E00F64A52 /* TrainingMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE20219BA41E00F64A52 /* TrainingMessage.cpp */; };
-		63B0AE23219BA41E00F64A52 /* TrainingMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE20219BA41E00F64A52 /* TrainingMessage.cpp */; };
-		63B0AE26219BA4AE00F64A52 /* CommandMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE24219BA4AE00F64A52 /* CommandMessage.cpp */; };
-		63B0AE27219BA4AE00F64A52 /* CommandMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AE24219BA4AE00F64A52 /* CommandMessage.cpp */; };
 		63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
 		63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
 		63B818E321913907001E7D4F /* TrainingSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818E121913907001E7D4F /* TrainingSession.cpp */; };
@@ -118,6 +116,9 @@
 		63572A20217E0480007AC21C /* Root-CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Root-CA.pem"; sourceTree = "<group>"; };
 		63572A21217E0480007AC21C /* Private-Key.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Private-Key.key"; sourceTree = "<group>"; };
 		636FCEEC2182BFD7002B166E /* CMakeLists-gtest.txt.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CMakeLists-gtest.txt.in"; sourceTree = "<group>"; };
+		6373846C21A1B51D00E72791 /* Device.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
+		6373846D21A1B51D00E72791 /* Device.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Device.hpp; sourceTree = "<group>"; };
+		6373847021A1C11800E72791 /* Error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Error.hpp; sourceTree = "<group>"; };
 		6387418C21938389008B5166 /* Command.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Command.cpp; sourceTree = "<group>"; };
 		6387418D21938389008B5166 /* Command.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Command.hpp; sourceTree = "<group>"; };
 		639899F72182076200C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -125,10 +126,6 @@
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
 		639899FB218246A400C346D1 /* RemoteController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteController.hpp; sourceTree = "<group>"; };
 		63A1550C219FA5C60077990D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
-		63B0AE20219BA41E00F64A52 /* TrainingMessage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainingMessage.cpp; sourceTree = "<group>"; };
-		63B0AE21219BA41E00F64A52 /* TrainingMessage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainingMessage.hpp; sourceTree = "<group>"; };
-		63B0AE24219BA4AE00F64A52 /* CommandMessage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandMessage.cpp; sourceTree = "<group>"; };
-		63B0AE25219BA4AE00F64A52 /* CommandMessage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandMessage.hpp; sourceTree = "<group>"; };
 		63B818DC2191387A001E7D4F /* HardwareController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareController.cpp; sourceTree = "<group>"; };
 		63B818DD2191387A001E7D4F /* HardwareController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HardwareController.hpp; sourceTree = "<group>"; };
 		63B818E121913907001E7D4F /* TrainingSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainingSession.cpp; sourceTree = "<group>"; };
@@ -177,6 +174,7 @@
 			children = (
 				63A1550B219FA5C60077990D /* nlohmann */,
 				6301D06D2192183F00753B79 /* UUID.hpp */,
+				6373847021A1C11800E72791 /* Error.hpp */,
 				63DEF5B1219927710030397E /* static_logic.hpp */,
 			);
 			name = Miscellaneous;
@@ -193,6 +191,7 @@
 		630A4D752195249C00159B52 /* Hardware Types */ = {
 			isa = PBXGroup;
 			children = (
+				6373846C21A1B51D00E72791 /* Device.cpp */,
 				630A4D712194A30E00159B52 /* Remote.cpp */,
 				6387418C21938389008B5166 /* Command.cpp */,
 			);
@@ -346,6 +345,7 @@
 		6387418B21938370008B5166 /* Hardware Types */ = {
 			isa = PBXGroup;
 			children = (
+				6373846D21A1B51D00E72791 /* Device.hpp */,
 				630A4D722194A30E00159B52 /* Remote.hpp */,
 				6387418D21938389008B5166 /* Command.hpp */,
 			);
@@ -418,8 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				63E204AE218A948900228A0D /* Message.cpp */,
-				63B0AE20219BA41E00F64A52 /* TrainingMessage.cpp */,
-				63B0AE24219BA4AE00F64A52 /* CommandMessage.cpp */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -449,8 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				63E204AF218A948900228A0D /* Message.hpp */,
-				63B0AE21219BA41E00F64A52 /* TrainingMessage.hpp */,
-				63B0AE25219BA4AE00F64A52 /* CommandMessage.hpp */,
 			);
 			name = Messaging;
 			sourceTree = "<group>";
@@ -533,14 +529,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B0AE22219BA41E00F64A52 /* TrainingMessage.cpp in Sources */,
 				6301D06E2192183F00753B79 /* UUID.cpp in Sources */,
+				6373846E21A1B51D00E72791 /* Device.cpp in Sources */,
 				63E204C6218E8DC600228A0D /* Container.cpp in Sources */,
 				63572A04217CDA53007AC21C /* ConfigCommon.cpp in Sources */,
 				630A4D732194A30E00159B52 /* Remote.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
-				63B0AE26219BA4AE00F64A52 /* CommandMessage.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
 				63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
@@ -557,10 +552,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F605D921881E280002A278 /* ConnectionManagerTests.cpp in Sources */,
+				6373846F21A1B51D00E72791 /* Device.cpp in Sources */,
 				63E204B1218A948900228A0D /* Message.cpp in Sources */,
 				63F605DA21881E950002A278 /* RemoteController.cpp in Sources */,
 				63F605DF21881EBC0002A278 /* main.cpp in Sources */,
-				63B0AE27219BA4AE00F64A52 /* CommandMessage.cpp in Sources */,
 				63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */,
 				63F605DD21881E950002A278 /* ConfigCommon.cpp in Sources */,
 				63F605DC21881E950002A278 /* OpenSSLConnection.cpp in Sources */,
@@ -572,7 +567,6 @@
 				6387418F21938389008B5166 /* Command.cpp in Sources */,
 				63B818E421913907001E7D4F /* TrainingSession.cpp in Sources */,
 				63E204C7218E8DC600228A0D /* Container.cpp in Sources */,
-				63B0AE23219BA41E00F64A52 /* TrainingMessage.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
 				63E204C3218D652600228A0D /* JSONContainerTests.cpp in Sources */,
 			);
