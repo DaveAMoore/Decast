@@ -14,6 +14,10 @@ namespace RemoteCore {
         None                        = 0,
         Unknown                     = -1,
         NoSignalWhileTraining       = -2,
+        TrainingAlreadyInSession    = -3,
+        InvalidDirective            = -4,
+        InvalidParameters           = -5,
+        NoTrainingSession           = -6
     };
 }
 
