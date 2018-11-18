@@ -10,6 +10,7 @@ import Foundation
 
 /// RemoteKit error representation.
 public enum RKError: Int, Codable, Error {
+    case connectionFailure          = 1
     case unknown                    = -1
     case noSignalWhileTraining      = -2
     case trainingAlreadyInSession   = -3
