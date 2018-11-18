@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct RKDevice: Codable, Equatable {
+public struct RKDevice: Codable, Hashable {
     
     // MARK: - Properties
     

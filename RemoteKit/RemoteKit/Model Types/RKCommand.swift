@@ -9,7 +9,7 @@
 import UIKit
 
 /// Object that represents a specific command that is associated with a remote.
-public struct RKCommand: Codable {
+public struct RKCommand: Codable, Hashable {
     
     // MARK: - Types
     
@@ -18,8 +18,14 @@ public struct RKCommand: Codable {
     // MARK: - Properties
     
     /// User-presentable title of the command.
-    public var localizedTitle: String
+    public let localizedTitle: String
     
     /// Identifier for the command that will be used on the hardware for specific things.
-    public var commandID: ID
+    public let commandID: ID
+    
+    /// Creates a new command.
+    public init(localizedTitle: String, commandID: ID) {
+        self.localizedTitle = localizedTitle
+        self.commandID = commandID
+    }
 }
