@@ -10,7 +10,7 @@ import Foundation
 import RFCore
 
 /// Abstraction for a remote object.
-open class RKRemote: Codable {
+open class RKRemote: Codable, Equatable {
 
     // MARK: - Types
     
@@ -19,19 +19,38 @@ open class RKRemote: Codable {
     // MARK: - Properties
     
     /// Title of the remote; this may be presented to the user.
-    open private(set) var localizedTitle: String
+    public let localizedTitle: String
     
     /// Unique identifier for a particular remote.
-    open private(set) var remoteID: ID
+    public let remoteID: ID
     
     /// Collection of commands
     open private(set) var commands: [RKCommand]
     
     // MARK: - Initialization
     
-    public init(localizedTitle: String, remoteID: ID, commands: [RKCommand] = []) {
+    /// Creates a new remote with the provided options.
+    init(localizedTitle: String, remoteID: ID, commands: [RKCommand] = []) {
         self.localizedTitle = localizedTitle
         self.remoteID = remoteID
         self.commands = commands
+    }
+    
+    /// Creates a new remote with a localized title.
+    public convenience init(localizedTitle: String) {
+        self.init(localizedTitle: localizedTitle, remoteID: UUID().uuidString)
+    }
+    
+    // MARK: - Equatable
+    
+    public static func ==(lhs: RKRemote, rhs: RKRemote) -> Bool {
+        return lhs.localizedTitle == rhs.localizedTitle && lhs.remoteID == rhs.remoteID && lhs.commands == rhs.commands
+    }
+    
+    // MARK: - Command Management
+    
+    /// Adds a new command to the remote.
+    func add(_ command: RKCommand) {
+        commands.append(command)
     }
 }
