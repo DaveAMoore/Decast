@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>FMWK</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.15</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>RFDefaultContainerConfiguration</key>
+	<dict>
+		<key>Credentials</key>
+		<dict>
+			<key>ApplicationClientID</key>
+			<string>shoicdp65vodehnr18r3kld5v</string>
+			<key>ApplicationClientSecret</key>
+			<string>12bv20jj04gca5snlishiqdu1h1vpfp2heqceikb06ultbf37adq</string>
+			<key>IdentityPoolID</key>
+			<string>us-east-1:c8e757e4-e780-416f-8966-61bfb539110f</string>
+			<key>PoolID</key>
+			<string>us-east-1_8RZ3KKvOu</string>
+			<key>Region</key>
+			<string>USEast1</string>
+		</dict>
+		<key>Region</key>
+		<string>USEast1</string>
+	</dict>
+	<key>RFDebugContainerID</key>
+	<string>remote-core.mooredev.ca</string>
+	<key>RFDebugDatabaseID</key>
+	<string>arn:aws:dynamodb:us-east-1:232836439524:table/Remote-Core</string>
+	<key>RFDefaultContainerID</key>
+	<string>remote-core.mooredev.ca</string>
+	<key>RFDefaultDatabaseID</key>
+	<string>arn:aws:dynamodb:us-east-1:232836439524:table/Remote-Core</string>
+</dict>
+</plist>
