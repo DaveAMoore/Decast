@@ -100,9 +100,11 @@ void RemoteController::handleCommandMessage(std::unique_ptr<Message> message) {
     Command command(*message->command.get());
     
     // Send the command.
-    hardwareController->sendCommandForRemoteWithCompletionHandler(command, remote, [&](Error error) {
+    hardwareController->sendCommandForRemoteWithCompletionHandler(command, remote, [&, remote, command](Error error) {
         // Create a response message.
         auto responseMessage = std::make_unique<Message>(MessageType::CommandResponse);
+        responseMessage->remote = std::make_unique<Remote>(remote);
+        responseMessage->command = std::make_unique<Command>(command);
         responseMessage->error = error;
         
         // Send the response.
