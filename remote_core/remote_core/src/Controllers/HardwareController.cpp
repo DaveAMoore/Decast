@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include "HardwareController.hpp"
+#include "lirc_client.h"
 
 using namespace RemoteCore;
 
@@ -54,4 +55,27 @@ void HardwareController::invalidateTrainingSession(std::shared_ptr<TrainingSessi
     if (position != sessionIDs.end()) {
         sessionIDs.erase(position);
     }
+}
+
+void HardwareController::sendCommand(Remote remote, Command command) {
+    // initialize lirc socket and store file descriptor
+    int fd = lirc_init("remote_core", 0);
+    if (fd == -1) {
+        // Handle init fail
+    }
+
+    // Check for remote existence
+    /*
+    if (is_in_remotes() == -1) {
+        // Handle remote not found
+    }
+    */
+
+    // Send command
+    if (lirc_send_one(lirc_get_local_socket(NULL, 1), remote.getRemoteID().c_str(), command.getCommandID().c_str()) == -1) {
+        // Handle fail send
+    }
+
+    // Deinitialize lirc socket
+    lirc_deinit();
 }
