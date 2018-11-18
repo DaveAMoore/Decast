@@ -64,8 +64,6 @@ namespace RemoteCore {
         bool hasActiveTrainingSession(void) {
             return currentTrainingSession != nullptr;
         }
-
-        void sendCommand(Remote remote, Command command);
     };
 }
 

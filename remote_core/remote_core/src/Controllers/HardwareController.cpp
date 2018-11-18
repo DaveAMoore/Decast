@@ -7,6 +7,7 @@
 //
 
 #include <algorithm>
+#include <thread>
 #include "HardwareController.hpp"
 #include "lirc_client.h"
 
@@ -18,8 +19,36 @@ HardwareController::HardwareController() {
 
 void HardwareController::sendCommandForRemoteWithCompletionHandler(Command command, Remote remote,
                                                                    CompletionHandler completionHandler) {
-    completionHandler(Error::None);
-    /* ***************** Send the command .***************** */
+    /* ***************** Send the command. ***************** */
+    
+    // Create a lirc thread that handles the sending.
+    auto lircThread = std::thread([completionHandler]() {
+        // initialize lirc socket and store file descriptor
+        int fd = lirc_init("remote_core", 0);
+        if (fd == -1) {
+            // Handle init fail
+        }
+
+        // Check for remote existence
+        /*
+         if (is_in_remotes() == -1) {
+         // Handle remote not found
+         }
+         */
+
+        // Send command
+        if (lirc_send_one(lirc_get_local_socket(NULL, 1), remote.getRemoteID().c_str(), command.getCommandID().c_str()) == -1) {
+            // Handle fail send
+        }
+
+        // Deinitialize lirc socket
+        lirc_deinit();
+        
+        completionHandler(Error::None);
+    });
+    
+    // Detach the thread.
+    lircThread.detach();
 }
 
 std::shared_ptr<TrainingSession> HardwareController::newTrainingSessionForRemote(Remote remote) {
@@ -62,27 +91,4 @@ void HardwareController::invalidateTrainingSession(std::shared_ptr<TrainingSessi
     if (position != sessionIDs.end()) {
         sessionIDs.erase(position);
     }
-}
-
-void HardwareController::sendCommand(Remote remote, Command command) {
-    // initialize lirc socket and store file descriptor
-    int fd = lirc_init("remote_core", 0);
-    if (fd == -1) {
-        // Handle init fail
-    }
-
-    // Check for remote existence
-    /*
-    if (is_in_remotes() == -1) {
-        // Handle remote not found
-    }
-    */
-
-    // Send command
-    if (lirc_send_one(lirc_get_local_socket(NULL, 1), remote.getRemoteID().c_str(), command.getCommandID().c_str()) == -1) {
-        // Handle fail send
-    }
-
-    // Deinitialize lirc socket
-    lirc_deinit();
 }
