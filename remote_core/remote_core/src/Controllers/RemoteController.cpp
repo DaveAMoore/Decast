@@ -38,25 +38,6 @@ void RemoteController::startController() {
     std::cout << "Response code: " << responseCode << std::endl;
     
     subscribeToDefaultTopic();
-    
-    /*connectionManager->subscribeToTopic(TOPIC_PREFIX + serialNumber, [&](std::string topicName, std::string payload) {
-     return awsiotsdk::ResponseCode::SUCCESS;
-    }, [](awsiotsdk::ResponseCode responseCode) {
-        // FIXME: Handle errors.
-    });*/
-    
-    /*connectionManager->subscribeToTopic("remote_core/tests/topic_1", [&](std::string topicName, std::string payload) {
-        std::cout << payload << std::endl;
-        
-        std::string message = R"({"message": "Hello from Pi!"})";
-        if (payload != message) {
-            connectionManager->publishMessageToTopic(message, topicName, nullptr);
-        }
-        
-        return awsiotsdk::ResponseCode::SUCCESS;
-    }, [](awsiotsdk::ResponseCode responseCode) {
-        std::cout << responseCode << std::endl;
-    });*/
 }
 
 void RemoteController::stopController() {

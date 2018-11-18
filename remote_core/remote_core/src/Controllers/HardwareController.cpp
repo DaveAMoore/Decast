@@ -15,6 +15,12 @@ HardwareController::HardwareController() {
     
 }
 
+void HardwareController::sendCommandForRemoteWithCompletionHandler(Command command, Remote remote,
+                                                                   CompletionHandler completionHandler) {
+    completionHandler(Error::None);
+    /* ***************** Send the command .***************** */
+}
+
 std::shared_ptr<TrainingSession> HardwareController::newTrainingSessionForRemote(Remote remote) {
     // Create a new training session.
     auto trainingSession = std::make_shared<TrainingSession>(remote);
@@ -30,6 +36,8 @@ void HardwareController::startTrainingSession(std::shared_ptr<TrainingSession> t
     if (currentTrainingSession != nullptr) {
         throw std::logic_error("Expected 'currentTrainingSession' to be nullptr.");
     }
+    
+    /* ***************** Start the training session. ***************** */
 }
 
 void HardwareController::suspendTrainingSession(std::shared_ptr<TrainingSession> trainingSession) {
@@ -37,8 +45,7 @@ void HardwareController::suspendTrainingSession(std::shared_ptr<TrainingSession>
         return;
     }
     
-    // Stop the current training session.
-    // TODO: Stop the current training session.
+    /* ***************** Stop the training session. ***************** */
     
     // Nullify our reference to the training session.
     currentTrainingSession = nullptr;
