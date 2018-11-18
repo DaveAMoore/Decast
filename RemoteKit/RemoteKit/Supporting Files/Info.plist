@@ -44,5 +44,7 @@
 	<string>remote-core.mooredev.ca</string>
 	<key>RFDefaultDatabaseID</key>
 	<string>arn:aws:dynamodb:us-east-1:232836439524:table/Remote-Core</string>
+	<key>RKSessionManagerEndpoint</key>
+	<string>https://a3gxjfvcpl7803-ats.iot.us-east-1.amazonaws.com</string>
 </dict>
 </plist>
