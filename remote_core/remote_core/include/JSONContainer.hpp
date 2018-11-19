@@ -10,6 +10,7 @@
 #define JSONContainer_hpp
 
 #include <iostream>
+#include <fstream>
 #include "nlohmann/json.hpp"
 #include "Container.hpp"
 
@@ -35,6 +36,7 @@ namespace RemoteCore {
     public:
         JSONContainer();
         JSONContainer(std::string payload);
+        JSONContainer(std::fstream payloadStream);
         JSONContainer(nlohmann::json internalContainer) : internalContainer(internalContainer) {};
         
         ~JSONContainer() override {};

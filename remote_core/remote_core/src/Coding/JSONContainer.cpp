@@ -7,6 +7,8 @@
 //
 
 #include "JSONContainer.hpp"
+#include <iostream>
+#include <fstream>
 
 using json = nlohmann::json;
 using namespace RemoteCore;
@@ -19,6 +21,10 @@ JSONContainer::JSONContainer() {
 
 JSONContainer::JSONContainer(std::string payload) {
     internalContainer = json::parse(payload);
+}
+
+JSONContainer::JSONContainer(std::fstream payloadStream) {
+    internalContainer = json::parse(payloadStream);
 }
 
 void JSONContainer::initializeForObject() {
