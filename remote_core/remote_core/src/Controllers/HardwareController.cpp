@@ -67,7 +67,11 @@ void HardwareController::startTrainingSession(std::shared_ptr<TrainingSession> t
         throw std::logic_error("Expected 'currentTrainingSession' to be nullptr.");
     }
     
-    /* ***************** Start the training session. ***************** */
+    // Retain the training session.
+    currentTrainingSession = trainingSession;
+    
+    // Start the training session.
+    currentTrainingSession->start();
 }
 
 void HardwareController::suspendTrainingSession(std::shared_ptr<TrainingSession> trainingSession) {
