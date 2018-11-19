@@ -44,7 +44,7 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
 //        // Deinitialize lirc socket
 //        lirc_deinit();
 //
-//        completionHandler(Error::None);
+        completionHandler(Error::None);
     });
     
     // Detach the thread.
@@ -75,20 +75,9 @@ void HardwareController::suspendTrainingSession(std::shared_ptr<TrainingSession>
         return;
     }
     
-    /* ***************** Stop the training session. ***************** */
+    // Suspend the training session.
+    currentTrainingSession->suspend();
     
     // Nullify our reference to the training session.
     currentTrainingSession = nullptr;
-}
-
-void HardwareController::invalidateTrainingSession(std::shared_ptr<TrainingSession> trainingSession) {
-    if (trainingSession == nullptr || trainingSession == currentTrainingSession) {
-        return;
-    }
-    
-    // Locate the session identifier, then delete it if found.
-    auto position = std::find(sessionIDs.begin(), sessionIDs.end(), trainingSession->getSessionID());
-    if (position != sessionIDs.end()) {
-        sessionIDs.erase(position);
-    }
 }
