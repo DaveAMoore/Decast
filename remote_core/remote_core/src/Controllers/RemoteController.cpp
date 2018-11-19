@@ -175,12 +175,9 @@ void RemoteController::sendMessage(std::unique_ptr<Message> message) {
     
     auto codedContainer = aCoder->invalidateCoder();
     
-    size_t length = 0;
-    auto data = codedContainer->generateData(&length);
-    std::string jsonString((const char *)data.get(), length);
-    
+    auto data = codedContainer->generateData();
     auto topic = topicForDeviceWithUserID(Device::currentDevice(), userID);
-    connectionManager->publishMessageToTopic(jsonString, topic, [](awsiotsdk::ResponseCode responseCode) {
+    connectionManager->publishMessageToTopic(data, topic, [](awsiotsdk::ResponseCode responseCode) {
         
     });
 }

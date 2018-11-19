@@ -117,7 +117,7 @@ namespace RemoteCore {
          @param length Reference to a 'size_t' instance that will be updated with the correct length of the data.
          @return Unique pointer to the first byte of data.
          */
-        virtual std::unique_ptr<uint8_t> generateData(size_t *length) = 0;
+        virtual std::string generateData(void) = 0;
     };
 }
 
