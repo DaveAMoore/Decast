@@ -26,7 +26,9 @@ void Message::encodeWithCoder(Coder *aCoder) const {
     if (error != Error::None) {
         aCoder->encodeIntForKey(std::underlying_type<Error>::type(error), "error");
     }
-    aCoder->encodeStringForKey(directive, "directive");
+    if (!directive.empty()) {
+        aCoder->encodeStringForKey(directive, "directive");
+    }
 }
 
 void Message::decodeWithCoder(const Coder *aCoder) {
