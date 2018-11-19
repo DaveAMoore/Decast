@@ -105,16 +105,15 @@ endif()
 # Section : Copy Resources #
 ############################
 
-# Copy JSON config file.
+# Copy JSON files and certificates in "/certs".
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+   COMMAND ${CMAKE_COMMAND} -E
+    copy ${PROJECT_SOURCE_DIR}/config/remote_core_config.json $<TARGET_FILE_DIR:${TARGET_NAME}>/config/remote_core_config.json
     COMMAND ${CMAKE_COMMAND} -E
-    copy ${PROJECT_SOURCE_DIR}/config/remote_core_config.json $<TARGET_FILE_DIR:${TARGET_NAME}>/config/remote_core_config.json)
-set_property(TARGET ${TARGET_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS ${CUSTOM_COMPILER_FLAGS})
-
-# Gather list of all certificates in "/certs".
-add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
+    copy ${PROJECT_SOURCE_DIR}/config/remote_core_command_ids.json $<TARGET_FILE_DIR:${TARGET_NAME}>/config/remote_core_command_ids.json
     COMMAND ${CMAKE_COMMAND} -E
     copy_directory ${PROJECT_SOURCE_DIR}/config/certs $<TARGET_FILE_DIR:${TARGET_NAME}>/config/certs)
+set_property(TARGET ${TARGET_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS ${CUSTOM_COMPILER_FLAGS})
 
 ##################################
 # Section: Define Install Target #
