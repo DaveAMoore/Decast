@@ -13,20 +13,26 @@ public protocol RKTrainingSessionDelegate: NSObjectProtocol {
     /// Training session is beginning.
     func trainingSessionDidBegin(_ trainingSession: RKTrainingSession)
     
+    /// Called when the training session created a new command.
+    func trainingSession(_ trainingSession: RKTrainingSession, didCreateCommand command: RKCommand)
+    
+    /// Called when the training session failed to create a new command.
+    func trainingSession(_ trainingSession: RKTrainingSession, didFailToCreateCommandWithError error: Error)
+    
     /// Called when a fatal error occurred that caused the entire training session to fail.
-    func trainingSession(_ trainingSession: RKTrainingSession, didFailWith error: Error)
+    func trainingSession(_ trainingSession: RKTrainingSession, didFailWithError error: Error)
     
     /// The training session is going to begin learning a new command.
-    func trainingSession(_ trainingSession: RKTrainingSession, willLearn command: RKCommand)
+    func trainingSession(_ trainingSession: RKTrainingSession, willLearnCommand command: RKCommand)
     
     /// The training session learned a new command.
-    func trainingSession(_ trainingSession: RKTrainingSession, didLearn command: RKCommand)
+    func trainingSession(_ trainingSession: RKTrainingSession, didLearnCommand command: RKCommand)
     
     /// All buttons should be pressed in no specific order (i.e., randomly) repeatedly.
     func trainingSessionDidRequestInclusiveArbitraryInput(_ trainingSession: RKTrainingSession)
     
     /// Input should be provided for the single command that is provided.
-    func trainingSession(_ trainingSession: RKTrainingSession, didRequestInputFor command: RKCommand)
+    func trainingSession(_ trainingSession: RKTrainingSession, didRequestInputForCommand command: RKCommand)
     
     /// A single random command should be pressed repeatedly.
     func trainingSessionDidRequestExclusiveArbitraryInput(_ trainingSession: RKTrainingSession)
@@ -58,26 +64,61 @@ public class RKTrainingSession: NSObject {
         self.session = session
     }
     
-    // MARK: -
+    // MARK: - Messaging
+    
+    /// Sends a message with a given directive and optional command.
+    func sendMessage(withDirective directive: RKMessage.Directive, command: RKCommand? = nil) {
+        session.send(RKMessage.trainingMessage(for: remote, with: command, directive: directive))
+    }
+    
+    // MARK: - State Management
     
     /// Starts the training session.
     func start() {
-        
+        sendMessage(withDirective: .startTrainingSession)
     }
     
+    /// Suspends the training session.
     func suspend() {
-        
+        sendMessage(withDirective: .suspendTrainingSession)
     }
     
     // MARK: - Message Handling
     
     /// Handles a response or training message.
     func handle(_ message: RKMessage) {
-        switch message.type {
-        case .training:
-            break
-        case .trainingResponse:
-            break
+        guard message.type == .training ||
+            message.type == .trainingResponse,
+            let directive = message.directive,
+            let delegate = delegate else { return }
+        
+        switch directive {
+        case .trainingSessionDidBegin:
+            delegate.trainingSessionDidBegin(self)
+        case .trainingSessionDidFailWithError:
+            delegate.trainingSession(self, didFailWithError: message.error ?? RKError.unknown)
+        case .createCommand:
+            if let command = message.command {
+                delegate.trainingSession(self, didCreateCommand: command)
+            } else {
+                delegate.trainingSession(self, didFailToCreateCommandWithError: message.error ?? RKError.unknown)
+            }
+        case .trainingSessionWillLearnCommand:
+            if let command = message.command {
+                delegate.trainingSession(self, willLearnCommand: command)
+            }
+        case .trainingSessionDidLearnCommand:
+            if let command = message.command {
+                delegate.trainingSession(self, didLearnCommand: command)
+            }
+        case .trainingSessionDidRequestInputForCommand:
+            if let command = message.command {
+                delegate.trainingSession(self, didRequestInputForCommand: command)
+            }
+        case .trainingSessionDidRequestInclusiveArbitraryInput:
+            delegate.trainingSessionDidRequestInclusiveArbitraryInput(self)
+        case .trainingSessionDidRequestExclusiveArbitraryInput:
+            delegate.trainingSessionDidRequestExclusiveArbitraryInput(self)
         default:
             break
         }
@@ -85,11 +126,13 @@ public class RKTrainingSession: NSObject {
     
     // MARK: - Training
     
-    public func createCommand(withLocalizedTitle localizedTitle: String, completionHandler: @escaping ((RKCommand?, Error?) -> Void)) {
-        session.send(RKMessage.trainingMessage(for: remote, directive: Constants.Directives.createCommand))
+    /// Creates a new command with a localized title. The command will be returned through a delegate callback.
+    public func createCommand(withLocalizedTitle localizedTitle: String) {
+        sendMessage(withDirective: .createCommand, command: RKCommand(localizedTitle: localizedTitle, commandID: ""))
     }
     
+    /// Starts training the remote to learn a new command.
     public func learn(_ command: RKCommand) {
-        session.send(RKMessage.trainingMessage(for: remote, with: command, directive: Constants.Directives.learnCommand))
+        sendMessage(withDirective: .learnCommand, command: command)
     }
 }

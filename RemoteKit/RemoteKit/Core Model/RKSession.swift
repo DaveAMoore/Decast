@@ -11,12 +11,10 @@ import RFCore
 import AWSIoT
 
 public protocol RKSessionDelegate: NSObjectProtocol {
-    
-    func session(_ session: RKSession, activationStateDidChange activationState: RKSession.ActivationState)
-    func session(_ session: RKSession, activationDidFailWith error: Error)
-    
-    func session(_ session: RKSession, didSend command: RKCommand, for remote: RKRemote)
-    func session(_ session: RKSession, didFailToSend command: RKCommand, for remote: RKRemote, with error: Error)
+    func sessionDidActivate(_ session: RKSession)
+    func session(_ session: RKSession, didFailWithError error: Error)
+    func session(_ session: RKSession, didSendCommand command: RKCommand, forRemote remote: RKRemote)
+    func session(_ session: RKSession, didFailToSendCommand command: RKCommand, forRemote remote: RKRemote, withError error: Error)
 }
 
 /// Conduit for accessing RFCore-associated resources, in addition to providing access to IoT resources.
@@ -27,9 +25,6 @@ public class RKSession: NSObject {
     public enum ActivationState: Int {
         /// The session is not activated. When in this state, no communication occurs between a particular device and the host application.
         case notActivated
-        
-        /// The session _was_ activated but is currently transitioning to the deactivated state. The session's delegate object may still receive data, but data should not be sent.
-        case inactive
         
         /// The session is active and the external device and the host may communicate with each other freely.
         case activated
@@ -61,14 +56,11 @@ public class RKSession: NSObject {
     
     /// Current activation state of the session.
     public var activationState: ActivationState {
-        // FIXME: Make this more rigerous.
         switch sessionManager.dataManager.getConnectionStatus() {
         case .connected:
             return .activated
-        case .disconnected:
-            return .notActivated
         default:
-            return .inactive
+            return .notActivated
         }
     }
     
@@ -95,6 +87,11 @@ public class RKSession: NSObject {
     public func activate() {
         // Activate the session manager.
         sessionManager.activate { [weak self] error in
+            guard error == nil else {
+                self?.delegate?.session(self!, didFailWithError: error!)
+                return
+            }
+            
             // Subscribe to the default topic.
             self?.sessionManager.subscribe(toTopic: self!.defaultTopic, messageHandler: { [weak self] data in
                 guard let strongSelf = self else { return }
@@ -112,6 +109,9 @@ public class RKSession: NSObject {
                     fatalError("Failed to decode message: \(error.localizedDescription)")
                 }
             }, completionHandler: nil)
+            
+            // Call the appropriate delegate method.
+            self?.delegate?.sessionDidActivate(self!)
         }
     }
     
@@ -119,6 +119,14 @@ public class RKSession: NSObject {
     
     private func handle(_ message: RKMessage) {
         switch message.type {
+        case .commandResponse:
+            if let command = message.command, let remote = message.remote {
+                if let error = message.error {
+                    delegate?.session(self, didFailToSendCommand: command, forRemote: remote, withError: error)
+                } else {
+                    delegate?.session(self, didSendCommand: command, forRemote: remote)
+                }
+            }
         case .training, .trainingResponse:
             currentTrainingSession?.handle(message)
         default:
@@ -155,8 +163,8 @@ public class RKSession: NSObject {
         enforceRegistration(of: trainingSession)
         
         // Start the training session and keep a reference to it.
-        trainingSession.start()
         currentTrainingSession = trainingSession
+        trainingSession.start()
     }
     
     /// Suspends the provided training session if it is currently active. When `trainingSession` is not active this is a no-op.

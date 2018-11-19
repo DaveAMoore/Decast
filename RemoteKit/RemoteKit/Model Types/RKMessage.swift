@@ -58,12 +58,20 @@ struct RKMessage: Codable, Equatable {
         self.directive = directive
     }
     
+    /*init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.senderID = try container.decode(ID.self, forKey: .senderID)
+        self.messageID = try container.decode(ID.self, forKey: .messageID)
+        self.type = try container.decode(Kind.self, forKey: .type)
+        self.remote = try? cont
+    }*/
+    
     static func commandMessage(for command: RKCommand, with remote: RKRemote) -> RKMessage {
         return RKMessage(type: .command, remote: remote, command: command, directive: nil)
     }
     
     static func trainingMessage(for remote: RKRemote, with command: RKCommand? = nil, directive: Directive? = nil) -> RKMessage {
-        let message = RKMessage(type: .training, remote: remote, command: nil, directive: directive)
+        let message = RKMessage(type: .training, remote: remote, command: command, directive: directive)
         return message
     }
     

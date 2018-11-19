@@ -184,17 +184,17 @@ public final class RKSessionManager: NSObject {
         fetchUserID { userID, error in
             self.userID = userID
             
-            //var didReturn = false
+            var didCallCompletionHandler = false
             
             self.dataManager.connectUsingWebSocket(withClientId: RKSessionManager.clientID, cleanSession: true) { status in
+                guard !didCallCompletionHandler else { return }
                 switch status {
                 case .connected:
                     completionHandler?(nil)
+                    didCallCompletionHandler = true
                 case .connectionError:
-                    // FIXME: Pass the error back.
-                    fatalError("Socket connection failed.")
-                    // completionHandler?(nil)
-                    break
+                    completionHandler?(RKError.connectionFailure)
+                    didCallCompletionHandler = false
                 default:
                     break
                 }
