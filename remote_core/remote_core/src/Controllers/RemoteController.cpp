@@ -121,16 +121,13 @@ void RemoteController::handleTrainingMessage(std::unique_ptr<Message> message) {
     if (message->remote == nullptr) {
         responseMessage->error = Error::InvalidParameters;
     } else {
-        responseMessage->remote = std::unique_ptr<Remote>(message->remote.get());
+        responseMessage->remote = std::make_unique<Remote>(*message->remote.get());
         
         if (message->directive == START_TRAINING_SESSION_DIRECTIVE) {
             if (trainingSession == nullptr) {
                 trainingSession = hardwareController->newTrainingSessionForRemote(Remote(*message->remote.get()));
                 
-                auto sharedThis = std::shared_ptr<TrainingSessionDelegate>((TrainingSessionDelegate *)this);
-                std::weak_ptr<TrainingSessionDelegate> weakThis(sharedThis);
-                
-                trainingSession->setDelegate(weakThis);
+                trainingSession->setDelegate(shared_from_this());
                 hardwareController->startTrainingSession(trainingSession);
             } else {
                 responseMessage->error = Error::TrainingAlreadyInSession;
@@ -138,12 +135,13 @@ void RemoteController::handleTrainingMessage(std::unique_ptr<Message> message) {
         } else if (message->directive == SUSPEND_TRAINING_SESSION_DIRECTIVE) {
             if (trainingSession != nullptr) {
                 hardwareController->suspendTrainingSession(trainingSession);
+                trainingSession = nullptr;
             }
         } else if (message->directive == CREATE_COMMAND_DIRECTIVE) {
             if (trainingSession != nullptr) {
                 auto localizedTitle = message->command == nullptr ? "" : message->command->getLocalizedTitle();
                 auto command = trainingSession->createCommandWithLocalizedTitle(localizedTitle);
-                responseMessage->command = std::unique_ptr<Command>(&command);
+                responseMessage->command = std::make_unique<Command>(command);
             } else {
                 responseMessage->error = Error::NoTrainingSession;
             }
@@ -192,8 +190,10 @@ void RemoteController::sendMessage(std::unique_ptr<Message> message) {
 void RemoteController::sendTrainingMessageForSession(TrainingSession *session, Command *command, std::string directive) {
     auto message = std::make_unique<Message>(MessageType::Training);
     auto remote = session->getAssociatedRemote();
-    message->remote = std::unique_ptr<Remote>(&remote);
-    message->command = std::unique_ptr<Command>(command);
+    message->remote = std::make_unique<Remote>(remote);
+    if (command != nullptr) {
+        message->command = std::make_unique<Command>(*command);
+    }
     message->directive = directive;
     
     sendMessage(std::move(message));

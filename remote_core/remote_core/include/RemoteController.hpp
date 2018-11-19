@@ -15,7 +15,7 @@
 
 namespace RemoteCore {
     /// The base class for remote_core that should be used for remote-related functionality.
-    class RemoteController : protected TrainingSessionDelegate {
+    class RemoteController : public TrainingSessionDelegate {
     private:
         std::string userID;
         
