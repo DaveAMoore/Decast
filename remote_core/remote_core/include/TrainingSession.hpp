@@ -42,11 +42,11 @@ namespace RemoteCore {
     public:
         TrainingSession(Remote associatedRemote);
         
-        std::string getSessionID(void) {
+        std::string getSessionID(void) const {
             return sessionID;
         }
         
-        Remote getAssociatedRemote(void) {
+        Remote getAssociatedRemote(void) const {
             return associatedRemote;
         }
         
@@ -59,9 +59,14 @@ namespace RemoteCore {
         }
         
         /**
-         Initializes a new training session. This will require user input (e.g., inclusive arbitrary input).
+         Initializes the training session. This will require user input (e.g., inclusive arbitrary input).
          */
-        void startTrainingSession(void);
+        void start(void);
+        
+        /**
+         Suspends the training session almost immediately.
+         */
+        void suspend(void);
         
         /**
          Creates the representation of a new command with the given localized title. The localized title provided may be an empty string.
@@ -76,7 +81,7 @@ namespace RemoteCore {
         void learnCommand(Command command);
     };
     
-    class TrainingSessionDelegate {
+    class TrainingSessionDelegate : public std::enable_shared_from_this<TrainingSessionDelegate> {
     public:
         // The training session is beginning.
         virtual void trainingSessionDidBegin(TrainingSession *session) {};
