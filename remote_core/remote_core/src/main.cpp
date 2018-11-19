@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     signal(SIGHUP, &handleSignal);
     
     // Create a remote controller, then start it.
-    auto remoteController = std::make_unique<RemoteCore::RemoteController>(CONFIG_FILE_RELATIVE_PATH);
+    auto remoteController = std::make_shared<RemoteCore::RemoteController>(CONFIG_FILE_RELATIVE_PATH);
     remoteController->startController();
     
     // Maintain a run-loop while the program is ongoing.
