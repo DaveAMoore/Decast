@@ -150,10 +150,10 @@ std::vector<std::unique_ptr<Container>> JSONContainer::containerArray(void) {
 // MARK: - Data Generation
 
 std::unique_ptr<uint8_t> JSONContainer::generateData(size_t *length) {
-    auto payload = internalContainer.dump();
+    std::string payload = internalContainer.dump();
     
     if (length != nullptr) {
-        *length = payload.length();
+        *length = payload.size();
     }
     
     auto data = std::unique_ptr<uint8_t>(new uint8_t[payload.length()]);
