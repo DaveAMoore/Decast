@@ -36,7 +36,7 @@ namespace RemoteCore {
     public:
         JSONContainer();
         JSONContainer(std::string payload);
-        JSONContainer(std::fstream payloadStream);
+        JSONContainer(std::ifstream payloadStream);
         JSONContainer(nlohmann::json internalContainer) : internalContainer(internalContainer) {};
         
         ~JSONContainer() override {};

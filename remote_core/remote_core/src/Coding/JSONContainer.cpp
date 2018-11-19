@@ -23,7 +23,7 @@ JSONContainer::JSONContainer(std::string payload) {
     internalContainer = json::parse(payload);
 }
 
-JSONContainer::JSONContainer(std::fstream payloadStream) {
+JSONContainer::JSONContainer(std::ifstream payloadStream) {
     internalContainer = json::parse(payloadStream);
 }
 
