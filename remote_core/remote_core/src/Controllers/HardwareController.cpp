@@ -22,7 +22,7 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
     /* ***************** Send the command. ***************** */
     
     // Create a lirc thread that handles the sending.
-    auto lircThread = std::thread([completionHandler]() {
+    // auto lircThread = std::thread([completionHandler]() {
 //        // initialize lirc socket and store file descriptor
 //        int fd = lirc_init("remote_core", 0);
 //        if (fd == -1) {
@@ -44,11 +44,12 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
 //        // Deinitialize lirc socket
 //        lirc_deinit();
 //
-        completionHandler(Error::None);
-    });
+//    });
     
     // Detach the thread.
-    lircThread.detach();
+    // lircThread.detach();
+    
+    completionHandler(Error::None);
 }
 
 std::shared_ptr<TrainingSession> HardwareController::newTrainingSessionForRemote(Remote remote) {
