@@ -39,7 +39,7 @@ open class RKRemote: Codable, Equatable {
     /// Creates a new remote with a localized title.
     public convenience init(localizedTitle: String) {
         self.init(localizedTitle: localizedTitle, remoteID: UUID().uuidString)
-        self.commands = [RKCommand(localizedTitle: "", commandID: "BTN_0"), RKCommand(localizedTitle: "", commandID: "BTN_A")]
+        self.commands = []
     }
     
     // MARK: - Equatable

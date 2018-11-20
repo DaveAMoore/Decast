@@ -85,8 +85,13 @@ public class RKSession: NSObject {
     
     /// Activates the session asynchronously.
     public func activate() {
+        let record = RFRecord(recordType: "Foo", recordID: RFRecord.ID(recordName: "Fuck"))
+        sessionManager.container.save(record) { savedRecord, error in
+            print("Saved: \(error?.localizedDescription)")
+        }
+        
         // Activate the session manager.
-        sessionManager.activate { [weak self] error in
+        /* sessionManager.activate { [weak self] error in
             guard error == nil else {
                 self?.delegate?.session(self!, didFailWithError: error!)
                 return
@@ -112,7 +117,7 @@ public class RKSession: NSObject {
             
             // Call the appropriate delegate method.
             self?.delegate?.sessionDidActivate(self!)
-        }
+        } */
     }
     
     // MARK: - Message Handling
