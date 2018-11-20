@@ -32,6 +32,7 @@ DispatchQueue::~DispatchQueue() {
 }
 
 void DispatchQueue::threadHandler() {
+    // Aquire the lock.
     std::unique_lock<std::mutex> lock(queueMutex);
     
     do {
