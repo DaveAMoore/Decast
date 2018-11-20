@@ -16,6 +16,7 @@
 #include <mutex>
 #include <vector>
 #include <string>
+#include <condition_variable>
 
 namespace RemoteCore {
     /**
