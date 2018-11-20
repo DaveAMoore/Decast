@@ -35,16 +35,16 @@ void CommandLine::executeCommandWithResultHandler(const char *command, std::func
         std::shared_ptr<FILE> pipe(popen(command, "r"), pclose);
         
         if (pipe == nullptr) {
-            resultHandler(result, false);
+            resultHandler(result, true);
         } else {
             while (feof(pipe.get()) == 0) {
                 if (fgets(buffer.data(), 128, pipe.get()) != nullptr) {
                     result += buffer.data();
-                    resultHandler(result, true);
+                    resultHandler(result, false);
                 }
             }
         }
         
-        resultHandler(result, false);
+        resultHandler(result, true);
     });
 }

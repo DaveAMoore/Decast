@@ -34,7 +34,7 @@ namespace RemoteCore {
 
          @param command Command that will be executed.
          @param std::string Current result of the command execution.
-         @param bool Indicates if more results are coming.
+         @param bool Indicates if the command has been fully executed and is complete.
          */
         void executeCommandWithResultHandler(const char *command, std::function<void (std::string, bool)> resultHandler);
     };
