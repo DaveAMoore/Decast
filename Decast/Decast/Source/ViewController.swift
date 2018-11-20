@@ -8,7 +8,6 @@
 
 import SFKit
 import RemoteKit
-import AWSCore
 
 class ViewController: UIViewController, RKSessionManagerDelegate, RKSessionDelegate, RKTrainingSessionDelegate {
 
@@ -18,8 +17,6 @@ class ViewController: UIViewController, RKSessionManagerDelegate, RKSessionDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        AWSDDLog.add(AWSDDTTYLogger(), with: .verbose)
         
         // Do any additional setup after loading the view, typically from a nib.
         session.delegate = self
@@ -38,7 +35,7 @@ class ViewController: UIViewController, RKSessionManagerDelegate, RKSessionDeleg
     
     func sessionDidActivate(_ session: RKSession) {
         print("Session activated")
-        session.send(RKCommand(localizedTitle: "123", commandID: "ABC"), for: RKRemote(localizedTitle: "Remote"))
+        session.send(RKCommand(localizedTitle: "123", commandID: "BTN_0"), for: RKRemote(localizedTitle: "Remote"))
     }
     
     func session(_ session: RKSession, didFailWithError error: Error) {

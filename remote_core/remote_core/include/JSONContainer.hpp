@@ -70,7 +70,7 @@ namespace RemoteCore {
         std::vector<std::string> stringArray(void) override { return genericArray<std::string>(); }
         std::vector<std::unique_ptr<Container>> containerArray(void) override;
         
-        std::unique_ptr<uint8_t> generateData(size_t *length) override;
+        std::string generateData(void) override;
     };
 }
 
