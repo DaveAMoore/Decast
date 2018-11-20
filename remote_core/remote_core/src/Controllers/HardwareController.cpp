@@ -8,38 +8,38 @@
 
 #include <algorithm>
 #include <thread>
+#include <sys/stat.h>
 #include "HardwareController.hpp"
-#include "dirent.h"
-#include "string.h"
-//#include "lirc_client.h"
-#define REMOTE_CONFIG_PATH "."
+#include "CommandLine.hpp"
+
+#define REMOTE_CONFIGURATION_FILE_DIRECTORY "."
+
 using namespace RemoteCore;
 
 HardwareController::HardwareController() {
     
 }
 
-int HardwareController::checkRemoteConfig(std::string remoteName) {
-    // Specify path to be directory of remote config files
-    DIR *path = opendir(REMOTE_CONFIG_PATH);
-    struct dirent *dir;
-
-    // Iterates through directory
-    while ((dir = readdir(path)) != NULL) {
-        if (dir->d_namlen >= strlen(remoteName.c_str()) && strcmp(dir->d_name.substr(0, strlen(remoteName.c_str())), remoteName) == 0) {
-            return 1;
-        }
-    }
-    closedir(path);
-    return 0;
+bool HardwareController::doesRemoteExist(Remote &remote) {
+    auto relativePath = (REMOTE_CONFIGURATION_FILE_DIRECTORY + remote.getRemoteID()).c_str();
+    struct stat buffer;
+    
+    return (stat (relativePath, &buffer) == 0);
 }
 
 void HardwareController::sendCommandForRemoteWithCompletionHandler(Command command, Remote remote,
                                                                    CompletionHandler completionHandler) {
     /* ***************** Send the command. ***************** */
     
-    // Create a lirc thread that handles the sending.
-    auto lircThread = std::thread([completionHandler]() {
+    auto commandString = "irsend SEND_ONCE " + remote.getRemoteID() + " " + command.getCommandID();
+    CommandLine::sharedCommandLine()->executeCommandWithResultHandler(commandString.c_str(), [=](std::string result, bool isComplete) {
+        if (isComplete) {
+            completionHandler(Error::None);
+        }
+    });
+    
+//    // Create a lirc thread that handles the sending.
+//    auto lircThread = std::thread([completionHandler]() {
 //        // initialize lirc socket and store file descriptor
 //        int fd = lirc_init("remote_core", 0);
 //        if (fd == -1) {
@@ -61,11 +61,11 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
 //        // Deinitialize lirc socket
 //        lirc_deinit();
 //
-        completionHandler(Error::None);
-    });
+//        completionHandler(Error::None);
+ //   });
     
     // Detach the thread.
-    lircThread.detach();
+    // lircThread.detach();
 }
 
 std::shared_ptr<TrainingSession> HardwareController::newTrainingSessionForRemote(Remote remote) {

@@ -19,22 +19,20 @@ namespace RemoteCore {
         std::vector<std::string> sessionIDs;
         std::shared_ptr<TrainingSession> currentTrainingSession;
         
+        /**
+         Determines if a configuration file exists for remoteID.
+         
+         @param remoteName
+         @return 1 for remote found and -1 for not found
+         */
+        bool doesRemoteExist(Remote &remote);
+        
     public:
         HardwareController();
         
         typedef std::function<void (Error)> CompletionHandler;
         
         // MARK: - Command Sending
-
-        /**
-         *
-         * Determines if config file exists for remoteID
-         *
-         * @param remoteName
-         * @return 1 for remote found and -1 for not found
-         */
-
-        int checkRemoteConfig(std::string remoteName);
 
         /**
          Sends a command to an external device (i.e., controlled by the remote) through infrared.

@@ -17,7 +17,7 @@
 using namespace RemoteCore;
 using namespace awsiotsdk;
 
-RemoteController::RemoteController(const std::string &configFileRelativePath) {
+RemoteController::RemoteController(const std::string &configFileRelativePath) {    
     // Create a new connection manager.
     connectionManager = std::make_unique<ConnectionManager>(configFileRelativePath);
     
