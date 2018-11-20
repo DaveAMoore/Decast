@@ -28,6 +28,10 @@
 		6373846F21A1B51D00E72791 /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6373846C21A1B51D00E72791 /* Device.cpp */; };
 		6387418E21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
 		6387418F21938389008B5166 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6387418C21938389008B5166 /* Command.cpp */; };
+		63936FB221A45AA200689225 /* DispatchQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63936FB021A45AA200689225 /* DispatchQueue.cpp */; };
+		63936FB321A45AA200689225 /* DispatchQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63936FB021A45AA200689225 /* DispatchQueue.cpp */; };
+		63936FB821A462EE00689225 /* CommandLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63936FB621A462EE00689225 /* CommandLine.cpp */; };
+		63936FB921A462EE00689225 /* CommandLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63936FB621A462EE00689225 /* CommandLine.cpp */; };
 		639899FC218246A400C346D1 /* RemoteController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 639899FA218246A400C346D1 /* RemoteController.cpp */; };
 		63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
 		63B818DF2191387A001E7D4F /* HardwareController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B818DC2191387A001E7D4F /* HardwareController.cpp */; };
@@ -123,6 +127,10 @@
 		6373847021A1C11800E72791 /* Error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Error.hpp; sourceTree = "<group>"; };
 		6387418C21938389008B5166 /* Command.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Command.cpp; sourceTree = "<group>"; };
 		6387418D21938389008B5166 /* Command.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Command.hpp; sourceTree = "<group>"; };
+		63936FB021A45AA200689225 /* DispatchQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DispatchQueue.cpp; sourceTree = "<group>"; };
+		63936FB121A45AA200689225 /* DispatchQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DispatchQueue.hpp; sourceTree = "<group>"; };
+		63936FB621A462EE00689225 /* CommandLine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandLine.cpp; sourceTree = "<group>"; };
+		63936FB721A462EE00689225 /* CommandLine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandLine.hpp; sourceTree = "<group>"; };
 		639899F72182076200C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899F82182076B00C346D1 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		639899FA218246A400C346D1 /* RemoteController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteController.cpp; sourceTree = "<group>"; };
@@ -295,6 +303,8 @@
 				63E204AD218A947500228A0D /* Messaging */,
 				63A8DE682184FA6B00B8C961 /* Controllers */,
 				63B818E521913993001E7D4F /* Training */,
+				63936FBA21A4664800689225 /* Command Line */,
+				63936FB421A4624800689225 /* Dispatch */,
 				635729F2217CCDA3007AC21C /* Networking */,
 				63572A05217CDB0F007AC21C /* Configuration */,
 				6301D07121921BD700753B79 /* Miscellaneous */,
@@ -308,9 +318,11 @@
 				6387418B21938370008B5166 /* Hardware Types */,
 				63E204BB218B3AA400228A0D /* Coding */,
 				63E204BC218B3ABB00228A0D /* Messaging */,
-				631215652185429E004D850B /* Networking */,
 				6312156321854283004D850B /* Controllers */,
 				63B818E0219138F8001E7D4F /* Training */,
+				63936FB521A4628A00689225 /* Command Line */,
+				63936FAF21A45A8900689225 /* Dispatch */,
+				631215652185429E004D850B /* Networking */,
 				631215642185428D004D850B /* Configuration */,
 				6301D07021921BCC00753B79 /* Miscellaneous */,
 			);
@@ -354,6 +366,38 @@
 				6387418D21938389008B5166 /* Command.hpp */,
 			);
 			name = "Hardware Types";
+			sourceTree = "<group>";
+		};
+		63936FAF21A45A8900689225 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				63936FB121A45AA200689225 /* DispatchQueue.hpp */,
+			);
+			name = Dispatch;
+			sourceTree = "<group>";
+		};
+		63936FB421A4624800689225 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				63936FB021A45AA200689225 /* DispatchQueue.cpp */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
+		63936FB521A4628A00689225 /* Command Line */ = {
+			isa = PBXGroup;
+			children = (
+				63936FB721A462EE00689225 /* CommandLine.hpp */,
+			);
+			name = "Command Line";
+			sourceTree = "<group>";
+		};
+		63936FBA21A4664800689225 /* Command Line */ = {
+			isa = PBXGroup;
+			children = (
+				63936FB621A462EE00689225 /* CommandLine.cpp */,
+			);
+			path = "Command Line";
 			sourceTree = "<group>";
 		};
 		639899F52182074C00C346D1 /* unit */ = {
@@ -540,8 +584,10 @@
 				630A4D732194A30E00159B52 /* Remote.cpp in Sources */,
 				635729E3217CC5F9007AC21C /* OpenSSLConnection.cpp in Sources */,
 				639899FC218246A400C346D1 /* RemoteController.cpp in Sources */,
+				63936FB221A45AA200689225 /* DispatchQueue.cpp in Sources */,
 				635729DB217CC162007AC21C /* main.cpp in Sources */,
 				63B818DE2191387A001E7D4F /* HardwareController.cpp in Sources */,
+				63936FB821A462EE00689225 /* CommandLine.cpp in Sources */,
 				63572A01217CD7D2007AC21C /* ConnectionManager.cpp in Sources */,
 				63E204B0218A948900228A0D /* Message.cpp in Sources */,
 				63E204B4218A9B1600228A0D /* Coder.cpp in Sources */,
@@ -570,8 +616,10 @@
 				63E204BE218B3B6B00228A0D /* CoderTests.cpp in Sources */,
 				6387418F21938389008B5166 /* Command.cpp in Sources */,
 				63B818E421913907001E7D4F /* TrainingSession.cpp in Sources */,
+				63936FB921A462EE00689225 /* CommandLine.cpp in Sources */,
 				63E204C7218E8DC600228A0D /* Container.cpp in Sources */,
 				63E204B5218A9B1600228A0D /* Coder.cpp in Sources */,
+				63936FB321A45AA200689225 /* DispatchQueue.cpp in Sources */,
 				63E204C3218D652600228A0D /* JSONContainerTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
