@@ -9,12 +9,29 @@
 #include <algorithm>
 #include <thread>
 #include "HardwareController.hpp"
+#include "dirent.h"
+#include "string.h"
 //#include "lirc_client.h"
-
+#define REMOTE_CONFIG_PATH "."
 using namespace RemoteCore;
 
 HardwareController::HardwareController() {
     
+}
+
+int HardwareController::checkRemoteConfig(std::string remoteName) {
+    // Specify path to be directory of remote config files
+    DIR *path = opendir(REMOTE_CONFIG_PATH);
+    struct dirent *dir;
+
+    // Iterates through directory
+    while ((dir = readdir(path)) != NULL) {
+        if (dir->d_namlen >= strlen(remoteName.c_str()) && strcmp(dir->d_name.substr(0, strlen(remoteName.c_str())), remoteName) == 0) {
+            return 1;
+        }
+    }
+    closedir(path);
+    return 0;
 }
 
 void HardwareController::sendCommandForRemoteWithCompletionHandler(Command command, Remote remote,
@@ -31,7 +48,7 @@ void HardwareController::sendCommandForRemoteWithCompletionHandler(Command comma
 //
 //        // Check for remote existence
 //        /*
-//         if (is_in_remotes() == -1) {
+//         if (!checkRemoteConfig(remote.getRemoteID)) {
 //         // Handle remote not found
 //         }
 //         */
