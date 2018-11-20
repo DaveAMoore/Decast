@@ -82,11 +82,8 @@ TEST(CoderTests, Encode) {
     aCoder->encodeRootObject(&mock);
     auto codedContainer = aCoder->invalidateCoder();
     
-    size_t dataLength = 0;
-    auto data = codedContainer->generateData(&dataLength);
-    
-    ASSERT_FALSE(data == nullptr);
-    ASSERT_STREQ((char *)data.get(), R"({"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"f":{"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]},"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]})");
+    auto data = codedContainer->generateData();
+    ASSERT_STREQ(data.c_str(), R"({"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"f":{"a":25,"b":"Hello world!","c":true,"d":7.25,"e":254,"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]},"g":[1,2,3,4,5],"h":[{"a":10,"b":"Foo"},{"a":10,"b":"Foo"}]})");
 }
 
 TEST(CoderTests, Decode) {
@@ -118,11 +115,8 @@ TEST(CoderTests, EncodeDecode) {
     aCoder->encodeRootObject(&mock);
     auto codedContainer = aCoder->invalidateCoder();
     
-    size_t dataLength = 0;
-    auto data = codedContainer->generateData(&dataLength);
-    
-    std::string dataStr((char *)data.get(), dataLength);
-    auto anotherContainer = std::make_unique<JSONContainer>(dataStr);
+    auto data = codedContainer->generateData();
+    auto anotherContainer = std::make_unique<JSONContainer>(data);
     auto anotherCoder = std::make_unique<Coder>(std::move(anotherContainer));
     
     auto anotherMock = anotherCoder->decodeRootObject<Mock>();
