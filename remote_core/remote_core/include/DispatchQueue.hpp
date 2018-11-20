@@ -12,6 +12,10 @@
 #include <functional>
 #include <thread>
 #include <queue>
+#include <atomic>
+#include <mutex>
+#include <vector>
+#include <string>
 
 namespace RemoteCore {
     /**
