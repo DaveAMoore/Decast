@@ -202,6 +202,10 @@ public final class RKSessionManager: NSObject {
         }
     }
     
+    func queryRemotes(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
+        //container.perform(<#T##query: RFQuery##RFQuery#>, completionHandler: <#T##(([RFRecord]?, Error?) -> Void)##(([RFRecord]?, Error?) -> Void)##([RFRecord]?, Error?) -> Void#>)
+    }
+    
     /// Deactivates the session manager by disconnecting from the MQTT connection.
     func deactivate() {
         dataManager.disconnect()

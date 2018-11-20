@@ -85,9 +85,9 @@ public class RKSession: NSObject {
     
     /// Activates the session asynchronously.
     public func activate() {
-        let record = RFRecord(recordType: "Foo", recordID: RFRecord.ID(recordName: "Fuck"))
+        let record = RFRecord(recordType: "Foo", recordID: RFRecord.ID(recordName: UUID().uuidString))
         sessionManager.container.save(record) { savedRecord, error in
-            print("Saved: \(error?.localizedDescription)")
+            print("Saved: \(error?.localizedDescription ?? "")")
         }
         
         // Activate the session manager.
