@@ -76,4 +76,9 @@ void TrainingSession::learnCommand(Command command) {
     }
     
     /* ***************** Learn the command. ***************** */
+
+    // Call the delegate.
+    if (auto delegate = this->delegate.lock()) {
+        delegate->trainingSessionDidLearnCommand(this, command);
+    }
 }
