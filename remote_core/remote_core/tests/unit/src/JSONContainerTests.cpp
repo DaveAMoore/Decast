@@ -240,7 +240,6 @@ TEST(JSONContainerTests, GenerateData) {
     container.setFloatForKey(2.3, "C");
     container.setBoolForKey(true, "D");
     
-    size_t dataLength = 0;
-    auto data = container.generateData(&dataLength);
-    ASSERT_STREQ((char *)data.get(), R"({"A":5,"B":"Foo","C":2.3,"D":true})");
+    auto data = container.generateData();
+    ASSERT_STREQ(data.c_str(), R"({"A":5,"B":"Foo","C":2.3,"D":true})");
 }
