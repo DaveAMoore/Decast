@@ -202,10 +202,6 @@ public final class RKSessionManager: NSObject {
         }
     }
     
-    func queryRemotes(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
-        //container.perform(<#T##query: RFQuery##RFQuery#>, completionHandler: <#T##(([RFRecord]?, Error?) -> Void)##(([RFRecord]?, Error?) -> Void)##([RFRecord]?, Error?) -> Void#>)
-    }
-    
     /// Deactivates the session manager by disconnecting from the MQTT connection.
     func deactivate() {
         dataManager.disconnect()
@@ -236,6 +232,52 @@ public final class RKSessionManager: NSObject {
     func publish(_ data: Data, toTopic topic: String, completionHandler: (() -> Void)?) {
         dataManager.publishData(data, onTopic: topic, qoS: qualityOfService) {
             completionHandler?()
+        }
+    }
+    
+    // MARK: - Remote Management
+    
+    public func queryRemotesForCurrentUser(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {        
+        fetchUserID { userID, error in
+            guard let userID = userID else {
+                completionHandler(nil, error)
+                return
+            }
+            
+            let predicate = NSPredicate(format: "Owner == %@", userID)
+            let query = RFQuery(recordType: Constants.RecordTypes.remote, predicate: predicate)
+            
+            self.container.perform(query) { fetchedRecords, error in
+                if let fetchedRecords = fetchedRecords {
+                    let remotes = fetchedRecords.map { record -> RKRemote in
+                        let localizedTitle = record["LocalizedTitle"] as! String
+                        let remoteID = record["RemoteID"] as! String
+                        let commands = (record["Commands"] as! [[String: Any]]).map { command -> RKCommand in
+                            let localizedTitle = command["LocalizedTitle"] as! String
+                            let commandID = command["CommandID"] as! String
+                            
+                            return RKCommand(localizedTitle: localizedTitle, commandID: commandID)
+                        }
+                        
+                        return RKRemote(localizedTitle: localizedTitle, remoteID: remoteID, commands: commands)
+                    }
+                    
+                    completionHandler(remotes, nil)
+                } else {
+                    completionHandler(nil, error)
+                }
+            }
+        }
+    }
+    
+    public func saveRemoteForCurrentUser(completionHandler: @escaping ((Error?) -> Void)) {
+        fetchUserID { userID, error in
+            guard let userID = userID else {
+                completionHandler(error)
+                return
+            }
+            
+            
         }
     }
 }

@@ -33,16 +33,16 @@ class DTRemoteCollectionViewController: DTCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DTCollectionViewCell.typeName, for: indexPath) as! DTCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DTRemoteCell.typeName, for: indexPath) as! DTRemoteCell
         
-        cell.titleLabel?.text = NSLocalizedString("Hello World", comment: "")
+        /*cell.titleLabel?.text = NSLocalizedString("Hello World", comment: "")
         cell.detailLabel?.text = NSLocalizedString("Okay", comment: "")
         
         if cell.widthConstraint == nil {
             //cell.widthConstraint = cell.widthAnchor.constraint(equalTo: collectionView.widthAnchor, constant: 80)
             //cell.widthConstraint.isActive = true
         }
-        
+        */
         // cell.setWidth(to: collectionView.bounds.width - 60)
         
         return cell

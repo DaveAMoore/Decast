@@ -12,17 +12,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     
     // MARK: - Properties
     
-    /// Add a comment.
-    final lazy var headerTemplateView: DTHeaderView = {
-        // Instantiate the NIB from the main bundle.
-        let headerTemplateViewNib = loadNib(for: DTHeaderView.self)
-        
-        // Get the BoldHeaderView from the NIB.
-        let headerTemplateView = headerTemplateViewNib.instantiate(withOwner: self, options: nil).first as! DTHeaderView
-        
-        return headerTemplateView
-    }()
-    
     /// The flow layout of the collection view.
     open var collectionViewFlowLayout: UICollectionViewFlowLayout {
         return collectionViewLayout as! UICollectionViewFlowLayout
@@ -47,12 +36,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Register the bold header view for the section header.
-        register(DTHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
-        
-        // Register the generic cell.
-        register(DTCollectionViewCell.self)
-        
         // Enables autosizing cells.
         collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
     }
@@ -65,21 +48,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
             updateCollectionViewSpacing(for: view.bounds.size)
         }
     }
-    
-    /* Reorder support.
-     @objc func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
-     switch gesture.state {
-     case .began:
-     guard let selectedIndexPath = collectionView!.indexPathForItem(at: gesture.location(in: collectionView)) else { break }
-     collectionView?.beginInteractiveMovementForItem(at: selectedIndexPath)
-     case .changed:
-     collectionView?.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view))
-     case .ended:
-     collectionView?.endInteractiveMovement()
-     default:
-     collectionView?.cancelInteractiveMovement()
-     }
-     } */
     
     open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,12 +67,12 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     // MARK: - Collection View Cell Management
     
     /// Loads a `NIB` for a given `SFIdentifiable` type.
-    private func loadNib<T: SFIdentifiable>(for type: T.Type) -> UINib {
+    open func loadNib<T: SFIdentifiable>(for type: T.Type) -> UINib {
         return UINib(nibName: name(of: type), bundle: nil)
     }
     
     /// Registers a `UICollectionReuseableView` for a supplementary view of a kind.
-    private func register<T: UICollectionReusableView>(_ type: T.Type, forSupplementaryViewOfKind kind: String) {
+    open func registerReusableView<T: UICollectionReusableView>(ofType type: T.Type, forSupplementaryViewOfKind kind: String) {
         // Load the nib from the main bundle.
         let supplementaryNib = loadNib(for: type)
         
@@ -113,7 +81,7 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     /// Registers a `UICollectionViewCell` of type `T`.
-    private func register<T: UICollectionViewCell>(_ type: T.Type) {
+    open func registerCollectionViewCell<T: UICollectionViewCell>(ofType type: T.Type) {
         // Load the nib from the main bundle.
         let cellNib = loadNib(for: type)
         
@@ -122,11 +90,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     // MARK: - Layout Updating
-    
-    /// Predicts the number of horizontal cells that can be fit into the width.
-    open func estimatedHorizontalCells(forWidth width: CGFloat) -> Int {
-        return max(Int(round(collectionViewContentSize.width / (width + collectionViewFlowLayout.minimumInteritemSpacing))), 1)
-    }
     
     /// Determines the minimum interitem spacing for any number of horizontal items.
     open func minimumInteritemSpacing(for numberOfItems: Int) -> CGFloat {
@@ -141,7 +104,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     /// If you override this method, you should either call super to propagate the change to children or manually forward the change to children.
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        // Perform additional layout adjustments.
         
         // Update the collection view spacing.
         updateCollectionViewSpacing(for: size)
@@ -155,7 +117,7 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     /// - Parameter size: The size for which the collection view's spacing is updated for.
     open func updateCollectionViewSpacing(for size: CGSize) {
         // Declare fractionals for both axes.
-        let horizontalMultiplier: CGFloat = 0.035
+        /*let horizontalMultiplier: CGFloat = 0.035
         let verticalMultiplier: CGFloat = horizontalMultiplier
         
         // Delcare the axes products.
@@ -180,26 +142,11 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: verticalProduct * 2, right: 0)
         
         // Set the collection view's content inset property, which insets all content within the collection view.
-        collectionView!.contentInset = UIEdgeInsets(top: 8, left: horizontalProduct, bottom: 8, right: horizontalProduct)
-    }
-    
-    // MARK: - Supplementary Element Sizing
-    
-    /// Specifies the size for a given header view; indicated by section number, as opposed to `IndexPath`.
-    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        // Calculate the width as being the current view's width subtracting the left & right edge insets sum.
-        let headerTemplateViewWidth = collectionViewContentSize.width
+        collectionView!.contentInset = UIEdgeInsets(top: 8, left: horizontalProduct, bottom: 8, right: horizontalProduct)*/
         
-        // Set the width of the view's frame
-        headerTemplateView.frame.size.width = headerTemplateViewWidth
+        collectionViewFlowLayout.minimumInteritemSpacing = 16
+        collectionViewFlowLayout.minimumLineSpacing = 16
         
-        // Re-layout the header template view.
-        headerTemplateView.setNeedsLayout()
-        headerTemplateView.layoutIfNeeded()
-        
-        // Calculate the fitting size for the system layout at the compressed size.
-        let fittingSize = headerTemplateView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        
-        return fittingSize
+        collectionView?.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
 }

@@ -6,34 +6,66 @@
 //  Copyright © 2018 David Moore. All rights reserved.
 //
 
-import UIKit
+import SFKit
+import RemoteKit
 
-class DTLibraryViewController: UITableViewController {
+class DTLibraryViewController: DTCollectionViewController {
 
+    // MARK: - Properties
+    
+    var remotes: [RKRemote] = []
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        registerCollectionViewCell(ofType: DTRemoteCell.self)
+        
+        // Query the remotes.
+        RKSessionManager.shared.queryRemotesForCurrentUser { remotes, error in
+            guard let remotes = remotes else {
+                fatalError("Failed querying remotes: \(error!.localizedDescription)")
+            }
+            
+            DispatchQueue.main.async {
+                self.remotes = remotes
+                self.collectionView.reloadData()
+            }
+        }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func appearanceStyleDidChange(_ previousAppearanceStyle: SFAppearanceStyle) {
+        super.appearanceStyleDidChange(previousAppearanceStyle)
+    }
+    
+    // MARK: - Collection View Data Source
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return remotes.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(ofType: DTTableViewCell.self, for: indexPath)
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(ofType: DTRemoteCell.self, for: indexPath)
         
-        cell.titleLabel.text = "Hello \(indexPath.row + 1)"
+        // Configure the cell.
+        cell.titleLabel.text = NSLocalizedString("TV Remote", comment: "")
+        
+        cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
         
         return cell
     }
+    
+    
+    
+    // MARK: - Table view data source
 
     /*
     // Override to support conditional editing of the table view.

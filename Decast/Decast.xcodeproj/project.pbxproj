@@ -22,10 +22,10 @@
 		636C8A7B21A4C6EA005F0AD0 /* DTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C8A7A21A4C6EA005F0AD0 /* DTTableViewCell.swift */; };
 		63C7490521A49D48005558B9 /* DTRemoteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */; };
 		63DE2F0221A4A05600CCFC17 /* DTHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7490B21A49F35005558B9 /* DTHeaderView.swift */; };
-		63DE2F0621A4A34400CCFC17 /* DTCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE2F0521A4A34400CCFC17 /* DTCollectionViewCell.swift */; };
+		63DE2F0621A4A34400CCFC17 /* DTRemoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */; };
 		63DE2F0B21A4A61600CCFC17 /* DTCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE2F0A21A4A61600CCFC17 /* DTCollectionViewController.swift */; };
 		63DE2F0E21A4A69500CCFC17 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE2F0D21A4A69500CCFC17 /* Utilities.swift */; };
-		63DE2F1121A4AC8B00CCFC17 /* DTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DE2F1021A4AC8B00CCFC17 /* DTCollectionViewCell.xib */; };
+		63DE2F1121A4AC8B00CCFC17 /* DTRemoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DE2F1021A4AC8B00CCFC17 /* DTRemoteCell.xib */; };
 		63E33B0521A4BA75007F5257 /* DTBoldHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DE2F1221A4ACA600CCFC17 /* DTBoldHeaderView.xib */; };
 		63E33B0A21A4C392007F5257 /* DTLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E33B0921A4C392007F5257 /* DTLibraryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -124,10 +124,10 @@
 		636C8A7A21A4C6EA005F0AD0 /* DTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTableViewCell.swift; sourceTree = "<group>"; };
 		63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCollectionViewController.swift; sourceTree = "<group>"; };
 		63C7490B21A49F35005558B9 /* DTHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHeaderView.swift; sourceTree = "<group>"; };
-		63DE2F0521A4A34400CCFC17 /* DTCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCollectionViewCell.swift; sourceTree = "<group>"; };
+		63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCell.swift; sourceTree = "<group>"; };
 		63DE2F0A21A4A61600CCFC17 /* DTCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCollectionViewController.swift; sourceTree = "<group>"; };
 		63DE2F0D21A4A69500CCFC17 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		63DE2F1021A4AC8B00CCFC17 /* DTCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTCollectionViewCell.xib; sourceTree = "<group>"; };
+		63DE2F1021A4AC8B00CCFC17 /* DTRemoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTRemoteCell.xib; sourceTree = "<group>"; };
 		63DE2F1221A4ACA600CCFC17 /* DTBoldHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTBoldHeaderView.xib; sourceTree = "<group>"; };
 		63E33B0921A4C392007F5257 /* DTLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTLibraryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +271,7 @@
 		636C8A7621A4C4C0005F0AD0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				63DE2F0521A4A34400CCFC17 /* DTCollectionViewCell.swift */,
+				63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -303,8 +303,8 @@
 		63C7490121A49D29005558B9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				63E33B0921A4C392007F5257 /* DTLibraryViewController.swift */,
 				63DE2F0A21A4A61600CCFC17 /* DTCollectionViewController.swift */,
+				63E33B0921A4C392007F5257 /* DTLibraryViewController.swift */,
 				63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */,
 			);
 			path = "View Controllers";
@@ -331,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				63DE2F1221A4ACA600CCFC17 /* DTBoldHeaderView.xib */,
-				63DE2F1021A4AC8B00CCFC17 /* DTCollectionViewCell.xib */,
+				63DE2F1021A4AC8B00CCFC17 /* DTRemoteCell.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DE2F1121A4AC8B00CCFC17 /* DTCollectionViewCell.xib in Resources */,
+				63DE2F1121A4AC8B00CCFC17 /* DTRemoteCell.xib in Resources */,
 				63E33B0521A4BA75007F5257 /* DTBoldHeaderView.xib in Resources */,
 				633C3A2F21A0BD9800418D6C /* LaunchScreen.storyboard in Resources */,
 				633C3A2C21A0BD9800418D6C /* Assets.xcassets in Resources */,
@@ -514,7 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E33B0A21A4C392007F5257 /* DTLibraryViewController.swift in Sources */,
-				63DE2F0621A4A34400CCFC17 /* DTCollectionViewCell.swift in Sources */,
+				63DE2F0621A4A34400CCFC17 /* DTRemoteCell.swift in Sources */,
 				63C7490521A49D48005558B9 /* DTRemoteCollectionViewController.swift in Sources */,
 				633C3A2421A0BD9600418D6C /* ViewController.swift in Sources */,
 				633C3A2A21A0BD9600418D6C /* Decast.xcdatamodeld in Sources */,

@@ -14,18 +14,7 @@ struct Constants {
         return "remote_core/account/\(userID)/\(device.serialNumber)"
     }
     
-    struct Directives {
-        static let startTrainingSession =   "startTrainingSession"
-        static let suspendTrainingSession = "suspendTrainingSession"
-        static let createCommand =          "createCommandWithLocalizedTitle"
-        static let learnCommand =           "learnCommand"
-        
-        static let trainingSessionDidBegin =                            "trainingSessionDidBegin"
-        static let trainingSessionDidFailWithError =                    "trainingSessionDidFailWithError"
-        static let trainingSessionWillLearnCommand =                    "trainingSessionWillLearnCommand"
-        static let trainingSessionDidLearnCommand =                     "trainingSessionDidLearnCommand"
-        static let trainingSessionDidRequestInclusiveArbitraryInput =   "trainingSessionDidRequestInclusiveArbitraryInput"
-        static let trainingSessionDidRequestInputForCommand =           "trainingSessionDidRequestInputForCommand"
-        static let trainingSessionDidRequestExclusiveArbitraryInput =   "trainingSessionDidRequestExclusiveArbitraryInput"
+    struct RecordTypes {
+        static let remote = "Remote"
     }
 }
