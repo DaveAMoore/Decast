@@ -79,6 +79,14 @@ namespace RemoteCore {
          @param command The command that will be learnt. The localized title is persisted when reporting the status of this call, but it will not be modified.
          */
         void learnCommand(Command command);
+
+        /**
+         * Trains remote through initiating irrecord in command line.
+         *
+         * @param remote Setup for naming of config file using remoteID
+         */
+
+        void trainRemoteWithCompletionHandler(Remote remote);
     };
     
     class TrainingSessionDelegate : public std::enable_shared_from_this<TrainingSessionDelegate> {
