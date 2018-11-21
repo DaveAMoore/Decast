@@ -30,7 +30,9 @@ std::shared_ptr<CommandLine> CommandLine::sharedCommandLine() {
 }
 
 void CommandLine::executeCommandWithResultHandler(const char *command, std::function<void (std::string, bool)> resultHandler) {
-    execl("/bin/sh", "sh", "-c", command);
+    system(command);
+    
+    /*execl("/bin/sh", "sh", "-c", command);*/
     resultHandler("", true);
     
     //queue->execute([command, resultHandler]() {
