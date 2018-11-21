@@ -10,6 +10,7 @@
 #include "UUID.hpp"
 #include "Coder.hpp"
 #include "JSONContainer.hpp"
+#include "CommandLine.hpp"
 #include <exception>
 #include <iostream>
 
@@ -77,8 +78,20 @@ void TrainingSession::learnCommand(Command command) {
     
     /* ***************** Learn the command. ***************** */
 
+
+
     // Call the delegate.
     if (auto delegate = this->delegate.lock()) {
         delegate->trainingSessionDidLearnCommand(this, command);
     }
+}
+
+void TrainingSession::trainRemoteWithCompletionHandler(Remote remote) {
+    std::string initiateRecord = "irrecord";
+
+//    CommandLine::sharedCommandLine()->executeCommandWithResultHandler(initiateRecord.c_str(), [=](std::string result, bool isComplete) {
+//        if (isComplete) {
+//
+//        }
+//    });
 }

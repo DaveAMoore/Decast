@@ -21,7 +21,7 @@ HardwareController::HardwareController() {
 }
 
 bool HardwareController::doesRemoteExist(Remote &remote) {
-    auto relativePath = (REMOTE_CONFIGURATION_FILE_DIRECTORY + remote.getRemoteID()).c_str();
+    auto relativePath = (REMOTE_CONFIGURATION_FILE_DIRECTORY + remote.getRemoteID() + ".lircd.conf").c_str();
     struct stat buffer;
     
     return (stat (relativePath, &buffer) == 0);
