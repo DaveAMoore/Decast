@@ -9,6 +9,7 @@
 #include "CommandLine.hpp"
 #include <atomic>
 #include <array>
+#include <unistd.h>
 
 using namespace RemoteCore;
 
@@ -30,6 +31,10 @@ std::shared_ptr<CommandLine> CommandLine::sharedCommandLine() {
 
 void CommandLine::executeCommandWithResultHandler(const char *command, std::function<void (std::string, bool)> resultHandler) {
     queue->execute([command, resultHandler]() {
+        execl("/bin/sh", "sh", "-c", command);
+        resultHandler("", true);
+        
+        /*
         std::array<char, 128> buffer;
         std::string result;
         std::shared_ptr<FILE> pipe(popen(command, "r"), pclose);
@@ -39,12 +44,17 @@ void CommandLine::executeCommandWithResultHandler(const char *command, std::func
         } else {
             while (feof(pipe.get()) == 0) {
                 if (fgets(buffer.data(), 128, pipe.get()) != nullptr) {
-                    result += buffer.data();
+                    if (result.length() > 1024) {
+                        result = std::string(buffer.data());
+                    } else {
+                        result += buffer.data();
+                    }
+                    
                     resultHandler(result, false);
                 }
             }
         }
         
-        resultHandler(result, true);
+        resultHandler(result, true);*/
     });
 }

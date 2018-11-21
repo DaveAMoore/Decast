@@ -237,7 +237,26 @@ public final class RKSessionManager: NSObject {
     
     // MARK: - Remote Management
     
-    public func queryRemotesForCurrentUser(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {        
+    public func queryRemotesForCurrentUser(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
+        let record = RFRecord(recordType: "Record", recordID: RFRecord.ID(recordName: "Name"))
+        let remote = RKRemote(localizedTitle: "Foo", remoteID: "Bar", commands: [RKCommand(localizedTitle: "Fum", commandID: "Boo")])
+        
+        let encoder = RFRecordEncoder(record: record)
+        do {
+            try encoder.encode(remote)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        do {
+            let decoder = RFRecordDecoder()
+            let decodedRemote = try decoder.decode(RKRemote.self, from: record)
+            
+            print(decodedRemote)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         fetchUserID { userID, error in
             guard let userID = userID else {
                 completionHandler(nil, error)
