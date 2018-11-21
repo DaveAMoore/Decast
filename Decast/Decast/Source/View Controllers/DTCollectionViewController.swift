@@ -13,12 +13,12 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     // MARK: - Properties
     
     /// Add a comment.
-    final lazy var headerTemplateView: DTBoldHeaderView = {
+    final lazy var headerTemplateView: DTHeaderView = {
         // Instantiate the NIB from the main bundle.
-        let headerTemplateViewNib = loadNib(for: DTBoldHeaderView.self)
+        let headerTemplateViewNib = loadNib(for: DTHeaderView.self)
         
         // Get the BoldHeaderView from the NIB.
-        let headerTemplateView = headerTemplateViewNib.instantiate(withOwner: self, options: nil).first as! DTBoldHeaderView
+        let headerTemplateView = headerTemplateViewNib.instantiate(withOwner: self, options: nil).first as! DTHeaderView
         
         return headerTemplateView
     }()
@@ -48,7 +48,7 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
         // Do any additional setup after loading the view.
         
         // Register the bold header view for the section header.
-        register(DTBoldHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        register(DTHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         
         // Register the generic cell.
         register(DTCollectionViewCell.self)
