@@ -37,7 +37,7 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
         // Do any additional setup after loading the view.
         
         // Enables autosizing cells.
-        collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
+        // collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
     }
     
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -120,5 +120,88 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
         collectionViewFlowLayout.minimumLineSpacing = 16
         
         collectionView?.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    }
+    
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                             sizeForItemAt indexPath: IndexPath) -> CGSize {
+        /// Calculates the width for a given number of items with a spacing constant.
+        func calculatedWidth(forNumberOfItems numberOfItems: Int, withSpacingFor numberOfSpacingItems: Int) -> CGFloat {
+            // Calculate the amount of inter-item spacing for the numberOfItems.
+            // FIXME: Minimum interitem spacing is messing up layout.
+            let interitemSpacing = minimumInteritemSpacing(for: numberOfSpacingItems)
+            
+            // The width is equal the content width subtract the interitemSpacing all divided by the number of items.
+            return floor((collectionViewContentSize.width - interitemSpacing - collectionView.safeAreaInsets.left - collectionView.safeAreaInsets.right) / CGFloat(numberOfItems))
+        }
+        
+        /// Calculates the width for a given number of items.
+        func calculatedWidth(forNumberOfItems numberOfItems: Int) -> CGFloat {
+            return calculatedWidth(forNumberOfItems: numberOfItems, withSpacingFor: numberOfItems)
+        }
+        
+        /// Calculates the height for a given width.
+        func calculatedHeight(forWidth width: CGFloat, sizeClass: UIUserInterfaceSizeClass) -> CGFloat {
+            // Declare a multipler.
+            let multiplier: CGFloat
+            
+            // Switch on the size class to provide a different multiplier for each situation.
+            switch sizeClass {
+            case .compact, .unspecified:
+                multiplier = 820 / 1214
+            case .regular:
+                multiplier = 2 / 3
+            }
+            
+            // Return the width multiplied by the pre-determined value, and then floor the output.
+            return floor(width * multiplier)
+        }
+        
+        /// Computes the size for a given `numberOfItems`.
+        func calculatedSize(forNumberOfItems numberOfItems: Int, verticalSizeClass: UIUserInterfaceSizeClass) -> CGSize {
+            let width = calculatedWidth(forNumberOfItems: numberOfItems)
+            let height = calculatedHeight(forWidth: width, sizeClass: verticalSizeClass)
+            
+            return CGSize(width: width, height: height)
+        }
+        
+        /// Calculates the size for a given number of items, altering the spacing multiplicative and the vertical size class.
+        func calculatedSize(forNumberOfItems numberOfItems: Int, withSpacingFor numberOfSpacingItems: Int, verticalSizeClass: UIUserInterfaceSizeClass) -> CGSize {
+            let width = calculatedWidth(forNumberOfItems: numberOfItems, withSpacingFor: numberOfSpacingItems)
+            let height = calculatedHeight(forWidth: width, sizeClass: verticalSizeClass)
+            
+            return CGSize(width: width, height: height)
+        }
+        
+        /// Computes the size, where a previous size has its width multiplied by the `multiplier`.
+        func calculatedSize(for size: CGSize, multiplier: CGFloat) -> CGSize {
+            return CGSize(width: size.width * multiplier, height: size.height)
+        }
+        
+        // Switch on the horizontal size class.
+        switch traitCollection.horizontalSizeClass {
+        case .compact, .unspecified:
+            return calculatedSize(forNumberOfItems: 2, verticalSizeClass: traitCollection.verticalSizeClass)
+        case .regular:
+            let halfWidth = collectionViewContentSize.width / 2
+            
+            guard halfWidth > 400 else {
+                return calculatedSize(forNumberOfItems: 3, verticalSizeClass: .regular)
+            }
+            
+            guard halfWidth < 600 else {
+                return calculatedSize(forNumberOfItems: 4, verticalSizeClass: .compact)
+            }
+            
+            // Calculate the width and height for the irregular dimensions.
+            let irregularWidth = calculatedWidth(forNumberOfItems: 2, withSpacingFor: 2)
+            let irregularHeight = calculatedHeight(forWidth: calculatedWidth(forNumberOfItems: 2), sizeClass: .compact)
+            let irregularSize = CGSize(width: irregularWidth, height: irregularHeight)
+            
+            if indexPath.row % 3 == 0 {
+                return calculatedSize(for: irregularSize, multiplier: 3 / 5)
+            } else {
+                return calculatedSize(for: irregularSize, multiplier: 2 / 5)
+            }
+        }
     }
 }
