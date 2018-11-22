@@ -90,6 +90,314 @@
 			remoteGlobalIDString = 6385A2221F06EB36002B9244;
 			remoteInfo = SFKit;
 		};
+		63A3398E21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC24720C7582600038F97;
+			remoteInfo = AWSCore_OSX;
+		};
+		63A3399021A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC24F20C7582600038F97;
+			remoteInfo = AWSCore_OSXTests;
+		};
+		63A3399221A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC26320C7585F00038F97;
+			remoteInfo = AWSAutoScaling_OSX;
+		};
+		63A3399421A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC26B20C7585F00038F97;
+			remoteInfo = AWSAutoScaling_OSXTests;
+		};
+		63A3399621A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC27F20C7586E00038F97;
+			remoteInfo = AWSCognito_OSX;
+		};
+		63A3399821A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC28720C7586E00038F97;
+			remoteInfo = AWSCognito_OSXTests;
+		};
+		63A3399A21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC29B20C7589300038F97;
+			remoteInfo = AWSCognitoIdentityProvider_OSX;
+		};
+		63A3399C21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2A320C7589300038F97;
+			remoteInfo = AWSCognitoIdentityProvider_OSXTests;
+		};
+		63A3399E21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2B720C758A100038F97;
+			remoteInfo = AWSCognitoIdentityProviderASF_OSX;
+		};
+		63A339A021A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2BF20C758A100038F97;
+			remoteInfo = AWSCognitoIdentityProviderASF_OSXTests;
+		};
+		63A339A221A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2D320C758AF00038F97;
+			remoteInfo = AWSS3_OSX;
+		};
+		63A339A421A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2DB20C758AF00038F97;
+			remoteInfo = AWSS3_OSXTests;
+		};
+		63A339A621A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2EF20C758DF00038F97;
+			remoteInfo = AWSSNS_OSX;
+		};
+		63A339A821A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2F720C758DF00038F97;
+			remoteInfo = AWSSNS_OSXTests;
+		};
+		63A339AA21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC30B20C758E800038F97;
+			remoteInfo = AWSSQS_OSX;
+		};
+		63A339AC21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC31320C758E800038F97;
+			remoteInfo = AWSSQS_OSXTests;
+		};
+		63A339AE21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256264212A2C36001CC6FA;
+			remoteInfo = AWSDynamoDB_OSX;
+		};
+		63A339B021A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6325626C212A2C36001CC6FA;
+			remoteInfo = AWSDynamoDB_OSXTests;
+		};
+		63A339B221A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E30217BF81D008E35BF;
+			remoteInfo = AWSIoT_OSX;
+		};
+		63A339B421A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E38217BF81D008E35BF;
+			remoteInfo = AWSIoT_OSXTests;
+		};
+		63A339B621A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B828D12129C044002924AD;
+			remoteInfo = AWSCore_iOS;
+		};
+		63A339B821A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B828D92129C044002924AD;
+			remoteInfo = AWSCore_iOSTests;
+		};
+		63A339BA21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B8298A2129C610002924AD;
+			remoteInfo = AWSAutoScaling_iOS;
+		};
+		63A339BC21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829922129C610002924AD;
+			remoteInfo = AWSAutoScaling_iOSTests;
+		};
+		63A339BE21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829AE2129C718002924AD;
+			remoteInfo = AWSCognito_iOS;
+		};
+		63A339C021A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829B62129C718002924AD;
+			remoteInfo = AWSCognito_iOSTests;
+		};
+		63A339C221A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829E42129C798002924AD;
+			remoteInfo = AWSCognitoIdentityProvider_iOS;
+		};
+		63A339C421A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829EC2129C798002924AD;
+			remoteInfo = AWSCognitoIdentityProvider_iOSTests;
+		};
+		63A339C621A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A012129C7FF002924AD;
+			remoteInfo = AWSCognitoIdentityProviderASF_iOS;
+		};
+		63A339C821A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A092129C7FF002924AD;
+			remoteInfo = AWSCognitoIdentityProviderASF_iOSTests;
+		};
+		63A339CA21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A432129C92B002924AD;
+			remoteInfo = AWSS3_iOS;
+		};
+		63A339CC21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A4B2129C92B002924AD;
+			remoteInfo = AWSS3_iOSTests;
+		};
+		63A339CE21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A742129CA17002924AD;
+			remoteInfo = AWSSNS_iOS;
+		};
+		63A339D021A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A7C2129CA17002924AD;
+			remoteInfo = AWSSNS_iOSTests;
+		};
+		63A339D221A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A992129CBF7002924AD;
+			remoteInfo = AWSSQS_iOS;
+		};
+		63A339D421A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82AA12129CBF7002924AD;
+			remoteInfo = AWSSQS_iOSTests;
+		};
+		63A339D621A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256280212A2C6E001CC6FA;
+			remoteInfo = AWSDynamoDB_iOS;
+		};
+		63A339D821A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256288212A2C6E001CC6FA;
+			remoteInfo = AWSDynamoDB_iOSTests;
+		};
+		63A339DA21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E13217BF767008E35BF;
+			remoteInfo = AWSIoT_iOS;
+		};
+		63A339DC21A6A3E300D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E1B217BF768008E35BF;
+			remoteInfo = AWSIoT_iOSTests;
+		};
+		63A339E621A6A3EA00D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827962129B8C4002924AD;
+			remoteInfo = RFCore_iOS;
+		};
+		63A339E821A6A3EA00D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B8279F2129B8C4002924AD;
+			remoteInfo = RFCore_iOSTests;
+		};
+		63A339EA21A6A3EA00D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827B32129B8E7002924AD;
+			remoteInfo = RFCore_OSX;
+		};
+		63A339EC21A6A3EA00D1D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B827BB2129B8E7002924AD;
+			remoteInfo = RFCore_OSXTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,6 +436,8 @@
 		636C8AE921A642B6005F0AD0 /* DTCommandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTCommandCell.xib; sourceTree = "<group>"; };
 		636C8AEE21A65D92005F0AD0 /* DTTrainingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrainingController.swift; sourceTree = "<group>"; };
 		636C8B2C21A68E34005F0AD0 /* SFKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFKit.xcodeproj; path = ../SFKit/SFKit.xcodeproj; sourceTree = "<group>"; };
+		63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AWS.xcodeproj; path = ../AWS/AWS.xcodeproj; sourceTree = "<group>"; };
+		63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RFCore.xcodeproj; path = ../RFCore/RFCore.xcodeproj; sourceTree = "<group>"; };
 		63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCollectionViewController.swift; sourceTree = "<group>"; };
 		63C7490B21A49F35005558B9 /* DTHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHeaderView.swift; sourceTree = "<group>"; };
 		63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCell.swift; sourceTree = "<group>"; };
@@ -174,6 +484,8 @@
 				633C3A1F21A0BD9600418D6C /* Products */,
 				633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */,
 				636C8B2C21A68E34005F0AD0 /* SFKit.xcodeproj */,
+				63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */,
+				63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -316,6 +628,64 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		63A3396421A6A3E300D1D9C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63A3398F21A6A3E300D1D9C0 /* AWSCore.framework */,
+				63A3399121A6A3E300D1D9C0 /* AWSCore_OSXTests.xctest */,
+				63A3399321A6A3E300D1D9C0 /* AWSAutoScaling.framework */,
+				63A3399521A6A3E300D1D9C0 /* AWSAutoScaling_OSXTests.xctest */,
+				63A3399721A6A3E300D1D9C0 /* AWSCognito.framework */,
+				63A3399921A6A3E300D1D9C0 /* AWSCognito_OSXTests.xctest */,
+				63A3399B21A6A3E300D1D9C0 /* AWSCognitoIdentityProvider.framework */,
+				63A3399D21A6A3E300D1D9C0 /* AWSCognitoIdentityProvider_OSXTests.xctest */,
+				63A3399F21A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF.framework */,
+				63A339A121A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF_OSXTests.xctest */,
+				63A339A321A6A3E300D1D9C0 /* AWSS3.framework */,
+				63A339A521A6A3E300D1D9C0 /* AWSS3_OSXTests.xctest */,
+				63A339A721A6A3E300D1D9C0 /* AWSSNS.framework */,
+				63A339A921A6A3E300D1D9C0 /* AWSSNS_OSXTests.xctest */,
+				63A339AB21A6A3E300D1D9C0 /* AWSSQS.framework */,
+				63A339AD21A6A3E300D1D9C0 /* AWSSQS_OSXTests.xctest */,
+				63A339AF21A6A3E300D1D9C0 /* AWSDynamoDB.framework */,
+				63A339B121A6A3E300D1D9C0 /* AWSDynamoDB_OSXTests.xctest */,
+				63A339B321A6A3E300D1D9C0 /* AWSIoT.framework */,
+				63A339B521A6A3E300D1D9C0 /* AWSIoT_OSXTests.xctest */,
+				63A339B721A6A3E300D1D9C0 /* AWSCore.framework */,
+				63A339B921A6A3E300D1D9C0 /* AWSCore_iOSTests.xctest */,
+				63A339BB21A6A3E300D1D9C0 /* AWSAutoScaling.framework */,
+				63A339BD21A6A3E300D1D9C0 /* AWSAutoScaling_iOSTests.xctest */,
+				63A339BF21A6A3E300D1D9C0 /* AWSCognito.framework */,
+				63A339C121A6A3E300D1D9C0 /* AWSCognito_iOSTests.xctest */,
+				63A339C321A6A3E300D1D9C0 /* AWSCognitoIdentityProvider.framework */,
+				63A339C521A6A3E300D1D9C0 /* AWSCognitoIdentityProvider_iOSTests.xctest */,
+				63A339C721A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF.framework */,
+				63A339C921A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF_iOSTests.xctest */,
+				63A339CB21A6A3E300D1D9C0 /* AWSS3.framework */,
+				63A339CD21A6A3E300D1D9C0 /* AWSS3_iOSTests.xctest */,
+				63A339CF21A6A3E300D1D9C0 /* AWSSNS.framework */,
+				63A339D121A6A3E300D1D9C0 /* AWSSNS_iOSTests.xctest */,
+				63A339D321A6A3E300D1D9C0 /* AWSSQS.framework */,
+				63A339D521A6A3E300D1D9C0 /* AWSSQS_iOSTests.xctest */,
+				63A339D721A6A3E300D1D9C0 /* AWSDynamoDB.framework */,
+				63A339D921A6A3E300D1D9C0 /* AWSDynamoDB_iOSTests.xctest */,
+				63A339DB21A6A3E300D1D9C0 /* AWSIoT.framework */,
+				63A339DD21A6A3E300D1D9C0 /* AWSIoT_iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63A339DF21A6A3EA00D1D9C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63A339E721A6A3EA00D1D9C0 /* RFCore.framework */,
+				63A339E921A6A3EA00D1D9C0 /* RFCore_iOSTests.xctest */,
+				63A339EB21A6A3EA00D1D9C0 /* RFCore.framework */,
+				63A339ED21A6A3EA00D1D9C0 /* RFCore_OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		63C7490121A49D29005558B9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,8 +818,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 63A3396421A6A3E300D1D9C0 /* Products */;
+					ProjectRef = 63A3396321A6A3E300D1D9C0 /* AWS.xcodeproj */;
+				},
+				{
 					ProductGroup = 633C3A5621A0BE8400418D6C /* Products */;
 					ProjectRef = 633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 63A339DF21A6A3EA00D1D9C0 /* Products */;
+					ProjectRef = 63A339DE21A6A3EA00D1D9C0 /* RFCore.xcodeproj */;
 				},
 				{
 					ProductGroup = 636C8B2D21A68E34005F0AD0 /* Products */;
@@ -492,6 +870,314 @@
 			fileType = wrapper.cfbundle;
 			path = SFKitTests.xctest;
 			remoteRef = 636C8B3321A68E34005F0AD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3398F21A6A3E300D1D9C0 /* AWSCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCore.framework;
+			remoteRef = 63A3398E21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399121A6A3E300D1D9C0 /* AWSCore_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCore_OSXTests.xctest;
+			remoteRef = 63A3399021A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399321A6A3E300D1D9C0 /* AWSAutoScaling.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSAutoScaling.framework;
+			remoteRef = 63A3399221A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399521A6A3E300D1D9C0 /* AWSAutoScaling_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSAutoScaling_OSXTests.xctest;
+			remoteRef = 63A3399421A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399721A6A3E300D1D9C0 /* AWSCognito.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognito.framework;
+			remoteRef = 63A3399621A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399921A6A3E300D1D9C0 /* AWSCognito_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognito_OSXTests.xctest;
+			remoteRef = 63A3399821A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399B21A6A3E300D1D9C0 /* AWSCognitoIdentityProvider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProvider.framework;
+			remoteRef = 63A3399A21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399D21A6A3E300D1D9C0 /* AWSCognitoIdentityProvider_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProvider_OSXTests.xctest;
+			remoteRef = 63A3399C21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A3399F21A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProviderASF.framework;
+			remoteRef = 63A3399E21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339A121A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProviderASF_OSXTests.xctest;
+			remoteRef = 63A339A021A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339A321A6A3E300D1D9C0 /* AWSS3.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSS3.framework;
+			remoteRef = 63A339A221A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339A521A6A3E300D1D9C0 /* AWSS3_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSS3_OSXTests.xctest;
+			remoteRef = 63A339A421A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339A721A6A3E300D1D9C0 /* AWSSNS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSNS.framework;
+			remoteRef = 63A339A621A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339A921A6A3E300D1D9C0 /* AWSSNS_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSNS_OSXTests.xctest;
+			remoteRef = 63A339A821A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339AB21A6A3E300D1D9C0 /* AWSSQS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSQS.framework;
+			remoteRef = 63A339AA21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339AD21A6A3E300D1D9C0 /* AWSSQS_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSQS_OSXTests.xctest;
+			remoteRef = 63A339AC21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339AF21A6A3E300D1D9C0 /* AWSDynamoDB.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSDynamoDB.framework;
+			remoteRef = 63A339AE21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339B121A6A3E300D1D9C0 /* AWSDynamoDB_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSDynamoDB_OSXTests.xctest;
+			remoteRef = 63A339B021A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339B321A6A3E300D1D9C0 /* AWSIoT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSIoT.framework;
+			remoteRef = 63A339B221A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339B521A6A3E300D1D9C0 /* AWSIoT_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSIoT_OSXTests.xctest;
+			remoteRef = 63A339B421A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339B721A6A3E300D1D9C0 /* AWSCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCore.framework;
+			remoteRef = 63A339B621A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339B921A6A3E300D1D9C0 /* AWSCore_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCore_iOSTests.xctest;
+			remoteRef = 63A339B821A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339BB21A6A3E300D1D9C0 /* AWSAutoScaling.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSAutoScaling.framework;
+			remoteRef = 63A339BA21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339BD21A6A3E300D1D9C0 /* AWSAutoScaling_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSAutoScaling_iOSTests.xctest;
+			remoteRef = 63A339BC21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339BF21A6A3E300D1D9C0 /* AWSCognito.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognito.framework;
+			remoteRef = 63A339BE21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339C121A6A3E300D1D9C0 /* AWSCognito_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognito_iOSTests.xctest;
+			remoteRef = 63A339C021A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339C321A6A3E300D1D9C0 /* AWSCognitoIdentityProvider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProvider.framework;
+			remoteRef = 63A339C221A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339C521A6A3E300D1D9C0 /* AWSCognitoIdentityProvider_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProvider_iOSTests.xctest;
+			remoteRef = 63A339C421A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339C721A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProviderASF.framework;
+			remoteRef = 63A339C621A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339C921A6A3E300D1D9C0 /* AWSCognitoIdentityProviderASF_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProviderASF_iOSTests.xctest;
+			remoteRef = 63A339C821A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339CB21A6A3E300D1D9C0 /* AWSS3.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSS3.framework;
+			remoteRef = 63A339CA21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339CD21A6A3E300D1D9C0 /* AWSS3_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSS3_iOSTests.xctest;
+			remoteRef = 63A339CC21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339CF21A6A3E300D1D9C0 /* AWSSNS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSNS.framework;
+			remoteRef = 63A339CE21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339D121A6A3E300D1D9C0 /* AWSSNS_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSNS_iOSTests.xctest;
+			remoteRef = 63A339D021A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339D321A6A3E300D1D9C0 /* AWSSQS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSQS.framework;
+			remoteRef = 63A339D221A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339D521A6A3E300D1D9C0 /* AWSSQS_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSQS_iOSTests.xctest;
+			remoteRef = 63A339D421A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339D721A6A3E300D1D9C0 /* AWSDynamoDB.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSDynamoDB.framework;
+			remoteRef = 63A339D621A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339D921A6A3E300D1D9C0 /* AWSDynamoDB_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSDynamoDB_iOSTests.xctest;
+			remoteRef = 63A339D821A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339DB21A6A3E300D1D9C0 /* AWSIoT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSIoT.framework;
+			remoteRef = 63A339DA21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339DD21A6A3E300D1D9C0 /* AWSIoT_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSIoT_iOSTests.xctest;
+			remoteRef = 63A339DC21A6A3E300D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339E721A6A3EA00D1D9C0 /* RFCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RFCore.framework;
+			remoteRef = 63A339E621A6A3EA00D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339E921A6A3EA00D1D9C0 /* RFCore_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RFCore_iOSTests.xctest;
+			remoteRef = 63A339E821A6A3EA00D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339EB21A6A3EA00D1D9C0 /* RFCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RFCore.framework;
+			remoteRef = 63A339EA21A6A3EA00D1D9C0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63A339ED21A6A3EA00D1D9C0 /* RFCore_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RFCore_OSXTests.xctest;
+			remoteRef = 63A339EC21A6A3EA00D1D9C0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
