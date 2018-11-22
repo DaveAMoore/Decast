@@ -19,6 +19,8 @@ class DTLibraryViewController: DTCollectionViewController {
     /// Collection of the users remotes.
     var remotes: [RKRemote] = []
     
+    var currentTrainingController: DTTrainingController?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -42,22 +44,35 @@ class DTLibraryViewController: DTCollectionViewController {
                 self.sessions.append(session)
             }
             
-            // Query the remotes.
-            RKSessionManager.shared.fetchAllRemotes { remotes, error in
-                guard let remotes = remotes else {
-                    fatalError("Failed querying remotes: \(error!.localizedDescription)")
-                }
-                
-                DispatchQueue.main.async {
-                    self.remotes = remotes
-                    self.collectionView.reloadData()
-                }
+            self.updateData()
+        }
+    }
+    
+    func updateData() {
+        // Query the remotes.
+        RKSessionManager.shared.fetchAllRemotes { remotes, error in
+            guard let remotes = remotes else {
+                print("Failed querying remotes: \(error!.localizedDescription)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.remotes = remotes
+                self.collectionView.reloadData()
             }
         }
     }
 
     override func appearanceStyleDidChange(_ previousAppearanceStyle: SFAppearanceStyle) {
         super.appearanceStyleDidChange(previousAppearanceStyle)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func addNewRemote(_ sender: Any?) {
+        currentTrainingController = DTTrainingController(parent: self, session: sessions.first!)
+        currentTrainingController?.delegate = self
+        currentTrainingController?.present(animated: true)
     }
     
     // MARK: - Data Model
@@ -106,5 +121,39 @@ class DTLibraryViewController: DTCollectionViewController {
             destination.sessions = sessions
             destination.remote = remote
         }
+    }
+}
+
+extension DTLibraryViewController: DTTrainingControllerDelegate {
+    func trainingController(_ trainingController: DTTrainingController, didFinishTrainingRemote remote: RKRemote) {
+        RKSessionManager.shared.save(remote) { saveError in
+            if let saveError = saveError {
+                print("Failed to save remote: \(saveError.localizedDescription)")
+            } else {
+                self.updateData()
+            }
+        }
+    }
+    
+    func trainingControllerDidDismiss(_ trainingController: DTTrainingController) {
+        currentTrainingController = nil
+    }
+}
+
+extension DTLibraryViewController: RKSessionDelegate {
+    func sessionDidActivate(_ session: RKSession) {
+        
+    }
+    
+    func session(_ session: RKSession, didFailWithError error: Error) {
+        
+    }
+    
+    func session(_ session: RKSession, didSendCommand command: RKCommand, forRemote remote: RKRemote) {
+        
+    }
+    
+    func session(_ session: RKSession, didFailToSendCommand command: RKCommand, forRemote remote: RKRemote, withError error: Error) {
+        
     }
 }

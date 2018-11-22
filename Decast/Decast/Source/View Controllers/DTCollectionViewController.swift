@@ -116,34 +116,6 @@ open class DTCollectionViewController: UICollectionViewController, UICollectionV
     ///
     /// - Parameter size: The size for which the collection view's spacing is updated for.
     open func updateCollectionViewSpacing(for size: CGSize) {
-        // Declare fractionals for both axes.
-        /*let horizontalMultiplier: CGFloat = 0.035
-        let verticalMultiplier: CGFloat = horizontalMultiplier
-        
-        // Delcare the axes products.
-        let horizontalProduct: CGFloat
-        let verticalProduct: CGFloat
-        
-        // Switch on the horizontal size class.
-        switch traitCollection.horizontalSizeClass {
-        case .compact, .unspecified:
-            // Set the products.
-            horizontalProduct = 16
-            verticalProduct = 16
-        case .regular:
-            // Calculate the products.
-            horizontalProduct = size.width * horizontalMultiplier
-            verticalProduct = size.height * verticalMultiplier
-        }
-        
-        // Set the spacing for the flow layout.
-        collectionViewFlowLayout.minimumInteritemSpacing = horizontalProduct
-        collectionViewFlowLayout.minimumLineSpacing = horizontalProduct
-        collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: verticalProduct * 2, right: 0)
-        
-        // Set the collection view's content inset property, which insets all content within the collection view.
-        collectionView!.contentInset = UIEdgeInsets(top: 8, left: horizontalProduct, bottom: 8, right: horizontalProduct)*/
-        
         collectionViewFlowLayout.minimumInteritemSpacing = 16
         collectionViewFlowLayout.minimumLineSpacing = 16
         

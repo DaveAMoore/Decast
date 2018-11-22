@@ -46,7 +46,13 @@
                             <outlet property="delegate" destination="3al-Va-Pbu" id="g4X-QH-wKJ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Remotes" id="Lcn-PK-Hy6"/>
+                    <navigationItem key="navigationItem" title="Remotes" id="Lcn-PK-Hy6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="18Z-v9-nKD">
+                            <connections>
+                                <action selector="addNewRemote:" destination="3al-Va-Pbu" id="3J6-59-QzG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="1ia-Lw-OdY" kind="show" identifier="Foo" id="2Pb-Fw-kVD"/>
                     </connections>

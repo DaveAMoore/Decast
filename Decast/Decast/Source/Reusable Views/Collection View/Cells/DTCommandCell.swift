@@ -14,6 +14,19 @@ class DTCommandCell: UICollectionViewCell {
     
     private var widthConstraint: NSLayoutConstraint!
     
+    override var isHighlighted: Bool {
+        didSet {
+            let colorMetrics = UIColorMetrics(forAppearance: appearance)
+            if isHighlighted {
+                contentView.backgroundColor = colorMetrics.color(forRelativeHue: .darkBlue)
+                contentView.layer.borderColor = colorMetrics.color(forRelativeHue: .white).cgColor
+            } else {
+                contentView.backgroundColor = colorMetrics.color(forRelativeHue: .blue)
+                contentView.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
+    }
+    
     // MARK: - Outlets
     
     /// Label which displays the title.
@@ -39,6 +52,8 @@ class DTCommandCell: UICollectionViewCell {
         // Configure the rounding.
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 12.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.borderWidth = 1
         
         // Configure the shadow
         backgroundColor = .clear

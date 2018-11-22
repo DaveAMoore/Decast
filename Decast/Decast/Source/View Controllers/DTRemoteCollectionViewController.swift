@@ -58,7 +58,7 @@ class DTRemoteCollectionViewController: DTCollectionViewController {
         
         // Configure the cell.
         cell.titleLabel.text = item.localizedTitle
-        //cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
+        cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
         
         return cell
     }
