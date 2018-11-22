@@ -1,0 +1,3 @@
+[submodule "AWS"]
+	path = AWS
+	url = git@github.com:DaveAMoore/AWS.git
