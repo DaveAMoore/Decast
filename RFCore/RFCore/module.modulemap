@@ -1,0 +1,4 @@
+module RFAssetInternal {
+    header "Model Types/RFAsset-Internal.h"
+    export *
+}

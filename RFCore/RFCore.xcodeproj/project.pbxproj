@@ -1,0 +1,2265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6325632A212A2E25001CC6FA /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6325630B212A2E0A001CC6FA /* AWSAutoScaling.framework */; };
+		6325632B212A2E25001CC6FA /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6325630F212A2E0A001CC6FA /* AWSCognito.framework */; };
+		6325632C212A2E25001CC6FA /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63256313212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */; };
+		6325632D212A2E25001CC6FA /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63256317212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */; };
+		6325632E212A2E25001CC6FA /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63256307212A2E0A001CC6FA /* AWSCore.framework */; };
+		6325632F212A2E25001CC6FA /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63256327212A2E0A001CC6FA /* AWSDynamoDB.framework */; };
+		63256330212A2E25001CC6FA /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6325631B212A2E0A001CC6FA /* AWSS3.framework */; };
+		63256331212A2E25001CC6FA /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6325631F212A2E0A001CC6FA /* AWSSNS.framework */; };
+		63256332212A2E38001CC6FA /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562E7212A2E0A001CC6FA /* AWSAutoScaling.framework */; };
+		63256333212A2E38001CC6FA /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562EB212A2E0A001CC6FA /* AWSCognito.framework */; };
+		63256334212A2E38001CC6FA /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562EF212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */; };
+		63256335212A2E38001CC6FA /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562F3212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */; };
+		63256336212A2E38001CC6FA /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562E3212A2E0A001CC6FA /* AWSCore.framework */; };
+		63256337212A2E38001CC6FA /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63256303212A2E0A001CC6FA /* AWSDynamoDB.framework */; };
+		63256338212A2E38001CC6FA /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562F7212A2E0A001CC6FA /* AWSS3.framework */; };
+		63256339212A2E38001CC6FA /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632562FB212A2E0A001CC6FA /* AWSSNS.framework */; };
+		6325633A212A2E4C001CC6FA /* AWSCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562E3212A2E0A001CC6FA /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6325633B212A2E4C001CC6FA /* AWSAutoScaling.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562E7212A2E0A001CC6FA /* AWSAutoScaling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6325633C212A2E4C001CC6FA /* AWSCognito.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562EB212A2E0A001CC6FA /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6325633D212A2E4C001CC6FA /* AWSCognitoIdentityProvider.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562EF212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6325633E212A2E4C001CC6FA /* AWSCognitoIdentityProviderASF.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562F3212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6325633F212A2E4C001CC6FA /* AWSS3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562F7212A2E0A001CC6FA /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256340212A2E4C001CC6FA /* AWSSNS.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 632562FB212A2E0A001CC6FA /* AWSSNS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256341212A2E60001CC6FA /* AWSCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 63256307212A2E0A001CC6FA /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256342212A2E60001CC6FA /* AWSAutoScaling.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6325630B212A2E0A001CC6FA /* AWSAutoScaling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256343212A2E60001CC6FA /* AWSCognito.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6325630F212A2E0A001CC6FA /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256344212A2E60001CC6FA /* AWSCognitoIdentityProvider.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 63256313212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256345212A2E60001CC6FA /* AWSCognitoIdentityProviderASF.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 63256317212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256346212A2E60001CC6FA /* AWSS3.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6325631B212A2E0A001CC6FA /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256347212A2E60001CC6FA /* AWSSNS.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6325631F212A2E0A001CC6FA /* AWSSNS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256348212A2E60001CC6FA /* AWSDynamoDB.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 63256327212A2E0A001CC6FA /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63256349212A2E6B001CC6FA /* AWSDynamoDB.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 63256303212A2E0A001CC6FA /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		636A50C321330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A50C221330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift */; };
+		636A50C421330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A50C221330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift */; };
+		636C8AD921A53C08005F0AD0 /* RFRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C8AD821A53C08005F0AD0 /* RFRecordEncoder.swift */; };
+		636C8ADA21A53C08005F0AD0 /* RFRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C8AD821A53C08005F0AD0 /* RFRecordEncoder.swift */; };
+		6371C3EE2133277800829550 /* RFFetchAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371C3ED2133277800829550 /* RFFetchAssetsOperation.swift */; };
+		6371C3EF2133277800829550 /* RFFetchAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371C3ED2133277800829550 /* RFFetchAssetsOperation.swift */; };
+		6371C43C2133A6BE00829550 /* RFAssetReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371C43B2133A6BE00829550 /* RFAssetReference.swift */; };
+		6371C43D2133A6BE00829550 /* RFAssetReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371C43B2133A6BE00829550 /* RFAssetReference.swift */; };
+		6371C4782135C83600829550 /* RFAsset-Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 6371C4772135C83600829550 /* RFAsset-Internal.h */; };
+		6371C4792135C83600829550 /* RFAsset-Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 6371C4772135C83600829550 /* RFAsset-Internal.h */; };
+		6376B8CC21A5E2E400B2356C /* RFRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376B8CB21A5E2E400B2356C /* RFRecordDecoder.swift */; };
+		6376B8CD21A5E2E400B2356C /* RFRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376B8CB21A5E2E400B2356C /* RFRecordDecoder.swift */; };
+		6392F0212135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392F0202135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift */; };
+		6392F0222135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392F0202135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift */; };
+		63B827A02129B8C4002924AD /* RFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B827962129B8C4002924AD /* RFCore.framework */; };
+		63B827A52129B8C4002924AD /* RFCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827A42129B8C4002924AD /* RFCoreTests.swift */; };
+		63B827A72129B8C4002924AD /* RFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827992129B8C4002924AD /* RFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827BC2129B8E7002924AD /* RFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B827B32129B8E7002924AD /* RFCore.framework */; };
+		63B827CA2129B997002924AD /* RFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827992129B8C4002924AD /* RFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827CB2129B9B8002924AD /* RFCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827A42129B8C4002924AD /* RFCoreTests.swift */; };
+		63B827D32129BA92002924AD /* RFContainer+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827CE2129BA91002924AD /* RFContainer+Configuration.swift */; };
+		63B827D42129BA92002924AD /* RFContainer+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827CE2129BA91002924AD /* RFContainer+Configuration.swift */; };
+		63B827D52129BA92002924AD /* RFCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827CF2129BA91002924AD /* RFCredentials.swift */; };
+		63B827D62129BA92002924AD /* RFCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827CF2129BA91002924AD /* RFCredentials.swift */; };
+		63B827D72129BA92002924AD /* RFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D02129BA92002924AD /* RFError.swift */; };
+		63B827D82129BA92002924AD /* RFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D02129BA92002924AD /* RFError.swift */; };
+		63B827D92129BA92002924AD /* RFOperationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D12129BA92002924AD /* RFOperationGroup.swift */; };
+		63B827DA2129BA92002924AD /* RFOperationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D12129BA92002924AD /* RFOperationGroup.swift */; };
+		63B827DB2129BA92002924AD /* RFContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D22129BA92002924AD /* RFContainer.swift */; };
+		63B827DC2129BA92002924AD /* RFContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827D22129BA92002924AD /* RFContainer.swift */; };
+		63B827EB2129BB2D002924AD /* RFAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827E42129BB2D002924AD /* RFAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827EC2129BB2D002924AD /* RFAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827E42129BB2D002924AD /* RFAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827ED2129BB2D002924AD /* RFQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E52129BB2D002924AD /* RFQuery.swift */; };
+		63B827EE2129BB2D002924AD /* RFQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E52129BB2D002924AD /* RFQuery.swift */; };
+		63B827EF2129BB2D002924AD /* RFRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E62129BB2D002924AD /* RFRecord.swift */; };
+		63B827F02129BB2D002924AD /* RFRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E62129BB2D002924AD /* RFRecord.swift */; };
+		63B827F12129BB2D002924AD /* RFAssetAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E72129BB2D002924AD /* RFAssetAttributes.m */; };
+		63B827F22129BB2D002924AD /* RFAssetAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E72129BB2D002924AD /* RFAssetAttributes.m */; };
+		63B827F32129BB2D002924AD /* RFAssetAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827E82129BB2D002924AD /* RFAssetAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827F42129BB2D002924AD /* RFAssetAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B827E82129BB2D002924AD /* RFAssetAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B827F52129BB2D002924AD /* RFAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E92129BB2D002924AD /* RFAsset.m */; };
+		63B827F62129BB2D002924AD /* RFAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B827E92129BB2D002924AD /* RFAsset.m */; };
+		63B827F72129BB2D002924AD /* RFRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827EA2129BB2D002924AD /* RFRegion.swift */; };
+		63B827F82129BB2D002924AD /* RFRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827EA2129BB2D002924AD /* RFRegion.swift */; };
+		63B827FC2129BB3E002924AD /* RFContainerNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827FA2129BB3E002924AD /* RFContainerNotification.swift */; };
+		63B827FD2129BB3E002924AD /* RFContainerNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827FA2129BB3E002924AD /* RFContainerNotification.swift */; };
+		63B827FE2129BB3E002924AD /* RFNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827FB2129BB3E002924AD /* RFNotification.swift */; };
+		63B827FF2129BB3E002924AD /* RFNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B827FB2129BB3E002924AD /* RFNotification.swift */; };
+		63B828032129BB4D002924AD /* RFSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828012129BB4C002924AD /* RFSubscription.swift */; };
+		63B828042129BB4D002924AD /* RFSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828012129BB4C002924AD /* RFSubscription.swift */; };
+		63B828052129BB4D002924AD /* RFContainerSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828022129BB4D002924AD /* RFContainerSubscription.swift */; };
+		63B828062129BB4D002924AD /* RFContainerSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828022129BB4D002924AD /* RFContainerSubscription.swift */; };
+		63B828092129BBB1002924AD /* RFContainerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828072129BBB1002924AD /* RFContainerOperation.swift */; };
+		63B8280A2129BBB1002924AD /* RFContainerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828072129BBB1002924AD /* RFContainerOperation.swift */; };
+		63B8280B2129BBB1002924AD /* RFOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828082129BBB1002924AD /* RFOperation.swift */; };
+		63B8280C2129BBB1002924AD /* RFOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828082129BBB1002924AD /* RFOperation.swift */; };
+		63B828112129BBC4002924AD /* RFModifyRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280D2129BBC4002924AD /* RFModifyRecordsOperation.swift */; };
+		63B828122129BBC4002924AD /* RFModifyRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280D2129BBC4002924AD /* RFModifyRecordsOperation.swift */; };
+		63B828132129BBC4002924AD /* RFFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280E2129BBC4002924AD /* RFFetchRecordsOperation.swift */; };
+		63B828142129BBC4002924AD /* RFFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280E2129BBC4002924AD /* RFFetchRecordsOperation.swift */; };
+		63B828152129BBC4002924AD /* RFModifySubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280F2129BBC4002924AD /* RFModifySubscriptionsOperation.swift */; };
+		63B828162129BBC4002924AD /* RFModifySubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8280F2129BBC4002924AD /* RFModifySubscriptionsOperation.swift */; };
+		63B828172129BBC4002924AD /* RFQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828102129BBC4002924AD /* RFQueryOperation.swift */; };
+		63B828182129BBC4002924AD /* RFQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828102129BBC4002924AD /* RFQueryOperation.swift */; };
+		63B828292129BBEB002924AD /* RFFetchAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281B2129BBEA002924AD /* RFFetchAssetOperation.swift */; };
+		63B8282A2129BBEB002924AD /* RFFetchAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281B2129BBEA002924AD /* RFFetchAssetOperation.swift */; };
+		63B8282B2129BBEB002924AD /* RFDeleteAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281D2129BBEA002924AD /* RFDeleteAssetsOperation.swift */; };
+		63B8282C2129BBEB002924AD /* RFDeleteAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281D2129BBEA002924AD /* RFDeleteAssetsOperation.swift */; };
+		63B8282D2129BBEB002924AD /* RFMultiPartSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281E2129BBEA002924AD /* RFMultiPartSaveAssetOperation.swift */; };
+		63B8282E2129BBEB002924AD /* RFMultiPartSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281E2129BBEA002924AD /* RFMultiPartSaveAssetOperation.swift */; };
+		63B8282F2129BBEB002924AD /* RFSinglePartSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281F2129BBEA002924AD /* RFSinglePartSaveAssetOperation.swift */; };
+		63B828302129BBEB002924AD /* RFSinglePartSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8281F2129BBEA002924AD /* RFSinglePartSaveAssetOperation.swift */; };
+		63B828312129BBEB002924AD /* RFSaveAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828202129BBEA002924AD /* RFSaveAssetsOperation.swift */; };
+		63B828322129BBEB002924AD /* RFSaveAssetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828202129BBEA002924AD /* RFSaveAssetsOperation.swift */; };
+		63B828332129BBEB002924AD /* RFSaveFolderAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828212129BBEA002924AD /* RFSaveFolderAssetOperation.swift */; };
+		63B828342129BBEB002924AD /* RFSaveFolderAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828212129BBEA002924AD /* RFSaveFolderAssetOperation.swift */; };
+		63B828352129BBEB002924AD /* RFDeleteFolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828222129BBEA002924AD /* RFDeleteFolderOperation.swift */; };
+		63B828362129BBEB002924AD /* RFDeleteFolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828222129BBEA002924AD /* RFDeleteFolderOperation.swift */; };
+		63B828372129BBEB002924AD /* RFDeleteAssetsDirectlyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828232129BBEA002924AD /* RFDeleteAssetsDirectlyOperation.swift */; };
+		63B828382129BBEB002924AD /* RFDeleteAssetsDirectlyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828232129BBEA002924AD /* RFDeleteAssetsDirectlyOperation.swift */; };
+		63B828392129BBEB002924AD /* RFSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828242129BBEA002924AD /* RFSaveAssetOperation.swift */; };
+		63B8283A2129BBEB002924AD /* RFSaveAssetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828242129BBEA002924AD /* RFSaveAssetOperation.swift */; };
+		63B8283B2129BBEB002924AD /* RFSaveSubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828262129BBEB002924AD /* RFSaveSubscriptionsOperation.swift */; };
+		63B8283C2129BBEB002924AD /* RFSaveSubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828262129BBEB002924AD /* RFSaveSubscriptionsOperation.swift */; };
+		63B8283D2129BBEB002924AD /* RFSaveSubscriptionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828272129BBEB002924AD /* RFSaveSubscriptionOperation.swift */; };
+		63B8283E2129BBEB002924AD /* RFSaveSubscriptionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828272129BBEB002924AD /* RFSaveSubscriptionOperation.swift */; };
+		63B8283F2129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828282129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift */; };
+		63B828402129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828282129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift */; };
+		63B828482129BC4D002924AD /* InternalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828412129BC4C002924AD /* InternalFunction.swift */; };
+		63B828492129BC4D002924AD /* InternalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828412129BC4C002924AD /* InternalFunction.swift */; };
+		63B8284A2129BC4D002924AD /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828422129BC4C002924AD /* DictionaryEncoder.swift */; };
+		63B8284B2129BC4D002924AD /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828422129BC4C002924AD /* DictionaryEncoder.swift */; };
+		63B8284C2129BC4D002924AD /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828432129BC4C002924AD /* AnyCodingKey.swift */; };
+		63B8284D2129BC4D002924AD /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828432129BC4C002924AD /* AnyCodingKey.swift */; };
+		63B8284E2129BC4D002924AD /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828442129BC4C002924AD /* DictionaryDecoder.swift */; };
+		63B8284F2129BC4D002924AD /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828442129BC4C002924AD /* DictionaryDecoder.swift */; };
+		63B828502129BC4D002924AD /* Failable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828452129BC4C002924AD /* Failable.swift */; };
+		63B828512129BC4D002924AD /* Failable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828452129BC4C002924AD /* Failable.swift */; };
+		63B828522129BC4D002924AD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828462129BC4D002924AD /* Storage.swift */; };
+		63B828532129BC4D002924AD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828462129BC4D002924AD /* Storage.swift */; };
+		63B828542129BC4D002924AD /* ObjectMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828472129BC4D002924AD /* ObjectMerger.swift */; };
+		63B828552129BC4D002924AD /* ObjectMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828472129BC4D002924AD /* ObjectMerger.swift */; };
+		63B828572129BC5C002924AD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828562129BC5C002924AD /* Utilities.swift */; };
+		63B828582129BC5C002924AD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B828562129BC5C002924AD /* Utilities.swift */; };
+		63B82B2B2129CE0B002924AD /* RFQueryOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B022129CE0A002924AD /* RFQueryOperationTests.swift */; };
+		63B82B2C2129CE0B002924AD /* RFQueryOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B022129CE0A002924AD /* RFQueryOperationTests.swift */; };
+		63B82B2D2129CE0B002924AD /* RFAssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B232129CE0A002924AD /* RFAssetTests.swift */; };
+		63B82B2E2129CE0B002924AD /* RFAssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B232129CE0A002924AD /* RFAssetTests.swift */; };
+		63B82B2F2129CE0B002924AD /* RFModifyRecordOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B242129CE0A002924AD /* RFModifyRecordOperationTests.swift */; };
+		63B82B302129CE0B002924AD /* RFModifyRecordOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B242129CE0A002924AD /* RFModifyRecordOperationTests.swift */; };
+		63B82B312129CE0B002924AD /* RFRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B252129CE0A002924AD /* RFRecordTests.swift */; };
+		63B82B322129CE0B002924AD /* RFRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B252129CE0A002924AD /* RFRecordTests.swift */; };
+		63B82B332129CE0B002924AD /* RFQueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B262129CE0A002924AD /* RFQueryTests.swift */; };
+		63B82B342129CE0B002924AD /* RFQueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B262129CE0A002924AD /* RFQueryTests.swift */; };
+		63B82B352129CE0B002924AD /* RFFetchRecordsOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B272129CE0A002924AD /* RFFetchRecordsOperationTests.swift */; };
+		63B82B362129CE0B002924AD /* RFFetchRecordsOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B272129CE0A002924AD /* RFFetchRecordsOperationTests.swift */; };
+		63B82B372129CE0B002924AD /* RFOperationGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B282129CE0A002924AD /* RFOperationGroupTests.swift */; };
+		63B82B382129CE0B002924AD /* RFOperationGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B282129CE0A002924AD /* RFOperationGroupTests.swift */; };
+		63B82B392129CE0B002924AD /* RFCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B292129CE0A002924AD /* RFCredentialsTests.swift */; };
+		63B82B3A2129CE0B002924AD /* RFCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B292129CE0A002924AD /* RFCredentialsTests.swift */; };
+		63B82B3B2129CE0B002924AD /* RFContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B2A2129CE0A002924AD /* RFContainerTests.swift */; };
+		63B82B3C2129CE0B002924AD /* RFContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82B2A2129CE0A002924AD /* RFContainerTests.swift */; };
+		63B82D95212A3AB4002924AD /* RFRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82D94212A3AB4002924AD /* RFRecordValue.swift */; };
+		63B82D96212A3AB4002924AD /* RFRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82D94212A3AB4002924AD /* RFRecordValue.swift */; };
+		63B82DC1212B2302002924AD /* RFQueryStorageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82DC0212B2302002924AD /* RFQueryStorageOperation.swift */; };
+		63B82DC2212B2302002924AD /* RFQueryStorageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82DC0212B2302002924AD /* RFQueryStorageOperation.swift */; };
+		63B82DC4212B2424002924AD /* RFQueryDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82DC3212B2424002924AD /* RFQueryDatabaseOperation.swift */; };
+		63B82DC5212B2424002924AD /* RFQueryDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B82DC3212B2424002924AD /* RFQueryDatabaseOperation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		632562E2212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC24720C7582600038F97;
+			remoteInfo = AWSCore_OSX;
+		};
+		632562E4212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC24F20C7582600038F97;
+			remoteInfo = AWSCore_OSXTests;
+		};
+		632562E6212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC26320C7585F00038F97;
+			remoteInfo = AWSAutoScaling_OSX;
+		};
+		632562E8212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC26B20C7585F00038F97;
+			remoteInfo = AWSAutoScaling_OSXTests;
+		};
+		632562EA212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC27F20C7586E00038F97;
+			remoteInfo = AWSCognito_OSX;
+		};
+		632562EC212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC28720C7586E00038F97;
+			remoteInfo = AWSCognito_OSXTests;
+		};
+		632562EE212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC29B20C7589300038F97;
+			remoteInfo = AWSCognitoIdentityProvider_OSX;
+		};
+		632562F0212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2A320C7589300038F97;
+			remoteInfo = AWSCognitoIdentityProvider_OSXTests;
+		};
+		632562F2212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2B720C758A100038F97;
+			remoteInfo = AWSCognitoIdentityProviderASF_OSX;
+		};
+		632562F4212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2BF20C758A100038F97;
+			remoteInfo = AWSCognitoIdentityProviderASF_OSXTests;
+		};
+		632562F6212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2D320C758AF00038F97;
+			remoteInfo = AWSS3_OSX;
+		};
+		632562F8212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2DB20C758AF00038F97;
+			remoteInfo = AWSS3_OSXTests;
+		};
+		632562FA212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2EF20C758DF00038F97;
+			remoteInfo = AWSSNS_OSX;
+		};
+		632562FC212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC2F720C758DF00038F97;
+			remoteInfo = AWSSNS_OSXTests;
+		};
+		632562FE212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC30B20C758E800038F97;
+			remoteInfo = AWSSQS_OSX;
+		};
+		63256300212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 637BC31320C758E800038F97;
+			remoteInfo = AWSSQS_OSXTests;
+		};
+		63256302212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256264212A2C36001CC6FA;
+			remoteInfo = AWSDynamoDB_OSX;
+		};
+		63256304212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6325626C212A2C36001CC6FA;
+			remoteInfo = AWSDynamoDB_OSXTests;
+		};
+		63256306212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B828D12129C044002924AD;
+			remoteInfo = AWSCore_iOS;
+		};
+		63256308212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B828D92129C044002924AD;
+			remoteInfo = AWSCore_iOSTests;
+		};
+		6325630A212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B8298A2129C610002924AD;
+			remoteInfo = AWSAutoScaling_iOS;
+		};
+		6325630C212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829922129C610002924AD;
+			remoteInfo = AWSAutoScaling_iOSTests;
+		};
+		6325630E212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829AE2129C718002924AD;
+			remoteInfo = AWSCognito_iOS;
+		};
+		63256310212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829B62129C718002924AD;
+			remoteInfo = AWSCognito_iOSTests;
+		};
+		63256312212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829E42129C798002924AD;
+			remoteInfo = AWSCognitoIdentityProvider_iOS;
+		};
+		63256314212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B829EC2129C798002924AD;
+			remoteInfo = AWSCognitoIdentityProvider_iOSTests;
+		};
+		63256316212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A012129C7FF002924AD;
+			remoteInfo = AWSCognitoIdentityProviderASF_iOS;
+		};
+		63256318212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A092129C7FF002924AD;
+			remoteInfo = AWSCognitoIdentityProviderASF_iOSTests;
+		};
+		6325631A212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A432129C92B002924AD;
+			remoteInfo = AWSS3_iOS;
+		};
+		6325631C212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A4B2129C92B002924AD;
+			remoteInfo = AWSS3_iOSTests;
+		};
+		6325631E212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A742129CA17002924AD;
+			remoteInfo = AWSSNS_iOS;
+		};
+		63256320212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A7C2129CA17002924AD;
+			remoteInfo = AWSSNS_iOSTests;
+		};
+		63256322212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82A992129CBF7002924AD;
+			remoteInfo = AWSSQS_iOS;
+		};
+		63256324212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B82AA12129CBF7002924AD;
+			remoteInfo = AWSSQS_iOSTests;
+		};
+		63256326212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256280212A2C6E001CC6FA;
+			remoteInfo = AWSDynamoDB_iOS;
+		};
+		63256328212A2E0A001CC6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63256288212A2C6E001CC6FA;
+			remoteInfo = AWSDynamoDB_iOSTests;
+		};
+		633C39EB219FDCAB00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E30217BF81D008E35BF;
+			remoteInfo = AWSIoT_OSX;
+		};
+		633C39ED219FDCAB00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E38217BF81D008E35BF;
+			remoteInfo = AWSIoT_OSXTests;
+		};
+		633C39EF219FDCAB00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E13217BF767008E35BF;
+			remoteInfo = AWSIoT_iOS;
+		};
+		633C39F1219FDCAB00418D6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FD8E1B217BF768008E35BF;
+			remoteInfo = AWSIoT_iOSTests;
+		};
+		63B827A12129B8C4002924AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63B8278B2129B8B9002924AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63B827952129B8C4002924AD;
+			remoteInfo = RFCore_iOS;
+		};
+		63B827BD2129B8E7002924AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63B8278B2129B8B9002924AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63B827B22129B8E7002924AD;
+			remoteInfo = RFCore_OSX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		63B828AE2129BDC6002924AD /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				63256341212A2E60001CC6FA /* AWSCore.framework in Copy Frameworks */,
+				63256342212A2E60001CC6FA /* AWSAutoScaling.framework in Copy Frameworks */,
+				63256343212A2E60001CC6FA /* AWSCognito.framework in Copy Frameworks */,
+				63256344212A2E60001CC6FA /* AWSCognitoIdentityProvider.framework in Copy Frameworks */,
+				63256345212A2E60001CC6FA /* AWSCognitoIdentityProviderASF.framework in Copy Frameworks */,
+				63256346212A2E60001CC6FA /* AWSS3.framework in Copy Frameworks */,
+				63256347212A2E60001CC6FA /* AWSSNS.framework in Copy Frameworks */,
+				63256348212A2E60001CC6FA /* AWSDynamoDB.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B828B62129BDEB002924AD /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				63256349212A2E6B001CC6FA /* AWSDynamoDB.framework in Copy Frameworks */,
+				6325633A212A2E4C001CC6FA /* AWSCore.framework in Copy Frameworks */,
+				6325633B212A2E4C001CC6FA /* AWSAutoScaling.framework in Copy Frameworks */,
+				6325633C212A2E4C001CC6FA /* AWSCognito.framework in Copy Frameworks */,
+				6325633D212A2E4C001CC6FA /* AWSCognitoIdentityProvider.framework in Copy Frameworks */,
+				6325633E212A2E4C001CC6FA /* AWSCognitoIdentityProviderASF.framework in Copy Frameworks */,
+				6325633F212A2E4C001CC6FA /* AWSS3.framework in Copy Frameworks */,
+				63256340212A2E4C001CC6FA /* AWSSNS.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		632562BB212A2E0A001CC6FA /* AWS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AWS.xcodeproj; path = ../AWS/AWS.xcodeproj; sourceTree = "<group>"; };
+		636A50C221330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFFetchRecordsDatabaseOperation.swift; sourceTree = "<group>"; };
+		636C8AD821A53C08005F0AD0 /* RFRecordEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFRecordEncoder.swift; sourceTree = "<group>"; };
+		6371C3ED2133277800829550 /* RFFetchAssetsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFFetchAssetsOperation.swift; sourceTree = "<group>"; };
+		6371C43B2133A6BE00829550 /* RFAssetReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFAssetReference.swift; sourceTree = "<group>"; };
+		6371C4702135C54100829550 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		6371C4772135C83600829550 /* RFAsset-Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RFAsset-Internal.h"; sourceTree = "<group>"; };
+		6376B8CB21A5E2E400B2356C /* RFRecordDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFRecordDecoder.swift; sourceTree = "<group>"; };
+		6392F0202135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFModifyRecordsDatabaseOperation.swift; sourceTree = "<group>"; };
+		63B827962129B8C4002924AD /* RFCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B827992129B8C4002924AD /* RFCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RFCore.h; sourceTree = "<group>"; };
+		63B8279A2129B8C4002924AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63B8279F2129B8C4002924AD /* RFCore_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFCore_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B827A42129B8C4002924AD /* RFCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFCoreTests.swift; sourceTree = "<group>"; };
+		63B827A62129B8C4002924AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63B827B32129B8E7002924AD /* RFCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B827BB2129B8E7002924AD /* RFCore_OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFCore_OSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B827CE2129BA91002924AD /* RFContainer+Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RFContainer+Configuration.swift"; sourceTree = "<group>"; };
+		63B827CF2129BA91002924AD /* RFCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFCredentials.swift; sourceTree = "<group>"; };
+		63B827D02129BA92002924AD /* RFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFError.swift; sourceTree = "<group>"; };
+		63B827D12129BA92002924AD /* RFOperationGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFOperationGroup.swift; sourceTree = "<group>"; };
+		63B827D22129BA92002924AD /* RFContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFContainer.swift; sourceTree = "<group>"; };
+		63B827E42129BB2D002924AD /* RFAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsset.h; sourceTree = "<group>"; };
+		63B827E52129BB2D002924AD /* RFQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFQuery.swift; sourceTree = "<group>"; };
+		63B827E62129BB2D002924AD /* RFRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFRecord.swift; sourceTree = "<group>"; };
+		63B827E72129BB2D002924AD /* RFAssetAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAssetAttributes.m; sourceTree = "<group>"; };
+		63B827E82129BB2D002924AD /* RFAssetAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAssetAttributes.h; sourceTree = "<group>"; };
+		63B827E92129BB2D002924AD /* RFAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsset.m; sourceTree = "<group>"; };
+		63B827EA2129BB2D002924AD /* RFRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFRegion.swift; sourceTree = "<group>"; };
+		63B827FA2129BB3E002924AD /* RFContainerNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFContainerNotification.swift; sourceTree = "<group>"; };
+		63B827FB2129BB3E002924AD /* RFNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFNotification.swift; sourceTree = "<group>"; };
+		63B828012129BB4C002924AD /* RFSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSubscription.swift; sourceTree = "<group>"; };
+		63B828022129BB4D002924AD /* RFContainerSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFContainerSubscription.swift; sourceTree = "<group>"; };
+		63B828072129BBB1002924AD /* RFContainerOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFContainerOperation.swift; sourceTree = "<group>"; };
+		63B828082129BBB1002924AD /* RFOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFOperation.swift; sourceTree = "<group>"; };
+		63B8280D2129BBC4002924AD /* RFModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFModifyRecordsOperation.swift; sourceTree = "<group>"; };
+		63B8280E2129BBC4002924AD /* RFFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFFetchRecordsOperation.swift; sourceTree = "<group>"; };
+		63B8280F2129BBC4002924AD /* RFModifySubscriptionsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFModifySubscriptionsOperation.swift; sourceTree = "<group>"; };
+		63B828102129BBC4002924AD /* RFQueryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFQueryOperation.swift; sourceTree = "<group>"; };
+		63B8281B2129BBEA002924AD /* RFFetchAssetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFFetchAssetOperation.swift; sourceTree = "<group>"; };
+		63B8281D2129BBEA002924AD /* RFDeleteAssetsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFDeleteAssetsOperation.swift; sourceTree = "<group>"; };
+		63B8281E2129BBEA002924AD /* RFMultiPartSaveAssetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFMultiPartSaveAssetOperation.swift; sourceTree = "<group>"; };
+		63B8281F2129BBEA002924AD /* RFSinglePartSaveAssetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSinglePartSaveAssetOperation.swift; sourceTree = "<group>"; };
+		63B828202129BBEA002924AD /* RFSaveAssetsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSaveAssetsOperation.swift; sourceTree = "<group>"; };
+		63B828212129BBEA002924AD /* RFSaveFolderAssetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSaveFolderAssetOperation.swift; sourceTree = "<group>"; };
+		63B828222129BBEA002924AD /* RFDeleteFolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFDeleteFolderOperation.swift; sourceTree = "<group>"; };
+		63B828232129BBEA002924AD /* RFDeleteAssetsDirectlyOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFDeleteAssetsDirectlyOperation.swift; sourceTree = "<group>"; };
+		63B828242129BBEA002924AD /* RFSaveAssetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSaveAssetOperation.swift; sourceTree = "<group>"; };
+		63B828262129BBEB002924AD /* RFSaveSubscriptionsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSaveSubscriptionsOperation.swift; sourceTree = "<group>"; };
+		63B828272129BBEB002924AD /* RFSaveSubscriptionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSaveSubscriptionOperation.swift; sourceTree = "<group>"; };
+		63B828282129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFDeleteSubscriptionsOperation.swift; sourceTree = "<group>"; };
+		63B828412129BC4C002924AD /* InternalFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalFunction.swift; sourceTree = "<group>"; };
+		63B828422129BC4C002924AD /* DictionaryEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
+		63B828432129BC4C002924AD /* AnyCodingKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
+		63B828442129BC4C002924AD /* DictionaryDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		63B828452129BC4C002924AD /* Failable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failable.swift; sourceTree = "<group>"; };
+		63B828462129BC4D002924AD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		63B828472129BC4D002924AD /* ObjectMerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMerger.swift; sourceTree = "<group>"; };
+		63B828562129BC5C002924AD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		63B82B022129CE0A002924AD /* RFQueryOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFQueryOperationTests.swift; sourceTree = "<group>"; };
+		63B82B232129CE0A002924AD /* RFAssetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFAssetTests.swift; sourceTree = "<group>"; };
+		63B82B242129CE0A002924AD /* RFModifyRecordOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFModifyRecordOperationTests.swift; sourceTree = "<group>"; };
+		63B82B252129CE0A002924AD /* RFRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFRecordTests.swift; sourceTree = "<group>"; };
+		63B82B262129CE0A002924AD /* RFQueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFQueryTests.swift; sourceTree = "<group>"; };
+		63B82B272129CE0A002924AD /* RFFetchRecordsOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFFetchRecordsOperationTests.swift; sourceTree = "<group>"; };
+		63B82B282129CE0A002924AD /* RFOperationGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFOperationGroupTests.swift; sourceTree = "<group>"; };
+		63B82B292129CE0A002924AD /* RFCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFCredentialsTests.swift; sourceTree = "<group>"; };
+		63B82B2A2129CE0A002924AD /* RFContainerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFContainerTests.swift; sourceTree = "<group>"; };
+		63B82D6F212A309B002924AD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		63B82D94212A3AB4002924AD /* RFRecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFRecordValue.swift; sourceTree = "<group>"; };
+		63B82DC0212B2302002924AD /* RFQueryStorageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFQueryStorageOperation.swift; sourceTree = "<group>"; };
+		63B82DC3212B2424002924AD /* RFQueryDatabaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFQueryDatabaseOperation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63B827932129B8C4002924AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6325632A212A2E25001CC6FA /* AWSAutoScaling.framework in Frameworks */,
+				6325632B212A2E25001CC6FA /* AWSCognito.framework in Frameworks */,
+				6325632C212A2E25001CC6FA /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				6325632D212A2E25001CC6FA /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				6325632E212A2E25001CC6FA /* AWSCore.framework in Frameworks */,
+				6325632F212A2E25001CC6FA /* AWSDynamoDB.framework in Frameworks */,
+				63256330212A2E25001CC6FA /* AWSS3.framework in Frameworks */,
+				63256331212A2E25001CC6FA /* AWSSNS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B8279C2129B8C4002924AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B827A02129B8C4002924AD /* RFCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827B02129B8E7002924AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63256332212A2E38001CC6FA /* AWSAutoScaling.framework in Frameworks */,
+				63256333212A2E38001CC6FA /* AWSCognito.framework in Frameworks */,
+				63256334212A2E38001CC6FA /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				63256335212A2E38001CC6FA /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				63256336212A2E38001CC6FA /* AWSCore.framework in Frameworks */,
+				63256337212A2E38001CC6FA /* AWSDynamoDB.framework in Frameworks */,
+				63256338212A2E38001CC6FA /* AWSS3.framework in Frameworks */,
+				63256339212A2E38001CC6FA /* AWSSNS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827B82129B8E7002924AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B827BC2129B8E7002924AD /* RFCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		632562BC212A2E0A001CC6FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				632562E3212A2E0A001CC6FA /* AWSCore.framework */,
+				632562E5212A2E0A001CC6FA /* AWSCore_OSXTests.xctest */,
+				632562E7212A2E0A001CC6FA /* AWSAutoScaling.framework */,
+				632562E9212A2E0A001CC6FA /* AWSAutoScaling_OSXTests.xctest */,
+				632562EB212A2E0A001CC6FA /* AWSCognito.framework */,
+				632562ED212A2E0A001CC6FA /* AWSCognito_OSXTests.xctest */,
+				632562EF212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */,
+				632562F1212A2E0A001CC6FA /* AWSCognitoIdentityProvider_OSXTests.xctest */,
+				632562F3212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */,
+				632562F5212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF_OSXTests.xctest */,
+				632562F7212A2E0A001CC6FA /* AWSS3.framework */,
+				632562F9212A2E0A001CC6FA /* AWSS3_OSXTests.xctest */,
+				632562FB212A2E0A001CC6FA /* AWSSNS.framework */,
+				632562FD212A2E0A001CC6FA /* AWSSNS_OSXTests.xctest */,
+				632562FF212A2E0A001CC6FA /* AWSSQS.framework */,
+				63256301212A2E0A001CC6FA /* AWSSQS_OSXTests.xctest */,
+				63256303212A2E0A001CC6FA /* AWSDynamoDB.framework */,
+				63256305212A2E0A001CC6FA /* AWSDynamoDB_OSXTests.xctest */,
+				633C39EC219FDCAB00418D6C /* AWSIoT.framework */,
+				633C39EE219FDCAB00418D6C /* AWSIoT_OSXTests.xctest */,
+				63256307212A2E0A001CC6FA /* AWSCore.framework */,
+				63256309212A2E0A001CC6FA /* AWSCore_iOSTests.xctest */,
+				6325630B212A2E0A001CC6FA /* AWSAutoScaling.framework */,
+				6325630D212A2E0A001CC6FA /* AWSAutoScaling_iOSTests.xctest */,
+				6325630F212A2E0A001CC6FA /* AWSCognito.framework */,
+				63256311212A2E0A001CC6FA /* AWSCognito_iOSTests.xctest */,
+				63256313212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */,
+				63256315212A2E0A001CC6FA /* AWSCognitoIdentityProvider_iOSTests.xctest */,
+				63256317212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */,
+				63256319212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF_iOSTests.xctest */,
+				6325631B212A2E0A001CC6FA /* AWSS3.framework */,
+				6325631D212A2E0A001CC6FA /* AWSS3_iOSTests.xctest */,
+				6325631F212A2E0A001CC6FA /* AWSSNS.framework */,
+				63256321212A2E0A001CC6FA /* AWSSNS_iOSTests.xctest */,
+				63256323212A2E0A001CC6FA /* AWSSQS.framework */,
+				63256325212A2E0A001CC6FA /* AWSSQS_iOSTests.xctest */,
+				63256327212A2E0A001CC6FA /* AWSDynamoDB.framework */,
+				63256329212A2E0A001CC6FA /* AWSDynamoDB_iOSTests.xctest */,
+				633C39F0219FDCAB00418D6C /* AWSIoT.framework */,
+				633C39F2219FDCAB00418D6C /* AWSIoT_iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		636C8AD721A527F5005F0AD0 /* Record Coding */ = {
+			isa = PBXGroup;
+			children = (
+				636C8AD821A53C08005F0AD0 /* RFRecordEncoder.swift */,
+				6376B8CB21A5E2E400B2356C /* RFRecordDecoder.swift */,
+			);
+			path = "Record Coding";
+			sourceTree = "<group>";
+		};
+		63B8278A2129B8B9002924AD = {
+			isa = PBXGroup;
+			children = (
+				63B82D6F212A309B002924AD /* README.md */,
+				63B827982129B8C4002924AD /* RFCore */,
+				63B827A32129B8C4002924AD /* RFCoreTests */,
+				63B827972129B8C4002924AD /* Products */,
+				632562BB212A2E0A001CC6FA /* AWS.xcodeproj */,
+				63B8288F2129BDAF002924AD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63B827972129B8C4002924AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63B827962129B8C4002924AD /* RFCore.framework */,
+				63B8279F2129B8C4002924AD /* RFCore_iOSTests.xctest */,
+				63B827B32129B8E7002924AD /* RFCore.framework */,
+				63B827BB2129B8E7002924AD /* RFCore_OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63B827982129B8C4002924AD /* RFCore */ = {
+			isa = PBXGroup;
+			children = (
+				63B827992129B8C4002924AD /* RFCore.h */,
+				63B827CD2129BA7E002924AD /* Core Model */,
+				63B827DD2129BAA7002924AD /* Model Types */,
+				63B827DE2129BAD0002924AD /* Abstract Operations */,
+				63B827DF2129BAD8002924AD /* Concrete Operations */,
+				636C8AD721A527F5005F0AD0 /* Record Coding */,
+				63B827E02129BAE0002924AD /* Dictionary Coding */,
+				63B827E12129BAE7002924AD /* Miscellaneous */,
+				63B827E32129BAF6002924AD /* Supporting Files */,
+			);
+			path = RFCore;
+			sourceTree = "<group>";
+		};
+		63B827A32129B8C4002924AD /* RFCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				63B827A42129B8C4002924AD /* RFCoreTests.swift */,
+				63B82B2A2129CE0A002924AD /* RFContainerTests.swift */,
+				63B82B292129CE0A002924AD /* RFCredentialsTests.swift */,
+				63B82B252129CE0A002924AD /* RFRecordTests.swift */,
+				63B82B232129CE0A002924AD /* RFAssetTests.swift */,
+				63B82B262129CE0A002924AD /* RFQueryTests.swift */,
+				63B82B282129CE0A002924AD /* RFOperationGroupTests.swift */,
+				63B82B022129CE0A002924AD /* RFQueryOperationTests.swift */,
+				63B82B272129CE0A002924AD /* RFFetchRecordsOperationTests.swift */,
+				63B82B242129CE0A002924AD /* RFModifyRecordOperationTests.swift */,
+				63B827A62129B8C4002924AD /* Info.plist */,
+			);
+			path = RFCoreTests;
+			sourceTree = "<group>";
+		};
+		63B827CD2129BA7E002924AD /* Core Model */ = {
+			isa = PBXGroup;
+			children = (
+				63B827D22129BA92002924AD /* RFContainer.swift */,
+				63B827CE2129BA91002924AD /* RFContainer+Configuration.swift */,
+				63B827CF2129BA91002924AD /* RFCredentials.swift */,
+				63B827D12129BA92002924AD /* RFOperationGroup.swift */,
+				63B827D02129BA92002924AD /* RFError.swift */,
+			);
+			path = "Core Model";
+			sourceTree = "<group>";
+		};
+		63B827DD2129BAA7002924AD /* Model Types */ = {
+			isa = PBXGroup;
+			children = (
+				63B827E62129BB2D002924AD /* RFRecord.swift */,
+				63B82D94212A3AB4002924AD /* RFRecordValue.swift */,
+				6371C4772135C83600829550 /* RFAsset-Internal.h */,
+				63B827E42129BB2D002924AD /* RFAsset.h */,
+				63B827E92129BB2D002924AD /* RFAsset.m */,
+				63B827E82129BB2D002924AD /* RFAssetAttributes.h */,
+				63B827E72129BB2D002924AD /* RFAssetAttributes.m */,
+				6371C43B2133A6BE00829550 /* RFAssetReference.swift */,
+				63B827EA2129BB2D002924AD /* RFRegion.swift */,
+				63B827E52129BB2D002924AD /* RFQuery.swift */,
+				63B828002129BB44002924AD /* Subscriptions */,
+				63B827F92129BB37002924AD /* Notifications */,
+			);
+			path = "Model Types";
+			sourceTree = "<group>";
+		};
+		63B827DE2129BAD0002924AD /* Abstract Operations */ = {
+			isa = PBXGroup;
+			children = (
+				63B828082129BBB1002924AD /* RFOperation.swift */,
+				63B828072129BBB1002924AD /* RFContainerOperation.swift */,
+			);
+			path = "Abstract Operations";
+			sourceTree = "<group>";
+		};
+		63B827DF2129BAD8002924AD /* Concrete Operations */ = {
+			isa = PBXGroup;
+			children = (
+				63B828102129BBC4002924AD /* RFQueryOperation.swift */,
+				63B8280E2129BBC4002924AD /* RFFetchRecordsOperation.swift */,
+				63B8280D2129BBC4002924AD /* RFModifyRecordsOperation.swift */,
+				63B8280F2129BBC4002924AD /* RFModifySubscriptionsOperation.swift */,
+				63B828192129BBCC002924AD /* Internal Operations */,
+			);
+			path = "Concrete Operations";
+			sourceTree = "<group>";
+		};
+		63B827E02129BAE0002924AD /* Dictionary Coding */ = {
+			isa = PBXGroup;
+			children = (
+				63B828432129BC4C002924AD /* AnyCodingKey.swift */,
+				63B828442129BC4C002924AD /* DictionaryDecoder.swift */,
+				63B828422129BC4C002924AD /* DictionaryEncoder.swift */,
+				63B828452129BC4C002924AD /* Failable.swift */,
+				63B828412129BC4C002924AD /* InternalFunction.swift */,
+				63B828472129BC4D002924AD /* ObjectMerger.swift */,
+				63B828462129BC4D002924AD /* Storage.swift */,
+			);
+			path = "Dictionary Coding";
+			sourceTree = "<group>";
+		};
+		63B827E12129BAE7002924AD /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				63B828562129BC5C002924AD /* Utilities.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		63B827E32129BAF6002924AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63B8279A2129B8C4002924AD /* Info.plist */,
+				6371C4702135C54100829550 /* module.modulemap */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63B827F92129BB37002924AD /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				63B827FB2129BB3E002924AD /* RFNotification.swift */,
+				63B827FA2129BB3E002924AD /* RFContainerNotification.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		63B828002129BB44002924AD /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				63B828012129BB4C002924AD /* RFSubscription.swift */,
+				63B828022129BB4D002924AD /* RFContainerSubscription.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		63B828192129BBCC002924AD /* Internal Operations */ = {
+			isa = PBXGroup;
+			children = (
+				63B82D9B212B22B6002924AD /* RFQueryOperation */,
+				63B8281A2129BBEA002924AD /* RFFetchRecordsOperation */,
+				63B8281C2129BBEA002924AD /* RFModifyRecordsOperation */,
+				63B828252129BBEB002924AD /* RFModifySubscriptionsOperation */,
+			);
+			path = "Internal Operations";
+			sourceTree = "<group>";
+		};
+		63B8281A2129BBEA002924AD /* RFFetchRecordsOperation */ = {
+			isa = PBXGroup;
+			children = (
+				636A50C221330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift */,
+				6371C3ED2133277800829550 /* RFFetchAssetsOperation.swift */,
+				63B8281B2129BBEA002924AD /* RFFetchAssetOperation.swift */,
+			);
+			path = RFFetchRecordsOperation;
+			sourceTree = "<group>";
+		};
+		63B8281C2129BBEA002924AD /* RFModifyRecordsOperation */ = {
+			isa = PBXGroup;
+			children = (
+				6392F0202135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift */,
+				63B828202129BBEA002924AD /* RFSaveAssetsOperation.swift */,
+				63B828242129BBEA002924AD /* RFSaveAssetOperation.swift */,
+				63B828212129BBEA002924AD /* RFSaveFolderAssetOperation.swift */,
+				63B8281F2129BBEA002924AD /* RFSinglePartSaveAssetOperation.swift */,
+				63B8281E2129BBEA002924AD /* RFMultiPartSaveAssetOperation.swift */,
+				63B8281D2129BBEA002924AD /* RFDeleteAssetsOperation.swift */,
+				63B828232129BBEA002924AD /* RFDeleteAssetsDirectlyOperation.swift */,
+				63B828222129BBEA002924AD /* RFDeleteFolderOperation.swift */,
+			);
+			path = RFModifyRecordsOperation;
+			sourceTree = "<group>";
+		};
+		63B828252129BBEB002924AD /* RFModifySubscriptionsOperation */ = {
+			isa = PBXGroup;
+			children = (
+				63B828262129BBEB002924AD /* RFSaveSubscriptionsOperation.swift */,
+				63B828272129BBEB002924AD /* RFSaveSubscriptionOperation.swift */,
+				63B828282129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift */,
+			);
+			path = RFModifySubscriptionsOperation;
+			sourceTree = "<group>";
+		};
+		63B8288F2129BDAF002924AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63B82D9B212B22B6002924AD /* RFQueryOperation */ = {
+			isa = PBXGroup;
+			children = (
+				63B82DC3212B2424002924AD /* RFQueryDatabaseOperation.swift */,
+				63B82DC0212B2302002924AD /* RFQueryStorageOperation.swift */,
+			);
+			path = RFQueryOperation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		63B827912129B8C4002924AD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B827A72129B8C4002924AD /* RFCore.h in Headers */,
+				63B827EB2129BB2D002924AD /* RFAsset.h in Headers */,
+				6371C4782135C83600829550 /* RFAsset-Internal.h in Headers */,
+				63B827F32129BB2D002924AD /* RFAssetAttributes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827AE2129B8E7002924AD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B827CA2129B997002924AD /* RFCore.h in Headers */,
+				63B827EC2129BB2D002924AD /* RFAsset.h in Headers */,
+				6371C4792135C83600829550 /* RFAsset-Internal.h in Headers */,
+				63B827F42129BB2D002924AD /* RFAssetAttributes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		63B827952129B8C4002924AD /* RFCore_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B827A82129B8C4002924AD /* Build configuration list for PBXNativeTarget "RFCore_iOS" */;
+			buildPhases = (
+				63B827912129B8C4002924AD /* Headers */,
+				63B827922129B8C4002924AD /* Sources */,
+				63B827932129B8C4002924AD /* Frameworks */,
+				63B827942129B8C4002924AD /* Resources */,
+				63B828AE2129BDC6002924AD /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RFCore_iOS;
+			productName = RFCore_iOS;
+			productReference = 63B827962129B8C4002924AD /* RFCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		63B8279E2129B8C4002924AD /* RFCore_iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B827AB2129B8C4002924AD /* Build configuration list for PBXNativeTarget "RFCore_iOSTests" */;
+			buildPhases = (
+				63B8279B2129B8C4002924AD /* Sources */,
+				63B8279C2129B8C4002924AD /* Frameworks */,
+				63B8279D2129B8C4002924AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63B827A22129B8C4002924AD /* PBXTargetDependency */,
+			);
+			name = RFCore_iOSTests;
+			productName = RFCore_iOSTests;
+			productReference = 63B8279F2129B8C4002924AD /* RFCore_iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		63B827B22129B8E7002924AD /* RFCore_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B827C42129B8E7002924AD /* Build configuration list for PBXNativeTarget "RFCore_OSX" */;
+			buildPhases = (
+				63B827AE2129B8E7002924AD /* Headers */,
+				63B827AF2129B8E7002924AD /* Sources */,
+				63B827B02129B8E7002924AD /* Frameworks */,
+				63B827B12129B8E7002924AD /* Resources */,
+				63B828B62129BDEB002924AD /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RFCore_OSX;
+			productName = RFCore_OSX;
+			productReference = 63B827B32129B8E7002924AD /* RFCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		63B827BA2129B8E7002924AD /* RFCore_OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B827C72129B8E7002924AD /* Build configuration list for PBXNativeTarget "RFCore_OSXTests" */;
+			buildPhases = (
+				63B827B72129B8E7002924AD /* Sources */,
+				63B827B82129B8E7002924AD /* Frameworks */,
+				63B827B92129B8E7002924AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63B827BE2129B8E7002924AD /* PBXTargetDependency */,
+			);
+			name = RFCore_OSXTests;
+			productName = RFCore_OSXTests;
+			productReference = 63B827BB2129B8E7002924AD /* RFCore_OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63B8278B2129B8B9002924AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1010;
+				TargetAttributes = {
+					63B827952129B8C4002924AD = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					63B8279E2129B8C4002924AD = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					63B827B22129B8E7002924AD = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					63B827BA2129B8E7002924AD = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 63B8278E2129B8B9002924AD /* Build configuration list for PBXProject "RFCore" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 63B8278A2129B8B9002924AD;
+			productRefGroup = 63B827972129B8C4002924AD /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 632562BC212A2E0A001CC6FA /* Products */;
+					ProjectRef = 632562BB212A2E0A001CC6FA /* AWS.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				63B827952129B8C4002924AD /* RFCore_iOS */,
+				63B8279E2129B8C4002924AD /* RFCore_iOSTests */,
+				63B827B22129B8E7002924AD /* RFCore_OSX */,
+				63B827BA2129B8E7002924AD /* RFCore_OSXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		632562E3212A2E0A001CC6FA /* AWSCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCore.framework;
+			remoteRef = 632562E2212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562E5212A2E0A001CC6FA /* AWSCore_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCore_OSXTests.xctest;
+			remoteRef = 632562E4212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562E7212A2E0A001CC6FA /* AWSAutoScaling.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSAutoScaling.framework;
+			remoteRef = 632562E6212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562E9212A2E0A001CC6FA /* AWSAutoScaling_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSAutoScaling_OSXTests.xctest;
+			remoteRef = 632562E8212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562EB212A2E0A001CC6FA /* AWSCognito.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognito.framework;
+			remoteRef = 632562EA212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562ED212A2E0A001CC6FA /* AWSCognito_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognito_OSXTests.xctest;
+			remoteRef = 632562EC212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562EF212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProvider.framework;
+			remoteRef = 632562EE212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562F1212A2E0A001CC6FA /* AWSCognitoIdentityProvider_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProvider_OSXTests.xctest;
+			remoteRef = 632562F0212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562F3212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProviderASF.framework;
+			remoteRef = 632562F2212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562F5212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProviderASF_OSXTests.xctest;
+			remoteRef = 632562F4212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562F7212A2E0A001CC6FA /* AWSS3.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSS3.framework;
+			remoteRef = 632562F6212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562F9212A2E0A001CC6FA /* AWSS3_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSS3_OSXTests.xctest;
+			remoteRef = 632562F8212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562FB212A2E0A001CC6FA /* AWSSNS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSNS.framework;
+			remoteRef = 632562FA212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562FD212A2E0A001CC6FA /* AWSSNS_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSNS_OSXTests.xctest;
+			remoteRef = 632562FC212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		632562FF212A2E0A001CC6FA /* AWSSQS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSQS.framework;
+			remoteRef = 632562FE212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256301212A2E0A001CC6FA /* AWSSQS_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSQS_OSXTests.xctest;
+			remoteRef = 63256300212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256303212A2E0A001CC6FA /* AWSDynamoDB.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSDynamoDB.framework;
+			remoteRef = 63256302212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256305212A2E0A001CC6FA /* AWSDynamoDB_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSDynamoDB_OSXTests.xctest;
+			remoteRef = 63256304212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256307212A2E0A001CC6FA /* AWSCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCore.framework;
+			remoteRef = 63256306212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256309212A2E0A001CC6FA /* AWSCore_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCore_iOSTests.xctest;
+			remoteRef = 63256308212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325630B212A2E0A001CC6FA /* AWSAutoScaling.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSAutoScaling.framework;
+			remoteRef = 6325630A212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325630D212A2E0A001CC6FA /* AWSAutoScaling_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSAutoScaling_iOSTests.xctest;
+			remoteRef = 6325630C212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325630F212A2E0A001CC6FA /* AWSCognito.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognito.framework;
+			remoteRef = 6325630E212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256311212A2E0A001CC6FA /* AWSCognito_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognito_iOSTests.xctest;
+			remoteRef = 63256310212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256313212A2E0A001CC6FA /* AWSCognitoIdentityProvider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProvider.framework;
+			remoteRef = 63256312212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256315212A2E0A001CC6FA /* AWSCognitoIdentityProvider_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProvider_iOSTests.xctest;
+			remoteRef = 63256314212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256317212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProviderASF.framework;
+			remoteRef = 63256316212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256319212A2E0A001CC6FA /* AWSCognitoIdentityProviderASF_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSCognitoIdentityProviderASF_iOSTests.xctest;
+			remoteRef = 63256318212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325631B212A2E0A001CC6FA /* AWSS3.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSS3.framework;
+			remoteRef = 6325631A212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325631D212A2E0A001CC6FA /* AWSS3_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSS3_iOSTests.xctest;
+			remoteRef = 6325631C212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6325631F212A2E0A001CC6FA /* AWSSNS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSNS.framework;
+			remoteRef = 6325631E212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256321212A2E0A001CC6FA /* AWSSNS_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSNS_iOSTests.xctest;
+			remoteRef = 63256320212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256323212A2E0A001CC6FA /* AWSSQS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSSQS.framework;
+			remoteRef = 63256322212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256325212A2E0A001CC6FA /* AWSSQS_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSSQS_iOSTests.xctest;
+			remoteRef = 63256324212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256327212A2E0A001CC6FA /* AWSDynamoDB.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSDynamoDB.framework;
+			remoteRef = 63256326212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63256329212A2E0A001CC6FA /* AWSDynamoDB_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSDynamoDB_iOSTests.xctest;
+			remoteRef = 63256328212A2E0A001CC6FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C39EC219FDCAB00418D6C /* AWSIoT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSIoT.framework;
+			remoteRef = 633C39EB219FDCAB00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C39EE219FDCAB00418D6C /* AWSIoT_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSIoT_OSXTests.xctest;
+			remoteRef = 633C39ED219FDCAB00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C39F0219FDCAB00418D6C /* AWSIoT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSIoT.framework;
+			remoteRef = 633C39EF219FDCAB00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		633C39F2219FDCAB00418D6C /* AWSIoT_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSIoT_iOSTests.xctest;
+			remoteRef = 633C39F1219FDCAB00418D6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63B827942129B8C4002924AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B8279D2129B8C4002924AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827B12129B8E7002924AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827B92129B8E7002924AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63B827922129B8C4002924AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6371C3EE2133277800829550 /* RFFetchAssetsOperation.swift in Sources */,
+				63B828392129BBEB002924AD /* RFSaveAssetOperation.swift in Sources */,
+				63B828352129BBEB002924AD /* RFDeleteFolderOperation.swift in Sources */,
+				63B827D72129BA92002924AD /* RFError.swift in Sources */,
+				6371C43C2133A6BE00829550 /* RFAssetReference.swift in Sources */,
+				63B828542129BC4D002924AD /* ObjectMerger.swift in Sources */,
+				63B828522129BC4D002924AD /* Storage.swift in Sources */,
+				63B828502129BC4D002924AD /* Failable.swift in Sources */,
+				63B82D95212A3AB4002924AD /* RFRecordValue.swift in Sources */,
+				63B8283F2129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift in Sources */,
+				63B827DB2129BA92002924AD /* RFContainer.swift in Sources */,
+				63B827FE2129BB3E002924AD /* RFNotification.swift in Sources */,
+				63B828092129BBB1002924AD /* RFContainerOperation.swift in Sources */,
+				63B828032129BB4D002924AD /* RFSubscription.swift in Sources */,
+				63B8284A2129BC4D002924AD /* DictionaryEncoder.swift in Sources */,
+				63B828482129BC4D002924AD /* InternalFunction.swift in Sources */,
+				63B8284E2129BC4D002924AD /* DictionaryDecoder.swift in Sources */,
+				63B8284C2129BC4D002924AD /* AnyCodingKey.swift in Sources */,
+				63B8280B2129BBB1002924AD /* RFOperation.swift in Sources */,
+				63B828372129BBEB002924AD /* RFDeleteAssetsDirectlyOperation.swift in Sources */,
+				63B827FC2129BB3E002924AD /* RFContainerNotification.swift in Sources */,
+				63B828152129BBC4002924AD /* RFModifySubscriptionsOperation.swift in Sources */,
+				63B8283B2129BBEB002924AD /* RFSaveSubscriptionsOperation.swift in Sources */,
+				636C8AD921A53C08005F0AD0 /* RFRecordEncoder.swift in Sources */,
+				63B827D52129BA92002924AD /* RFCredentials.swift in Sources */,
+				636A50C321330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift in Sources */,
+				6392F0212135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift in Sources */,
+				63B828052129BB4D002924AD /* RFContainerSubscription.swift in Sources */,
+				63B827D32129BA92002924AD /* RFContainer+Configuration.swift in Sources */,
+				63B827ED2129BB2D002924AD /* RFQuery.swift in Sources */,
+				63B828312129BBEB002924AD /* RFSaveAssetsOperation.swift in Sources */,
+				63B82DC1212B2302002924AD /* RFQueryStorageOperation.swift in Sources */,
+				63B827F72129BB2D002924AD /* RFRegion.swift in Sources */,
+				63B8282B2129BBEB002924AD /* RFDeleteAssetsOperation.swift in Sources */,
+				63B82DC4212B2424002924AD /* RFQueryDatabaseOperation.swift in Sources */,
+				63B8282D2129BBEB002924AD /* RFMultiPartSaveAssetOperation.swift in Sources */,
+				63B8283D2129BBEB002924AD /* RFSaveSubscriptionOperation.swift in Sources */,
+				63B827F12129BB2D002924AD /* RFAssetAttributes.m in Sources */,
+				63B8282F2129BBEB002924AD /* RFSinglePartSaveAssetOperation.swift in Sources */,
+				63B828132129BBC4002924AD /* RFFetchRecordsOperation.swift in Sources */,
+				63B828332129BBEB002924AD /* RFSaveFolderAssetOperation.swift in Sources */,
+				63B827F52129BB2D002924AD /* RFAsset.m in Sources */,
+				63B828292129BBEB002924AD /* RFFetchAssetOperation.swift in Sources */,
+				6376B8CC21A5E2E400B2356C /* RFRecordDecoder.swift in Sources */,
+				63B828172129BBC4002924AD /* RFQueryOperation.swift in Sources */,
+				63B828112129BBC4002924AD /* RFModifyRecordsOperation.swift in Sources */,
+				63B827D92129BA92002924AD /* RFOperationGroup.swift in Sources */,
+				63B828572129BC5C002924AD /* Utilities.swift in Sources */,
+				63B827EF2129BB2D002924AD /* RFRecord.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B8279B2129B8C4002924AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B82B2F2129CE0B002924AD /* RFModifyRecordOperationTests.swift in Sources */,
+				63B82B3B2129CE0B002924AD /* RFContainerTests.swift in Sources */,
+				63B82B2B2129CE0B002924AD /* RFQueryOperationTests.swift in Sources */,
+				63B82B312129CE0B002924AD /* RFRecordTests.swift in Sources */,
+				63B82B2D2129CE0B002924AD /* RFAssetTests.swift in Sources */,
+				63B82B352129CE0B002924AD /* RFFetchRecordsOperationTests.swift in Sources */,
+				63B82B392129CE0B002924AD /* RFCredentialsTests.swift in Sources */,
+				63B82B332129CE0B002924AD /* RFQueryTests.swift in Sources */,
+				63B827A52129B8C4002924AD /* RFCoreTests.swift in Sources */,
+				63B82B372129CE0B002924AD /* RFOperationGroupTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827AF2129B8E7002924AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6371C3EF2133277800829550 /* RFFetchAssetsOperation.swift in Sources */,
+				63B8283A2129BBEB002924AD /* RFSaveAssetOperation.swift in Sources */,
+				63B828362129BBEB002924AD /* RFDeleteFolderOperation.swift in Sources */,
+				63B827D82129BA92002924AD /* RFError.swift in Sources */,
+				6371C43D2133A6BE00829550 /* RFAssetReference.swift in Sources */,
+				63B828552129BC4D002924AD /* ObjectMerger.swift in Sources */,
+				63B828532129BC4D002924AD /* Storage.swift in Sources */,
+				63B828512129BC4D002924AD /* Failable.swift in Sources */,
+				63B82D96212A3AB4002924AD /* RFRecordValue.swift in Sources */,
+				63B828402129BBEB002924AD /* RFDeleteSubscriptionsOperation.swift in Sources */,
+				63B827DC2129BA92002924AD /* RFContainer.swift in Sources */,
+				63B827FF2129BB3E002924AD /* RFNotification.swift in Sources */,
+				63B8280A2129BBB1002924AD /* RFContainerOperation.swift in Sources */,
+				63B828042129BB4D002924AD /* RFSubscription.swift in Sources */,
+				63B8284B2129BC4D002924AD /* DictionaryEncoder.swift in Sources */,
+				63B828492129BC4D002924AD /* InternalFunction.swift in Sources */,
+				63B8284F2129BC4D002924AD /* DictionaryDecoder.swift in Sources */,
+				63B8284D2129BC4D002924AD /* AnyCodingKey.swift in Sources */,
+				63B8280C2129BBB1002924AD /* RFOperation.swift in Sources */,
+				63B828382129BBEB002924AD /* RFDeleteAssetsDirectlyOperation.swift in Sources */,
+				63B827FD2129BB3E002924AD /* RFContainerNotification.swift in Sources */,
+				63B828162129BBC4002924AD /* RFModifySubscriptionsOperation.swift in Sources */,
+				63B8283C2129BBEB002924AD /* RFSaveSubscriptionsOperation.swift in Sources */,
+				636C8ADA21A53C08005F0AD0 /* RFRecordEncoder.swift in Sources */,
+				63B827D62129BA92002924AD /* RFCredentials.swift in Sources */,
+				636A50C421330F6D003E042D /* RFFetchRecordsDatabaseOperation.swift in Sources */,
+				6392F0222135DAEF00F7986B /* RFModifyRecordsDatabaseOperation.swift in Sources */,
+				63B828062129BB4D002924AD /* RFContainerSubscription.swift in Sources */,
+				63B827D42129BA92002924AD /* RFContainer+Configuration.swift in Sources */,
+				63B827EE2129BB2D002924AD /* RFQuery.swift in Sources */,
+				63B828322129BBEB002924AD /* RFSaveAssetsOperation.swift in Sources */,
+				63B82DC2212B2302002924AD /* RFQueryStorageOperation.swift in Sources */,
+				63B827F82129BB2D002924AD /* RFRegion.swift in Sources */,
+				63B8282C2129BBEB002924AD /* RFDeleteAssetsOperation.swift in Sources */,
+				63B82DC5212B2424002924AD /* RFQueryDatabaseOperation.swift in Sources */,
+				63B8282E2129BBEB002924AD /* RFMultiPartSaveAssetOperation.swift in Sources */,
+				63B8283E2129BBEB002924AD /* RFSaveSubscriptionOperation.swift in Sources */,
+				63B827F22129BB2D002924AD /* RFAssetAttributes.m in Sources */,
+				63B828302129BBEB002924AD /* RFSinglePartSaveAssetOperation.swift in Sources */,
+				63B828142129BBC4002924AD /* RFFetchRecordsOperation.swift in Sources */,
+				63B828342129BBEB002924AD /* RFSaveFolderAssetOperation.swift in Sources */,
+				63B827F62129BB2D002924AD /* RFAsset.m in Sources */,
+				63B8282A2129BBEB002924AD /* RFFetchAssetOperation.swift in Sources */,
+				6376B8CD21A5E2E400B2356C /* RFRecordDecoder.swift in Sources */,
+				63B828182129BBC4002924AD /* RFQueryOperation.swift in Sources */,
+				63B828122129BBC4002924AD /* RFModifyRecordsOperation.swift in Sources */,
+				63B827DA2129BA92002924AD /* RFOperationGroup.swift in Sources */,
+				63B828582129BC5C002924AD /* Utilities.swift in Sources */,
+				63B827F02129BB2D002924AD /* RFRecord.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B827B72129B8E7002924AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B82B302129CE0B002924AD /* RFModifyRecordOperationTests.swift in Sources */,
+				63B82B3C2129CE0B002924AD /* RFContainerTests.swift in Sources */,
+				63B82B2C2129CE0B002924AD /* RFQueryOperationTests.swift in Sources */,
+				63B82B322129CE0B002924AD /* RFRecordTests.swift in Sources */,
+				63B82B2E2129CE0B002924AD /* RFAssetTests.swift in Sources */,
+				63B82B362129CE0B002924AD /* RFFetchRecordsOperationTests.swift in Sources */,
+				63B82B3A2129CE0B002924AD /* RFCredentialsTests.swift in Sources */,
+				63B82B342129CE0B002924AD /* RFQueryTests.swift in Sources */,
+				63B827CB2129B9B8002924AD /* RFCoreTests.swift in Sources */,
+				63B82B382129CE0B002924AD /* RFOperationGroupTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63B827A22129B8C4002924AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63B827952129B8C4002924AD /* RFCore_iOS */;
+			targetProxy = 63B827A12129B8C4002924AD /* PBXContainerItemProxy */;
+		};
+		63B827BE2129B8E7002924AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63B827B22129B8E7002924AD /* RFCore_OSX */;
+			targetProxy = 63B827BD2129B8E7002924AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		63B8278F2129B8B9002924AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		63B827902129B8B9002924AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		63B827A92129B8C4002924AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCore;
+				PRODUCT_NAME = RFCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/RFCore";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		63B827AA2129B8C4002924AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCore;
+				PRODUCT_NAME = RFCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/RFCore";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		63B827AC2129B8C4002924AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCoreTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63B827AD2129B8C4002924AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCoreTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63B827C52129B8E7002924AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCore;
+				PRODUCT_NAME = RFCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/RFCore";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		63B827C62129B8E7002924AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCore;
+				PRODUCT_NAME = RFCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/RFCore";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		63B827C82129B8E7002924AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		63B827C92129B8E7002924AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4SPJ9K7CHQ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = RFCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.mooredev.RFCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63B8278E2129B8B9002924AD /* Build configuration list for PBXProject "RFCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B8278F2129B8B9002924AD /* Debug */,
+				63B827902129B8B9002924AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B827A82129B8C4002924AD /* Build configuration list for PBXNativeTarget "RFCore_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B827A92129B8C4002924AD /* Debug */,
+				63B827AA2129B8C4002924AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B827AB2129B8C4002924AD /* Build configuration list for PBXNativeTarget "RFCore_iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B827AC2129B8C4002924AD /* Debug */,
+				63B827AD2129B8C4002924AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B827C42129B8E7002924AD /* Build configuration list for PBXNativeTarget "RFCore_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B827C52129B8E7002924AD /* Debug */,
+				63B827C62129B8E7002924AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B827C72129B8E7002924AD /* Build configuration list for PBXNativeTarget "RFCore_OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B827C82129B8E7002924AD /* Debug */,
+				63B827C92129B8E7002924AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63B8278B2129B8B9002924AD /* Project object */;
+}
