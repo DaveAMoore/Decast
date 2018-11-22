@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController nibName="" modalPresentationStyle="formSheet" id="JPC-Yj-QEG" customClass="SFOnboardingStageViewController" customModule="SFKit" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="VhS-23-C8T">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLO-jM-z7i">
+                        <rect key="frame" x="0.0" y="94.666666666666686" width="375" height="502.00000000000006"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections/>
+                    </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZw-KD-Jsa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xE8-mY-DPW" customClass="SFButton" customModule="SFKit" customModuleProvider="target">
+                                <rect key="frame" x="293.33333333333331" y="52" width="61.666666666666686" height="34.666666666666657"/>
+                                <state key="normal" title="Next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonKindRawValue">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkC-lj-ilM" customClass="SFButton" customModule="SFKit" customModuleProvider="target">
+                                <rect key="frame" x="19.999999999999996" y="52" width="40.666666666666657" height="34.333333333333343"/>
+                                <state key="normal" title="←"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonKindRawValue">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xE8-mY-DPW" firstAttribute="top" secondItem="YkC-lj-ilM" secondAttribute="top" id="BFW-i5-9OW"/>
+                            <constraint firstItem="IeJ-U2-Jrg" firstAttribute="trailing" secondItem="xE8-mY-DPW" secondAttribute="trailing" constant="20" id="EhC-em-Y7T"/>
+                            <constraint firstItem="IeJ-U2-Jrg" firstAttribute="bottom" secondItem="xE8-mY-DPW" secondAttribute="bottom" constant="8" id="HXp-3N-0P3"/>
+                            <constraint firstItem="IeJ-U2-Jrg" firstAttribute="bottom" secondItem="YkC-lj-ilM" secondAttribute="bottom" constant="8" id="Nmz-3Q-3Wq"/>
+                            <constraint firstItem="xE8-mY-DPW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YkC-lj-ilM" secondAttribute="trailing" constant="20" id="SAU-wd-yXz"/>
+                            <constraint firstItem="YkC-lj-ilM" firstAttribute="leading" secondItem="IeJ-U2-Jrg" secondAttribute="leading" constant="20" id="Tm2-0j-Zx6"/>
+                            <constraint firstItem="xE8-mY-DPW" firstAttribute="top" secondItem="IeJ-U2-Jrg" secondAttribute="top" constant="8" id="udP-VM-Nsf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IeJ-U2-Jrg"/>
+                    </view>
+                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-w0-mao">
+                        <rect key="frame" x="0.0" y="596.66666666666663" width="375" height="215.33333333333337"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BIs-8w-jze">
+                                <rect key="frame" x="20" y="20" width="335" height="141.33333333333334"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f9f-LB-O9q">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="96.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information you provide will be verified by your selected municipality and used for authentication." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKh-eI-17l" customClass="SFLabel" customModule="SFKit">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="26.333333333333332"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                <color key="textColor" red="0.57700993789999999" green="0.57700993789999999" blue="0.57700993789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-mk-sB4" customClass="SFButton" customModule="SFKit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46.333333333333371" width="335" height="50"/>
+                                                <state key="normal" title="Continue"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonKindRawValue">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LED-kH-h43">
+                                        <rect key="frame" x="0.0" y="108.33333333333337" width="335" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="Skip"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BIs-8w-jze" secondAttribute="trailing" constant="20" id="Dj6-qj-fS1"/>
+                            <constraint firstItem="ksi-Rv-hbY" firstAttribute="bottom" secondItem="BIs-8w-jze" secondAttribute="bottom" constant="20" id="TKB-83-ptm"/>
+                            <constraint firstItem="BIs-8w-jze" firstAttribute="leading" secondItem="RDh-w0-mao" secondAttribute="leading" constant="20" id="lhv-LJ-XSq"/>
+                            <constraint firstItem="BIs-8w-jze" firstAttribute="top" secondItem="ksi-Rv-hbY" secondAttribute="top" constant="20" id="oIv-Bt-MF4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ksi-Rv-hbY"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="MLO-jM-z7i" firstAttribute="leading" secondItem="taH-pw-Vr0" secondAttribute="leading" id="2X6-Wd-23F"/>
+                    <constraint firstItem="JZw-KD-Jsa" firstAttribute="top" secondItem="VhS-23-C8T" secondAttribute="top" id="6Zz-Tt-5s8"/>
+                    <constraint firstItem="JZw-KD-Jsa" firstAttribute="trailing" secondItem="taH-pw-Vr0" secondAttribute="trailing" id="7cs-Ss-CUN"/>
+                    <constraint firstAttribute="bottom" secondItem="RDh-w0-mao" secondAttribute="bottom" id="9An-kZ-xPr"/>
+                    <constraint firstItem="RDh-w0-mao" firstAttribute="top" secondItem="MLO-jM-z7i" secondAttribute="bottom" id="BTX-sR-urS"/>
+                    <constraint firstItem="MLO-jM-z7i" firstAttribute="top" secondItem="JZw-KD-Jsa" secondAttribute="bottom" id="Kmg-Ek-Zl0"/>
+                    <constraint firstItem="MLO-jM-z7i" firstAttribute="trailing" secondItem="taH-pw-Vr0" secondAttribute="trailing" id="Pnj-DJ-av1"/>
+                    <constraint firstItem="RDh-w0-mao" firstAttribute="leading" secondItem="taH-pw-Vr0" secondAttribute="leading" id="S7q-nj-PvV"/>
+                    <constraint firstItem="RDh-w0-mao" firstAttribute="trailing" secondItem="taH-pw-Vr0" secondAttribute="trailing" id="fww-PE-5wg"/>
+                    <constraint firstItem="JZw-KD-Jsa" firstAttribute="leading" secondItem="taH-pw-Vr0" secondAttribute="leading" id="nxS-iQ-QK2"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="taH-pw-Vr0"/>
+            </view>
+            <connections>
+                <outlet property="accessoryLabel" destination="yKh-eI-17l" id="NIy-4e-evc"/>
+                <outlet property="bottomContainer" destination="RDh-w0-mao" id="p8C-Cv-RPp"/>
+                <outlet property="leadingButton" destination="YkC-lj-ilM" id="mvt-cu-sUi"/>
+                <outlet property="primaryButton" destination="Vek-mk-sB4" id="Xhk-YL-lHx"/>
+                <outlet property="secondaryButton" destination="LED-kH-h43" id="YK2-xA-fQU"/>
+                <outlet property="tableView" destination="MLO-jM-z7i" id="NWp-hD-4um"/>
+                <outlet property="topContainer" destination="JZw-KD-Jsa" id="dWd-KA-7Z1"/>
+                <outlet property="trailingButton" destination="xE8-mY-DPW" id="yRB-vs-uiM"/>
+            </connections>
+            <point key="canvasLocation" x="726.5" y="329"/>
+        </viewController>
+    </objects>
+</document>
