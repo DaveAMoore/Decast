@@ -58,9 +58,16 @@ class DTRemoteCollectionViewController: DTCollectionViewController {
         
         // Configure the cell.
         cell.titleLabel.text = item.localizedTitle
-        cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var size = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
+        
+        size.height *= 2 / 3
+        
+        return size
     }
     
     // MARK: - Collection View Delegate
