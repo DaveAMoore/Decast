@@ -62,7 +62,7 @@ extension RKAuthenticationController: AWSCognitoIdentityInteractiveAuthenticatio
     }
     
     func startNewPasswordRequired() -> AWSCognitoIdentityNewPasswordRequired {
-        //DispatchQueue.main.async { presentOnboardingController() }
+        DispatchQueue.main.async { self.presentOnboardingController() }
         return self
     }
 }
@@ -187,7 +187,7 @@ extension RKAuthenticationController: AWSCognitoIdentityPasswordAuthentication {
     
     func didCompleteStepWithError(_ error: Error?) {
         if error == nil {
-            //dismissOnboardingController()
+            dismissOnboardingController()
         }
     }
 }
@@ -314,7 +314,7 @@ extension RKAuthenticationController: AWSCognitoIdentityNewPasswordRequired {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?) {
         if error == nil {
-            //dismissOnboardingController()
+            dismissOnboardingController()
         }
     }
 }

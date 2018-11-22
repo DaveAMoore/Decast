@@ -31,6 +31,12 @@ class DTLibraryViewController: DTCollectionViewController {
         
         // Register the cell.
         registerCollectionViewCell(ofType: DTRemoteCell.self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        RKSessionManager.shared.delegate = self
         
         RKSessionManager.shared.fetchAllDevices { devices, error in
             guard let devices = devices else {
@@ -139,7 +145,15 @@ extension DTLibraryViewController: DTTrainingControllerDelegate {
     }
 }
 
+extension DTLibraryViewController: RKSessionManagerDelegate {
+    
+    func sessionManager(_ sessionManager: RKSessionManager, presentAuthenticationViewController viewController: UIViewController) {
+        present(viewController, animated: true)
+    }
+}
+
 extension DTLibraryViewController: RKSessionDelegate {
+    
     func sessionDidActivate(_ session: RKSession) {
         
     }
