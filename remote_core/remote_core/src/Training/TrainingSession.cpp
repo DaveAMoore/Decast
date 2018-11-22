@@ -13,6 +13,8 @@
 #include "CommandLine.hpp"
 #include <exception>
 #include <iostream>
+#include <fstream>
+#include <thread>
 
 using namespace RemoteCore;
 
@@ -39,9 +41,63 @@ TrainingSession::TrainingSession(Remote associatedRemote) : associatedRemote(ass
                         std::inserter(availableCommandIDs, availableCommandIDs.end()));
 }
 
+void TrainingSession::addNewRemoteConfigToDefaultConfig(Remote remote) {
+    // Initialize and set reader to new remote config / writer to default config appending to end of file
+    std::ofstream fileWriter;
+    std::ifstream fileReader;
+    fileWriter.open("/etc/lirc/lircd.conf", std::ios::app);
+    fileReader.open("remotes/" + remote.getRemoteID() + ".lircd.conf");
+
+    // Set up for finding remote declaration in new config file
+    bool isRemoteNotDeclared = true;
+    std::string line;
+
+    if (fileReader.is_open() && fileWriter.is_open()) {
+        // Set reader to begin of remote declaration
+        while (isRemoteNotDeclared) {
+            std::getline(fileReader, line);
+            if (line.find("begin remote") != std::string::npos) {
+                isRemoteNotDeclared = false;
+                fileWriter << "\n" << line << "\n";
+            }
+        }
+
+        // Write/Read parallel to config files
+        while (std::getline(fileReader, line)) {
+            if (line.find("end remote") != std::string::npos) {
+                fileWriter << line << "\n";
+                break;
+            }
+            fileWriter << line << "\n";
+        }
+
+        fileWriter.close();
+        fileReader.close();
+    } else {
+        // Handle fileReader / fileWriter not open
+    }
+
+
+}
+
 void TrainingSession::start(void) {
     /* ***************** Start the training session. ***************** */
-    
+
+//    std::string initiateRecord = "sudo /etc/init.d/lircd stop; irrecord";
+//
+//    // Call the delegate.
+//    if (auto delegate = this->delegate.lock()) {
+//        delegate->trainingSessionDidLearnCommand(this, command);
+//    }
+//
+//    CommandLine::sharedCommandLine()->executeCommandWithResultHandler(initiateRecord.c_str(), [=](std::string result, bool isComplete) {
+//        if (isComplete) {
+//
+//        }
+//    });
+
+
+
     // Call the appropriate delegate method.
     if (auto delegate = this->delegate.lock()) {
         delegate->trainingSessionDidBegin(this);
@@ -78,20 +134,13 @@ void TrainingSession::learnCommand(Command command) {
     
     /* ***************** Learn the command. ***************** */
 
-
+    DispatchQueue queue("ca.mooredev.remote_core.TrainingSession.serial_dispatch_queue");
+    queue.execute([]() {
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+    });
 
     // Call the delegate.
     if (auto delegate = this->delegate.lock()) {
         delegate->trainingSessionDidLearnCommand(this, command);
     }
-}
-
-void TrainingSession::trainRemoteWithCompletionHandler(Remote remote) {
-    std::string initiateRecord = "irrecord";
-
-//    CommandLine::sharedCommandLine()->executeCommandWithResultHandler(initiateRecord.c_str(), [=](std::string result, bool isComplete) {
-//        if (isComplete) {
-//
-//        }
-//    });
 }

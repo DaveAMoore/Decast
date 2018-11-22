@@ -57,7 +57,13 @@ namespace RemoteCore {
         void setDelegate(std::weak_ptr<TrainingSessionDelegate> delegate) {
             this->delegate = delegate;
         }
-        
+
+        /**
+         Adds the config content of new remote to default config
+         * @param remote
+         */
+        void addNewRemoteConfigToDefaultConfig(Remote remote);
+
         /**
          Initializes the training session. This will require user input (e.g., inclusive arbitrary input).
          */
@@ -86,7 +92,7 @@ namespace RemoteCore {
          * @param remote Setup for naming of config file using remoteID
          */
 
-        void trainRemoteWithCompletionHandler(Remote remote);
+        void trainRemote(Remote remote);
     };
     
     class TrainingSessionDelegate : public std::enable_shared_from_this<TrainingSessionDelegate> {
