@@ -1,5 +1,5 @@
 //
-//  DTBoldHeaderView.swift
+//  DTHeaderView.swift
 //  Decast
 //
 //  Created by David Moore on 7/15/17.
@@ -8,7 +8,7 @@
 
 import SFKit
 
-class DTBoldHeaderView: UICollectionReusableView {
+class DTHeaderView: UICollectionReusableView {
 
     // MARK: - Outlets
     

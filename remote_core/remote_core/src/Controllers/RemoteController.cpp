@@ -11,6 +11,7 @@
 #include "JSONContainer.hpp"
 #include "Coder.hpp"
 #include "ConfigCommon.hpp"
+#include "CommandLine.hpp"
 
 #define TOPIC_PREFIX "remote_core/account/"
 
