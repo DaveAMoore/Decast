@@ -15,6 +15,9 @@ public struct RKDevice: Codable, Hashable {
     /// Serial number of an `RKDevice`.
     public let serialNumber: String
     
+    /// Identifiers for remotes compatible with this device.
+    internal var remoteIDs: [RKRemote.ID] = []
+    
     // MARK: - Initialization
     
     public init(serialNumber: String) {

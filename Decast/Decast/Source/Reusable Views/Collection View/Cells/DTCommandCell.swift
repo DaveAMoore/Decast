@@ -1,14 +1,14 @@
 //
-//  DTRemoteCell.swift
+//  DTCommandCell.swift
 //  Decast
 //
-//  Created by David Moore on 11/20/18.
+//  Created by David Moore on 11/21/18.
 //  Copyright © 2018 David Moore. All rights reserved.
 //
 
 import SFKit
 
-class DTRemoteCell: UICollectionViewCell {
+class DTCommandCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -34,8 +34,8 @@ class DTRemoteCell: UICollectionViewCell {
         
         // Update coloring.
         let colorMetrics = UIColorMetrics(forAppearance: appearance)
-        contentView.backgroundColor = colorMetrics.color(forRelativeHue: .pink)
-
+        contentView.backgroundColor = colorMetrics.color(forRelativeHue: .blue)
+        
         // Configure the rounding.
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 12.0

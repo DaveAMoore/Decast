@@ -13,6 +13,10 @@ class DTLibraryViewController: DTCollectionViewController {
 
     // MARK: - Properties
     
+    /// All of the sessions for different devices.
+    var sessions: [RKSession] = []
+    
+    /// Collection of the users remotes.
     var remotes: [RKRemote] = []
     
     // MARK: - Lifecycle
@@ -23,23 +27,43 @@ class DTLibraryViewController: DTCollectionViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        // Register the cell.
         registerCollectionViewCell(ofType: DTRemoteCell.self)
         
-        // Query the remotes.
-        RKSessionManager.shared.queryRemotesForCurrentUser { remotes, error in
-            guard let remotes = remotes else {
-                fatalError("Failed querying remotes: \(error!.localizedDescription)")
+        RKSessionManager.shared.fetchAllDevices { devices, error in
+            guard let devices = devices else {
+                fatalError("Failed fetching devices: \(error!.localizedDescription)")
             }
             
-            DispatchQueue.main.async {
-                self.remotes = remotes
-                self.collectionView.reloadData()
+            for device in devices {
+                let session = RKSession(device: device)
+                session.activate()
+                
+                self.sessions.append(session)
+            }
+            
+            // Query the remotes.
+            RKSessionManager.shared.fetchAllRemotes { remotes, error in
+                guard let remotes = remotes else {
+                    fatalError("Failed querying remotes: \(error!.localizedDescription)")
+                }
+                
+                DispatchQueue.main.async {
+                    self.remotes = remotes
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
 
     override func appearanceStyleDidChange(_ previousAppearanceStyle: SFAppearanceStyle) {
         super.appearanceStyleDidChange(previousAppearanceStyle)
+    }
+    
+    // MARK: - Data Model
+    
+    func remote(forItemAt indexPath: IndexPath) -> RKRemote {
+        return remotes[indexPath.row]
     }
     
     // MARK: - Collection View Data Source
@@ -55,61 +79,32 @@ class DTLibraryViewController: DTCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(ofType: DTRemoteCell.self, for: indexPath)
         
-        // Configure the cell.
-        cell.titleLabel.text = NSLocalizedString("TV Remote", comment: "")
+        let item = remote(forItemAt: indexPath)
         
+        // Configure the cell.
+        cell.titleLabel.text = item.localizedTitle
         cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
         
         return cell
     }
     
+    // MARK: - Collection View Delegate
     
-    
-    // MARK: - Table view data source
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = remote(forItemAt: indexPath)
+        performSegue(withIdentifier: "Foo", sender: item)
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destination = segue.destination as? DTRemoteCollectionViewController, let remote = sender as? RKRemote {
+            destination.sessions = sessions
+            destination.remote = remote
+        }
     }
-    */
-
 }

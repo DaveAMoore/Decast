@@ -7,52 +7,85 @@
 //
 
 import SFKit
+import RemoteKit
 
 class DTRemoteCollectionViewController: DTCollectionViewController {
+    
+    // MARK: - Properties
+    
+    var sessions: [RKSession]!
+    var remote: RKRemote!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        sessions.forEach { $0.delegate = self }
+        
+        // Register the cell.
+        registerCollectionViewCell(ofType: DTCommandCell.self)
+        
+        // Update the title.
+        title = remote.localizedTitle
     }
     
     override func appearanceStyleDidChange(_ previousAppearanceStyle: SFAppearanceStyle) {
         super.appearanceStyleDidChange(previousAppearanceStyle)
     }
     
+    // MARK: - Data Model
+    
+    func command(forItemAt indexPath: IndexPath) -> RKCommand {
+        return remote.commands[indexPath.row]
+    }
+    
     // MARK: - Collection View Data Source
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
+        return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2;
+        return remote.commands.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DTRemoteCell.typeName, for: indexPath) as! DTRemoteCell
+        let cell = collectionView.dequeueReusableCell(ofType: DTCommandCell.self, for: indexPath)
         
-        /*cell.titleLabel?.text = NSLocalizedString("Hello World", comment: "")
-        cell.detailLabel?.text = NSLocalizedString("Okay", comment: "")
+        // Retrieve the command.
+        let item = command(forItemAt: indexPath)
         
-        if cell.widthConstraint == nil {
-            //cell.widthConstraint = cell.widthAnchor.constraint(equalTo: collectionView.widthAnchor, constant: 80)
-            //cell.widthConstraint.isActive = true
-        }
-        */
-        // cell.setWidth(to: collectionView.bounds.width - 60)
+        // Configure the cell.
+        cell.titleLabel.text = item.localizedTitle
+        //cell.setWidth(to: collectionViewContentSize.width / 2 - 8.1)
         
         return cell
     }
+    
+    // MARK: - Collection View Delegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = command(forItemAt: indexPath)
+        sessions.forEach { $0.send(item, for: remote) }
+    }
+}
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension DTRemoteCollectionViewController: RKSessionDelegate {
+    
+    func sessionDidActivate(_ session: RKSession) {
+        
+    }
+    
+    func session(_ session: RKSession, didFailWithError error: Error) {
+        
+    }
+    
+    func session(_ session: RKSession, didSendCommand command: RKCommand, forRemote remote: RKRemote) {
+        
+    }
+    
+    func session(_ session: RKSession, didFailToSendCommand command: RKCommand, forRemote remote: RKRemote, withError error: Error) {
+        
     }
 }

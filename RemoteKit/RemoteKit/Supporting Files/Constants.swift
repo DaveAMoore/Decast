@@ -16,5 +16,6 @@ struct Constants {
     
     struct RecordTypes {
         static let remote = "Remote"
+        static let device = "Device"
     }
 }

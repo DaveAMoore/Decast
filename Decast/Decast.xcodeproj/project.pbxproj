@@ -20,6 +20,8 @@
 		633C3A7321A0BECD00418D6C /* SFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A7021A0BEBE00418D6C /* SFKit.framework */; };
 		633C3A7421A0BECD00418D6C /* SFKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 633C3A7021A0BEBE00418D6C /* SFKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		636C8A7B21A4C6EA005F0AD0 /* DTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C8A7A21A4C6EA005F0AD0 /* DTTableViewCell.swift */; };
+		636C8AEA21A642B6005F0AD0 /* DTCommandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C8AE821A642B6005F0AD0 /* DTCommandCell.swift */; };
+		636C8AEB21A642B6005F0AD0 /* DTCommandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636C8AE921A642B6005F0AD0 /* DTCommandCell.xib */; };
 		63C7490521A49D48005558B9 /* DTRemoteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */; };
 		63DE2F0221A4A05600CCFC17 /* DTHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7490B21A49F35005558B9 /* DTHeaderView.swift */; };
 		63DE2F0621A4A34400CCFC17 /* DTRemoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */; };
@@ -122,6 +124,8 @@
 		633C3A5521A0BE8400418D6C /* RemoteKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RemoteKit.xcodeproj; path = ../RemoteKit/RemoteKit.xcodeproj; sourceTree = "<group>"; };
 		633C3A6A21A0BEBE00418D6C /* SFKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFKit.xcodeproj; path = ../../SFKit/SFKit.xcodeproj; sourceTree = "<group>"; };
 		636C8A7A21A4C6EA005F0AD0 /* DTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTableViewCell.swift; sourceTree = "<group>"; };
+		636C8AE821A642B6005F0AD0 /* DTCommandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCommandCell.swift; sourceTree = "<group>"; };
+		636C8AE921A642B6005F0AD0 /* DTCommandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTCommandCell.xib; sourceTree = "<group>"; };
 		63C7490421A49D48005558B9 /* DTRemoteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCollectionViewController.swift; sourceTree = "<group>"; };
 		63C7490B21A49F35005558B9 /* DTHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHeaderView.swift; sourceTree = "<group>"; };
 		63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRemoteCell.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				63DE2F0521A4A34400CCFC17 /* DTRemoteCell.swift */,
+				636C8AE821A642B6005F0AD0 /* DTCommandCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 			children = (
 				63DE2F1221A4ACA600CCFC17 /* DTBoldHeaderView.xib */,
 				63DE2F1021A4AC8B00CCFC17 /* DTRemoteCell.xib */,
+				636C8AE921A642B6005F0AD0 /* DTCommandCell.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DE2F1121A4AC8B00CCFC17 /* DTRemoteCell.xib in Resources */,
+				636C8AEB21A642B6005F0AD0 /* DTCommandCell.xib in Resources */,
 				63E33B0521A4BA75007F5257 /* DTBoldHeaderView.xib in Resources */,
 				633C3A2F21A0BD9800418D6C /* LaunchScreen.storyboard in Resources */,
 				633C3A2C21A0BD9800418D6C /* Assets.xcassets in Resources */,
@@ -520,6 +527,7 @@
 				633C3A2A21A0BD9600418D6C /* Decast.xcdatamodeld in Sources */,
 				63DE2F0B21A4A61600CCFC17 /* DTCollectionViewController.swift in Sources */,
 				63DE2F0221A4A05600CCFC17 /* DTHeaderView.swift in Sources */,
+				636C8AEA21A642B6005F0AD0 /* DTCommandCell.swift in Sources */,
 				63DE2F0E21A4A69500CCFC17 /* Utilities.swift in Sources */,
 				633C3A2221A0BD9600418D6C /* AppDelegate.swift in Sources */,
 				636C8A7B21A4C6EA005F0AD0 /* DTTableViewCell.swift in Sources */,

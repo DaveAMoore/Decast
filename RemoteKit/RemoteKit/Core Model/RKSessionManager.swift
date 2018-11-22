@@ -235,53 +235,27 @@ public final class RKSessionManager: NSObject {
         }
     }
     
-    // MARK: - Remote Management
+    // MARK: - Device Management
     
-    public func queryRemotesForCurrentUser(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
-        let record = RFRecord(recordType: "Record", recordID: RFRecord.ID(recordName: "Name"))
-        let remote = RKRemote(localizedTitle: "Foo", remoteID: "Bar", commands: [RKCommand(localizedTitle: "Fum", commandID: "Boo")])
-        
-        let encoder = RFRecordEncoder(record: record)
-        do {
-            try encoder.encode(remote)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        do {
-            let decoder = RFRecordDecoder()
-            let decodedRemote = try decoder.decode(RKRemote.self, from: record)
-            
-            print(decodedRemote)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
+    /// Fetches all devices associated with this user.
+    ///
+    /// - Parameter completionHandler: Called when the devices have been fetched.
+    public func fetchAllDevices(completionHandler: @escaping (([RKDevice]?, Error?) -> Void)) {
         fetchUserID { userID, error in
-            guard let userID = userID else {
-                completionHandler(nil, error)
-                return
-            }
+            guard let userID = userID else { return completionHandler(nil, error) }
             
             let predicate = NSPredicate(format: "Owner == %@", userID)
-            let query = RFQuery(recordType: Constants.RecordTypes.remote, predicate: predicate)
+            let query = RFQuery(recordType: Constants.RecordTypes.device, predicate: predicate)
             
-            self.container.perform(query) { fetchedRecords, error in
-                if let fetchedRecords = fetchedRecords {
-                    let remotes = fetchedRecords.map { record -> RKRemote in
-                        let localizedTitle = record["LocalizedTitle"] as! String
-                        let remoteID = record["RemoteID"] as! String
-                        let commands = (record["Commands"] as! [[String: Any]]).map { command -> RKCommand in
-                            let localizedTitle = command["LocalizedTitle"] as! String
-                            let commandID = command["CommandID"] as! String
-                            
-                            return RKCommand(localizedTitle: localizedTitle, commandID: commandID)
-                        }
-                        
-                        return RKRemote(localizedTitle: localizedTitle, remoteID: remoteID, commands: commands)
+            self.container.perform(query) { queriedRecords, queryError in
+                if let queriedRecords = queriedRecords {
+                    do {
+                        let decoder = RFRecordDecoder()
+                        let devices = try queriedRecords.map { try decoder.decode(RKDevice.self, from: $0) }
+                        completionHandler(devices, nil)
+                    } catch {
+                        completionHandler(nil, error)
                     }
-                    
-                    completionHandler(remotes, nil)
                 } else {
                     completionHandler(nil, error)
                 }
@@ -289,14 +263,80 @@ public final class RKSessionManager: NSObject {
         }
     }
     
-    public func saveRemoteForCurrentUser(completionHandler: @escaping ((Error?) -> Void)) {
+    // MARK: - Remote Management
+    
+    /// Saves a remote to the cloud as the current user.
+    ///
+    /// - Parameters:
+    ///   - remote: Remote that will be saved remotely.
+    ///   - completionHandler: Called when the remote has been saved, or if an error occurred.
+    public func save(_ remote: RKRemote, completionHandler: @escaping ((Error?) -> Void)) {
         fetchUserID { userID, error in
-            guard let userID = userID else {
+            guard let userID = userID else { return completionHandler(error) }
+            
+            do {
+                let record = RFRecord(recordType: Constants.RecordTypes.remote, recordID: RFRecord.ID(recordName: remote.remoteID))
+                record["Owner"] = userID
+                
+                let encoder = RFRecordEncoder(for: record)
+                try encoder.encode(remote)
+                
+                self.container.save(record) { savedRecord, saveError in
+                    completionHandler(saveError)
+                }
+            } catch {
                 completionHandler(error)
-                return
             }
+        }
+    }
+    
+    /// Fetches all remotes for a particular device.
+    ///
+    /// - Parameters:
+    ///   - device: The device which the remotes are associated with.
+    ///   - completionHandler: Called when the remotes have been fetched, or an error occurred.
+    public func fetchRemotes(for device: RKDevice, completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
+        let fetchOperation = RFFetchRecordsOperation(recordIDs: device.remoteIDs.map { RFRecord.ID(recordName: $0) })
+        fetchOperation.fetchRecordsCompletionBlock = { fetchedRecordsByRecordID, error in
+            guard let fetchedRecords = fetchedRecordsByRecordID?.values else { return completionHandler(nil, error) }
             
+            do {
+                let decoder = RFRecordDecoder()
+                let remotes = try fetchedRecords.map { try decoder.decode(RKRemote.self, from: $0) }
+                
+                completionHandler(remotes, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+        
+        container.add(fetchOperation)
+    }
+    
+    /// Fetches all remotes for the current user.
+    ///
+    /// - Parameter completionHandler: Called when the remotes have been fetched, or an error occurred.
+    public func fetchAllRemotes(completionHandler: @escaping (([RKRemote]?, Error?) -> Void)) {
+        fetchUserID { userID, error in
+            guard let userID = userID else { return completionHandler(nil, error) }
             
+            let predicate = NSPredicate(format: "Owner == %@", userID)
+            let query = RFQuery(recordType: Constants.RecordTypes.remote, predicate: predicate)
+            
+            self.container.perform(query) { fetchedRecords, error in
+                if let fetchedRecords = fetchedRecords {
+                    do {
+                        let decoder = RFRecordDecoder()
+                        let remotes = try fetchedRecords.map { try decoder.decode(RKRemote.self, from: $0) }
+                        
+                        completionHandler(remotes, nil)
+                    } catch {
+                        completionHandler(nil, error)
+                    }
+                } else {
+                    completionHandler(nil, error)
+                }
+            }
         }
     }
 }
