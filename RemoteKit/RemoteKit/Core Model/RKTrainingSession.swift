@@ -109,6 +109,7 @@ public class RKTrainingSession: NSObject {
             }
         case .trainingSessionDidLearnCommand:
             if let command = message.command {
+                remote.add(command)
                 delegate.trainingSession(self, didLearnCommand: command)
             }
         case .trainingSessionDidRequestInputForCommand:
