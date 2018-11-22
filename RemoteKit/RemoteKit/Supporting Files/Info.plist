@@ -15,9 +15,13 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.15</string>
+	<string>0.8.92</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>RFDebugContainerID</key>
+	<string>remote-core.mooredev.ca</string>
+	<key>RFDebugDatabaseID</key>
+	<string>Remote-Core</string>
 	<key>RFDefaultContainerConfiguration</key>
 	<dict>
 		<key>Credentials</key>
@@ -36,10 +40,6 @@
 		<key>Region</key>
 		<string>USEast1</string>
 	</dict>
-	<key>RFDebugContainerID</key>
-	<string>remote-core.mooredev.ca</string>
-	<key>RFDebugDatabaseID</key>
-	<string>Remote-Core</string>
 	<key>RFDefaultContainerID</key>
 	<string>remote-core.mooredev.ca</string>
 	<key>RFDefaultDatabaseID</key>
