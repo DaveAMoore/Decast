@@ -12,8 +12,6 @@ class DTRemoteCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private var widthConstraint: NSLayoutConstraint!
-    
     override var isHighlighted: Bool {
         didSet {
             let colorMetrics = UIColorMetrics(forAppearance: appearance)
@@ -36,10 +34,6 @@ class DTRemoteCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Add a width constraint.
-        translatesAutoresizingMaskIntoConstraints = false
-        widthConstraint = widthAnchor.constraint(equalToConstant: 0)
     }
     
     override func appearanceStyleDidChange(_ previousAppearanceStyle: SFAppearanceStyle) {
@@ -65,13 +59,5 @@ class DTRemoteCell: UICollectionViewCell {
         // Update the title label.
         titleLabel.textColor = colorMetrics.color(forRelativeHue: .white)
         titleLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 20, weight: .bold))
-    }
-    
-    // MARK: - Layout
-    
-    /// Sets the width of the cell.
-    func setWidth(to width: CGFloat) {
-        widthConstraint.constant = width
-        widthConstraint.isActive = true
     }
 }
