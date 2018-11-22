@@ -76,8 +76,6 @@ void TrainingSession::addNewRemoteConfigToDefaultConfig(Remote remote) {
     } else {
         // Handle fileReader / fileWriter not open
     }
-
-
 }
 
 void TrainingSession::start(void) {
@@ -95,8 +93,6 @@ void TrainingSession::start(void) {
 //
 //        }
 //    });
-
-
 
     // Call the appropriate delegate method.
     if (auto delegate = this->delegate.lock()) {
@@ -130,17 +126,18 @@ void TrainingSession::learnCommand(Command command) {
     // Call the delegate.
     if (auto delegate = this->delegate.lock()) {
         delegate->trainingSessionWillLearnCommand(this, command);
+        delegate->trainingSessionDidRequestInputForCommand(this, command);
     }
     
     /* ***************** Learn the command. ***************** */
 
     DispatchQueue queue("ca.mooredev.remote_core.TrainingSession.serial_dispatch_queue");
-    queue.execute([]() {
-        std::this_thread::sleep_for(std::chrono::seconds(10));
+    queue.execute([this, command]() {
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+        
+        // Call the delegate.
+        if (auto delegate = this->delegate.lock()) {
+            delegate->trainingSessionDidLearnCommand(this, command);
+        }
     });
-
-    // Call the delegate.
-    if (auto delegate = this->delegate.lock()) {
-        delegate->trainingSessionDidLearnCommand(this, command);
-    }
 }
