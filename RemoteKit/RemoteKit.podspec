@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name         = "RemoteKit"
-    s.version      = "0.9.0"
+    s.version      = "0.9.1"
     s.summary      = "Used for communicating with remote_core."
     s.homepage     = "https://github.com/DaveAMoore/Decast"
     s.license      = { :type => "MIT", :file => "LICENSE.txt" }
     s.author       = { "David Moore" => "mooredev@me.com" }
-    s.source       = { :git => "https://github.com/DaveAMoore/Decast.git", :tag => "v0.9.0" }
+    s.source       = { :git => "https://github.com/DaveAMoore/Decast.git", :tag => "v0.9.1" }
     
     s.requires_arc = true
     s.swift_version = "4.2"
