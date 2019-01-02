@@ -1,0 +1,22 @@
+platform :ios, '12.0'
+source "https://github.com/DaveAMoore/Internal-Specs.git"
+
+target 'Decast' do
+  use_frameworks!
+
+  # Pods for Decast
+  pod "RFCore", "~> 2.2"
+  pod "SFKit", "~> 1.7"
+  pod "RemoteKit", "~> 0.9"
+
+  target 'DecastTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DecastUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

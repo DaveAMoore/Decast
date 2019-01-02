@@ -446,6 +446,7 @@
 		63DE2F1021A4AC8B00CCFC17 /* DTRemoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTRemoteCell.xib; sourceTree = "<group>"; };
 		63DE2F1221A4ACA600CCFC17 /* DTBoldHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DTBoldHeaderView.xib; sourceTree = "<group>"; };
 		63E33B0921A4C392007F5257 /* DTLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTLibraryViewController.swift; sourceTree = "<group>"; };
+		63F6676C21DD55CD00418ABC /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +479,7 @@
 		633C3A1521A0BD9600418D6C = {
 			isa = PBXGroup;
 			children = (
+				63F6676C21DD55CD00418ABC /* Podfile */,
 				633C3A2021A0BD9600418D6C /* Decast */,
 				633C3A3821A0BD9800418D6C /* DecastTests */,
 				633C3A4321A0BD9800418D6C /* DecastUITests */,

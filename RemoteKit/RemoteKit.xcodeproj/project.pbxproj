@@ -84,6 +84,8 @@
 		63DEF5AA219797FF0030397E /* RKSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKSession.swift; sourceTree = "<group>"; };
 		63DEF5AD219798CB0030397E /* RKRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKRemote.swift; sourceTree = "<group>"; };
 		63DEF5AF219799430030397E /* RKCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKCommand.swift; sourceTree = "<group>"; };
+		63F6679B21DD571100418ABC /* RemoteKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RemoteKit.podspec; sourceTree = "<group>"; };
+		63F6679D21DD576300418ABC /* core-module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "core-module.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,8 @@
 		639A8A4E217EC25B00EAF6D7 = {
 			isa = PBXGroup;
 			children = (
+				63F6679B21DD571100418ABC /* RemoteKit.podspec */,
+				63F6679D21DD576300418ABC /* core-module.modulemap */,
 				639A8A5A217EC25B00EAF6D7 /* RemoteKit */,
 				639A8A65217EC25B00EAF6D7 /* RemoteKitTests */,
 				639A8A59217EC25B00EAF6D7 /* Products */,
